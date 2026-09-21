@@ -414,7 +414,9 @@ manual):
       serviço "Blindado" → Tornar Serviço Ativo) está correto — a fonte usada foi indireta
       (fóruns de desenvolvedor), não documentação primária da Apple (research.md #11)
 - [ ] VoiceOver/Acessibilidade no macOS (Constitution Princípio VI) — não testado
-- [ ] Ícone do app e `AppIcon`/menu bar assets para macOS (nenhuma arte fornecida ainda)
+- [x] Ícone do app — conceito 01 "Sólido" (`design/blindado-app-icon.html`), renderizado em
+      `Blindado/Theme/Assets.xcassets/AppIcon.appiconset/` (iOS universal light/dark + macOS
+      16–1024px) e verificado com build real nos dois alvos (research.md #12)
 
 ---
 

@@ -259,3 +259,35 @@ plataformas — só a camada de View realmente diverge, e só onde a plataforma 
   construído diretamente em SwiftUI reaproveitando os tokens existentes (cor, tipografia) em
   vez de comissionar uma nova rodada de geração visual; fica como possível próximo passo se o
   usuário quiser fidelidade visual maior no Mac (ver DESIGN.md).
+
+## 12. Exportação do ícone do app
+
+**Decision**: Conceito 01 "Sólido" (`design/blindado-app-icon.html`) exportado como PNG real a
+partir da geometria vetorial exata já usada no board (path do escudo, gradiente radial de
+fundo, cores) — não redesenhado à mão. Renderizado via um script Swift/Core Graphics curto (o
+mesmo `viewBox 0 0 1024 1024`, path e cores do SVG gerado, decodificado e desenhado com
+`CGContext`/`CGPath`), garantindo fidelidade ao que o Open Design já validou (contraste,
+proporção do escudo), em vez de aproximar visualmente de novo.
+
+`Blindado/Theme/Assets.xcassets/AppIcon.appiconset/` fica compartilhado pelos dois alvos
+(mesma pasta `Blindado/`), com entradas por `platform`: `ios` (`universal`, 1024×1024, claro +
+escuro via `appearances`) e `mac` (idiom `mac`, 16–512 pt em 1x/2x = 1024 px no maior). Só a
+aparência escura foi renderizada para o macOS (Contents.json comporta uma aparência clara
+depois, se for pedida). `ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon` em `project.yml` nos
+dois alvos. Verificado com `xcodebuild build` real nos dois (iOS e `BlindadoMac`) — sem erro
+de catálogo — e visualmente: ícone aparece na Tela de Início do Simulador (variante clara,
+`sips` extraindo o `.icns` compilado do `.app` de macOS confirma a arte correta).
+
+**Rationale**: Reaproveitar a geometria exata (em vez de recriar o desenho) elimina risco de
+divergência visual entre o board e o ícone real, e mantém a mesma fonte de verdade
+(design-tokens.md/brand-spec.md) até o artefato final. Um catálogo único com entradas por
+`platform` evita duplicar Assets.xcassets entre os alvos iOS e macOS (Princípio VII).
+
+**Alternatives considered**:
+- *Pedir export de PNG diretamente ao Open Design*: A ferramenta gera HTML/CSS, não arquivos
+  de imagem rasterizados prontos para asset catalog — decodificar o SVG e renderizar
+  localmente foi mais direto e garantiu pixel a pixel a mesma geometria.
+- *Ícone em camadas via Icon Composer (`.icon`)*: adiado — o formato de arquivo do Icon
+  Composer (novo no iOS 26) não é trivial de gerar sem a ferramenta gráfica da Apple; o
+  `AppIcon.appiconset` tradicional com aparências clara/escura já cobre o essencial e evita
+  arriscar um formato mal-formado.
