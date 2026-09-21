@@ -291,3 +291,55 @@ divergência visual entre o board e o ícone real, e mantém a mesma fonte de ve
   Composer (novo no iOS 26) não é trivial de gerar sem a ferramenta gráfica da Apple; o
   `AppIcon.appiconset` tradicional com aparências clara/escura já cobre o essencial e evita
   arriscar um formato mal-formado.
+
+## 13. Fastlane (deploy para TestFlight/App Store)
+
+**Decision**: Fastlane instalado via Bundler (`Gemfile` + `bundle install --path vendor/bundle`
+— o jeito que a própria documentação do fastlane recomenda, não `gem install`/Homebrew
+global), com lanes para `ios`/`mac` em `fastlane/Fastfile`: `test`, `build_dev` (sem
+assinatura, só valida compilação), `build_release`/`beta`/`release` (exigem conta de
+desenvolvedor — ver `fastlane/README-SETUP.md`).
+
+`MARKETING_VERSION`/`CURRENT_PROJECT_VERSION` viraram build settings explícitos em
+`project.yml` (fonte única de verdade), referenciados como `$(MARKETING_VERSION)`/
+`$(CURRENT_PROJECT_VERSION)` nos quatro `Info.plist` — porque o projeto é gerado via
+`xcodegen`, `increment_build_number` do fastlane não pode editar o `.xcodeproj` diretamente
+(a próxima `xcodegen generate` sobrescreveria). As lanes `bump_build`/`bump_version` editam
+`project.yml` com um `sub` de regex e rodam `xcodegen generate` de novo.
+
+Dois problemas reais encontrados rodando as lanes de verdade (não só lendo a documentação):
+- `run_tests`/`build_app` (que usam `xcpretty` por padrão) quebram com
+  `Encoding::InvalidByteSequenceError` porque o shell desta máquina não tem locale UTF-8
+  configurado (`LANG=""`) — qualquer texto acentuado (comentários/strings em pt-BR) no output
+  do `xcodebuild` derruba o parser. Setar `ENV["LANG"]` dentro do próprio `Fastfile` **não
+  resolve**: o Ruby decide `Encoding.default_external` na hora que o processo sobe, a partir
+  do ambiente do shell que o iniciou, antes de qualquer linha do Fastfile rodar. A correção
+  ficou num wrapper `bin/fastlane` que exporta `LANG=pt_BR.UTF-8`/`LC_ALL=pt_BR.UTF-8` **antes**
+  de invocar `bundle exec fastlane` — escopado ao projeto, sem mexer no perfil do shell do
+  usuário.
+- A checagem `next unless ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"]` no `before_all` não
+  funcionava com `fastlane/.env.default` carregado (com os valores em branco) porque em Ruby
+  uma string vazia `""` é *truthy* — só `nil`/`false` são falsy. Corrigido para
+  `next if ENV[...].to_s.empty?`.
+
+Verificado de ponta a ponta: `./bin/fastlane ios test` e `./bin/fastlane mac test` rodam os
+mesmos 25 testes com sucesso, sem nenhuma credencial Apple configurada; `./bin/fastlane ios
+bump_build` incrementa `CURRENT_PROJECT_VERSION` em `project.yml` e regenera o projeto
+corretamente.
+
+**Rationale**: Fastlane é o padrão de fato para automatizar build/deploy de apps Apple, e o
+usuário pediu especificamente por ele. Bundler (em vez de instalação global) garante que a
+versão do fastlane usada é sempre a mesma, commitada via `Gemfile.lock` — relevante para um
+projeto que pode rodar em mais de uma máquina ou, no futuro, em CI.
+
+**Alternatives considered**:
+- *`gem install fastlane` global ou `brew install fastlane`*: rejeitado — a própria
+  documentação do fastlane recomenda Bundler; além disso, o `gem install` global falhou por
+  permissão neste Mac (Ruby do Homebrew não é gravável pelo usuário sem sudo), o que Bundler
+  com `path: vendor/bundle` evita by design.
+- *`increment_build_number(xcodeproj:)` do fastlane direto no `.xcodeproj`*: rejeitado —
+  seria sobrescrito pela próxima `xcodegen generate`; `project.yml` precisa continuar sendo a
+  única fonte de verdade de todo o projeto, versão incluída.
+- *Editar `~/.zshrc`/`~/.bashrc` do usuário para corrigir o locale*: rejeitado — é uma mudança
+  de ambiente fora do escopo do projeto; o wrapper `bin/fastlane` resolve o mesmo problema sem
+  tocar em configuração global do usuário.

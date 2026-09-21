@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Wrapper para `bundle exec fastlane`. Existe só por causa de uma peculiaridade deste tipo de
+# ambiente: o Ruby decide o encoding externo do processo (Encoding.default_external) na hora
+# que ele sobe, a partir de LANG/LC_ALL do shell que o iniciou — setar isso de dentro do
+# próprio Fastfile é tarde demais. Se o shell não tiver locale UTF-8 configurado (comum em
+# ambientes de CI/contêiner), o fastlane quebra com texto acentuado (nosso projeto é pt-BR).
+#
+# Use sempre este wrapper em vez de `bundle exec fastlane` direto:
+#   ./bin/fastlane ios test
+set -euo pipefail
+
+export LANG="${LANG:-pt_BR.UTF-8}"
+export LC_ALL="${LC_ALL:-pt_BR.UTF-8}"
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+exec bundle exec fastlane "$@"

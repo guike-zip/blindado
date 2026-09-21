@@ -1,0 +1,15 @@
+# https://docs.fastlane.tools/advanced/#appfile
+#
+# Nenhum valor real de conta Apple está aqui de propósito — nada disso deve ser
+# hardcoded/commitado. Preencha as variáveis de ambiente correspondentes (fastlane/.env, que
+# está no .gitignore) antes de rodar qualquer lane que precise de conta de desenvolvedor.
+
+app_identifier("com.seudominio.blindado") # TODO: troque para o bundle ID real (plan.md)
+
+apple_id(ENV["FASTLANE_APPLE_ID"]) # e-mail da conta Apple Developer
+team_id(ENV["FASTLANE_TEAM_ID"]) # Developer Portal → Membership → Team ID
+itc_team_id(ENV["FASTLANE_ITC_TEAM_ID"]) # App Store Connect → só se a conta tiver mais de um time
+
+for_platform :mac do
+  app_identifier("com.seudominio.blindado") # mesmo bundle ID do iOS (compra universal)
+end

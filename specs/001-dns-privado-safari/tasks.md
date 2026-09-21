@@ -420,6 +420,33 @@ manual):
 
 ---
 
+## Addendum: Fastlane (deploy para TestFlight/App Store, research.md #13)
+
+- [x] `Gemfile`/`Gemfile.lock` (fastlane via Bundler, `vendor/bundle/` local) +
+      `bin/fastlane` (wrapper que corrige o locale UTF-8 antes de subir o processo — sem isso
+      `xcpretty` quebra com nosso texto em pt-BR)
+- [x] `project.yml`: `MARKETING_VERSION`/`CURRENT_PROJECT_VERSION` como fonte única de verdade
+      da versão, referenciados via `$(...)` nos 4 `Info.plist`
+- [x] `fastlane/Fastfile` — lanes `ios`/`mac` `test`, `build_dev`, `bump_build`,
+      `bump_version`, `build_release`, `beta`, `release` (as duas últimas com
+      `submit_for_review: false` de propósito — Constitution Princípio III exige revisão
+      manual do texto/screenshots antes de qualquer submissão)
+- [x] `fastlane/Appfile`, `fastlane/.env.default` (placeholders, sem segredos),
+      `fastlane/README-SETUP.md` (passo a passo do que falta — conta Apple, API key,
+      assinatura)
+- [x] Verificado de ponta a ponta: `./bin/fastlane ios test` e `./bin/fastlane mac test`
+      rodam os mesmos 25 testes com sucesso; `./bin/fastlane ios bump_build` incrementa a
+      versão em `project.yml` e regenera o projeto corretamente
+
+**Pendente** (só o usuário pode fazer — ver `fastlane/README-SETUP.md`):
+- [ ] Conta Apple Developer Program configurada com App ID + capabilities (mesmo pendente do
+      T002)
+- [ ] App Store Connect API key (`fastlane/.env` + `.p8`, nenhum dos dois commitado)
+- [ ] Assinatura de código (Xcode automático ou `match`) — sem isso, `build_release`/`beta`/
+      `release` falham na etapa de build assinado, de propósito
+
+---
+
 ## Notes
 
 - [P] = arquivos diferentes, sem dependência pendente

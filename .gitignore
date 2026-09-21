@@ -24,3 +24,23 @@ xcuserdata/
 
 # OpenDesign local workspace links (machine-local, not project source)
 .opendesign/
+
+# Ruby / Bundler (fastlane) — reinstale com `bundle install`, nunca commitar gems
+vendor/bundle/
+.bundle/
+
+# fastlane — relatórios locais e QUALQUER credencial. Nada aqui deve ser versionado:
+# App Store Connect API key (.p8/.json), .env com segredos, certificados/perfis do `match`.
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/screenshots/**/*.html
+fastlane/test_output/
+fastlane/.env
+fastlane/.env.*
+!fastlane/.env.default
+fastlane/*.p8
+fastlane/*.p12
+fastlane/*.mobileprovision
+fastlane/*.cer
+

@@ -113,10 +113,29 @@ Rodar cada validação isoladamente, na ordem de prioridade (Constitution Princ�
 
 ## 7. Testes automatizados
 
+Via `xcodebuild` direto:
+
 ```bash
-xcodebuild test -scheme Blindado -destination 'platform=iOS Simulator,name=iPhone 15'
+xcodebuild -project Blindado.xcodeproj -scheme Blindado \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
+  -configuration Debug CODE_SIGNING_ALLOWED=NO build test
+```
+
+Ou via [Fastlane](https://docs.fastlane.tools/) (`bundle install` uma vez, depois sempre pelo
+wrapper `bin/fastlane`, nunca `fastlane` direto — ver research.md #13 sobre o porquê):
+
+```bash
+./bin/fastlane ios test   # ou: ./bin/fastlane mac test
 ```
 
 Cobre apenas ViewModels e validação de URL (via mocks) — não substitui a validação em
 dispositivo físico da seção 5, já que `NEDNSSettingsManager` e `SFContentBlockerManager` não
 funcionam no simulador.
+
+## 8. Deploy (TestFlight / App Store)
+
+Via Fastlane — `./bin/fastlane ios beta` (TestFlight) e `./bin/fastlane ios release` (App
+Store Connect, sem submeter para revisão automaticamente). **Não vão funcionar até você
+configurar conta de desenvolvedor Apple + assinatura de código + API key** — passo a passo em
+[`fastlane/README-SETUP.md`](../../fastlane/README-SETUP.md). `./bin/fastlane lanes` lista
+todas as lanes disponíveis.

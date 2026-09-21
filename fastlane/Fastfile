@@ -1,0 +1,158 @@
+# https://docs.fastlane.tools
+#
+# Uso: `bundle exec fastlane ios test`, `bundle exec fastlane mac test`, etc. — sempre via
+# `bundle exec` (Gemfile fixa a versão do fastlane; nunca rode `fastlane` instalado global).
+#
+# O shell desta máquina não tem locale UTF-8 configurado (LANG=""), o que derruba o xcpretty
+# assim que qualquer texto acentuado (comentários/strings em pt-BR no código) passa pelo pipe
+# de `xcodebuild`. Em vez de mexer no perfil do shell do usuário, fixamos o locale só para o
+# processo do fastlane — escopado a este projeto.
+ENV["LANG"] ||= "pt_BR.UTF-8"
+ENV["LC_ALL"] ||= "pt_BR.UTF-8"
+#
+# GATE IMPORTANTE: as lanes `test`/`build_dev` rodam sem nenhuma credencial Apple (mesmo
+# CODE_SIGNING_ALLOWED=NO usado manualmente durante o desenvolvimento — quickstart.md seção 2).
+# As lanes `beta`/`release` exigem conta de desenvolvedor Apple configurada (ver
+# fastlane/README-SETUP.md) — elas vão falhar de propósito até isso existir, não é um bug.
+
+default_platform(:ios)
+
+IOS_PROJECT = "Blindado.xcodeproj"
+IOS_SCHEME = "Blindado"
+MAC_SCHEME = "BlindadoMac"
+
+# Só autentica na App Store Connect API se as variáveis existirem (fastlane/.env) — assim
+# `test`/`build_dev` continuam rodando sem nenhuma credencial configurada. `.env.default` é
+# carregado automaticamente pelo fastlane mesmo com os valores em branco, e em Ruby "" é
+# truthy — por isso a checagem usa `.to_s.empty?`, não só presença da chave.
+before_all do |lane, options|
+  next if ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"].to_s.empty?
+
+  app_store_connect_api_key(
+    key_id: ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"],
+    issuer_id: ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"],
+    key_filepath: ENV["APP_STORE_CONNECT_API_KEY_FILEPATH"]
+  )
+end
+
+# project.yml é a fonte única de verdade da versão (research.md #13) — nunca editar
+# MARKETING_VERSION/CURRENT_PROJECT_VERSION direto no .xcodeproj, xcodegen sobrescreve.
+def bump_project_yml(marketing_version: nil, build_bump: false)
+  path = "../project.yml"
+  content = File.read(path)
+
+  if marketing_version
+    content = content.sub(/MARKETING_VERSION: ".*"/, "MARKETING_VERSION: \"#{marketing_version}\"")
+  end
+
+  if build_bump
+    current = content[/CURRENT_PROJECT_VERSION: "(\d+)"/, 1].to_i
+    content = content.sub(/CURRENT_PROJECT_VERSION: "\d+"/, "CURRENT_PROJECT_VERSION: \"#{current + 1}\"")
+  end
+
+  File.write(path, content)
+  sh("cd .. && xcodegen generate")
+end
+
+platform :ios do
+  desc "Roda os testes unitários no Simulador — sem credenciais Apple"
+  lane :test do
+    run_tests(
+      project: IOS_PROJECT,
+      scheme: IOS_SCHEME,
+      devices: ["iPhone 17"],
+      clean: true,
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO"
+    )
+  end
+
+  desc "Build de desenvolvimento sem assinatura — só valida que compila (sem exportar .ipa)"
+  lane :build_dev do
+    build_app(
+      project: IOS_PROJECT,
+      scheme: IOS_SCHEME,
+      skip_package_ipa: true,
+      skip_archive: true,
+      destination: "generic/platform=iOS Simulator",
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO"
+    )
+  end
+
+  desc "Incrementa o build number em project.yml (fonte única de verdade) e regenera o projeto"
+  lane :bump_build do
+    bump_project_yml(build_bump: true)
+  end
+
+  desc "Define a versão (MARKETING_VERSION) em project.yml e regenera o projeto. Uso: bundle exec fastlane ios bump_version version:1.1.0"
+  lane :bump_version do |options|
+    UI.user_error!("Passe version: bundle exec fastlane ios bump_version version:1.1.0") unless options[:version]
+    bump_project_yml(marketing_version: options[:version])
+  end
+
+  desc "Build assinado para distribuição (App Store) — exige conta de desenvolvedor configurada"
+  lane :build_release do
+    build_app(
+      project: IOS_PROJECT,
+      scheme: IOS_SCHEME,
+      export_method: "app-store"
+    )
+  end
+
+  desc "Sobe um novo build para o TestFlight — exige conta de desenvolvedor + API key (README-SETUP.md)"
+  lane :beta do
+    bump_build
+    build_release
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+
+  desc "Sobe um build para o App Store Connect, SEM submeter para revisão automaticamente (Constitution Princípio III — revisão manual do texto/screenshots antes de qualquer submissão)"
+  lane :release do
+    bump_build
+    build_release
+    upload_to_app_store(
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: true # screenshots reais ainda não existem — ver app-store-submission.md
+    )
+  end
+end
+
+platform :mac do
+  desc "Roda os testes unitários no macOS — sem credenciais Apple"
+  lane :test do
+    run_tests(
+      project: IOS_PROJECT,
+      scheme: MAC_SCHEME,
+      clean: true,
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO"
+    )
+  end
+
+  desc "Build de desenvolvimento sem assinatura — só valida que compila"
+  lane :build_dev do
+    build_app(
+      project: IOS_PROJECT,
+      scheme: MAC_SCHEME,
+      skip_package_pkg: true,
+      skip_archive: true,
+      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO"
+    )
+  end
+
+  desc "Build assinado para distribuição (Mac App Store) — exige conta de desenvolvedor configurada"
+  lane :build_release do
+    build_app(
+      project: IOS_PROJECT,
+      scheme: MAC_SCHEME,
+      export_method: "app-store"
+    )
+  end
+
+  desc "Sobe um novo build para o TestFlight de macOS — exige conta de desenvolvedor + API key"
+  lane :beta do
+    build_release
+    upload_to_testflight(skip_waiting_for_build_processing: true)
+  end
+end
