@@ -44,9 +44,13 @@ personalizado. Nenhum dado do usuário é enviado a servidor próprio (Constitut
 validação de URL de DNS personalizado.
 
 **Target Platform**: iOS 26+ (iPhone) — mínimo elevado de iOS 16+ especificamente para usar as
-APIs nativas de Liquid Glass (decisão do usuário; research.md #10)
+APIs nativas de Liquid Glass (decisão do usuário; research.md #10) — **e macOS 26+ nativo**
+(não Catalyst; decisão do usuário; research.md #11), compartilhando Models/Services/
+ViewModels/Theme com o iOS
 
-**Project Type**: App iOS nativo com dois targets (App + Content Blocker Extension)
+**Project Type**: App multiplataforma nativo (iOS + macOS) com quatro targets — `Blindado` +
+`BlindadoContentBlocker` (iOS) e `BlindadoMac` + `BlindadoMacContentBlocker` (macOS) —
+gerados via `xcodegen` a partir de `project.yml`
 
 **Performance Goals**: ativação percebida em <2min (SC-001); troca de nível refletida em <10s
 (SC-003); verificação de cada domínio no teste de proteção não deve travar a UI (execução

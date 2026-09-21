@@ -9,6 +9,16 @@ enum SystemLinks {
     static let iOSSettings = URL(string: "app-settings:")!
 
     /// No macOS, abre o painel de Rede em Ajustes do Sistema, onde a configuração de DNS
-    /// criptografado instalada pelo Blindado aparece (perfil de DNS do sistema).
+    /// criptografado instalada pelo Blindado aparece como um novo serviço de rede.
     static let macOSNetworkSettings = URL(string: "x-apple.systempreferences:com.apple.Network-Settings.extension")!
+
+    /// O link correto para "abrir Ajustes" nesta plataforma (FR-002) — a única diferença de
+    /// verdade entre iOS e macOS que o resto do código (Views) precisa conhecer.
+    static var systemSettings: URL {
+        #if os(macOS)
+        macOSNetworkSettings
+        #else
+        iOSSettings
+        #endif
+    }
 }

@@ -48,7 +48,9 @@ struct PrivacyView: View {
         }
         .background(Theme.Colors.bgCanvas)
         .navigationTitle("Privacidade")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
         .task { await viewModel.refresh() }
     }
 

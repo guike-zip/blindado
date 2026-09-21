@@ -3,11 +3,11 @@ options:
   bundleIdPrefix: com.seudominio
   deploymentTarget:
     iOS: "26.0"
+    macOS: "26.0"
   createIntermediateGroups: true
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    TARGETED_DEVICE_FAMILY: "1"
     GENERATE_INFOPLIST_FILE: false
 
 targets:
@@ -21,6 +21,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado
         PRODUCT_NAME: Blindado
+        TARGETED_DEVICE_FAMILY: "1" # só iPhone (spec.md — iPad fora de escopo)
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         # Sem AppIcon.appiconset ainda (nenhuma arte foi fornecida — ver Notas de submissão).
         # Placeholder até a arte real existir; obrigatório antes de qualquer archive/TestFlight.
@@ -77,6 +78,84 @@ targets:
     dependencies:
       - target: Blindado
 
+  # --- macOS: mesmo código-fonte de Blindado/, BlindadoContentBlocker/ e BlindadoTests/,
+  # com navegação por sidebar (RootSidebarView) em vez da tab bar do iOS (research.md #11) ---
+
+  BlindadoMac:
+    type: application
+    platform: macOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: Blindado
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado
+        # PRODUCT_NAME fica como o nome do target (BlindadoMac) de propósito — sobrescrever
+        # para "Blindado" (igual ao alvo iOS) quebra o TEST_HOST que o xcodegen gera para
+        # BlindadoMacTests, que assume PRODUCT_NAME == nome do target. O nome visível pelo
+        # usuário continua "Blindado" via CFBundleDisplayName no Info.plist. PRODUCT_MODULE_NAME
+        # é independente do PRODUCT_NAME — fixado em "Blindado" para que
+        # `@testable import Blindado` funcione com o mesmo arquivo de teste nos dois targets.
+        PRODUCT_MODULE_NAME: Blindado
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ASSETCATALOG_COMPILER_APPICON_NAME: "" # ver nota no target Blindado (iOS)
+        COMBINE_HIDPI_IMAGES: true
+        ENABLE_HARDENED_RUNTIME: true
+    info:
+      path: BlindadoMac/Info.plist
+      properties:
+        CFBundleDisplayName: Blindado
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: BlindadoMac/BlindadoMac.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+        com.apple.security.application-groups:
+          - group.com.seudominio.blindado
+        com.apple.developer.networking.networkextension:
+          - dns-settings
+    dependencies:
+      - target: BlindadoMacContentBlocker
+        embed: true
+
+  BlindadoMacContentBlocker:
+    type: app-extension
+    platform: macOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: BlindadoContentBlocker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.contentblocker
+        PRODUCT_NAME: BlindadoContentBlocker
+        ENABLE_HARDENED_RUNTIME: true
+    info:
+      path: BlindadoMac/ContentBlockerInfo.plist
+      properties:
+        CFBundleDisplayName: BlindadoContentBlocker
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.content-blocker
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ContentBlockerRequestHandler
+    entitlements:
+      path: BlindadoMac/BlindadoMacContentBlocker.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.application-groups:
+          - group.com.seudominio.blindado
+
+  BlindadoMacTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: BlindadoTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.tests
+    dependencies:
+      - target: BlindadoMac
+
 schemes:
   Blindado:
     build:
@@ -86,3 +165,12 @@ schemes:
     test:
       targets:
         - BlindadoTests
+
+  BlindadoMac:
+    build:
+      targets:
+        BlindadoMac: all
+        BlindadoMacTests: [test]
+    test:
+      targets:
+        - BlindadoMacTests

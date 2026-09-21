@@ -390,6 +390,34 @@ Task: "Teste unitário de HomeViewModel em BlindadoTests/HomeViewModelTests.swif
 
 ---
 
+## Addendum: suporte nativo a macOS (research.md #11)
+
+Fora da numeração original (feature já estava com as Views do iPhone prontas quando o suporte
+a macOS foi pedido). Todo concluído e verificado com `xcodebuild build`/`test` reais:
+
+- [x] `Blindado/Views/RootSidebarView.swift` — raiz de navegação por sidebar
+      (`NavigationSplitView`) para macOS, reaproveitando `HomeView`/`SafariView`/
+      `ProtectionTestView`/`SettingsView` já existentes
+- [x] `#if os(iOS)`/`#if os(macOS)` em `HomeView`, `SafariView`, `ProtectionLevelView`,
+      `PrivacyView` — instruções de ativação por plataforma e remoção de modificadores
+      iOS-only (`navigationBarTitleDisplayMode`, `keyboardType`, `textInputAutocapitalization`)
+- [x] `Blindado/App/SystemLinks.swift` — link de Ajustes correto por plataforma
+- [x] `BlindadoApp.swift` escolhe `RootSidebarView` (macOS) ou `RootTabView` (iOS)
+- [x] `project.yml`: targets `BlindadoMac` + `BlindadoMacContentBlocker` + `BlindadoMacTests`,
+      App Sandbox + entitlements, reaproveitando as mesmas pastas de fonte do iOS
+- [x] `xcodebuild -scheme BlindadoMac ... build test` — build e os mesmos 25 testes passando
+      no macOS
+
+**Pendente** (mesma natureza do T045/T047/T048 do iOS — precisa de hardware/verificação
+manual):
+- [ ] Validar em Mac físico se o fluxo de ativação descrito (Ajustes do Sistema → Rede → novo
+      serviço "Blindado" → Tornar Serviço Ativo) está correto — a fonte usada foi indireta
+      (fóruns de desenvolvedor), não documentação primária da Apple (research.md #11)
+- [ ] VoiceOver/Acessibilidade no macOS (Constitution Princípio VI) — não testado
+- [ ] Ícone do app e `AppIcon`/menu bar assets para macOS (nenhuma arte fornecida ainda)
+
+---
+
 ## Notes
 
 - [P] = arquivos diferentes, sem dependência pendente

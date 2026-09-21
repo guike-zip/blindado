@@ -11,51 +11,109 @@
 		043E8EEC7AD54D7674276B8A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F95CB8F83E47E88F24C1960 /* HomeView.swift */; };
 		0783FC20B0C698714A5492EE /* ProtectionLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */; };
 		093E4CBF417A40853D739533 /* SystemLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */; };
+		0B59D381542FF3E3A207AFD8 /* ProtectionLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */; };
+		0E5DBB1AF6D28FFAF25A8964 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9271BD57A71DC9584821450F /* Info.plist */; };
 		0E6A9B73BDF43229A7275FA8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */; };
+		11C1BD9815562FCC2D41303F /* DNSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC86959C7D04DA8F29E08D /* DNSProvider.swift */; };
+		1B2FDC72635A9F5330966662 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */; };
+		1EF5E8DC235D56862DF3F45C /* RootSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB91A7DCC47F2876430EF7E /* RootSidebarView.swift */; };
+		255BAD8F370F7CDE3A897B12 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10181AD56A52156D193EBD /* Theme.swift */; };
 		25A30D8C08F0F4459991141A /* BlindadoContentBlocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28C576137E113E0CB9EE0648 /* ProtectionTestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */; };
 		2C4020DE0552A22E29CC4B84 /* ContentBlockerManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */; };
 		3002DAA69544EB29DE714C52 /* ProtectionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */; };
 		31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */; };
+		35F6A5D0A790AA44410AE5E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51E04535583787DEC7C43C12 /* Assets.xcassets */; };
 		39C5962E396B55F41E3C645C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */; };
+		3AA3C2FFF1F454789D8F1F4C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58494E5C00A9528859F8C502 /* Info.plist */; };
 		3F951294BDCA562A06CC6474 /* ProtectionLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */; };
+		43EDBEB2EAEC654A1D3C1AF3 /* PrivacyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */; };
+		452A730AE210BD556C3FAEBE /* ProtectionTestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */; };
 		453D61C83EF0E8E067F143E5 /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B918AD01538D39CE277A913F /* ProtectionState.swift */; };
 		4582CAF8B95BFA19EE2F5BCC /* ProtectionTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */; };
+		4BD78F549E1148F88ECD05E5 /* ProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E342AC9BE71C6BBF38DA30 /* ProtectionTester.swift */; };
+		4CA544023A5860436164B711 /* ContentBlockerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */; };
 		4CCB9BAA6A7B96DE2B9919A4 /* DNSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC86959C7D04DA8F29E08D /* DNSProvider.swift */; };
+		4F2F1310A443FFD45F093C04 /* RootSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB91A7DCC47F2876430EF7E /* RootSidebarView.swift */; };
 		576A2F71719634F1E3350B56 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = AEAEEA72A4F4A37279E1762F /* blockerList.json */; };
+		5DD4EA8EC657F86C9A2FCEA5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F95CB8F83E47E88F24C1960 /* HomeView.swift */; };
+		61FF1F090166E71578B7BA04 /* ProtectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */; };
 		665CE0D9889A0079A15C82B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51E04535583787DEC7C43C12 /* Assets.xcassets */; };
 		6BB923AC4C337C00A4C5FCB4 /* ProtectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */; };
 		70C1B102D579C4A473837DD0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39895AD370E931DD49F390C0 /* SettingsView.swift */; };
 		756780BEC0167E9A2C3A2CFD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3713188F0EDB2AF5F181D00 /* SafariView.swift */; };
 		7877570DAC0FDF5ED713395A /* BlindadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82545098AAB3F521713117BD /* BlindadoApp.swift */; };
+		7984DC6E463EDA7E2E72EC87 /* MockProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */; };
 		7C05E4B6CA067D76C9AE6053 /* PrivacyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */; };
+		82997315D30002826104EC91 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */; };
+		8345BE263FBBBAF2D23BE3FB /* ProtectionTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740608E262F0A78D376D88C2 /* ProtectionTesting.swift */; };
+		8444F1E871CDC1E96102B857 /* ProtectionLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */; };
 		852366EAD754F9364A76BF17 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */; };
+		86695A0003EF977991D525D8 /* SafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D891384015728933DA46BD /* SafariViewModel.swift */; };
 		886467D0FBCFAD58B33A2491 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C392E97325D0A0193BD0A5 /* RootTabView.swift */; };
+		8C2A9ABBD8DE7A6B1EE931AD /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = AEAEEA72A4F4A37279E1762F /* blockerList.json */; };
 		8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D891384015728933DA46BD /* SafariViewModel.swift */; };
+		8F807835E8C82B6410C62371 /* BlindadoMacContentBlocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8FA9F25180CA57D8F6CAAF49 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39895AD370E931DD49F390C0 /* SettingsView.swift */; };
 		95B7D8F55E70977BD06B6A21 /* MockProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */; };
+		9660586A1D9E235879261341 /* MockContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */; };
 		98752134A6E46459899CF6A8 /* ProtectionTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */; };
+		994473F6F2B489658F3C14AA /* ProtectionLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */; };
 		9BED8197EE2D582EBC0C04F2 /* DNSManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF974FAFB45624874DDEA55 /* DNSManaging.swift */; };
+		AA4EBA9CD8A03091EC063220 /* DNSManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF974FAFB45624874DDEA55 /* DNSManaging.swift */; };
+		AC85163FA435CB2C518017CC /* ProtectionTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */; };
+		B0BFC0267FAAF7B3470E8FC2 /* ProtectionTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */; };
 		B7D612FAF3491A6AB09578C2 /* DNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1355624BC569071C3152B1AD /* DNSManager.swift */; };
 		B8BA175B4EF41BA42E83EFE5 /* ProtectionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */; };
+		BA2D37F0F35088AB08AD2EF1 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C392E97325D0A0193BD0A5 /* RootTabView.swift */; };
+		C0F71AF3FA177999CE7EB2AF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */; };
+		C41804883BB24B9CABBE617F /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */; };
+		C4E43AB1B9CFB1E9756ABC11 /* SystemLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */; };
+		CACC2A6DC78D38A86B4D991B /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F984D930D720E8630A218D /* PrivacyViewModel.swift */; };
+		CF0F36C5EF85A1E2CB415C85 /* ProtectionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */; };
 		D1BAA4C2D22BDBA0EBA7919F /* MockContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */; };
+		D319B7060E0ABF00C3D0583B /* BlindadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82545098AAB3F521713117BD /* BlindadoApp.swift */; };
+		D474859CB72D7DE5CEC6ED78 /* DNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1355624BC569071C3152B1AD /* DNSManager.swift */; };
+		D56982CE824A2BB62D58DDEC /* ProtectionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */; };
 		DBD906D3F45D8A6A0A6BC4AB /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F984D930D720E8630A218D /* PrivacyViewModel.swift */; };
+		DE69F8E6535DD1840D09598D /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B918AD01538D39CE277A913F /* ProtectionState.swift */; };
+		DEDFE23A208E68E0FE220918 /* ContentBlockerRequestHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */; };
+		E625D9E4C418154E5F8A2D21 /* MockDNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */; };
+		E8585088B94D2E83176E2246 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */; };
 		E8FBC88A6DF7912322E42357 /* ProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E342AC9BE71C6BBF38DA30 /* ProtectionTester.swift */; };
+		EA34D06D94CABBB2F1A5630B /* SafariViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */; };
 		F10CB3E395338C8D84BA0F49 /* ProtectionLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */; };
 		F134251858DB4E0C5C386448 /* ContentBlockerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */; };
 		F33AC927A8FAC0E6FFBF2A32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */; };
 		F363283A4B5C15EB1C368590 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10181AD56A52156D193EBD /* Theme.swift */; };
 		F73EDC33F6A69559E52E47B8 /* ContentBlockerRequestHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */; };
+		FB02085B3A49F733E021332F /* ContentBlockerManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */; };
 		FCEB8641B46AFE84F8139210 /* MockDNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */; };
+		FDF3B90E55A1636412B4F1C7 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3713188F0EDB2AF5F181D00 /* SafariView.swift */; };
 		FF8C38025E3C8479D48D34FE /* ProtectionTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740608E262F0A78D376D88C2 /* ProtectionTesting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2BEEE244AA3EB5DB790C7394 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 618B95F2073EE4C13118B350;
+			remoteInfo = BlindadoMacContentBlocker;
+		};
 		69C1D5DBE984AF72A1C4BD84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = ED38CCD2694892F4F7B73715;
 			remoteInfo = BlindadoContentBlocker;
+		};
+		906FD26BB589E9FD52CF5E63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC7E12E823C022C2AA00226F;
+			remoteInfo = BlindadoMac;
 		};
 		B1B54A2EC398083962D4D149 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -78,10 +136,22 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B6FABA866DD807EF375D54CC /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F807835E8C82B6410C62371 /* BlindadoMacContentBlocker.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelView.swift; sourceTree = "<group>"; };
+		06EFEB48979CF9C3855B7D71 /* BlindadoMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlindadoMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D891384015728933DA46BD /* SafariViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewModel.swift; sourceTree = "<group>"; };
 		0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1355624BC569071C3152B1AD /* DNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManager.swift; sourceTree = "<group>"; };
@@ -104,12 +174,14 @@
 		69EC86959C7D04DA8F29E08D /* DNSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSProvider.swift; sourceTree = "<group>"; };
 		6F95CB8F83E47E88F24C1960 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		740608E262F0A78D376D88C2 /* ProtectionTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTesting.swift; sourceTree = "<group>"; };
+		7AB91A7DCC47F2876430EF7E /* RootSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSidebarView.swift; sourceTree = "<group>"; };
 		7AF974FAFB45624874DDEA55 /* DNSManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManaging.swift; sourceTree = "<group>"; };
 		7C10181AD56A52156D193EBD /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		82545098AAB3F521713117BD /* BlindadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindadoApp.swift; sourceTree = "<group>"; };
 		87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestViewModelTests.swift; sourceTree = "<group>"; };
 		8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProtectionTester.swift; sourceTree = "<group>"; };
 		8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLinks.swift; sourceTree = "<group>"; };
+		9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BlindadoMacContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		9271BD57A71DC9584821450F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelViewModelTests.swift; sourceTree = "<group>"; };
 		A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -123,6 +195,7 @@
 		C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManaging.swift; sourceTree = "<group>"; };
 		CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModelTests.swift; sourceTree = "<group>"; };
 		CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BlindadoContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD2026F7CFE2B0D26BBDD8DC /* BlindadoMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlindadoMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
 		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
@@ -217,6 +290,7 @@
 				BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */,
 				057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */,
 				44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */,
+				7AB91A7DCC47F2876430EF7E /* RootSidebarView.swift */,
 				A1C392E97325D0A0193BD0A5 /* RootTabView.swift */,
 				F3713188F0EDB2AF5F181D00 /* SafariView.swift */,
 				39895AD370E931DD49F390C0 /* SettingsView.swift */,
@@ -265,6 +339,9 @@
 			children = (
 				E26F50705B879FA85ED250F4 /* Blindado.app */,
 				CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */,
+				DD2026F7CFE2B0D26BBDD8DC /* BlindadoMac.app */,
+				9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */,
+				06EFEB48979CF9C3855B7D71 /* BlindadoMacTests.xctest */,
 				3872981AFF1EE51126F742CF /* BlindadoTests.xctest */,
 			);
 			name = Products;
@@ -273,6 +350,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3599A594E8632C0DC9C47C81 /* BlindadoMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 79F7434BA4FA2B47B0B1A400 /* Build configuration list for PBXNativeTarget "BlindadoMacTests" */;
+			buildPhases = (
+				45840E5534346D27F988EDB5 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				556CF6D2F1358DF3D27A8ADB /* PBXTargetDependency */,
+			);
+			name = BlindadoMacTests;
+			packageProductDependencies = (
+			);
+			productName = BlindadoMacTests;
+			productReference = 06EFEB48979CF9C3855B7D71 /* BlindadoMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5F67A01E7409ABCEB9D439C1 /* BlindadoTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90FB54C8CA895CD05EC6B04A /* Build configuration list for PBXNativeTarget "BlindadoTests" */;
@@ -290,6 +385,44 @@
 			productName = BlindadoTests;
 			productReference = 3872981AFF1EE51126F742CF /* BlindadoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		618B95F2073EE4C13118B350 /* BlindadoMacContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBB1AB2694F5BDD40175FD41 /* Build configuration list for PBXNativeTarget "BlindadoMacContentBlocker" */;
+			buildPhases = (
+				8F77174B07C697FD9463EB62 /* Sources */,
+				94CE896BF19CCBA6999FC3FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlindadoMacContentBlocker;
+			packageProductDependencies = (
+			);
+			productName = BlindadoMacContentBlocker;
+			productReference = 9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		CC7E12E823C022C2AA00226F /* BlindadoMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86DB594E7B290C9BEE6DE884 /* Build configuration list for PBXNativeTarget "BlindadoMac" */;
+			buildPhases = (
+				8E01236E6D7C4148B77142D7 /* Sources */,
+				0777850CD6422EE3C2E94450 /* Resources */,
+				B6FABA866DD807EF375D54CC /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0E9B2EFC26EEE34679DD90A /* PBXTargetDependency */,
+			);
+			name = BlindadoMac;
+			packageProductDependencies = (
+			);
+			productName = BlindadoMac;
+			productReference = DD2026F7CFE2B0D26BBDD8DC /* BlindadoMac.app */;
+			productType = "com.apple.product-type.application";
 		};
 		ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */ = {
 			isa = PBXNativeTarget;
@@ -358,17 +491,39 @@
 				ED94E2ADA15186E053F6BFF5 /* Blindado */,
 				ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */,
 				5F67A01E7409ABCEB9D439C1 /* BlindadoTests */,
+				CC7E12E823C022C2AA00226F /* BlindadoMac */,
+				618B95F2073EE4C13118B350 /* BlindadoMacContentBlocker */,
+				3599A594E8632C0DC9C47C81 /* BlindadoMacTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0777850CD6422EE3C2E94450 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F6A5D0A790AA44410AE5E7 /* Assets.xcassets in Resources */,
+				0E5DBB1AF6D28FFAF25A8964 /* Info.plist in Resources */,
+				82997315D30002826104EC91 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		641A81C2EAA7D954FD7B1FC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				665CE0D9889A0079A15C82B4 /* Assets.xcassets in Resources */,
 				F33AC927A8FAC0E6FFBF2A32 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CE896BF19CCBA6999FC3FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AA3C2FFF1F454789D8F1F4C /* Info.plist in Resources */,
+				8C2A9ABBD8DE7A6B1EE931AD /* blockerList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +538,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		45840E5534346D27F988EDB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41804883BB24B9CABBE617F /* HomeViewModelTests.swift in Sources */,
+				43EDBEB2EAEC654A1D3C1AF3 /* PrivacyViewModelTests.swift in Sources */,
+				8444F1E871CDC1E96102B857 /* ProtectionLevelViewModelTests.swift in Sources */,
+				452A730AE210BD556C3FAEBE /* ProtectionTestViewModelTests.swift in Sources */,
+				EA34D06D94CABBB2F1A5630B /* SafariViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A4D3E3E2D15BA69F0F16AD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,6 +578,7 @@
 				4582CAF8B95BFA19EE2F5BCC /* ProtectionTestViewModel.swift in Sources */,
 				E8FBC88A6DF7912322E42357 /* ProtectionTester.swift in Sources */,
 				FF8C38025E3C8479D48D34FE /* ProtectionTesting.swift in Sources */,
+				4F2F1310A443FFD45F093C04 /* RootSidebarView.swift in Sources */,
 				886467D0FBCFAD58B33A2491 /* RootTabView.swift in Sources */,
 				756780BEC0167E9A2C3A2CFD /* SafariView.swift in Sources */,
 				8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */,
@@ -429,6 +597,52 @@
 				F10CB3E395338C8D84BA0F49 /* ProtectionLevelViewModelTests.swift in Sources */,
 				28C576137E113E0CB9EE0648 /* ProtectionTestViewModelTests.swift in Sources */,
 				31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E01236E6D7C4148B77142D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D319B7060E0ABF00C3D0583B /* BlindadoApp.swift in Sources */,
+				1B2FDC72635A9F5330966662 /* ContentBlockerManager.swift in Sources */,
+				FB02085B3A49F733E021332F /* ContentBlockerManaging.swift in Sources */,
+				4CA544023A5860436164B711 /* ContentBlockerState.swift in Sources */,
+				D474859CB72D7DE5CEC6ED78 /* DNSManager.swift in Sources */,
+				AA4EBA9CD8A03091EC063220 /* DNSManaging.swift in Sources */,
+				11C1BD9815562FCC2D41303F /* DNSProvider.swift in Sources */,
+				5DD4EA8EC657F86C9A2FCEA5 /* HomeView.swift in Sources */,
+				C0F71AF3FA177999CE7EB2AF /* HomeViewModel.swift in Sources */,
+				9660586A1D9E235879261341 /* MockContentBlockerManager.swift in Sources */,
+				E625D9E4C418154E5F8A2D21 /* MockDNSManager.swift in Sources */,
+				7984DC6E463EDA7E2E72EC87 /* MockProtectionTester.swift in Sources */,
+				E8585088B94D2E83176E2246 /* PrivacyView.swift in Sources */,
+				CACC2A6DC78D38A86B4D991B /* PrivacyViewModel.swift in Sources */,
+				CF0F36C5EF85A1E2CB415C85 /* ProtectionLevel.swift in Sources */,
+				994473F6F2B489658F3C14AA /* ProtectionLevelView.swift in Sources */,
+				0B59D381542FF3E3A207AFD8 /* ProtectionLevelViewModel.swift in Sources */,
+				D56982CE824A2BB62D58DDEC /* ProtectionProfile.swift in Sources */,
+				DE69F8E6535DD1840D09598D /* ProtectionState.swift in Sources */,
+				AC85163FA435CB2C518017CC /* ProtectionTestResult.swift in Sources */,
+				61FF1F090166E71578B7BA04 /* ProtectionTestView.swift in Sources */,
+				B0BFC0267FAAF7B3470E8FC2 /* ProtectionTestViewModel.swift in Sources */,
+				4BD78F549E1148F88ECD05E5 /* ProtectionTester.swift in Sources */,
+				8345BE263FBBBAF2D23BE3FB /* ProtectionTesting.swift in Sources */,
+				1EF5E8DC235D56862DF3F45C /* RootSidebarView.swift in Sources */,
+				BA2D37F0F35088AB08AD2EF1 /* RootTabView.swift in Sources */,
+				FDF3B90E55A1636412B4F1C7 /* SafariView.swift in Sources */,
+				86695A0003EF977991D525D8 /* SafariViewModel.swift in Sources */,
+				8FA9F25180CA57D8F6CAAF49 /* SettingsView.swift in Sources */,
+				C4E43AB1B9CFB1E9756ABC11 /* SystemLinks.swift in Sources */,
+				255BAD8F370F7CDE3A897B12 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F77174B07C697FD9463EB62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDFE23A208E68E0FE220918 /* ContentBlockerRequestHandling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,9 +667,78 @@
 			target = ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */;
 			targetProxy = 69C1D5DBE984AF72A1C4BD84 /* PBXContainerItemProxy */;
 		};
+		556CF6D2F1358DF3D27A8ADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC7E12E823C022C2AA00226F /* BlindadoMac */;
+			targetProxy = 906FD26BB589E9FD52CF5E63 /* PBXContainerItemProxy */;
+		};
+		C0E9B2EFC26EEE34679DD90A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 618B95F2073EE4C13118B350 /* BlindadoMacContentBlocker */;
+			targetProxy = 2BEEE244AA3EB5DB790C7394 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		10895814FBFEA85FF7DE0ADF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = BlindadoMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_MODULE_NAME = Blindado;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		123E907A677A81CDC7F17372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMac.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = BlindadoMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_MODULE_NAME = Blindado;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		41A6993E64AB6C2CB7D19E14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMacContentBlocker.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = BlindadoMac/ContentBlockerInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_NAME = BlindadoContentBlocker;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
 		5BD7417A896C618C78F5513E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -472,7 +755,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
 				PRODUCT_NAME = Blindado;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -494,6 +777,42 @@
 			};
 			name = Release;
 		};
+		AE19C4AA5B55A23F935580EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindadoMac.app/Contents/MacOS/BlindadoMac";
+			};
+			name = Release;
+		};
+		AF4190334AB5BF73CA391266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMacContentBlocker.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = BlindadoMac/ContentBlockerInfo.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_NAME = BlindadoContentBlocker;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		B42B06EE958B632D68A85A7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +827,23 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blindado.app/Blindado";
+			};
+			name = Debug;
+		};
+		B7B874D10861F7B21D641783 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindadoMac.app/Contents/MacOS/BlindadoMac";
 			};
 			name = Debug;
 		};
@@ -599,15 +935,14 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -627,7 +962,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
 				PRODUCT_NAME = Blindado;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -678,14 +1013,13 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 6.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -710,6 +1044,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		79F7434BA4FA2B47B0B1A400 /* Build configuration list for PBXNativeTarget "BlindadoMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7B874D10861F7B21D641783 /* Debug */,
+				AE19C4AA5B55A23F935580EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		86DB594E7B290C9BEE6DE884 /* Build configuration list for PBXNativeTarget "BlindadoMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				123E907A677A81CDC7F17372 /* Debug */,
+				10895814FBFEA85FF7DE0ADF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		90FB54C8CA895CD05EC6B04A /* Build configuration list for PBXNativeTarget "BlindadoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -724,6 +1076,15 @@
 			buildConfigurations = (
 				C776C768A3C707AA1E7A68DE /* Debug */,
 				A82AB7C45E77CA8167ECA946 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FBB1AB2694F5BDD40175FD41 /* Build configuration list for PBXNativeTarget "BlindadoMacContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41A6993E64AB6C2CB7D19E14 /* Debug */,
+				AF4190334AB5BF73CA391266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -259,6 +259,11 @@ com o comportamento real do app e que o link de política de privacidade abre co
 - A interface do app usa a linguagem visual nativa mais atual da Apple (Liquid Glass), o que
   exige iOS 26 ou posterior como versão mínima suportada — decisão do usuário, priorizando a
   aparência nativa correta sobre o alcance a versões mais antigas do iOS.
+- Além do iPhone, o Blindado também é distribuído como app nativo de macOS (26+), não Mac
+  Catalyst — mesma lógica de negócio (Models/Services/ViewModels), navegação própria por
+  sidebar em vez da barra de abas do iPhone (research.md #11). O fluxo de ativação do DNS no
+  macOS usa um mecanismo do sistema diferente do iOS (o perfil aparece como um novo serviço de
+  rede em Ajustes do Sistema) — pendente de validação em hardware Mac real antes do lançamento.
 - A interface visual do app DEVE seguir o design system Open Design (nexu-io/open-design), cuja
   fonte da verdade é o arquivo `DESIGN.md` na raiz do repositório e os artefatos em `/design`.
   Esses artefatos ainda não existem no repositório nesta data; a implementação de qualquer tela

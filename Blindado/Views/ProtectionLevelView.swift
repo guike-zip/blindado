@@ -29,7 +29,9 @@ struct ProtectionLevelView: View {
         }
         .background(Theme.Colors.bgCanvas)
         .navigationTitle("Nível de proteção")
+        #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        #endif
     }
 
     private func levelRow(_ level: ProtectionLevel) -> some View {
@@ -104,9 +106,11 @@ struct ProtectionLevelView: View {
 
             TextField("https://dns.meuprovedor.com/dns-query", text: $customServerText)
                 .font(Theme.Typography.mono)
-                .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
+                #if os(iOS)
+                .textInputAutocapitalization(.never)
                 .keyboardType(.URL)
+                #endif
                 .padding(Theme.Spacing.s4)
                 .background(Theme.Colors.bgSurface, in: RoundedRectangle(cornerRadius: Theme.Radius.sm))
                 .overlay(

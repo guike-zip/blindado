@@ -93,11 +93,11 @@ struct HomeView: View {
 
     private var activationSteps: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s3) {
-            stepRow(1, "Abra o app Ajustes e toque em Geral.")
-            stepRow(2, "Entre em Gestão de VPN e Dispositivo.")
-            stepRow(3, "Toque em DNS e escolha Blindado.")
+            ForEach(Array(activationStepTexts.enumerated()), id: \.offset) { index, text in
+                stepRow(index + 1, text)
+            }
 
-            Text("Ajustes › Geral › Gestão de VPN e Dispositivo › DNS › Blindado")
+            Text(activationPathText)
                 .font(Theme.Typography.mono)
                 .foregroundStyle(Theme.Colors.textSecondary)
                 .padding(Theme.Spacing.s4)
@@ -105,6 +105,35 @@ struct HomeView: View {
                 .background(Theme.Colors.bgFillSubtle, in: RoundedRectangle(cornerRadius: Theme.Radius.sm))
         }
         .padding(.top, Theme.Spacing.s4)
+    }
+
+    /// O fluxo de ativação difere de verdade entre plataformas — não é só o texto do menu
+    /// que muda, é o mecanismo: no iOS o perfil de DNS já existente vira uma opção para
+    /// selecionar; no macOS ele aparece como um **novo serviço de rede** que precisa ser
+    /// tornado ativo (quickstart.md, pendente de confirmação em hardware real — Constitution
+    /// Princípio VIII).
+    private var activationStepTexts: [String] {
+        #if os(macOS)
+        [
+            "Abra Ajustes do Sistema e clique em Rede.",
+            "Um novo serviço \"Blindado\" aparece na lista à esquerda.",
+            "Clique nele, depois no botão “•••” e escolha Tornar Serviço Ativo.",
+        ]
+        #else
+        [
+            "Abra o app Ajustes e toque em Geral.",
+            "Entre em Gestão de VPN e Dispositivo.",
+            "Toque em DNS e escolha Blindado.",
+        ]
+        #endif
+    }
+
+    private var activationPathText: String {
+        #if os(macOS)
+        "Ajustes do Sistema › Rede › Blindado › ••• › Tornar Serviço Ativo"
+        #else
+        "Ajustes › Geral › Gestão de VPN e Dispositivo › DNS › Blindado"
+        #endif
     }
 
     private func stepRow(_ number: Int, _ text: String) -> some View {
@@ -163,7 +192,7 @@ struct HomeView: View {
 
         case .instaladoDesativado:
             Button {
-                openURL(SystemLinks.iOSSettings)
+                openURL(SystemLinks.systemSettings)
             } label: {
                 Label("Abrir os Ajustes", systemImage: "arrow.up.right")
                     .frame(maxWidth: .infinity)

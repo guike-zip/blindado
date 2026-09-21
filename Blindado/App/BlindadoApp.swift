@@ -4,8 +4,14 @@ import SwiftUI
 struct BlindadoApp: App {
     var body: some Scene {
         WindowGroup {
+            #if os(macOS)
+            RootSidebarView()
+            #else
             RootTabView()
-                .preferredColorScheme(nil) // segue o sistema; escuro é o tema primário do design
+            #endif
         }
+        #if os(macOS)
+        .defaultSize(width: 900, height: 640)
+        #endif
     }
 }

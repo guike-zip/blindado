@@ -207,3 +207,55 @@ trabalho de renderizar o vidro, sem manutenção de tokens de blur/opacidade pel
 - *Aplicar glass também a cards/botões de conteúdo para "parecer mais Liquid Glass"*: rejeitado
   — contraria a diretriz de design da própria Apple e arrisca ilegibilidade (glass sobre glass
   sem `GlassEffectContainer` degrada contraste e performance).
+
+## 11. Suporte nativo a macOS (além de iPhone)
+
+**Decision**: Blindado passa a ter também um alvo macOS **nativo** (não Mac Catalyst),
+compartilhando 100% do código de Models/Services/ViewModels/Theme com o iOS, mas com sua
+própria raiz de navegação: `RootSidebarView` (`NavigationSplitView` com sidebar), em vez da
+`TabView` do iPhone — é o padrão de navegação nativo do Mac (HIG), e o sidebar/toolbar do
+`NavigationSplitView` também herda Liquid Glass automaticamente no macOS 26, pela mesma razão
+de research.md #10. `BlindadoContentBlocker` roda sem alteração nos dois sistemas
+(`SFContentBlockerManager`/o mecanismo de content blocker do Safari é a mesma API em iOS e
+macOS). `NEDNSSettingsManager` também é multiplataforma — mas o fluxo de ativação **não é
+idêntico**: no macOS, o perfil de DNS aparece como um novo **serviço de rede** em Ajustes do
+Sistema → Rede, que o usuário precisa tornar ativo (não é uma opção dentro de um menu único
+como no iOS). Essa diferença está refletida nas instruções de `HomeView` (`#if os(macOS)`) —
+**sinalizado como pendente de confirmação em hardware Mac real** antes do lançamento
+(quickstart.md), já que a fonte é indireta (fóruns de desenvolvedor), não documentação
+primária da Apple.
+
+Projeto gerado via `xcodegen` com targets `BlindadoMac` (app) e `BlindadoMacContentBlocker`
+(extensão), reaproveitando as mesmas pastas de fonte (`sources: Blindado`,
+`sources: BlindadoContentBlocker`, `sources: BlindadoTests`) dos targets iOS. Duas pegadinhas
+reais encontradas ao validar com `xcodebuild build`/`test` de verdade (não só typecheck):
+- `PRODUCT_NAME` do target `BlindadoMac` não pode ser sobrescrito para "Blindado" (igual ao
+  target iOS) porque o `TEST_HOST` que o xcodegen gera para `BlindadoMacTests` assume
+  `PRODUCT_NAME == nome do target`; o nome visível ao usuário continua "Blindado" via
+  `CFBundleDisplayName`.
+- `PRODUCT_MODULE_NAME` (nome do módulo Swift) é independente de `PRODUCT_NAME` — fixado em
+  `Blindado` nos dois targets para que os mesmos arquivos de `BlindadoTests/` funcionem com
+  `@testable import Blindado` em ambas as plataformas sem duplicar testes.
+
+O target macOS exige App Sandbox (`com.apple.security.app-sandbox`), obrigatório para
+distribuição — com `com.apple.security.network.client` (para o `URLSession` de
+`ProtectionTester`) e os mesmos entitlements de App Group / Network Extension do iOS.
+
+**Rationale**: O usuário pediu explicitamente suporte nativo ao macOS, sem as limitações de
+Mac Catalyst. Reaproveitar os mesmos arquivos de fonte (em vez de duplicar Models/Services/
+ViewModels) mantém a Simplicidade (Princípio VII) e evita divergência de lógica entre
+plataformas — só a camada de View realmente diverge, e só onde a plataforma exige
+(`RootTabView` vs. `RootSidebarView`, `#if os()` pontual em `HomeView`/`SafariView`/
+`ProtectionLevelView`/`PrivacyView` para instruções e modificadores iOS-only).
+
+**Alternatives considered**:
+- *Mac Catalyst*: rejeitado pelo usuário — reaproveitaria mais código sem alteração (UIKit
+  compilado pra Mac), mas produz uma UI com "cara de iPhone esticado", não nativa de Mac.
+- *Duplicar Models/Services/ViewModels em um módulo macOS separado*: rejeitado — viola
+  Simplicidade (Princípio VII) e criaria duas fontes de verdade para a mesma lógica de
+  negócio, sem necessidade real (nenhuma API usada nos Models/Services/ViewModels é
+  iOS-exclusiva).
+- *Gerar um novo board no Open Design específico para macOS*: adiado — o sidebar foi
+  construído diretamente em SwiftUI reaproveitando os tokens existentes (cor, tipografia) em
+  vez de comissionar uma nova rodada de geração visual; fica como possível próximo passo se o
+  usuário quiser fidelidade visual maior no Mac (ver DESIGN.md).
