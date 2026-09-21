@@ -11,27 +11,35 @@ validação final de cada história é em hardware real, Constitution Princípio
   SDK do iOS 26 e obter Liquid Glass nativo em `TabView`/`NavigationStack`/toolbars —
   research.md #10). Sem dependências de terceiros para fixar versão, use sempre a toolchain
   mais atual no momento do build.
+- [xcodegen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`) — gera
+  `Blindado.xcodeproj` a partir de `project.yml`, em vez de montar o projeto na mão.
 - Conta de desenvolvedor Apple (paga, necessária para `Network Extension` entitlement e App
   Groups em dispositivo físico).
 - iPhone físico com **iOS 26+** para testes de DNS/Content Blocker e para ver o Liquid Glass
   real (o Simulador renderiza glass, mas a validação final de UI ainda é em hardware,
   Constitution Princípio VIII).
 
-## 2. Criar o projeto no Xcode (manual — não via linha de comando)
+## 2. Gerar o projeto Xcode
 
-1. Xcode → **File → New → Project → iOS → App**.
-   - Product Name: `Blindado`
-   - Interface: SwiftUI · Language: Swift
-   - Bundle Identifier: `com.seudominio.blindado`
-   - Target → General → Minimum Deployments: **iOS 26.0** (obrigatório para Liquid Glass
-     nativo, research.md #10)
-2. Adicionar o segundo target: **File → New → Target → Content Blocker Extension**.
-   - Product Name: `BlindadoContentBlocker`
-   - Bundle Identifier resultante: `com.seudominio.blindado.contentblocker`
-   - Minimum Deployments: **iOS 26.0** (mesmo valor do app principal)
-3. Salvar o projeto na raiz deste repositório (mesmo diretório deste `specs/`).
-4. Rodar `specify init --here --force` (ou equivalente) **depois** de o projeto compilar, para
-   que os arquivos gerados pelo Spec Kit entrem numa estrutura que já builda.
+O projeto **já está descrito** em `project.yml` na raiz do repositório (dois targets: `Blindado`
+e `BlindadoContentBlocker`, App Group, entitlement de Network Extension, deployment target
+iOS 26.0). Para (re)gerar `Blindado.xcodeproj` a partir dele — necessário sempre que um arquivo
+novo for adicionado a `Blindado/`, `BlindadoContentBlocker/` ou `BlindadoTests/`:
+
+```bash
+xcodegen generate
+```
+
+Para validar sem abrir o Xcode (o que este projeto já faz a cada mudança relevante):
+
+```bash
+xcodebuild -project Blindado.xcodeproj -scheme Blindado \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
+  -configuration Debug CODE_SIGNING_ALLOWED=NO build test
+```
+
+`CODE_SIGNING_ALLOWED=NO` só serve para compilar/testar sem uma conta de desenvolvedor
+configurada — build para dispositivo físico exige assinatura de verdade (seção 3).
 
 ## 3. Capabilities e entitlements
 

@@ -27,12 +27,16 @@ não mais como bloqueio por arquivo ausente.
 
 **Purpose**: Inicialização do projeto Xcode e estrutura de pastas
 
-- [ ] T001 Criar projeto Xcode `Blindado` (App, SwiftUI, bundle `com.seudominio.blindado`) e o
-      target `BlindadoContentBlocker` (Content Blocker Extension, bundle
-      `com.seudominio.blindado.contentblocker`) per `quickstart.md` seção 2
-- [ ] T002 Configurar App Group `group.com.seudominio.blindado` em ambos os targets e o
-      entitlement `com.apple.developer.networking.networkextension = ["dns-settings"]` no
-      target `Blindado`, per `quickstart.md` seção 3
+- [x] T001 Gerar `Blindado.xcodeproj` a partir de `project.yml` (xcodegen) — App
+      `com.seudominio.blindado` e target `BlindadoContentBlocker`
+      (`com.seudominio.blindado.contentblocker`); verificado com `xcodebuild build`/`test`
+      reais contra o SDK do iOS 26 (per `quickstart.md` seção 2)
+- [x] T002 App Group `group.com.seudominio.blindado` e entitlement
+      `com.apple.developer.networking.networkextension = ["dns-settings"]` declarados em
+      `Blindado/Blindado.entitlements` / `BlindadoContentBlocker/BlindadoContentBlocker.entitlements`
+      via `project.yml`. **Falta**: aprovar o entitlement de Network Extension e provisionar o
+      App ID na conta de desenvolvedor Apple (Apple Developer Portal) — isso só o usuário pode
+      fazer (per `quickstart.md` seção 3)
 - [x] T003 [P] Criar estrutura de pastas `Blindado/{App,Theme,Models,Services,ViewModels,Views,Resources}/`
       per `plan.md` → Project Structure
 - [x] T004 [P] Criar String Catalog `Blindado/Resources/Localizable.xcstrings` com pt-BR como
