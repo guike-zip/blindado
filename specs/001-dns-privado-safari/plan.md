@@ -36,7 +36,7 @@ navegação, nunca para conteúdo — ver research.md #10), NetworkExtension
 (`SFContentBlockerManager`), Foundation (`URLSession`, `UserDefaults`) — todos frameworks
 nativos da Apple, zero pacotes de terceiros (Constitution Princípio II).
 
-**Storage**: `UserDefaults` compartilhado via App Group (`group.com.seudominio.blindado`),
+**Storage**: `UserDefaults` compartilhado via App Group (`group.io.blindado.app`),
 acessado com `@AppStorage` — persiste apenas o nível de proteção escolhido e o endereço DNS
 personalizado. Nenhum dado do usuário é enviado a servidor próprio (Constitution Princípio I).
 
@@ -165,7 +165,7 @@ BlindadoTests/                             # Target: testes unitários
 ```
 
 **Structure Decision**: App iOS nativo com dois targets no mesmo `.xcodeproj` (App +
-`ContentBlocker` Extension) compartilhando o App Group `group.com.seudominio.blindado`. Sem
+`ContentBlocker` Extension) compartilhando o App Group `group.io.blindado.app`. Sem
 módulo de API/backend (Constitution Princípio I — sem servidor próprio). Cada história de
 usuário mapeia para uma fatia vertical Model → Service (com protocolo + mock) → ViewModel →
 View, permitindo build e teste independentes em dispositivo físico por história

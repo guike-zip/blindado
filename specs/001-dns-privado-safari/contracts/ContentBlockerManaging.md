@@ -16,7 +16,7 @@ protocol ContentBlockerManaging {
 **Implementações**:
 - `ContentBlockerManager`: usa `SFContentBlockerManager.getStateOfContentBlocker` e
   `SFContentBlockerManager.reloadContentBlocker(withIdentifier:)` com o identificador do target
-  `BlindadoContentBlocker` (`com.seudominio.blindado.contentblocker`).
+  `BlindadoContentBlocker` (`io.blindado.app.contentblocker`).
 - `MockContentBlockerManager`: estado em memória controlável, para Previews e `XCTest`.
 
 **Consumidores**: `SafariViewModel` (US4).

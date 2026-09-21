@@ -7,7 +7,7 @@ import SafariServices
 @MainActor
 final class ContentBlockerManager: ContentBlockerManaging {
     /// Identificador do target `BlindadoContentBlocker` (plan.md → Project Structure).
-    static let extensionIdentifier = "com.seudominio.blindado.contentblocker"
+    static let extensionIdentifier = "io.blindado.app.contentblocker"
 
     private var lastReloadDate: Date?
 

@@ -46,7 +46,7 @@ configurada — build para dispositivo físico exige assinatura de verdade (seç
 No portal da Apple (developer.apple.com → Certificates, Identifiers & Profiles) e no Xcode
 (target → Signing & Capabilities):
 
-1. **App Group**: criar `group.com.seudominio.blindado`; adicionar aos dois targets
+1. **App Group**: criar `group.io.blindado.app`; adicionar aos dois targets
    (`Blindado` e `BlindadoContentBlocker`).
 2. **Network Extension**: adicionar ao target `Blindado`, com o entitlement
    `com.apple.developer.networking.networkextension = ["dns-settings"]`. Esse entitlement

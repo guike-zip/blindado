@@ -35,7 +35,7 @@ struct ProtectionProfile: Equatable, Sendable {
 /// (plan.md → Storage). Não é um protocolo mockável (Constitution Princípio V) porque não
 /// encapsula uma API de sistema — testes usam um suite name próprio, sem necessidade de mock.
 enum ProtectionProfileStore {
-    static let appGroupID = "group.com.seudominio.blindado"
+    static let appGroupID = "group.io.blindado.app"
 
     private enum Key {
         static let level = "protectionProfile.level"

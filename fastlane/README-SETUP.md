@@ -12,7 +12,7 @@ passos abaixo** — é o comportamento esperado, não um bug. Nenhum deles pode 
 ## 1. Conta de desenvolvedor Apple
 
 Conta paga (Apple Developer Program, US$ 99/ano) com um App ID registrado para
-`com.seudominio.blindado` (troque pelo bundle ID real primeiro — ver `plan.md`), com as
+`io.blindado.app` (troque pelo bundle ID real primeiro — ver `plan.md`), com as
 capabilities `Network Extension` (`dns-settings`) e `App Groups` habilitadas — o mesmo passo
 manual já descrito em `quickstart.md` seção 3.
 

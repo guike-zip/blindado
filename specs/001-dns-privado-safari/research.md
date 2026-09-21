@@ -102,7 +102,7 @@ o usuário quer: "a proteção está funcionando?".
 
 ## 6. Persistência
 
-**Decision**: `@AppStorage` sobre `UserDefaults(suiteName: "group.com.seudominio.blindado")`
+**Decision**: `@AppStorage` sobre `UserDefaults(suiteName: "group.io.blindado.app")`
 para nível de proteção escolhido e servidor personalizado.
 
 **Rationale**: App Group é necessário de qualquer forma para o Content Blocker Extension

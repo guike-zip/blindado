@@ -1,6 +1,6 @@
 name: Blindado
 options:
-  bundleIdPrefix: com.seudominio
+  bundleIdPrefix: io.blindado
   deploymentTarget:
     iOS: "26.0"
     macOS: "26.0"
@@ -24,7 +24,7 @@ targets:
       - path: Blindado
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app
         PRODUCT_NAME: Blindado
         TARGETED_DEVICE_FAMILY: "1" # só iPhone (spec.md — iPad fora de escopo)
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
@@ -43,7 +43,7 @@ targets:
       path: Blindado/Blindado.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.seudominio.blindado
+          - group.io.blindado.app
         com.apple.developer.networking.networkextension:
           - dns-settings
     dependencies:
@@ -58,7 +58,7 @@ targets:
       - path: BlindadoContentBlocker
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.contentblocker
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
     info:
       path: BlindadoContentBlocker/Info.plist
@@ -73,7 +73,7 @@ targets:
       path: BlindadoContentBlocker/BlindadoContentBlocker.entitlements
       properties:
         com.apple.security.application-groups:
-          - group.com.seudominio.blindado
+          - group.io.blindado.app
 
   BlindadoTests:
     type: bundle.unit-test
@@ -83,7 +83,7 @@ targets:
       - path: BlindadoTests
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.tests
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.tests
     dependencies:
       - target: Blindado
 
@@ -98,7 +98,7 @@ targets:
       - path: Blindado
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app
         # PRODUCT_NAME fica como o nome do target (BlindadoMac) de propósito — sobrescrever
         # para "Blindado" (igual ao alvo iOS) quebra o TEST_HOST que o xcodegen gera para
         # BlindadoMacTests, que assume PRODUCT_NAME == nome do target. O nome visível pelo
@@ -123,7 +123,7 @@ targets:
         com.apple.security.app-sandbox: true
         com.apple.security.network.client: true
         com.apple.security.application-groups:
-          - group.com.seudominio.blindado
+          - group.io.blindado.app
         com.apple.developer.networking.networkextension:
           - dns-settings
     dependencies:
@@ -138,7 +138,7 @@ targets:
       - path: BlindadoContentBlocker
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.contentblocker
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
         ENABLE_HARDENED_RUNTIME: true
     info:
@@ -155,7 +155,7 @@ targets:
       properties:
         com.apple.security.app-sandbox: true
         com.apple.security.application-groups:
-          - group.com.seudominio.blindado
+          - group.io.blindado.app
 
   BlindadoMacTests:
     type: bundle.unit-test
@@ -165,7 +165,7 @@ targets:
       - path: BlindadoTests
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.tests
+        PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.tests
     dependencies:
       - target: BlindadoMac
 

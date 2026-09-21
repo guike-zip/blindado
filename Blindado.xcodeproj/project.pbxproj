@@ -694,7 +694,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app;
 				PRODUCT_MODULE_NAME = Blindado;
 				SDKROOT = macosx;
 			};
@@ -714,7 +714,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app;
 				PRODUCT_MODULE_NAME = Blindado;
 				SDKROOT = macosx;
 			};
@@ -733,7 +733,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.contentblocker;
 				PRODUCT_NAME = BlindadoContentBlocker;
 				SDKROOT = macosx;
 			};
@@ -752,7 +752,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app;
 				PRODUCT_NAME = Blindado;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -770,7 +770,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.contentblocker;
 				PRODUCT_NAME = BlindadoContentBlocker;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -788,7 +788,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.tests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindadoMac.app/Contents/MacOS/BlindadoMac";
 			};
@@ -807,7 +807,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.contentblocker;
 				PRODUCT_NAME = BlindadoContentBlocker;
 				SDKROOT = macosx;
 			};
@@ -823,7 +823,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blindado.app/Blindado";
@@ -841,7 +841,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.tests;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlindadoMac.app/Contents/MacOS/BlindadoMac";
 			};
@@ -858,7 +858,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.contentblocker;
 				PRODUCT_NAME = BlindadoContentBlocker;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -875,7 +875,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.tests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blindado.app/Blindado";
@@ -961,7 +961,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app;
 				PRODUCT_NAME = Blindado;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;

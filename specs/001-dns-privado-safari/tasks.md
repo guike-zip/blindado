@@ -28,10 +28,10 @@ não mais como bloqueio por arquivo ausente.
 **Purpose**: Inicialização do projeto Xcode e estrutura de pastas
 
 - [x] T001 Gerar `Blindado.xcodeproj` a partir de `project.yml` (xcodegen) — App
-      `com.seudominio.blindado` e target `BlindadoContentBlocker`
-      (`com.seudominio.blindado.contentblocker`); verificado com `xcodebuild build`/`test`
+      `io.blindado.app` e target `BlindadoContentBlocker`
+      (`io.blindado.app.contentblocker`); verificado com `xcodebuild build`/`test`
       reais contra o SDK do iOS 26 (per `quickstart.md` seção 2)
-- [x] T002 App Group `group.com.seudominio.blindado` e entitlement
+- [x] T002 App Group `group.io.blindado.app` e entitlement
       `com.apple.developer.networking.networkextension = ["dns-settings"]` declarados em
       `Blindado/Blindado.entitlements` / `BlindadoContentBlocker/BlindadoContentBlocker.entitlements`
       via `project.yml`. **Falta**: aprovar o entitlement de Network Extension e provisionar o
@@ -68,7 +68,7 @@ compartilhado por todas as Views
       `76.76.2.4, 76.76.10.4, 2606:1a40::4, 2606:1a40:1::4`.
 - [x] T007 [P] Criar `ProtectionProfile` em `Blindado/Models/ProtectionProfile.swift` — `nível:
       ProtectionLevel` persistido via `@AppStorage` no App Group
-      `group.com.seudominio.blindado`; `providerId: String?` (`nil` = usa o provedor com
+      `group.io.blindado.app`; `providerId: String?` (`nil` = usa o provedor com
       `éPadrãoDoNível == true`, FR-019); `customServerURL: URL?` presente apenas quando
       `nível == .personalizado`, `nil` caso contrário (data-model.md) (depende de T006)
 - [x] T008 [P] Criar enum `ProtectionState` em `Blindado/Models/ProtectionState.swift` — casos
@@ -254,7 +254,7 @@ que a aba Safari reflete o estado real e que "Recarregar regras" confirma conclu
       `Blindado/Services/ContentBlockerManager.swift` usando
       `SFContentBlockerManager.getStateOfContentBlocker` e
       `SFContentBlockerManager.reloadContentBlocker(withIdentifier:)` com identificador
-      `com.seudominio.blindado.contentblocker` (depende de T032)
+      `io.blindado.app.contentblocker` (depende de T032)
 - [x] T034 [P] [US4] Implementar `MockContentBlockerManager` em
       `Blindado/Services/MockContentBlockerManager.swift` (depende de T032)
 - [x] T035 [P] [US4] Criar `ContentBlockerRequestHandling.swift` no target
