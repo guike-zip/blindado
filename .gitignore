@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Python cache (Spec Kit scripts)
+__pycache__/
+*.pyc
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# OpenDesign local workspace links (machine-local, not project source)
+.opendesign/
