@@ -72,6 +72,19 @@
   --elev-3:0 18px 44px oklch(0 0 0 / 0.46);
   --elev-glow-protected:0 0 60px oklch(0.800 0.170 152 / 0.30);
   --elev-glow-pending:0 0 60px oklch(0.820 0.150 78 / 0.26);
+  /* --- Liquid Glass · SÓ a camada de navegação (iOS 26) --
+     Material do chrome flutuante: tab bar, toolbar condensada e
+     borda de sheet. Nunca em cartão, linha, botão ou texto.     */
+  --glass-blur:18px;
+  --glass-saturate:190%;
+  --glass-lift:1.22;                            /* o material escuro CLAREIA o que passa por trás */
+  --glass-fill:oklch(0.235 0.014 258 / 0.58);   /* tint translúcido sobre o borrado */
+  --glass-scrim:oklch(0.150 0.012 258 / 0.30);  /* reforço só atrás dos rótulos */
+  --glass-sheen:oklch(1 0 0 / 0.12);            /* brilho que escorre do topo */
+  --glass-edge:oklch(1 0 0 / 0.22);             /* realce especular de 1px */
+  --glass-hairline:oklch(1 0 0 / 0.07);         /* fio da borda oposta */
+  --glass-shadow-up:0 -10px 28px oklch(0 0 0 / 0.34);
+  --glass-shadow-down:0 10px 28px oklch(0 0 0 / 0.30);
   /* --- medidas fixas iOS --------------------------------- */
   --safe-top:59px; --safe-bottom:34px; --tabbar-h:49px; --navbar-h:44px; --touch-min:44px;
 }
@@ -149,7 +162,8 @@ figcaption{margin-top:20px}
 .sb-time{font:600 15px/1 var(--font-ui);letter-spacing:.2px;color:var(--text-primary)}
 .sb-ic{width:70px;height:13px;color:var(--text-primary)}
 /* screen body */
-.content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 20px;overflow:hidden}
+.content{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 20px;
+  padding-bottom:calc(var(--tabbar-h) + var(--safe-bottom));overflow:hidden}
 .content.scrollable{overflow-y:auto;scrollbar-width:none}
 .content.scrollable::-webkit-scrollbar{display:none}
 .navbar{height:var(--navbar-h);display:flex;align-items:center;gap:3px;flex:none;margin:0 -6px}
@@ -159,10 +173,27 @@ figcaption{margin-top:20px}
 .back:focus-visible{outline:2px solid var(--focus-ring);outline-offset:1px}
 .large-title{font:var(--type-large-title);letter-spacing:-.6px;margin:2px 0 var(--space-5);flex:none}
 .large-title.tight{margin-bottom:var(--space-4)}
-.tabbar{flex:none;height:calc(var(--tabbar-h) + var(--safe-bottom));padding-bottom:var(--safe-bottom);
-  display:flex;background:var(--bg-chrome);backdrop-filter:blur(22px);border-top:.5px solid var(--separator)}
-.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  color:var(--text-tertiary);background:none;border:0;padding:6px 0 0;cursor:pointer;min-height:var(--touch-min);
+/* Liquid Glass: material aplicado só ao chrome de navegação */
+.glass{background:var(--glass-fill);
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-lift));
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-lift))}
+.glass::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(to bottom,var(--glass-sheen),transparent 44%)}
+.tabbar::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(to top,var(--glass-scrim),transparent 76%)}
+.tabbar{position:absolute;left:0;right:0;bottom:0;z-index:12;
+  height:calc(var(--tabbar-h) + var(--safe-bottom));padding-bottom:var(--safe-bottom);display:flex;
+  box-shadow:var(--glass-shadow-up),inset 0 1px 0 var(--glass-edge),inset 0 -.5px 0 var(--glass-hairline)}
+.toolbar{position:absolute;top:0;left:0;right:0;z-index:9;
+  height:calc(var(--safe-top) + var(--navbar-h));display:flex;align-items:flex-end;justify-content:center;
+  padding-bottom:11px;
+  box-shadow:var(--glass-shadow-down),inset 0 1px 0 var(--glass-edge),inset 0 -.5px 0 var(--glass-hairline)}
+.toolbar span{position:relative;z-index:1;font:var(--type-headline);letter-spacing:-.2px}
+/* borda de sheet: cromo de vidro só na aresta, corpo segue matte */
+.sheet-edge{border-radius:var(--radius-md) var(--radius-md) 0 0;
+  box-shadow:inset 0 1px 0 var(--glass-edge),0 -8px 20px oklch(0 0 0 / .20)}
+.tab{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  color:var(--text-secondary);background:none;border:0;padding:6px 0 0;cursor:pointer;min-height:var(--touch-min);
   text-decoration:none;transition:color .15s}
 .tab:hover{color:var(--text-primary)}
 .tab:focus-visible{outline:2px solid var(--focus-ring);outline-offset:-4px;border-radius:var(--radius-xs)}
@@ -317,7 +348,15 @@ figcaption{margin-top:20px}
 
 /* ====== TEMA CLARO: pares fg/bg que não vêm direto de um token ==
    Só acrescenta; nenhuma regra do tema escuro é alterada.          */
-[data-theme="light"]{--accent:var(--status-protected);--accent-fg:var(--text-on-accent);
+[data-theme="light"]{--glass-fill:oklch(0.995 0.002 265 / 0.58);
+  --glass-lift:1.06;
+  --glass-scrim:oklch(1 0 0 / 0.34);
+  --glass-sheen:oklch(1 0 0 / 0.55);
+  --glass-edge:oklch(1 0 0 / 0.85);
+  --glass-hairline:oklch(0.200 0.010 265 / 0.10);
+  --glass-shadow-up:0 -10px 26px oklch(0 0 0 / 0.10);
+  --glass-shadow-down:0 10px 26px oklch(0 0 0 / 0.09);
+  --accent:var(--status-protected);--accent-fg:var(--text-on-accent);
   --focus-ring:oklch(0.500 0.150 152 / 0.55)} /* re-resolve: var() herdado guarda o valor do :root */
 [data-theme="light"] .hero.ok .hero-glow{background:radial-gradient(circle,oklch(0.500 0.150 152 / .20),transparent 66%)}
 [data-theme="light"] .hero.warn .hero-glow{background:radial-gradient(circle,oklch(0.540 0.130 66 / .17),transparent 66%)}
@@ -339,6 +378,7 @@ figcaption{margin-top:20px}
 [data-theme="light"] .toast{box-shadow:0 0 0 1px oklch(0.500 0.150 152 / .30) inset}
 [data-theme="light"] .field.err{background:oklch(0.540 0.200 25 / .06)}
 [data-theme="light"] .btn[disabled]{box-shadow:none}
+[data-theme="light"] .sheet-edge{box-shadow:inset 0 1px 0 var(--glass-edge),0 -6px 16px oklch(0 0 0 / .07)}
 [data-theme="light"] .toggle::after{box-shadow:0 1px 3px oklch(0 0 0 / .22)}
 [data-theme="light"] .home-ind{background:oklch(0.250 0.010 265 / .34)}
 .sub{scroll-margin-top:84px}
@@ -411,14 +451,15 @@ figcaption{margin-top:20px}
   <header class="board-head" data-od-id="board-header">
     <p class="kicker">Blindado · iOS · protótipo de UI + design tokens</p>
     <h1 class="board-title">Um escudo que responde<br>uma pergunta só: <em>estou protegido?</em></h1>
-    <p class="board-lede">DNS criptografado em todo o sistema e bloqueador de conteúdo do Safari, para quem não quer saber o que é DNS. Doze frames de 390×844 no tema escuro, mais o token set completo — nomeado e documentado para virar <code style="font:400 15px/1 var(--font-mono);color:oklch(.85 .06 152)">Theme.swift</code>.</p>
+    <p class="board-lede">DNS criptografado em todo o sistema e bloqueador de conteúdo do Safari, para quem não quer saber o que é DNS. Catorze telas de 390×844 nas duas aparências do iOS 26 — vidro só na camada de navegação, conteúdo matte —, mais o token set completo — nomeado e documentado para virar <code style="font:400 15px/1 var(--font-mono);color:oklch(.85 .06 152)">Theme.swift</code>.</p>
     <div class="chips">
       <span class="chip">iPhone 390 × 844 pt</span>
       <span class="chip">Tema escuro (primário)</span>
       <span class="chip">SF Pro · escala iOS</span>
-      <span class="chip">4 abas · 12 telas</span>
+      <span class="chip">4 abas · 14 telas</span>
       <span class="chip">Copy pt-BR</span>
       <span class="chip">Toque mínimo 44 pt</span>
+      <span class="chip">Liquid Glass só na navegação</span>
     </div>
   </header>
 
@@ -640,7 +681,7 @@ figcaption{margin-top:20px}
             <span class="radio on"><svg><use href="#i-check"/></svg></span>
             <span class="row-main"><span class="row-t">Personalizado</span><span class="row-s">Use o endereço de um servidor DNS seguro em que você já confia.</span></span>
           </button>
-          <div style="padding:0 16px 18px 16px;background:var(--status-protected-soft)" data-od-id="campo-doh">
+          <div class="sheet-edge" style="padding:14px 16px 18px;background:var(--status-protected-soft)" data-od-id="campo-doh">
             <p class="field-label">Endereço DoH (DNS sobre HTTPS)</p>
             <div class="field err"><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">https://dns.meuprovedor.com/query</span><span class="caret"></span></div>
             <p class="field-msg err"><svg><use href="#i-warn"/></svg><span>Não conseguimos falar com esse servidor. Confira o endereço e tente de novo.</span></p>
@@ -660,7 +701,7 @@ figcaption{margin-top:20px}
   <!-- ========================= TESTAR ========================= -->
   <section class="sec" id="testar" data-od-id="section-testar">
     <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Testar — prova real</h2></div>
-    <p class="sec-note">O veredito vem primeiro, em banner; a lista embaixo é a evidência, resolvida domínio a domínio. Um domínio de controle (<code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">apple.com</code>) precisa continuar acessível — se tudo estivesse bloqueado, seria queda de rede, não proteção.</p>
+    <p class="sec-note">O veredito vem primeiro, em banner; a lista embaixo é a evidência, resolvida domínio a domínio. Um domínio de controle (<code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">apple.com</code>) precisa continuar acessível — se tudo estivesse bloqueado, seria queda de rede, não proteção. O último frame do grupo mostra a lista rolada: é onde o vidro da navegação aparece de verdade, com as linhas borrando por baixo das duas barras.</p>
     <div class="frames">
 
       <template class="scr" data-id="testar-protegido" data-tab="testar" data-num="03 · A" data-state="Protegido" data-kind="ok" data-title="Testar · tudo bloqueado">
@@ -741,6 +782,30 @@ figcaption{margin-top:20px}
         <div class="spacer"></div>
         <div class="btn-stack"><button class="btn btn-secondary"><svg><use href="#i-refresh"/></svg>Tentar de novo</button></div>
         <figcaption><p class="cap-body">Sem rede o app se recusa a dar veredito: cinza, não vermelho. Dizer “desprotegido” aqui seria mentir — e é exatamente o erro que o domínio de controle existe para evitar.</p></figcaption>
+      </template>
+
+      <template class="scr" data-id="testar-rolado" data-tab="testar" data-num="03 · E" data-state="Rolado · toolbar de vidro" data-kind="ok" data-title="Testar · lista rolada" data-toolbar="Testar" data-scroll="1">
+        <h1 class="large-title tight" style="margin-top:-120px">Testar</h1>
+        <div class="banner ok">
+          <span class="banner-ic"><svg><use href="#i-check"/></svg></span>
+          <span><h3>Protegido</h3><p>Nenhum domínio de rastreamento passou, e o domínio de controle continua acessível.</p></span>
+        </div>
+        <p class="group-label">12 domínios · testado agora, 09:41</p>
+        <div class="card" data-od-id="lista-testes-longa">
+          <div class="row static"><span class="row-main"><span class="dom">doubleclick.net</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">googleadservices.com</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">google-analytics.com</span><span class="dom-s">Medição</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">ads.tiktok.com</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">graph.facebook.com</span><span class="dom-s">Rastreamento</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">adservice.google.com</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">app-measurement.com</span><span class="dom-s">Medição</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">ads.linkedin.com</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">ct.pinterest.com</span><span class="dom-s">Medição</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">scorecardresearch.com</span><span class="dom-s">Medição</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">bat.bing.com</span><span class="dom-s">Anúncios</span></span><span class="badge blocked"><svg><use href="#i-check"/></svg>Bloqueado</span></div>
+          <div class="row static"><span class="row-main"><span class="dom">apple.com</span><span class="dom-s">Controle — precisa continuar acessível</span></span><span class="badge allow">Acessível</span></div>
+        </div>
+        <figcaption><p class="cap-body">O frame que prova o material: a lista passa <b style="color:oklch(.9 .005 258)">por baixo</b> das duas barras. Em repouso o large title flutua sem cromo nenhum; ao rolar, a toolbar condensa e ganha o mesmo vidro da tab bar — borrão do conteúdo, tint translúcido e um fio especular de 1px na aresta que pega luz.</p></figcaption>
       </template>
 
     </div>
@@ -867,7 +932,7 @@ figcaption{margin-top:20px}
   <!-- ====================== APARÊNCIA CLARA ==================== -->
   <section class="sec" id="claro" data-od-id="section-claro">
     <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Aparência clara</h2></div>
-    <p class="sec-note">As mesmas treze telas, mesmo conteúdo e mesma estrutura: cada frame aqui é gerado do mesmo template do frame escuro, com o bloco <code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">[data-theme="light"]</code> ligado. Três coisas mudam além da troca de tokens, e todas por contraste: verde e âmbar <b style="color:oklch(.9 .005 258)">escurecem</b> (o verde de 0,80 L reprova sobre branco, então cai para 0,500 e <code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">text.onAccent</code> vira branco), o halo do escudo perde quase metade da intensidade — brilho sobre fundo claro vira sujeira —, e os glifos dentro de ícones preenchidos invertem para branco.</p>
+    <p class="sec-note">As mesmas catorze telas, mesmo conteúdo e mesma estrutura: cada frame aqui é gerado do mesmo template do frame escuro, com o bloco <code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">[data-theme="light"]</code> ligado. Três coisas mudam além da troca de tokens, e todas por contraste: verde e âmbar <b style="color:oklch(.9 .005 258)">escurecem</b> (o verde de 0,80 L reprova sobre branco, então cai para 0,500 e <code style="font:400 13px/1 var(--font-mono);color:oklch(.85 .06 152)">text.onAccent</code> vira branco), o halo do escudo perde quase metade da intensidade — brilho sobre fundo claro vira sujeira —, e os glifos dentro de ícones preenchidos invertem para branco.</p>
 
     <div class="sub" id="claro-inicio"><h3 class="sub-title">Início</h3><div class="frames" id="claro-frames-inicio"></div></div>
     <div class="sub" id="claro-nivel"><h3 class="sub-title">Nível de proteção</h3><div class="frames" id="claro-frames-nivel"></div></div>
@@ -885,7 +950,7 @@ figcaption{margin-top:20px}
                   "#safari":"#claro-safari","#ajustes":"#claro-ajustes",
                   "#frame-privacidade":"#frame-privacidade-claro"};
   function tabbar(active,light){
-    var html='<nav class="tabbar" role="tablist" aria-label="Abas do Blindado">';
+    var html='<nav class="tabbar glass" role="tablist" aria-label="Abas do Blindado">';
     TABS.forEach(function(t){
       var on=t[0]===active, href=light?"#claro-"+t[0]:"#"+t[0];
       html+='<a class="tab" role="tab" href="'+href+'" aria-selected="'+on+'" data-od-id="tab-'+t[0]+'">'+
@@ -910,8 +975,9 @@ figcaption{margin-top:20px}
     fig.innerHTML='<div class="device"><div class="phone"'+(light?' data-theme="light"':'')+
       ' data-od-id="screen-'+d.id+sfx+'">'+
       '<div class="island"></div>'+
+      (d.toolbar?'<div class="toolbar glass"><span>'+d.toolbar+'</span></div>':'')+
       '<div class="sb"><span class="sb-time">9:41</span><svg class="sb-ic" aria-hidden="true"><use href="#i-status"/></svg></div>'+
-      '<div class="content"></div>'+tabbar(d.tab,light)+'<div class="home-ind"></div></div></div>';
+      '<div class="content'+(d.scroll?' scrolled':'')+'"></div>'+tabbar(d.tab,light)+'<div class="home-ind"></div></div></div>';
     fig.querySelector(".content").appendChild(frag);
     var fc=document.createElement("figcaption");
     fc.innerHTML='<div class="cap-top"><span class="cap-id">'+d.num+'</span>'+

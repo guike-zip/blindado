@@ -3,14 +3,16 @@
 Fonte da verdade visual do app, gerada no Open Design (OpenDesign Cloud / Local Codex) a partir
 do brief do produto (specs/001-dns-privado-safari/spec.md) e das diretrizes de marca definidas
 pelo usuário: tema escuro como padrão, o escudo como único elemento figurativo (cinza = não
-configurado, âmbar = instalado mas desativado, verde = blindado), aparência nativa iOS.
+configurado, âmbar = instalado mas desativado, verde = blindado), **Liquid Glass nativo do
+iOS 26** na camada de navegação (tab bar, toolbar), conteúdo sempre opaco.
 
 Este arquivo é o índice. Os artefatos completos estão em [`/design`](design/):
 
 - [`design/blindado-ios-prototype.html`](design/blindado-ios-prototype.html) — board navegável
-  com as 13 telas do protótipo (iPhone 390×844) em **tema escuro** (primário) e uma seção
-  "06 — Aparência clara" com as mesmas 13 telas em **tema claro**, geradas do mesmo template
-  (mesmo conteúdo, só o esquema de cor muda). Abrir direto no navegador.
+  com 14 telas do protótipo (iPhone 390×844, incl. o estado de scroll que mostra o Liquid Glass
+  da toolbar) em **tema escuro** (primário) e uma seção "06 — Aparência clara" com as mesmas 14
+  telas em **tema claro**, geradas do mesmo template (mesmo conteúdo, só o esquema de cor
+  muda). Abrir direto no navegador.
 - [`design/design-tokens.md`](design/design-tokens.md) — **todos os tokens** (cor semântica de
   proteção, superfícies, texto, tipografia, espaçamento base-4, raio, elevação, regras de
   estado) com valor OKLch canônico, hex sRGB e contraste medido, além de um esqueleto sugerido
@@ -28,6 +30,19 @@ acompanhada de pill, título e uma única ação por tela. Fundo `oklch(0.165 0.
 escala iOS inteira e SF Mono reservado para o que o usuário vai literalmente digitar ou ler no
 sistema: domínios, endereços DoH e o caminho `Ajustes › Geral › Gestão de VPN e Dispositivo ›
 DNS › Blindado`.
+
+## Liquid Glass — só a camada de navegação
+
+Regra de plataforma (não uma escolha estética): Liquid Glass é **exclusivo do chrome
+flutuante** — tab bar inferior, toolbar superior e a aresta de sheets. Conteúdo (cartão,
+linha, texto, pill, escudo, **todo botão de ação**) segue 100% opaco. No app real isso não
+vira token nenhum — `TabView`, `NavigationStack`, `.toolbar` e `.sheet` nativos do iOS 26
+(SDK Xcode 26) desenham o vidro sozinhos. A seção 7 de `design/design-tokens.md` documenta os
+valores usados **só como referência visual** (desfoque, saturação, tint, realce especular,
+sombra) nas duas aparências, com o aviso explícito de não portar isso para `Theme.swift`.
+
+O frame `03 · E — Testar · lista rolada` é o que prova o material: a lista passa por baixo das
+duas barras, com os badges verdes borrando visivelmente através do vidro.
 
 ## Telas do protótipo
 

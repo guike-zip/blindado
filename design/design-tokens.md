@@ -51,8 +51,8 @@ um `soft` é sempre a versão sólida da mesma cor (o par é fixo, nunca se mist
 | `bg.fillSubtle` | `oklch(0.315 0.014 258)` · `#2D3239` | `oklch(0.910 0.006 265)` · `#DFE1E5` | Toggle desligado, número do passo, hover do secundário |
 | `bg.chrome` | `canvas + 0.02 L / 82%` + blur 22 | `oklch(0.985 0.003 265) / 86%` + blur | Nav bar e tab bar translúcidas |
 | `text.primary` | `oklch(0.980 0.003 258)` · `#F7F8FA` | `oklch(0.180 0.010 265)` · `#0F1216` | 18,1:1 escuro · 16,8:1 claro |
-| `text.secondary` | `oklch(0.760 0.012 258)` · `#ACB1B9` | `oklch(0.460 0.012 265)` · `#55585F` | 8,9:1 · 6,4:1 |
-| `text.tertiary` | `oklch(0.660 0.012 258)` · `#8E939A` | `oklch(0.520 0.010 265)` · `#66696F` | 6,2:1 · 4,9:1 — legenda, chevron, aba inativa |
+| `text.secondary` | `oklch(0.760 0.012 258)` · `#ACB1B9` | `oklch(0.460 0.012 265)` · `#55585F` | 8,9:1 · 6,4:1 — corpo de apoio e **rótulo de aba inativa** (sobe de `tertiary` para aguentar o vidro) |
+| `text.tertiary` | `oklch(0.660 0.012 258)` · `#8E939A` | `oklch(0.520 0.010 265)` · `#66696F` | 6,2:1 · 4,9:1 — legenda, chevron, rótulo de grupo |
 | `text.onAccent` | `oklch(0.190 0.045 152)` · `#021909` | `oklch(1 0 0)` · `#FFFFFF` | **Único** texto sobre preenchimento verde: 10,5:1 · 5,5:1 |
 | `separator` | `oklch(0.380 0.012 258 / 62%)` | `oklch(0.860 0.006 265 / 90%)` | Hairline de 0,5 pt entre linhas |
 | `border.strong` | `oklch(0.460 0.014 258)` · `#535860` | `oklch(0.780 0.008 265)` · `#B5B7BD` | Borda de campo de texto, radio vazio |
@@ -121,7 +121,51 @@ Derivados fixos: `layout.gutter` 20 pt (margem lateral da tela) · `row.paddingV
 
 O botão primário leva ainda `0 6 20 · protected 22%` — sombra colorida, não neutra.
 
-## 7. Estados de interação (regra, não sugestão)
+## 7. Liquid Glass — só a camada de navegação (iOS 26)
+
+Regra de plataforma: o material Liquid Glass é **exclusivo do chrome flutuante** — tab bar
+inferior, barra de navegação / toolbar superior e a aresta de sheets e modais. Nunca entra
+no conteúdo: cartão, linha de lista, texto, pill de status, o escudo e **nenhum botão de
+ação** (“Blindar meu iPhone”, “Testar de novo”, “Recarregar regras”) seguem 100% opacos
+sobre `bg.surface`, tingidos apenas pelas cores de status. Isso é a regra da plataforma,
+não um descuido do desenho.
+
+| Valor | Escuro | Claro | Papel |
+|---|---|---|---|
+| `glass.blur` | 18 px | 18 px | Raio do desfoque do que passa por trás |
+| `glass.saturate` | 190% | 190% | A cor do conteúdo atravessa mais viva |
+| `glass.lift` | 1.22 | 1.06 | `brightness()`: o material escuro **clareia** o fundo; o claro quase não mexe |
+| `glass.fill` | `oklch(0.235 0.014 258 / 0.58)` | `oklch(0.995 0.002 265 / 0.58)` | Tint translúcido por cima do borrado |
+| `glass.scrim` | `oklch(0.150 0.012 258 / 0.30)` | `oklch(1 0 0 / 0.34)` | Reforço em gradiente, só atrás dos rótulos |
+| `glass.sheen` | `oklch(1 0 0 / 0.12)` | `oklch(1 0 0 / 0.55)` | Brilho que escorre do topo (0 → 44% da altura) |
+| `glass.edge` | `oklch(1 0 0 / 0.22)` | `oklch(1 0 0 / 0.85)` | Realce especular de 1 px na aresta superior |
+| `glass.hairline` | `oklch(1 0 0 / 0.07)` | `oklch(0.200 0.010 265 / 0.10)` | Fio da aresta oposta |
+| `glass.shadow.up` | `0 −10 28 · preto 34%` | `0 −10 26 · preto 10%` | Sombra flutuante da tab bar |
+| `glass.shadow.down` | `0 10 28 · preto 30%` | `0 10 26 · preto 9%` | Sombra da toolbar condensada |
+
+**Onde o material aparece no board**
+
+- **Tab bar** — em todas as telas e nas duas aparências. Flutua sobre o conteúdo; a área de
+  conteúdo reserva os 83 pt da barra, e listas longas passam por baixo dela.
+- **Toolbar superior** — em repouso **não existe**: o large title flutua direto sobre o
+  conteúdo, sem cromo nenhum. Ao rolar, ela condensa e ganha o mesmo material (frame `03 · E`).
+- **Painel “Personalizado”** — cromo de vidro só na aresta: canto arredondado no topo, fio
+  especular e sombra. O corpo do painel continua matte.
+
+**Contraste medido no pixel renderizado**, com a lista e seus badges verdes passando por
+trás do vidro: rótulo de aba inativo 7,4:1 no escuro e 6,9:1 no claro; aba ativa 9,0:1 e
+5,3:1. O `glass.scrim` existe exatamente para isso — sem ele, um rótulo de 10 pt sobre um
+badge verde borrado cai para perto de 3:1.
+
+> **Não porte esta seção para o `Theme.swift`.** Estes valores são referência visual do que
+> o sistema vai desenhar, não tokens de cor do app. No iOS 26, compilado com o SDK do
+> Xcode 26, `TabView`, `NavigationStack`, `.toolbar` e `.sheet` nativos já renderizam
+> Liquid Glass sozinhos, sem uma linha de código extra. `glassEffect()` e
+> `GlassEffectContainer` só entram se você criar um controle flutuante **próprio** fora
+> desses contêineres — para conteúdo (cartão, linha, botão de ação) continue usando as
+> cores opacas das seções 1 e 2.
+
+## 8. Estados de interação (regra, não sugestão)
 
 | Estado | Regra |
 |---|---|
@@ -132,7 +176,7 @@ O botão primário leva ainda `0 6 20 · protected 22%` — sombra colorida, nã
 | `disabled` | `bg.surfaceRaised` + `text.tertiary`. Único estado autorizado a reduzir contraste. |
 | `error` | Borda `status.danger` + fundo `danger / 7%` + mensagem em texto completo abaixo do campo. |
 
-## 8. Mapeamento sugerido para `Theme.swift`
+## 9. Mapeamento sugerido para `Theme.swift`
 
 ```swift
 enum Theme {

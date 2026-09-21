@@ -39,3 +39,9 @@ Equivalentes claros (desenhados na seção *Aparência clara* do board):
 4. **Uma ação primária por tela.** Tudo mais é secundário, texto ou linha de lista com chevron.
 5. **Linguagem sem jargão.** "DNS criptografado" aparece explicado; caminhos do iOS vêm
    em mono, como instrução literal a ser seguida em Ajustes.
+6. **Liquid Glass só na navegação.** Tab bar, toolbar condensada e aresta de sheet usam o
+   material translúcido do iOS 26 (desfoque 18 px, saturação 190%, tint ~58%, fio especular
+   de 1 px no topo e sombra flutuante). Conteúdo — cartão, linha, escudo, pill e qualquer
+   botão de ação — continua opaco sobre `--surface`. Valores completos e a nota de que isso
+   **não** vira token no `Theme.swift` (os contêineres nativos do iOS 26 já desenham o
+   material sozinhos) estão na seção 7 de `design-tokens.md`.
