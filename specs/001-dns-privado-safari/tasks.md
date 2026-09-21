@@ -33,9 +33,9 @@ não mais como bloqueio por arquivo ausente.
 - [ ] T002 Configurar App Group `group.com.seudominio.blindado` em ambos os targets e o
       entitlement `com.apple.developer.networking.networkextension = ["dns-settings"]` no
       target `Blindado`, per `quickstart.md` seção 3
-- [ ] T003 [P] Criar estrutura de pastas `Blindado/{App,Theme,Models,Services,ViewModels,Views,Resources}/`
+- [x] T003 [P] Criar estrutura de pastas `Blindado/{App,Theme,Models,Services,ViewModels,Views,Resources}/`
       per `plan.md` → Project Structure
-- [ ] T004 [P] Criar String Catalog `Blindado/Resources/Localizable.xcstrings` com pt-BR como
+- [x] T004 [P] Criar String Catalog `Blindado/Resources/Localizable.xcstrings` com pt-BR como
       idioma base e inglês preparado (research.md #8)
 
 ---
@@ -47,9 +47,9 @@ compartilhado por todas as Views
 
 **⚠️ CRITICAL**: Nenhuma tarefa de história de usuário pode começar antes desta fase
 
-- [ ] T005 [P] Criar enum `ProtectionLevel` em `Blindado/Models/ProtectionLevel.swift` — casos
+- [x] T005 [P] Criar enum `ProtectionLevel` em `Blindado/Models/ProtectionLevel.swift` — casos
       `.padrao`, `.familia`, `.personalizado`; persistido via `@AppStorage` (data-model.md)
-- [ ] T006 [P] Criar `DNSProvider` e o catálogo fixo de provedores em
+- [x] T006 [P] Criar `DNSProvider` e o catálogo fixo de provedores em
       `Blindado/Models/DNSProvider.swift` — campos `id`, `nível`, `nome`, `serverURL` (HTTPS
       obrigatório), `servers`, `localizedDescription` = "Blindado", `éPadrãoDoNível` (FR-019,
       data-model.md). Catálogo (research.md #2), dois provedores por nível, um marcado
@@ -62,30 +62,30 @@ compartilhado por todas as Views
       servers `94.140.14.15, 94.140.15.16, 2a10:50c0::bad1:ff, 2a10:50c0::bad2:ff`; **Control D
       "Family"** (alternativa) `https://freedns.controld.com/family` servers
       `76.76.2.4, 76.76.10.4, 2606:1a40::4, 2606:1a40:1::4`.
-- [ ] T007 [P] Criar `ProtectionProfile` em `Blindado/Models/ProtectionProfile.swift` — `nível:
+- [x] T007 [P] Criar `ProtectionProfile` em `Blindado/Models/ProtectionProfile.swift` — `nível:
       ProtectionLevel` persistido via `@AppStorage` no App Group
       `group.com.seudominio.blindado`; `providerId: String?` (`nil` = usa o provedor com
       `éPadrãoDoNível == true`, FR-019); `customServerURL: URL?` presente apenas quando
       `nível == .personalizado`, `nil` caso contrário (data-model.md) (depende de T006)
-- [ ] T008 [P] Criar enum `ProtectionState` em `Blindado/Models/ProtectionState.swift` — casos
+- [x] T008 [P] Criar enum `ProtectionState` em `Blindado/Models/ProtectionState.swift` — casos
       `.naoConfigurado`, `.instaladoDesativado`, `.blindado`; NUNCA persistido, sempre
       recalculado a partir do sistema (data-model.md, Constitution Princípio IV)
-- [ ] T009 Criar protocolo `DNSManaging` em `Blindado/Services/DNSManaging.swift` conforme
+- [x] T009 Criar protocolo `DNSManaging` em `Blindado/Services/DNSManaging.swift` conforme
       `contracts/DNSManaging.md`, incluindo `availableProviders(for:)` (retorna o catálogo de
       T006; ≥2 provedores para `.padrao`/`.familia`, FR-019) (depende de T005–T008)
-- [ ] T010 [P] Implementar `DNSManager` (real) em `Blindado/Services/DNSManager.swift` usando
+- [x] T010 [P] Implementar `DNSManager` (real) em `Blindado/Services/DNSManager.swift` usando
       `NEDNSSettingsManager.shared()`, `NEDNSOverHTTPSSettings`,
       `onDemandRules = [NEOnDemandRuleConnect()]`, `localizedDescription = "Blindado"`,
       `loadFromPreferences`/`saveToPreferences`/`removeFromPreferences` (depende de T009)
-- [ ] T011 [P] Implementar `MockDNSManager` em `Blindado/Services/MockDNSManager.swift` com
+- [x] T011 [P] Implementar `MockDNSManager` em `Blindado/Services/MockDNSManager.swift` com
       estado em memória controlável para Previews e XCTest (depende de T009)
-- [ ] T012 Gerar `Blindado/Theme/Theme.swift` a partir de `design/design-tokens.md`,
+- [x] T012 Gerar `Blindado/Theme/Theme.swift` a partir de `design/design-tokens.md`,
       convertendo os tokens de cor semântica (`status.*`/`status.*.soft`, `text.onAccent`),
       tipografia, espaçamento, raio e sombra do Open Design em constantes/estilos Swift
       (research.md #7). **Não inclui tokens de vidro/blur** — Liquid Glass (tab bar, toolbar)
       vem de graça do `TabView`/`NavigationStack` nativos do iOS 26 (research.md #10), sem
       token nenhum do app. Todas as tarefas de View desta lista dependem desta tarefa.
-- [ ] T013 Gerar `Blindado/Theme/Assets.xcassets` com os color sets adaptativos
+- [x] T013 Gerar `Blindado/Theme/Assets.xcassets` com os color sets adaptativos
       claro/escuro do Open Design a partir de `design/design-tokens.md` (valores OKLch/hex de
       cada tema documentados por token) (depende de T012)
 
@@ -105,27 +105,27 @@ configurado" (quickstart.md seção 5, US1).
 
 ### Tests for User Story 1
 
-- [ ] T014 [P] [US1] Teste unitário de `HomeViewModel` (transições
+- [x] T014 [P] [US1] Teste unitário de `HomeViewModel` (transições
       naoConfigurado→instaladoDesativado→blindado→naoConfigurado, e o tratamento do erro de
       conflito quando outra configuração de DNS/VPN de terceiros já está ativa — FR-017,
       usando `MockDNSManager`) em `BlindadoTests/HomeViewModelTests.swift`
 
 ### Implementation for User Story 1
 
-- [ ] T015 [US1] Implementar `HomeViewModel` em `Blindado/ViewModels/HomeViewModel.swift` —
+- [x] T015 [US1] Implementar `HomeViewModel` em `Blindado/ViewModels/HomeViewModel.swift` —
       expõe `ProtectionState` atual (via `DNSManaging.currentState()`), ações `blindar()`,
       `remover()` e `abrirAjustesDoSistema()` (via `UIApplication.openSettingsURLString`),
       recalcula o estado ao voltar ao primeiro plano (`scenePhase`, FR-001, FR-003), e trata o
       erro de conflito lançado por `DNSManaging.install()` quando outra configuração de DNS/VPN
       de terceiros já está ativa, expondo um aviso orientando o usuário a resolvê-lo antes de
       blindar o aparelho (FR-017) (depende de T009, T014)
-- [ ] T016 [US1] Criar `RootTabView` em `Blindado/Views/RootTabView.swift` usando `TabView`
+- [x] T016 [US1] Criar `RootTabView` em `Blindado/Views/RootTabView.swift` usando `TabView`
       **nativo** do SwiftUI (não construir chrome próprio, para herdar Liquid Glass
       automaticamente do iOS 26, research.md #10) — navegação por 4 abas (Início→`HomeView`,
       Safari/Testar/Ajustes→placeholders temporários a serem substituídos pelas histórias
       US3/US4/US5), usando os tokens de `Theme.swift` só para o conteúdo (depende de T012,
       T013, T015)
-- [ ] T017 [US1] Criar `HomeView` em `Blindado/Views/HomeView.swift`, dentro de um
+- [x] T017 [US1] Criar `HomeView` em `Blindado/Views/HomeView.swift`, dentro de um
       `NavigationStack` com `.toolbar` padrão (Liquid Glass automático no título/toolbar) —
       escudo grande com os 3 estados visuais, botão "Blindar meu iPhone" como botão de
       conteúdo normal/prominente (**não** `.glassEffect`, é conteúdo — research.md #10),
@@ -150,23 +150,23 @@ testar URL personalizada inválida e válida; em Padrão/Família, trocar de pro
 
 ### Tests for User Story 2
 
-- [ ] T018 [P] [US2] Teste unitário de `ProtectionLevelViewModel` (troca de nível, troca de
+- [x] T018 [P] [US2] Teste unitário de `ProtectionLevelViewModel` (troca de nível, troca de
       provedor dentro do nível, rejeição de URL não-HTTPS/inacessível, persistência) usando
       `MockDNSManager` em `BlindadoTests/ProtectionLevelViewModelTests.swift`
 
 ### Implementation for User Story 2
 
-- [ ] T019 [US2] Implementar `ProtectionLevelViewModel` em
+- [x] T019 [US2] Implementar `ProtectionLevelViewModel` em
       `Blindado/ViewModels/ProtectionLevelViewModel.swift` — seleciona nível, lista provedores
       via `DNSManaging.availableProviders(for:)` e permite trocar o `providerId` dentro de
       Padrão/Família (FR-019), valida servidor personalizado via
       `DNSManaging.validateCustomServer` (FR-006), persiste `ProtectionProfile` e reaplica via
       `DNSManaging.install` (FR-008) (depende de T009, T018)
-- [ ] T020 [US2] Criar `ProtectionLevelView` em `Blindado/Views/ProtectionLevelView.swift` —
+- [x] T020 [US2] Criar `ProtectionLevelView` em `Blindado/Views/ProtectionLevelView.swift` —
       seleção dos 3 níveis, seletor opcional de provedor dentro de Padrão/Família (nome do
       provedor, não a URL técnica), campo de URL personalizada, mensagens de erro de
       validação, usando tokens de `Theme.swift` (depende de T012, T013, T019)
-- [ ] T021 [US2] Conectar navegação de `HomeView` para `ProtectionLevelView`
+- [x] T021 [US2] Conectar navegação de `HomeView` para `ProtectionLevelView`
       (`Blindado/Views/HomeView.swift`) (depende de T012, T013, T017, T020)
 
 **Checkpoint**: US1 e US2 funcionam de forma independente.
@@ -183,21 +183,21 @@ os 3 resultados distintos (quickstart.md seção 5, US3).
 
 ### Tests for User Story 3
 
-- [ ] T022 [P] [US3] Teste unitário de `ProtectionTestViewModel` (casos protegido, parcial,
+- [x] T022 [P] [US3] Teste unitário de `ProtectionTestViewModel` (casos protegido, parcial,
       desprotegido, indeterminado) usando `MockProtectionTester` em
       `BlindadoTests/ProtectionTestViewModelTests.swift` (depende de T023–T026; pode ser
       escrito antes, como TDD, mas só compila/roda depois do Mock existir)
 
 ### Implementation for User Story 3
 
-- [ ] T023 [P] [US3] Criar `ProtectionTestResult` e `DomainCheckResult` em
+- [x] T023 [P] [US3] Criar `ProtectionTestResult` e `DomainCheckResult` em
       `Blindado/Models/ProtectionTestResult.swift` — inclui `testadoEm: Date` (data-model.md)
       e as regras de derivação de `statusGeral`
       (.protegido/.parcial/.desprotegido/.indeterminado) exatamente como descritas em
       `data-model.md` (FR-010)
-- [ ] T024 [US3] Criar protocolo `ProtectionTesting` em `Blindado/Services/ProtectionTesting.swift`
+- [x] T024 [US3] Criar protocolo `ProtectionTesting` em `Blindado/Services/ProtectionTesting.swift`
       conforme `contracts/ProtectionTesting.md` (depende de T023)
-- [ ] T025 [P] [US3] Implementar `ProtectionTester` (real) em
+- [x] T025 [P] [US3] Implementar `ProtectionTester` (real) em
       `Blindado/Services/ProtectionTester.swift` — `URLSession` com timeout curto contra a
       lista fixa de domínios: `doubleclick.net`, `googleadservices.com`,
       `google-analytics.com`, `ads.tiktok.com`, `graph.facebook.com` (categoria
@@ -205,17 +205,17 @@ os 3 resultados distintos (quickstart.md seção 5, US3).
       continuar acessível mesmo com a proteção ativa); falha de resolução nos 5 primeiros
       conta como bloqueado, falha no domínio de controle é sinal de ausência de rede
       (`.indeterminado`, não `.desprotegido`) (depende de T024)
-- [ ] T026 [P] [US3] Implementar `MockProtectionTester` em
+- [x] T026 [P] [US3] Implementar `MockProtectionTester` em
       `Blindado/Services/MockProtectionTester.swift` com sequência de resultados pré-definida
       (depende de T024)
-- [ ] T027 [US3] Implementar `ProtectionTestViewModel` em
+- [x] T027 [US3] Implementar `ProtectionTestViewModel` em
       `Blindado/ViewModels/ProtectionTestViewModel.swift` — consome `AsyncStream` de
       `ProtectionTesting.runTest()`, expõe resultados item a item sem travar a UI (depende de
       T022, T024, T026)
-- [ ] T028 [US3] Criar `ProtectionTestView` em `Blindado/Views/ProtectionTestView.swift` —
+- [x] T028 [US3] Criar `ProtectionTestView` em `Blindado/Views/ProtectionTestView.swift` —
       lista de domínios com status individual e resultado geral, usando tokens de
       `Theme.swift` (depende de T012, T013, T027)
-- [ ] T029 [US3] Substituir o placeholder da aba "Testar" em `RootTabView` por
+- [x] T029 [US3] Substituir o placeholder da aba "Testar" em `RootTabView` por
       `ProtectionTestView` (`Blindado/Views/RootTabView.swift`) (depende de T012, T013, T016, T028)
 
 **Checkpoint**: US1, US2 e US3 funcionam de forma independente.
@@ -233,37 +233,37 @@ que a aba Safari reflete o estado real e que "Recarregar regras" confirma conclu
 
 ### Tests for User Story 4
 
-- [ ] T030 [P] [US4] Teste unitário de `SafariViewModel` (estados habilitado/desabilitado,
+- [x] T030 [P] [US4] Teste unitário de `SafariViewModel` (estados habilitado/desabilitado,
       recarga) usando `MockContentBlockerManager` em `BlindadoTests/SafariViewModelTests.swift`
       (depende de T032, T034; pode ser escrito antes, como TDD, mas só compila/roda depois do
       Mock existir)
 
 ### Implementation for User Story 4
 
-- [ ] T031 [P] [US4] Criar `ContentBlockerState` em
+- [x] T031 [P] [US4] Criar `ContentBlockerState` em
       `Blindado/Models/ContentBlockerState.swift` — `isEnabled: Bool`,
       `lastReloadDate: Date?` (data-model.md)
-- [ ] T032 [US4] Criar protocolo `ContentBlockerManaging` em
+- [x] T032 [US4] Criar protocolo `ContentBlockerManaging` em
       `Blindado/Services/ContentBlockerManaging.swift` conforme
       `contracts/ContentBlockerManaging.md` (depende de T031)
-- [ ] T033 [P] [US4] Implementar `ContentBlockerManager` (real) em
+- [x] T033 [P] [US4] Implementar `ContentBlockerManager` (real) em
       `Blindado/Services/ContentBlockerManager.swift` usando
       `SFContentBlockerManager.getStateOfContentBlocker` e
       `SFContentBlockerManager.reloadContentBlocker(withIdentifier:)` com identificador
       `com.seudominio.blindado.contentblocker` (depende de T032)
-- [ ] T034 [P] [US4] Implementar `MockContentBlockerManager` em
+- [x] T034 [P] [US4] Implementar `MockContentBlockerManager` em
       `Blindado/Services/MockContentBlockerManager.swift` (depende de T032)
-- [ ] T035 [P] [US4] Criar `ContentBlockerRequestHandling.swift` no target
+- [x] T035 [P] [US4] Criar `ContentBlockerRequestHandling.swift` no target
       `BlindadoContentBlocker/`
-- [ ] T036 [P] [US4] Criar `blockerList.json` inicial no target `BlindadoContentBlocker/` —
+- [x] T036 [P] [US4] Criar `blockerList.json` inicial no target `BlindadoContentBlocker/` —
       regras `url-filter`/`if-domain`/`css-display-none`, abaixo de 150.000 regras
-- [ ] T037 [US4] Implementar `SafariViewModel` em `Blindado/ViewModels/SafariViewModel.swift`
+- [x] T037 [US4] Implementar `SafariViewModel` em `Blindado/ViewModels/SafariViewModel.swift`
       — estado atual, `recarregarRegras()`, instruções para habilitar (depende de T030, T032,
       T034)
-- [ ] T038 [US4] Criar `SafariView` em `Blindado/Views/SafariView.swift` — estado do
+- [x] T038 [US4] Criar `SafariView` em `Blindado/Views/SafariView.swift` — estado do
       bloqueador, botão "Recarregar regras", instruções, usando tokens de `Theme.swift`
       (depende de T012, T013, T037)
-- [ ] T039 [US4] Substituir o placeholder da aba "Safari" em `RootTabView` por `SafariView`
+- [x] T039 [US4] Substituir o placeholder da aba "Safari" em `RootTabView` por `SafariView`
       (`Blindado/Views/RootTabView.swift`) (depende de T012, T013, T016,
       T038)
 
@@ -281,20 +281,20 @@ comportamento real; abrir o link da política de privacidade (quickstart.md seç
 
 ### Tests for User Story 5
 
-- [ ] T040 [P] [US5] Teste unitário de `PrivacyViewModel` (texto reflete o provedor DNS atual)
+- [x] T040 [P] [US5] Teste unitário de `PrivacyViewModel` (texto reflete o provedor DNS atual)
       usando `MockDNSManager` em `BlindadoTests/PrivacyViewModelTests.swift`
 
 ### Implementation for User Story 5
 
-- [ ] T041 [US5] Implementar `PrivacyViewModel` em `Blindado/ViewModels/PrivacyViewModel.swift`
+- [x] T041 [US5] Implementar `PrivacyViewModel` em `Blindado/ViewModels/PrivacyViewModel.swift`
       — lê o provedor/estado atual via `DNSManaging`, expõe texto de privacidade e URL da
       política de privacidade (FR-014) (depende de T009, T040)
-- [ ] T042 [US5] Criar `PrivacyView` em `Blindado/Views/PrivacyView.swift` — texto de
+- [x] T042 [US5] Criar `PrivacyView` em `Blindado/Views/PrivacyView.swift` — texto de
       privacidade e link, usando tokens de `Theme.swift` (depende de T012, T013, T041)
-- [ ] T043 [US5] Criar `SettingsView` em `Blindado/Views/SettingsView.swift` com entrada
+- [x] T043 [US5] Criar `SettingsView` em `Blindado/Views/SettingsView.swift` com entrada
       "Privacidade" navegando para `PrivacyView`, usando tokens de `Theme.swift`
       (depende de T012, T013, T042)
-- [ ] T044 [US5] Substituir o placeholder da aba "Ajustes" em `RootTabView` por `SettingsView`
+- [x] T044 [US5] Substituir o placeholder da aba "Ajustes" em `RootTabView` por `SettingsView`
       (`Blindado/Views/RootTabView.swift`) (depende de T012, T013, T016,
       T043)
 
@@ -306,14 +306,14 @@ comportamento real; abrir o link da política de privacidade (quickstart.md seç
 
 - [ ] T045 [P] Adicionar rótulos de VoiceOver e validar Dynamic Type em todas as Views
       (Constitution Princípio VI) — após T016–T044
-- [ ] T046 [P] Revisar todos os textos de UI e o texto de `app-store-submission.md` contra a
+- [x] T046 [P] Revisar todos os textos de UI e o texto de `app-store-submission.md` contra a
       Constitution Princípio III (nenhuma menção a bloqueio de anúncios fora do Safari) e
       contra o Princípio IX/FR-018 (nenhuma menção a "versão Pro", compra ou assinatura)
 - [ ] T047 Rodar `quickstart.md` seção 5 (validação em dispositivo físico) para as 5 histórias
       de usuário antes de considerar a feature completa
 - [ ] T048 [P] Preencher e validar o checklist final de `app-store-submission.md` antes do
       envio à App Store
-- [ ] T049 [P] Auditar o projeto Xcode (targets, capabilities, dependências) para confirmar
+- [x] T049 [P] Auditar o projeto Xcode (targets, capabilities, dependências) para confirmar
       ausência de StoreKit, de qualquer framework de compra/assinatura, e de código morto de
       versão "Pro" (Constitution Princípio IX, FR-018)
 

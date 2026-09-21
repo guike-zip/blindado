@@ -1,0 +1,96 @@
+{
+  "sourceLanguage" : "pt-BR",
+  "strings" : {
+    "dns_error.conflict" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Outra configuração de DNS ou VPN já está ativa neste iPhone. Resolva o conflito nos Ajustes antes de blindar o aparelho."
+          }
+        }
+      }
+    },
+    "dns_error.invalid_url" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O endereço precisa começar com https://."
+          }
+        }
+      }
+    },
+    "dns_error.unreachable" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não conseguimos falar com esse servidor. Confira o endereço e tente de novo."
+          }
+        }
+      }
+    },
+    "protection_level.familia.name" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Família"
+          }
+        }
+      }
+    },
+    "protection_level.familia.summary" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tudo do Padrão e mais o bloqueio de conteúdo adulto."
+          }
+        }
+      }
+    },
+    "protection_level.padrao.name" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Padrão"
+          }
+        }
+      }
+    },
+    "protection_level.padrao.summary" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bloqueia anúncios, rastreadores e sites de malware conhecidos."
+          }
+        }
+      }
+    },
+    "protection_level.personalizado.name" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalizado"
+          }
+        }
+      }
+    },
+    "protection_level.personalizado.summary" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use o endereço de um servidor DNS seguro em que você já confia."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
