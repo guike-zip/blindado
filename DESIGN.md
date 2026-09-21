@@ -21,6 +21,29 @@ Este arquivo é o índice. Os artefatos completos estão em [`/design`](design/)
   `Blindado/Theme/Assets.xcassets`.
 - [`design/brand-spec.md`](design/brand-spec.md) — a direção de marca em 6 tokens base e as
   regras do idioma visual (uma ação primária por tela, cor só fala de estado, etc.).
+- [`design/blindado-app-icon.html`](design/blindado-app-icon.html) — 4 conceitos de ícone do
+  app (camadas fundo/glifo separadas para o pipeline do Icon Composer do iOS 26, preview em
+  grade de Tela de Início clara/escura e no Dock do macOS). Ver seção "Ícone do app" abaixo.
+
+## Ícone do app
+
+Quatro conceitos, todos a partir do mesmo path de escudo das telas do app — nenhuma cor nova
+além de `status.protected`/`text.onAccent`/`bg.canvas`:
+
+1. **Sólido** — escudo cheio em `status.protected` sobre `bg.canvas`.
+2. **Linha invertida** — campo verde cheio, escudo em contorno (`text.onAccent`).
+3. **Visto vazado** — escudo cheio com uma confirmação recortada (furo par-ímpar), não
+   desenhada por cima.
+4. **Negativo** — campo verde cheio, escudo recortado em `text.onAccent` (a ausência, não o
+   traço).
+
+**Recomendação: conceito 01 (Sólido).** O argumento é semântico, não estético: no Blindado o
+verde significa "protegido", e o app existe porque a proteção pode estar desligada. Um campo
+verde cheio (02, 04) ou um visto (03) carimbam "protegido" na Tela de Início o tempo todo,
+inclusive quando o perfil caiu — o 01 usa o verde como assinatura sobre um campo neutro e
+deixa o veredito real para a tela Início mostrar. Também degrada melhor no pipeline de
+camadas do Icon Composer (fundo chapado + um path só gera as variantes tingida/transparente
+sem redesenho) e permanece distinto a 58 pt numa grade cheia de ícones saturados.
 
 ## O sistema, em uma frase
 

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blindado — ícone do app · 4 conceitos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Mesmos tokens do board de telas — nenhuma cor nova entra aqui.
+   dark  : bg.canvas #0B0F14 · status.protected #56DC85 · text.onAccent #021909
+   light : bg.canvas #F1F2F5 · status.protected #007A34 · text.onAccent #FFFFFF  */
+:root{
+  --bg-canvas:oklch(0.165 0.012 258);
+  --bg-surface:oklch(0.225 0.014 258);
+  --bg-surface-raised:oklch(0.275 0.014 258);
+  --text-primary:oklch(0.980 0.003 258);
+  --text-secondary:oklch(0.760 0.012 258);
+  --text-tertiary:oklch(0.660 0.012 258);
+  --accent:oklch(0.800 0.170 152);
+  --accent-soft:oklch(0.800 0.170 152 / 0.16);
+  --separator:oklch(0.380 0.012 258 / 0.62);
+  --focus-ring:oklch(0.800 0.170 152 / 0.55);
+  --font-ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --radius-md:14px; --radius-lg:20px; --radius-pill:999px;
+  --elev-2:0 4px 14px oklch(0 0 0 / 0.38);
+  --elev-3:0 18px 44px oklch(0 0 0 / 0.46);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:oklch(0.115 0.008 258);
+  background-image:radial-gradient(circle at 16% -6%,oklch(0.800 0.170 152 / 0.07),transparent 46%);
+  color:oklch(0.94 0.005 258);font-family:var(--font-ui);-webkit-font-smoothing:antialiased}
+.board{max-width:1500px;margin:0 auto;padding:0 40px 96px}
+.board-head{padding:56px 0 28px;border-bottom:1px solid oklch(0.36 0.012 258 / .5)}
+.kicker{font:500 12px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.board-title{font:700 clamp(36px,4.6vw,56px)/1.03 var(--font-display);letter-spacing:-.03em;margin:0;color:oklch(.99 .003 258)}
+.board-title em{font-style:normal;color:var(--accent)}
+.board-lede{font:400 17px/26px var(--font-ui);color:oklch(.74 .012 258);max-width:64ch;margin:18px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{font:400 12px/1 var(--font-mono);color:oklch(.80 .012 258);background:oklch(.22 .014 258);
+  border:1px solid oklch(.36 .012 258 / .7);border-radius:var(--radius-pill);padding:8px 13px}
+.board-nav{position:sticky;top:0;z-index:50;display:flex;flex-wrap:wrap;gap:6px;padding:14px 0;
+  background:oklch(.115 .008 258 / .92);backdrop-filter:blur(14px);border-bottom:1px solid oklch(.30 .012 258 / .6)}
+.board-nav a{font:500 13px/1 var(--font-ui);color:oklch(.78 .012 258);text-decoration:none;padding:9px 14px;
+  border-radius:var(--radius-pill);border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.board-nav a:hover{background:oklch(.26 .014 258);color:oklch(.99 .003 258);border-color:oklch(.40 .012 258)}
+.board-nav a:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+.board-nav a[aria-current="true"]{background:var(--accent-soft);color:var(--accent);border-color:oklch(.800 .170 152 / .4)}
+
+section.sec{padding:54px 0 10px;scroll-margin-top:84px}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sec-num{font:500 12px/1 var(--font-mono);color:var(--accent);letter-spacing:.14em}
+.sec-title{font:600 30px/1.1 var(--font-display);letter-spacing:-.02em;margin:0;color:oklch(.98 .003 258)}
+.sec-thesis{font:400 17px/26px var(--font-ui);color:oklch(.72 .012 258);max-width:70ch;margin:12px 0 0}
+
+/* ---- linha superior: master + camadas ---- */
+.top{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start;margin-top:30px}
+.master figcaption,.layer figcaption{font:400 11.5px/1.5 var(--font-mono);color:oklch(.62 .012 258);margin-top:10px;text-align:center}
+.master{margin:0}
+.master .art{border-radius:24px;overflow:hidden;box-shadow:var(--elev-3)}
+.layers{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.layer{margin:0;width:118px}
+.layer .art{width:118px;height:118px;border-radius:18px;overflow:hidden;box-shadow:var(--elev-2)}
+.layer.alpha .art{background-color:oklch(.30 .008 258);
+  background-image:linear-gradient(45deg,oklch(.24 .008 258) 25%,transparent 25%,transparent 75%,oklch(.24 .008 258) 75%),
+                   linear-gradient(45deg,oklch(.24 .008 258) 25%,transparent 25%,transparent 75%,oklch(.24 .008 258) 75%);
+  background-size:16px 16px;background-position:0 0,8px 8px}
+.op{font:400 22px/1 var(--font-mono);color:oklch(.52 .012 258);padding-bottom:24px}
+.layer-note{font:400 13px/20px var(--font-ui);color:oklch(.70 .012 258);max-width:34ch}
+.layer-note b{color:oklch(.94 .005 258);font-weight:600}
+
+/* ---- mocks ---- */
+.mocks{display:flex;gap:26px;flex-wrap:wrap;margin-top:38px;align-items:flex-start}
+.mock{margin:0}
+.mock-label{font:500 11px/1 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;
+  color:oklch(.60 .012 258);margin:0 0 12px}
+.mock-sub{font:400 12px/18px var(--font-ui);color:oklch(.62 .012 258);margin:8px 0 0;max-width:38ch}
+.hs{width:318px;border-radius:30px;padding:22px 16px 18px;position:relative;overflow:hidden;
+  box-shadow:var(--elev-3),0 0 0 1px oklch(.45 .01 258 / .5)}
+.hs.dark{background:radial-gradient(120% 90% at 28% 8%,#1b3550 0%,#101a26 46%,#080b11 100%)}
+.hs.light{background:radial-gradient(120% 90% at 74% 6%,#ffffff 0%,#e3e9f2 44%,#c9d4e3 100%)}
+.hs-bar{display:flex;justify-content:space-between;align-items:center;font:600 12px/1 var(--font-ui);
+  padding:0 8px 16px;letter-spacing:.2px}
+.hs.dark .hs-bar{color:#fff} .hs.light .hs-bar{color:#10151c}
+.hs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 14px}
+.app{display:flex;flex-direction:column;align-items:center;gap:6px}
+.app .art{width:58px;height:58px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.28))}
+.app span{font:400 10px/12px var(--font-ui);text-align:center;max-width:64px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hs.dark .app span{color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.hs.light .app span{color:#10151c;text-shadow:0 1px 2px rgba(255,255,255,.6)}
+.app.ours span{font-weight:600}
+.app.ours .art{outline:2px solid var(--accent);outline-offset:5px;border-radius:14px}
+
+.dockwrap{width:400px}
+.dockbar{display:flex;align-items:flex-end;justify-content:center;gap:14px;height:86px;padding:0 16px 10px;
+  border-radius:22px;background:oklch(.30 .012 258 / .55);backdrop-filter:blur(16px) saturate(180%);
+  box-shadow:0 10px 26px oklch(0 0 0 / .4),inset 0 1px 0 oklch(1 0 0 / .18);
+  background-image:linear-gradient(to bottom,oklch(1 0 0 / .08),transparent 46%)}
+.dockbar+.mock-sub+.dockbar{margin-top:20px}
+.dslot{display:block;line-height:0}
+.dslot.macos{filter:drop-shadow(0 4px 7px rgba(0,0,0,.45))}
+.legend{display:flex;gap:8px;align-items:center;font:400 12px/1.5 var(--font-mono);color:oklch(.62 .012 258);margin-top:14px}
+.legend b{color:var(--accent);font-weight:500}
+
+.readout{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:22px}
+.rd{background:oklch(.175 .010 258);border:1px solid oklch(.30 .012 258 / .7);border-radius:var(--radius-lg);padding:20px 22px}
+.rd h3{font:600 13px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;color:oklch(.70 .012 258)}
+.rd p{font:400 14px/22px var(--font-ui);color:oklch(.80 .012 258);margin:0}
+.rd p+p{margin-top:10px}
+.rd b{color:oklch(.97 .003 258);font-weight:600}
+.rd code{font:400 12.5px/1.5 var(--font-mono);color:oklch(.85 .06 152)}
+.rd.warn{border-color:oklch(.820 .150 78 / .35)}
+.rd.warn h3{color:oklch(.820 .150 78)}
+
+/* ---- recomendação ---- */
+.reco{margin-top:24px;display:flex;gap:34px;flex-wrap:wrap;align-items:flex-start;
+  background:oklch(.175 .010 258);border:1px solid oklch(.800 .170 152 / .3);border-radius:28px;padding:32px 34px}
+.reco .art{border-radius:26px;overflow:hidden;box-shadow:var(--elev-3)}
+.reco-body{flex:1;min-width:320px;max-width:70ch}
+.reco-badge{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--font-mono);letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-soft);padding:8px 13px;border-radius:var(--radius-pill)}
+.reco h2{font:600 26px/1.2 var(--font-display);letter-spacing:-.02em;margin:16px 0 14px;color:oklch(.98 .003 258)}
+.reco p{font:400 15px/24px var(--font-ui);color:oklch(.80 .012 258);margin:0 0 12px}
+.reco ol{margin:0 0 14px;padding-left:20px}
+.reco li{font:400 15px/24px var(--font-ui);color:oklch(.80 .012 258);margin-bottom:8px}
+.reco b{color:oklch(.97 .003 258);font-weight:600}
+.reco code{font:400 13px/1.5 var(--font-mono);color:oklch(.85 .06 152)}
+@media (max-width:820px){.board{padding:0 20px 64px}}
+</style>
+</head>
+<body>
+<div class="board">
+  <header class="board-head" data-od-id="icon-board-header">
+    <p class="kicker">Blindado · ícone do app · 4 conceitos</p>
+    <h1 class="board-title">Um escudo, um verde,<br>nenhuma outra <em>ideia</em></h1>
+    <p class="board-lede">Tudo aqui é vetor puro, desenhado com o mesmo silhueta de escudo das telas do app e os mesmos tokens de <code style="font:400 15px/1 var(--font-mono);color:oklch(.85 .06 152)">design-tokens.md</code> — sem tipografia, sem 3D, sem foto e sem um segundo acento. Cada conceito aparece no master de 1024, separado em camada de fundo e camada de glifo (o formato que o Icon Composer espera), e depois no tamanho em que ele realmente será julgado: 58 pt numa tela inicial cheia de ícones alheios.</p>
+    <div class="chips">
+      <span class="chip">1024 × 1024</span>
+      <span class="chip">Camadas fundo + glifo</span>
+      <span class="chip">Tela inicial clara e escura</span>
+      <span class="chip">Dock do macOS</span>
+      <span class="chip">Sem wordmark</span>
+      <span class="chip">Um acento só</span>
+    </div>
+  </header>
+  <nav class="board-nav" data-od-id="icon-board-nav" aria-label="Conceitos">
+    <a href="#solido">01 · Sólido</a><a href="#linha">02 · Linha invertida</a>
+    <a href="#sinal">03 · Visto vazado</a><a href="#negativo">04 · Negativo</a>
+    <a href="#recomendacao">Recomendação</a>
+  </nav>
+  <main id="concepts"></main>
+  <section class="sec" id="recomendacao" data-od-id="section-recomendacao">
+    <div class="sec-head"><span class="sec-num">→</span><h2 class="sec-title">Recomendação</h2></div>
+    <div class="reco" data-od-id="reco-card">
+      <div id="reco-art"></div>
+      <div class="reco-body">
+        <span class="reco-badge">Eu mandaria o 01 · Sólido</span>
+        <h2>O ícone declara identidade; o estado fica dentro do app</h2>
+        <ol>
+          <li><b>Continuidade.</b> É literalmente o herói da tela Início em escala de ícone. Quem toca no escudo verde abre um app cujo primeiro elemento é o mesmo escudo verde — o ícone vira a primeira linha da conversa, não um selo separado.</li>
+          <li><b>Não há nada para perder.</b> A 58 pt o conceito 01 é uma silhueta chapada sobre um campo chapado. Nenhum traço fino, nenhum vazado que possa fechar, nenhum detalhe que dependa de retina.</li>
+          <li><b>Um ícone não deveria afirmar um estado.</b> No Blindado, verde significa “protegido” e o app inteiro existe porque a proteção pode estar desligada. Campo verde cheio (02 e 04) ou visto (03) carimbam “protegido” na tela inicial 24 horas por dia, inclusive quando o perfil caiu. O 01 é o único que usa o verde como assinatura da marca, sobre um campo neutro, e deixa o veredito para quem sabe dá-lo: a tela Início.</li>
+          <li><b>Numa grade, contraste bate saturação.</b> Quase todo ícone vizinho é um ladrilho colorido e saturado. Um ladrilho quase-preto com uma única marca verde é <b>mais</b> distinto ali do que mais um quadrado verde — é exatamente por isso que o 02 e o 04, que são mais fortes isolados, somem mais rápido no meio da tela inicial.</li>
+          <li><b>É o que melhor degrada no Icon Composer.</b> Fundo chapado + um path único de glifo: as variantes clara, escura, tingida e transparente saem certas sem redesenho. Os conceitos com vazado ou traço exigem conferir cada variante uma a uma.</li>
+        </ol>
+        <p><b>O segundo lugar é o 03</b>, e por pouco. Tecnicamente ele passa: o visto de 78 px vira ~4,4 pt em tela e continua sendo uma silhueta só. A objeção não é de legibilidade, é a mesma do item 3 — ele promete confirmação na tela inicial. Se você aceitar essa promessa (a maioria dos apps de segurança aceita, e não é erro), o 03 é a escolha mais expressiva do conjunto.</p>
+        <p><b>O 02 eu não mandaria.</b> Um contorno de 56 px vira ~3,5 pt na tela inicial e a leitura primária passa a ser “quadrado verde”; o escudo só aparece no segundo olhar, que é exatamente o olhar que ninguém dá numa grade de 24 ícones. O 04 resolve isso com massa — é o mais forte dos dois de campo verde —, mas leva junto o carimbo de estado e um tom mais alto do que “ferramenta séria”.</p>
+        <p><b>Entrega para o Icon Composer:</b> dois arquivos por conceito — <code>fundo.svg</code> em 1024 × 1024 cheio (sangra até a borda, o sistema aplica a máscara) e <code>glifo.svg</code> em 1024 × 1024 com fundo transparente. Nenhuma sombra, nenhum brilho e nenhum canto arredondado assados no arquivo: o squircle, a sombra do Dock e as variantes de aparência são do sistema.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  /* ---------- geometria ---------- */
+  // superelipse |x|^5 + |y|^5 = 1 — aproxima o squircle do iOS/macOS
+  var SQ=(function(){
+    var p=[],N=160;
+    for(var i=0;i<=N;i++){
+      var t=i/N*Math.PI*2, ct=Math.cos(t), st=Math.sin(t);
+      var sx=ct<0?-1:1, sy=st<0?-1:1;
+      var x=sx*Math.pow(Math.abs(ct),0.4), y=sy*Math.pow(Math.abs(st),0.4);
+      p.push((512+512*x).toFixed(1)+' '+(512+512*y).toFixed(1));
+    }
+    return 'M'+p.join('L')+'Z';
+  })();
+  // mesma silhueta de escudo das telas do app, escalada para o canvas de 1024
+  var SHIELD='M512 190L262 290V492c0 153 103 284 250 338c147-54 250-185 250-338V290L512 190Z';
+  var COL={
+    dark :{neutral:'#0B0F14',lift:'#16202B',green:'#56DC85',ink:'#021909'},
+    light:{neutral:'#F1F2F5',lift:'#FFFFFF',green:'#007A34',ink:'#FFFFFF'}
+  };
+  var uid=0;
+
+  function parts(cid,c,u){
+    if(cid==='solido') return {
+      defs:'<radialGradient id="g'+u+'" cx="50%" cy="41%" r="64%">'+
+           '<stop offset="0" stop-color="'+c.lift+'" stop-opacity="1"/>'+
+           '<stop offset="1" stop-color="'+c.lift+'" stop-opacity="0"/></radialGradient>',
+      bg:'<rect width="1024" height="1024" fill="'+c.neutral+'"/>'+
+         '<rect width="1024" height="1024" fill="url(#g'+u+')" opacity="'+(c===COL.dark?'.9':'.85')+'"/>',
+      fg:'<path d="'+SHIELD+'" fill="'+c.green+'"/>'};
+    if(cid==='linha') return {defs:'',
+      bg:'<rect width="1024" height="1024" fill="'+c.green+'"/>',
+      fg:'<path d="'+SHIELD+'" fill="none" stroke="'+c.ink+'" stroke-width="56" stroke-linejoin="round"/>'};
+    if(cid==='sinal') return {
+      defs:'<mask id="m'+u+'" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">'+
+           '<path d="'+SHIELD+'" fill="#fff"/>'+
+           '<path d="M390 502L470 582L634 414" fill="none" stroke="#000" stroke-width="78" '+
+           'stroke-linecap="round" stroke-linejoin="round"/></mask>',
+      bg:'<rect width="1024" height="1024" fill="'+c.neutral+'"/>',
+      fg:'<rect width="1024" height="1024" fill="'+c.green+'" mask="url(#m'+u+')"/>'};
+    return {defs:'',
+      bg:'<rect width="1024" height="1024" fill="'+c.green+'"/>',
+      fg:'<path d="'+SHIELD+'" fill="'+c.ink+'"/>'};
+  }
+
+  // shape: squircle | rounded | none   ·   layer: all | bg | fg
+  function icon(cid,appear,px,shape,layer){
+    var c=COL[appear], u=(uid++), p=parts(cid,c,u), clip='', use='';
+    if(shape==='squircle'){ clip='<clipPath id="c'+u+'"><path d="'+SQ+'"/></clipPath>'; use=' clip-path="url(#c'+u+')"'; }
+    else if(shape==='rounded'){ clip='<clipPath id="c'+u+'"><rect width="1024" height="1024" rx="229" ry="229"/></clipPath>'; use=' clip-path="url(#c'+u+')"'; }
+    var body=(layer==='fg'?'':p.bg)+(layer==='bg'?'':p.fg);
+    return '<svg viewBox="0 0 1024 1024" width="'+px+'" height="'+px+'" role="img" aria-label="Ícone Blindado — conceito '+cid+'">'+
+      '<defs>'+clip+p.defs+'</defs><g'+use+'>'+body+'</g></svg>';
+  }
+
+  /* ---------- ícones vizinhos (genéricos, só para julgar a grade) ---------- */
+  var MARKS={
+    grid:'<g fill="#fff" fill-opacity=".92"><circle cx="400" cy="400" r="78"/><circle cx="624" cy="400" r="78"/><circle cx="400" cy="624" r="78"/><circle cx="624" cy="624" r="78"/></g>',
+    ring:'<g fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="64"><circle cx="512" cy="512" r="190"/></g><circle cx="512" cy="512" r="62" fill="#fff" fill-opacity=".92"/>',
+    lines:'<g fill="#fff" fill-opacity=".92"><rect x="300" y="360" width="424" height="58" rx="29"/><rect x="300" y="483" width="424" height="58" rx="29"/><rect x="300" y="606" width="260" height="58" rx="29"/></g>',
+    wave:'<g fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="58" stroke-linecap="round"><path d="M336 600A176 176 0 0 1 688 600"/><path d="M424 640A88 88 0 0 1 600 640"/></g><circle cx="512" cy="660" r="36" fill="#fff" fill-opacity=".92"/>',
+    bars:'<g fill="#fff" fill-opacity=".92"><rect x="318" y="520" width="80" height="190" rx="28"/><rect x="472" y="400" width="80" height="310" rx="28"/><rect x="626" y="300" width="80" height="410" rx="28"/></g>',
+    bag:'<g fill="none" stroke="#fff" stroke-opacity=".92" stroke-width="58" stroke-linejoin="round"><rect x="318" y="410" width="388" height="310" rx="60"/><path d="M420 410v-40a92 92 0 0 1 184 0v40"/></g>',
+    lens:'<g fill="#fff" fill-opacity=".92"><circle cx="440" cy="470" r="150"/></g><g fill="#fff" fill-opacity=".55"><circle cx="606" cy="580" r="150"/></g>'
+  };
+  var NEIGH=[
+    {n:'Agenda',c:'#2F3C8F',m:'grid'},{n:'Câmera',c:'#4B4B55',m:'ring'},
+    {n:'Notas',c:'#B8901E',m:'lines'},{n:'Rádio',c:'#A82D45',m:'wave'},
+    {n:'Banco',c:'#1E6B67',m:'bars'},{n:'Loja',c:'#6E3B9C',m:'bag'},
+    {n:'Fotos',c:'#2A66AC',m:'lens'},{n:'Tarefas',c:'#3D6B42',m:'lines'},
+    {n:'Voos',c:'#B85A2E',m:'bars'},{n:'Arquivos',c:'#56596E',m:'grid'},
+    {n:'Som',c:'#8A2F6B',m:'wave'}
+  ];
+  function neighbor(i,px){
+    var d=NEIGH[i%NEIGH.length], u=(uid++);
+    return '<svg viewBox="0 0 1024 1024" width="'+px+'" height="'+px+'" aria-hidden="true">'+
+      '<defs><clipPath id="n'+u+'"><path d="'+SQ+'"/></clipPath></defs>'+
+      '<g clip-path="url(#n'+u+')"><rect width="1024" height="1024" fill="'+d.c+'"/>'+MARKS[d.m]+'</g></svg>';
+  }
+  var STATUS='<svg viewBox="0 0 70 13" width="52" height="10" aria-hidden="true">'+
+    '<g fill="currentColor"><rect x="0" y="7" width="2.7" height="5" rx="1"/><rect x="4.5" y="5" width="2.7" height="7" rx="1"/>'+
+    '<rect x="9" y="2.9" width="2.7" height="9.1" rx="1"/><rect x="13.5" y=".9" width="2.7" height="11.1" rx="1"/></g>'+
+    '<g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">'+
+    '<path d="M21.7 4.9a8.6 8.6 0 0 1 10.6 0"/><path d="M24 7.7a5 5 0 0 1 6 0"/></g>'+
+    '<circle cx="27" cy="10.6" r="1.35" fill="currentColor"/>'+
+    '<rect x="38.6" y="1.7" width="24" height="10.6" rx="3.2" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1.1"/>'+
+    '<rect x="40.2" y="3.3" width="17.4" height="7.4" rx="2" fill="currentColor"/></svg>';
+
+  function homeScreen(cid,appear){
+    var slots='',k=0;
+    for(var i=0;i<12;i++){
+      if(i===5) slots+='<div class="app ours" data-od-id="home-'+cid+'-'+appear+'"><span class="art">'+
+                       icon(cid,appear,58,'squircle','all')+'</span><span>Blindado</span></div>';
+      else { var d=NEIGH[k%NEIGH.length];
+             slots+='<div class="app"><span class="art">'+neighbor(k,58)+'</span><span>'+d.n+'</span></div>'; k++; }
+    }
+    return '<figure class="mock"><p class="mock-label">Tela inicial · '+(appear==='dark'?'papel de parede escuro':'papel de parede claro')+'</p>'+
+      '<div class="hs '+appear+'"><div class="hs-bar"><span>9:41</span><span>'+STATUS+'</span></div>'+
+      '<div class="hs-grid">'+slots+'</div></div>'+
+      '<p class="mock-sub">Ícones a 58 pt, tamanho real. A variante '+(appear==='dark'?'escura':'clara')+
+      ' é a que o sistema gera sozinho a partir das duas camadas.</p></figure>';
+  }
+
+  function dock(cid){
+    var a='',b='';
+    for(var i=0;i<3;i++){ a+='<span class="dslot macos">'+neighbor(i,50)+'</span>'; b+='<span class="dslot macos">'+neighbor(i,50)+'</span>'; }
+    a+='<span class="dslot macos" data-od-id="dock-ios-'+cid+'">'+icon(cid,'dark',58,'rounded','all')+'</span>';
+    b+='<span class="dslot macos" data-od-id="dock-macos-'+cid+'">'+icon(cid,'dark',50,'squircle','all')+'</span>';
+    for(var j=3;j<5;j++){ a+='<span class="dslot macos">'+neighbor(j,50)+'</span>'; b+='<span class="dslot macos">'+neighbor(j,50)+'</span>'; }
+    return '<figure class="mock dockwrap"><p class="mock-label">Dock do macOS · duas convenções</p>'+
+      '<div class="dockbar">'+a+'</div>'+
+      '<p class="mock-sub"><b style="color:oklch(.82 .15 78)">Quina arredondada cheia:</b> mesmos vizinhos, só o Blindado com raio comum e sem recuo. Ele fica 16% maior que a fileira e o canto destoa — é o erro clássico de reaproveitar o master do iOS no Mac.</p>'+
+      '<div class="dockbar">'+b+'</div>'+
+      '<p class="mock-sub"><b style="color:var(--accent)">Squircle com recuo:</b> mesma arte na curva contínua, no mesmo tamanho dos vizinhos e com a sombra do sistema. A fileira volta a ter uma linha de base só.</p></figure>';
+  }
+
+  var CONCEPTS=[
+   {id:'solido',num:'01',name:'Sólido',
+    thesis:'Escudo cheio sobre o fundo do próprio app. O ícone é o herói da tela Início, reduzido — nenhuma ideia nova, que é exatamente a intenção.',
+    comp:'O campo é o <b>bg.canvas</b> do app com um realce radial de ±0,04 L atrás do escudo: some a 58 pt, dá profundidade a 1024. O escudo ocupa 49% da largura e fica 3% acima do centro geométrico — correção óptica, porque a ponta inferior puxa a massa visual para baixo.',
+    layers:'<b>Fundo:</b> retângulo cheio em <code>bg.canvas</code> mais o realce radial. <b>Glifo:</b> um único path do escudo em <code>status.protected</code>, fundo transparente. Um path só significa que as variantes tingida e transparente saem certas sem redesenho.',
+    small:'Melhor caso do conjunto: massa sólida, zero detalhe interno. Reduzido a 29 pt (Ajustes, Spotlight) continua lendo como escudo.',warn:0},
+   {id:'linha',num:'02',name:'Linha invertida',
+    thesis:'Inverte figura e fundo do 01: o verde vira a superfície e o escudo passa a ser desenho, não preenchimento.',
+    comp:'Traço de 56 px — 5,5% da largura do canvas — em <b>text.onAccent</b>, o mesmo par de cor que o app usa em qualquer preenchimento verde. Sem preenchimento interno: o escudo é literalmente uma linha fechada.',
+    layers:'<b>Fundo:</b> chapado em <code>status.protected</code>. <b>Glifo:</b> o contorno do escudo em <code>text.onAccent</code>, traçado e depois convertido em path preenchido na exportação (o Icon Composer não escala traços junto com a arte).',
+    small:'Aqui a conta aperta: 56 px viram ~3,5 pt na tela inicial. O traço aguenta, mas a leitura primária passa a ser “quadrado verde” — o escudo chega meio segundo depois.',warn:1},
+   {id:'sinal',num:'03',name:'Visto vazado',
+    thesis:'O escudo com a confirmação recortada: a mesma frase que a tela Início diz em palavras, aqui em uma silhueta só.',
+    comp:'O visto é <b>vazado</b> do escudo, não desenhado por cima — por ser furo e não sobreposição, continua havendo uma silhueta única: a 58 pt o olho lê um escudo com um corte, nunca duas marcas disputando. Traço de 78 px, ou 7,6% do canvas, com cerca de 100 px de folga até a borda interna do escudo.<br><br>Desenhei antes a onda de sinal: com arcos concêntricos e ponto, ela lê como o glifo de Wi-Fi — e o Blindado também protege no 4G. Prometia a coisa errada, então virou visto.',
+    layers:'<b>Fundo:</b> chapado em <code>bg.canvas</code>. <b>Glifo:</b> o escudo em <code>status.protected</code> com o visto recortado por máscara — exporta como um path único com furo (regra par-ímpar), não como duas camadas empilhadas.',
+    small:'Aguenta bem: 78 px viram ~4,4 pt em tela, mais grosso que o traço de qualquer marca de sinal. O que ele perde não é legibilidade, é neutralidade — ver adiante.',warn:0},
+   {id:'negativo',num:'04',name:'Negativo',
+    thesis:'Minha alternativa: o escudo deixa de ser objeto e vira o vazio. Campo verde cheio, escudo recortado.',
+    comp:'Mesmo campo do 02, relação figura-fundo oposta: lá o escudo é traçado, aqui ele é a ausência. É a composição com mais massa de cor de todas e a que mais se afasta do vocabulário “glifo pequeno em campo escuro” usado por quase todo app de segurança.',
+    layers:'<b>Fundo:</b> chapado em <code>status.protected</code>. <b>Glifo:</b> o escudo cheio em <code>text.onAccent</code> — o mesmo path do conceito 01, só que na cor da tinta em vez da cor do acento.',
+    small:'Empata com o 01 em legibilidade pura: nenhum detalhe para perder. O custo não é técnico, é de tom — um ladrilho inteiro saturado grita numa tela inicial e contradiz o “ferramenta séria, não brinquedo”.',warn:0}
+  ];
+
+  var host=document.getElementById('concepts');
+  CONCEPTS.forEach(function(k){
+    var s=document.createElement('section');
+    s.className='sec'; s.id=k.id; s.setAttribute('data-od-id','concept-'+k.id);
+    s.innerHTML=
+      '<div class="sec-head"><span class="sec-num">'+k.num+'</span><h2 class="sec-title">'+k.name+'</h2></div>'+
+      '<p class="sec-thesis">'+k.thesis+'</p>'+
+      '<div class="top">'+
+        '<figure class="master" data-od-id="master-'+k.id+'"><div class="art">'+icon(k.id,'dark',288,'squircle','all')+'</div>'+
+          '<figcaption>master 1024 × 1024 · variante escura</figcaption></figure>'+
+        '<div class="layers">'+
+          '<figure class="layer"><div class="art">'+icon(k.id,'dark',118,'squircle','bg')+'</div><figcaption>camada de fundo</figcaption></figure>'+
+          '<span class="op">+</span>'+
+          '<figure class="layer alpha"><div class="art">'+icon(k.id,'dark',118,'squircle','fg')+'</div><figcaption>camada de glifo</figcaption></figure>'+
+          '<span class="op">=</span>'+
+          '<figure class="layer"><div class="art">'+icon(k.id,'light',118,'squircle','all')+'</div><figcaption>variante clara</figcaption></figure>'+
+          '<p class="layer-note">'+k.layers+'</p>'+
+        '</div>'+
+      '</div>'+
+      '<div class="mocks">'+homeScreen(k.id,'dark')+homeScreen(k.id,'light')+dock(k.id)+'</div>'+
+      '<div class="readout">'+
+        '<div class="rd"><h3>Composição</h3><p>'+k.comp+'</p></div>'+
+        '<div class="rd"><h3>Camadas do Icon Composer</h3><p>'+k.layers+'</p></div>'+
+        '<div class="rd'+(k.warn?' warn':'')+'"><h3>A 58 pt</h3><p>'+k.small+'</p></div>'+
+      '</div>';
+    host.appendChild(s);
+  });
+  document.getElementById('reco-art').innerHTML='<div class="art">'+icon('solido','dark',232,'squircle','all')+'</div>';
+
+  var secs=[].slice.call(document.querySelectorAll('section.sec'));
+  var links=[].slice.call(document.querySelectorAll('.board-nav a'));
+  function sync(){
+    var y=window.scrollY+150,cur=secs[0];
+    secs.forEach(function(s){ if(s.offsetTop<=y) cur=s; });
+    links.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href')==='#'+cur.id?'true':'false'); });
+    try{ localStorage.setItem('blindado.icon.scroll',String(window.scrollY)); }catch(e){}
+  }
+  var t=null;
+  window.addEventListener('scroll',function(){ if(t) return; t=setTimeout(function(){t=null;sync();},120); },{passive:true});
+  try{ var sv=parseFloat(localStorage.getItem('blindado.icon.scroll'));
+       if(!location.hash && sv>0) window.scrollTo(0,sv); }catch(e){}
+  sync();
+})();
+</script>
+</body>
+</html>
