@@ -1,18 +1,14 @@
 <!--
 Sync Impact Report
-Version change: (none) → 1.0.0
-Modified principles: n/a (initial ratification)
+Version change: 1.0.0 → 1.1.0
+Modified principles: n/a
 Added sections:
-  - Core Principles (I–VIII: Privacidade Absoluta, Apenas Frameworks Nativos da Apple,
-    Conformidade com a App Store Acima de Tudo, Honestidade com o Usuário, Testabilidade,
-    Acessibilidade Obrigatória, Simplicidade, Entrega Independente por História de Usuário)
-  - Padrões de Qualidade e Segurança
-  - Fluxo de Desenvolvimento
-  - Governance
+  - Core Principle IX: App Pago de Download Único (Sem Compras Internas)
 Removed sections: n/a
 Deferred TODOs: none
-Templates requiring follow-up: none checked in this pass (initial ratification; no dependent
-  templates yet reference project-specific principle names)
+Templates requiring follow-up: specs/001-dns-privado-safari/spec.md, plan.md, tasks.md updated
+  in the same change to add the corresponding functional requirement and remove any
+  purchase/paywall-adjacent assumptions.
 -->
 
 # Blindado Constitution
@@ -81,6 +77,17 @@ histórias de prioridade inferior.
 Rationale: permite validar o fluxo crítico (P1) cedo em hardware real antes de investir nas
 demais histórias.
 
+### IX. App Pago de Download Único (Sem Compras Internas)
+O Blindado É DISTRIBUÍDO como aplicativo pago de download único, com preço definido no App
+Store Connect. O app NÃO DEVE implementar compras dentro do aplicativo, assinaturas, paywall,
+StoreKit ou qualquer mecanismo de bloqueio de recursos. Todo usuário que baixa o app DEVE ter
+acesso completo e imediato a todos os níveis de proteção (Padrão, Família, Personalizado), ao
+bloqueador de conteúdo do Safari e ao teste de proteção — não existe versão "Pro" nem recurso
+premium.
+Rationale: simplifica a experiência do usuário leigo (nenhuma decisão de upgrade), evita a
+complexidade e os riscos de conformidade de um sistema de cobrança recorrente, e é consistente
+com o Princípio I (nenhuma infraestrutura própria de cobrança ou validação de recibos).
+
 ## Padrões de Qualidade e Segurança
 
 O código Swift DEVE compilar sem warnings ignorados em builds de Release. Qualquer permissão
@@ -106,4 +113,4 @@ o número de versão incrementado conforme versionamento semântico, e (3) revis
 conformidade com os princípios aqui descritos; complexidade que viole o Princípio VII
 (Simplicidade) DEVE ser justificada explicitamente no plano ou rejeitada.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-21 | **Last Amended**: 2026-09-21
+**Version**: 1.1.0 | **Ratified**: 2026-09-21 | **Last Amended**: 2026-09-21

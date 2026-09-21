@@ -17,20 +17,31 @@ Nível de proteção escolhido pelo usuário (FR-005).
 
 ## DNSProvider
 
-Provedor DoH associado a um `ProtectionLevel` (FR-005, FR-006).
+Provedor DoH candidato para um `ProtectionLevel` (FR-005, FR-006, FR-019). Para `.padrao` e
+`.familia` existe **mais de uma opção catalogada** (research.md #2), para não depender de um
+único fornecedor terceiro; para `.personalizado` é construído dinamicamente a partir do
+endereço informado pelo usuário.
 
 | Campo | Tipo | Regras |
 |---|---|---|
-| nível | `ProtectionLevel` | — |
-| serverURL | `URL` | HTTPS obrigatório; para `.personalizado`, informado pelo usuário e validado (FR-006) antes de salvar |
-| servers | `[String]` | IPs de fallback; fixos para `.padrao`/`.familia`, vazio para `.personalizado` |
+| id | `String` | identificador estável do catálogo (ex.: `"adguard"`, `"controld"`) — usado para persistir a escolha em `ProtectionProfile` |
+| nível | `ProtectionLevel` | nível ao qual o provedor pertence (`.padrao`/`.familia`); ausente para `.personalizado` |
+| nome | `String` | nome exibido ao usuário (ex.: "AdGuard DNS", "Control D") |
+| serverURL | `URL` | HTTPS obrigatório; endpoint DoH (`dns-query`) |
+| servers | `[String]` | IPs de fallback (IPv4 + IPv6), fixos para `.padrao`/`.familia`, vazio para `.personalizado` |
 | localizedDescription | `String` | Exibido em Ajustes do sistema como "Blindado" |
+| éPadrãoDoNível | `Bool` | `true` para o provedor pré-selecionado de cada nível (research.md #2); apenas um por nível |
+
+**Catálogo fixo** (valores exatos em research.md #2):
+- `.padrao`: **AdGuard DNS** (padrão do nível) · **Control D "Ads & Trackers"** (alternativa)
+- `.familia`: **AdGuard DNS Family** (padrão do nível) · **Control D "Family"** (alternativa)
 
 **Validation rules**:
 - `.personalizado`: `serverURL` DEVE usar esquema `https`; DEVE responder a uma checagem de
   alcançabilidade antes de ser salvo (research.md #3). Falha em qualquer uma bloqueia o salvamento
   e retorna erro amigável (FR-006).
-- `.padrao` e `.familia`: valores fixos, não editáveis pelo usuário.
+- `.padrao` e `.familia`: valores fixos do catálogo, não editáveis pelo usuário — apenas a
+  *escolha* de qual provedor do catálogo usar dentro do nível é editável (FR-019).
 
 ## ProtectionProfile
 
@@ -39,10 +50,12 @@ Configuração de proteção persistida pelo usuário (Key Entity da spec).
 | Campo | Tipo | Regras |
 |---|---|---|
 | nível | `ProtectionLevel` | persistido |
+| providerId | `String?` | `id` do `DNSProvider` selecionado dentro do nível `.padrao`/`.familia`; `nil` = usa o provedor com `éPadrãoDoNível == true` (FR-019) — o usuário leigo nunca precisa definir isso |
 | customServerURL | `URL?` | presente apenas quando `nível == .personalizado`; `nil` caso contrário |
 
-**Relationships**: resolve para um `DNSProvider` concreto (fixo para Padrão/Família, construído
-a partir de `customServerURL` para Personalizado).
+**Relationships**: resolve para um `DNSProvider` concreto — do catálogo fixo (usando
+`providerId`, ou o provedor padrão do nível quando `nil`) para Padrão/Família, ou construído a
+partir de `customServerURL` para Personalizado.
 
 ## ProtectionState
 
@@ -73,6 +86,7 @@ Resultado de uma execução do teste de proteção (Key Entity da spec, US3).
 |---|---|---|
 | itens | `[DomainCheckResult]` | um por domínio testado |
 | statusGeral | `.protegido` \| `.parcial` \| `.desprotegido` \| `.indeterminado` | derivado dos itens |
+| testadoEm | `Date` | quando o teste foi concluído; exibido em Início ("Verificado hoje, 09:38") e em Testar — apenas o resultado mais recente é mantido, não um histórico |
 
 **Derivation rules**:
 - `.protegido`: todos os domínios de anúncio/rastreador bloqueados **e** o domínio comum

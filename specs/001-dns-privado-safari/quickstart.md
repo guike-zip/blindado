@@ -7,10 +7,15 @@ validação final de cada história é em hardware real, Constitution Princípio
 
 ## 1. Pré-requisitos
 
-- Xcode mais recente com suporte a iOS 16+.
+- **Xcode mais recente disponível** (mínimo absoluto: Xcode 26, necessário para compilar com o
+  SDK do iOS 26 e obter Liquid Glass nativo em `TabView`/`NavigationStack`/toolbars —
+  research.md #10). Sem dependências de terceiros para fixar versão, use sempre a toolchain
+  mais atual no momento do build.
 - Conta de desenvolvedor Apple (paga, necessária para `Network Extension` entitlement e App
   Groups em dispositivo físico).
-- iPhone físico com iOS 16+ para testes de DNS/Content Blocker.
+- iPhone físico com **iOS 26+** para testes de DNS/Content Blocker e para ver o Liquid Glass
+  real (o Simulador renderiza glass, mas a validação final de UI ainda é em hardware,
+  Constitution Princípio VIII).
 
 ## 2. Criar o projeto no Xcode (manual — não via linha de comando)
 
@@ -18,9 +23,12 @@ validação final de cada história é em hardware real, Constitution Princípio
    - Product Name: `Blindado`
    - Interface: SwiftUI · Language: Swift
    - Bundle Identifier: `com.seudominio.blindado`
+   - Target → General → Minimum Deployments: **iOS 26.0** (obrigatório para Liquid Glass
+     nativo, research.md #10)
 2. Adicionar o segundo target: **File → New → Target → Content Blocker Extension**.
    - Product Name: `BlindadoContentBlocker`
    - Bundle Identifier resultante: `com.seudominio.blindado.contentblocker`
+   - Minimum Deployments: **iOS 26.0** (mesmo valor do app principal)
 3. Salvar o projeto na raiz deste repositório (mesmo diretório deste `specs/`).
 4. Rodar `specify init --here --force` (ou equivalente) **depois** de o projeto compilar, para
    que os arquivos gerados pelo Spec Kit entrem numa estrutura que já builda.
@@ -84,11 +92,15 @@ Rodar cada validação isoladamente, na ordem de prioridade (Constitution Princ�
    dado coletado, provedor DNS atual nomeado).
 2. Tocar no link da política de privacidade → confirmar abertura do conteúdo completo.
 
-## 6. Pipeline de design (bloqueado até `DESIGN.md` existir)
+## 6. Pipeline de design
 
-1. Confirmar que `DESIGN.md` e `/design` existem na raiz do repositório.
-2. Extrair tokens (cores, tipografia, espaçamentos, raios, sombras) para `Theme.swift` e
-   `Assets.xcassets`.
+`DESIGN.md` e `/design` já existem (gerados via Open Design em 2026-09-21).
+
+1. Abrir [`design/blindado-ios-prototype.html`](../../design/blindado-ios-prototype.html) no
+   navegador para referência visual das 12 telas.
+2. Extrair os tokens de [`design/design-tokens.md`](../../design/design-tokens.md) (cores,
+   tipografia, espaçamentos, raios, sombras) para `Theme.swift` e `Assets.xcassets` (T012/T013
+   em `tasks.md`).
 3. Somente então iniciar/retomar as tarefas de `Views/` em `tasks.md`.
 
 ## 7. Testes automatizados

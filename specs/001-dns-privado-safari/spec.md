@@ -49,7 +49,10 @@ O usuário escolhe entre três níveis de proteção: "Padrão" (bloqueia anúnc
 "Família" (também bloqueia conteúdo adulto) e "Personalizado" (o usuário informa o endereço de um
 servidor DNS seguro próprio). No modo Personalizado, o endereço informado é validado antes de ser
 salvo. A escolha do usuário é lembrada, e trocar de nível reaplica a proteção com a nova
-configuração sem exigir que o usuário refaça a ativação em Ajustes.
+configuração sem exigir que o usuário refaça a ativação em Ajustes. Os níveis "Padrão" e
+"Família" funcionam sem nenhuma configuração adicional (o app já escolhe um provedor de DNS
+padrão para cada um), mas são apoiados por mais de um provedor de DNS criptografado reconhecido,
+e o usuário pode opcionalmente ver e trocar qual provedor está em uso dentro do nível escolhido.
 
 **Why this priority**: Sem escolha de nível, o produto não atende às diferentes necessidades do
 público (ex.: famílias) nem usuários avançados que já têm um provedor DNS de confiança. É P1
@@ -71,6 +74,10 @@ inválida no modo Personalizado é rejeitada com uma mensagem clara antes de ser
    inacessível, **Then** o app exibe um erro claro e não salva a escolha.
 4. **Given** o usuário já escolheu um nível de proteção, **When** ele reabre o app mais tarde,
    **Then** o nível escolhido continua selecionado.
+5. **Given** o usuário está no nível "Padrão" ou "Família", **When** ele abre os detalhes do
+   nível, **Then** o app mostra qual provedor de DNS está em uso (dentre os provedores
+   suportados para aquele nível) e permite trocar para outro provedor suportado sem sair do
+   nível escolhido nem repetir a ativação manual em Ajustes.
 
 ---
 
@@ -197,6 +204,13 @@ com o comportamento real do app e que o link de política de privacidade abre co
 - **FR-017**: O sistema DEVE detectar e avisar o usuário quando outra configuração de DNS ou VPN
   de terceiros já estiver ativa no dispositivo, orientando-o a resolver o conflito antes de
   blindar o aparelho.
+- **FR-018**: O sistema NÃO DEVE implementar compras dentro do aplicativo, assinaturas, paywall
+  ou qualquer mecanismo de bloqueio de recursos; todos os níveis de proteção e funcionalidades
+  (Padrão, Família, Personalizado, Safari, Testar) DEVEM estar disponíveis para todo usuário que
+  baixar o app, sem distinção de nível de pagamento.
+- **FR-019**: O sistema DEVE oferecer, para os níveis "Padrão" e "Família", mais de um provedor
+  de DNS criptografado reconhecido (evitando depender de um único fornecedor terceiro), com um
+  provedor padrão pré-selecionado para que o usuário leigo não precise escolher nada.
 
 ### Key Entities
 
@@ -224,20 +238,33 @@ com o comportamento real do app e que o link de política de privacidade abre co
 - **SC-006**: Um usuário consegue entender, a partir da tela de Transparência, para onde suas
   consultas DNS são enviadas e confirmar que nenhum dado é coletado, sem precisar de explicação
   adicional fora do app.
+- **SC-007**: O app funciona de ponta a ponta (níveis Padrão e Família) usando pelo menos dois
+  provedores de DNS criptografado independentes, de modo que a indisponibilidade de um único
+  fornecedor terceiro não deixe o usuário sem opção de proteção.
 
 ## Assumptions
 
-- O provedor de DNS criptografado dos níveis "Padrão" e "Família" é definido pelo Blindado (não
-  pelo usuário); apenas o nível "Personalizado" permite um servidor informado pelo usuário.
+- **Modelo de negócio**: o Blindado é um aplicativo pago de download único (preço definido no
+  App Store Connect); não há compras dentro do app, assinatura, paywall ou versão "Pro" — todo
+  usuário que baixar o app tem acesso completo a todos os recursos (ver `app-store-submission.md`
+  para o preço definido).
+- Os provedores de DNS criptografado dos níveis "Padrão" e "Família" são definidos pelo Blindado
+  a partir de uma lista curada de mais de um provedor reconhecido (não pelo usuário); apenas o
+  nível "Personalizado" permite um servidor informado pelo usuário. Um provedor padrão é
+  pré-selecionado por nível para que o usuário leigo não precise escolher nada.
 - A política de privacidade completa (FR-014) é um documento hospedado externamente, para o qual
   o app apenas oferece um link; seu conteúdo está fora do escopo desta especificação.
 - O dispositivo do usuário está em uma versão do iOS que suporta configuração de DNS criptografado
   em todo o sistema via Ajustes nativos.
+- A interface do app usa a linguagem visual nativa mais atual da Apple (Liquid Glass), o que
+  exige iOS 26 ou posterior como versão mínima suportada — decisão do usuário, priorizando a
+  aparência nativa correta sobre o alcance a versões mais antigas do iOS.
 - A interface visual do app DEVE seguir o design system Open Design (nexu-io/open-design), cuja
   fonte da verdade é o arquivo `DESIGN.md` na raiz do repositório e os artefatos em `/design`.
   Esses artefatos ainda não existem no repositório nesta data; a implementação de qualquer tela
   (View) fica bloqueada até que `DESIGN.md` seja fornecido — a lógica de negócio descrita nesta
   especificação não depende dele e pode ser planejada e implementada normalmente.
 - Fora do escopo desta especificação: VPN completa, bloqueio de anúncios dentro de aplicativos de
-  terceiros (ex.: YouTube, Instagram), contas de usuário, compras dentro do app, estatísticas
+  terceiros (ex.: YouTube, Instagram), contas de usuário, compras dentro do app, assinaturas,
+  paywall, versão "Pro" ou qualquer recurso bloqueado por pagamento adicional, estatísticas
   históricas de consultas bloqueadas, e widgets de tela inicial.
