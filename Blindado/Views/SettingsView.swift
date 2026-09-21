@@ -48,8 +48,9 @@ struct SettingsView: View {
 }
 
 #Preview {
+    let access = ProtectionProfileAccess.inMemory()
     SettingsView(
-        levelViewModel: ProtectionLevelViewModel(dnsManaging: MockDNSManager()),
-        privacyViewModel: PrivacyViewModel(dnsManaging: MockDNSManager())
+        levelViewModel: ProtectionLevelViewModel(dnsManaging: MockDNSManager(), profileAccess: access),
+        privacyViewModel: PrivacyViewModel(dnsManaging: MockDNSManager(), profileAccess: access)
     )
 }

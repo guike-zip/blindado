@@ -72,6 +72,6 @@ struct PrivacyView: View {
 
 #Preview {
     NavigationStack {
-        PrivacyView(viewModel: PrivacyViewModel(dnsManaging: MockDNSManager()))
+        PrivacyView(viewModel: PrivacyViewModel(dnsManaging: MockDNSManager(), profileAccess: .inMemory()))
     }
 }

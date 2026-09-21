@@ -3,6 +3,8 @@ import SwiftUI
 /// US4 — Safari mais limpo. Estado do bloqueador de conteúdo e a ação de recarregar regras
 /// (FR-011, FR-012, FR-013).
 struct SafariView: View {
+    @Environment(\.openURL) private var openURL
+
     var viewModel: SafariViewModel
 
     var body: some View {
@@ -48,7 +50,7 @@ struct SafariView: View {
                 .background(Theme.Colors.bgFillSubtle, in: RoundedRectangle(cornerRadius: Theme.Radius.sm))
 
             Button {
-                viewModel.abrirAjustesDoSafari()
+                openURL(SystemLinks.iOSSettings)
             } label: {
                 Text("Abrir os Ajustes do Safari")
                     .frame(maxWidth: .infinity)

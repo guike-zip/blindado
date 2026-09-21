@@ -18,14 +18,15 @@ struct RootTabView: View {
     init(
         dnsManaging: DNSManaging? = nil,
         contentBlockerManaging: ContentBlockerManaging? = nil,
-        protectionTesting: ProtectionTesting? = nil
+        protectionTesting: ProtectionTesting? = nil,
+        profileAccess: ProtectionProfileAccess = .live
     ) {
         let dnsManaging = dnsManaging ?? DNSManager()
-        _homeViewModel = State(initialValue: HomeViewModel(dnsManaging: dnsManaging))
-        _protectionLevelViewModel = State(initialValue: ProtectionLevelViewModel(dnsManaging: dnsManaging))
+        _homeViewModel = State(initialValue: HomeViewModel(dnsManaging: dnsManaging, profileAccess: profileAccess))
+        _protectionLevelViewModel = State(initialValue: ProtectionLevelViewModel(dnsManaging: dnsManaging, profileAccess: profileAccess))
         _testViewModel = State(initialValue: ProtectionTestViewModel(tester: protectionTesting ?? ProtectionTester()))
         _safariViewModel = State(initialValue: SafariViewModel(contentBlockerManaging: contentBlockerManaging ?? ContentBlockerManager()))
-        _privacyViewModel = State(initialValue: PrivacyViewModel(dnsManaging: dnsManaging))
+        _privacyViewModel = State(initialValue: PrivacyViewModel(dnsManaging: dnsManaging, profileAccess: profileAccess))
     }
 
     var body: some View {
@@ -51,6 +52,7 @@ struct RootTabView: View {
     RootTabView(
         dnsManaging: MockDNSManager(),
         contentBlockerManaging: MockContentBlockerManager(),
-        protectionTesting: MockProtectionTester()
+        protectionTesting: MockProtectionTester(),
+        profileAccess: .inMemory()
     )
 }

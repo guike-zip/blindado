@@ -6,7 +6,7 @@ import XCTest
 final class HomeViewModelTests: XCTestCase {
     func testEstadoInicialNaoConfigurado() async {
         let mock = MockDNSManager()
-        let sut = HomeViewModel(dnsManaging: mock)
+        let sut = HomeViewModel(dnsManaging: mock, profileAccess: .inMemory())
 
         await sut.refreshState()
 
@@ -15,7 +15,7 @@ final class HomeViewModelTests: XCTestCase {
 
     func testBlindarInstalaEFicaAguardandoAtivacao() async {
         let mock = MockDNSManager()
-        let sut = HomeViewModel(dnsManaging: mock)
+        let sut = HomeViewModel(dnsManaging: mock, profileAccess: .inMemory())
 
         await sut.blindar()
 
@@ -26,7 +26,7 @@ final class HomeViewModelTests: XCTestCase {
 
     func testAtivacaoManualEmAjustesRefleteAoAtualizarEstado() async {
         let mock = MockDNSManager()
-        let sut = HomeViewModel(dnsManaging: mock)
+        let sut = HomeViewModel(dnsManaging: mock, profileAccess: .inMemory())
 
         await sut.blindar()
         XCTAssertEqual(sut.state, .instaladoDesativado)
@@ -40,7 +40,7 @@ final class HomeViewModelTests: XCTestCase {
 
     func testRemoverVoltaParaNaoConfigurado() async {
         let mock = MockDNSManager()
-        let sut = HomeViewModel(dnsManaging: mock)
+        let sut = HomeViewModel(dnsManaging: mock, profileAccess: .inMemory())
 
         await sut.blindar()
         mock.simulateUserActivatedInSettings()
@@ -57,7 +57,7 @@ final class HomeViewModelTests: XCTestCase {
     func testConflitoDeConfiguracaoExpoeAviso() async {
         let mock = MockDNSManager()
         mock.installError = .conflictingConfiguration
-        let sut = HomeViewModel(dnsManaging: mock)
+        let sut = HomeViewModel(dnsManaging: mock, profileAccess: .inMemory())
 
         await sut.blindar()
 

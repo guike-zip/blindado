@@ -143,6 +143,6 @@ struct ProtectionLevelView: View {
 
 #Preview {
     NavigationStack {
-        ProtectionLevelView(viewModel: ProtectionLevelViewModel(dnsManaging: MockDNSManager()))
+        ProtectionLevelView(viewModel: ProtectionLevelViewModel(dnsManaging: MockDNSManager(), profileAccess: .inMemory()))
     }
 }

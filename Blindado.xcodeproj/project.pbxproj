@@ -1,0 +1,734 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03A7EC73F165020DB72CE970 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */; };
+		043E8EEC7AD54D7674276B8A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F95CB8F83E47E88F24C1960 /* HomeView.swift */; };
+		0783FC20B0C698714A5492EE /* ProtectionLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */; };
+		093E4CBF417A40853D739533 /* SystemLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */; };
+		0E6A9B73BDF43229A7275FA8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */; };
+		25A30D8C08F0F4459991141A /* BlindadoContentBlocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28C576137E113E0CB9EE0648 /* ProtectionTestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */; };
+		2C4020DE0552A22E29CC4B84 /* ContentBlockerManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */; };
+		3002DAA69544EB29DE714C52 /* ProtectionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */; };
+		31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */; };
+		39C5962E396B55F41E3C645C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */; };
+		3F951294BDCA562A06CC6474 /* ProtectionLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */; };
+		453D61C83EF0E8E067F143E5 /* ProtectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B918AD01538D39CE277A913F /* ProtectionState.swift */; };
+		4582CAF8B95BFA19EE2F5BCC /* ProtectionTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */; };
+		4CCB9BAA6A7B96DE2B9919A4 /* DNSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC86959C7D04DA8F29E08D /* DNSProvider.swift */; };
+		576A2F71719634F1E3350B56 /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = AEAEEA72A4F4A37279E1762F /* blockerList.json */; };
+		665CE0D9889A0079A15C82B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51E04535583787DEC7C43C12 /* Assets.xcassets */; };
+		6BB923AC4C337C00A4C5FCB4 /* ProtectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */; };
+		70C1B102D579C4A473837DD0 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39895AD370E931DD49F390C0 /* SettingsView.swift */; };
+		756780BEC0167E9A2C3A2CFD /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3713188F0EDB2AF5F181D00 /* SafariView.swift */; };
+		7877570DAC0FDF5ED713395A /* BlindadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82545098AAB3F521713117BD /* BlindadoApp.swift */; };
+		7C05E4B6CA067D76C9AE6053 /* PrivacyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */; };
+		852366EAD754F9364A76BF17 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */; };
+		886467D0FBCFAD58B33A2491 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C392E97325D0A0193BD0A5 /* RootTabView.swift */; };
+		8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D891384015728933DA46BD /* SafariViewModel.swift */; };
+		95B7D8F55E70977BD06B6A21 /* MockProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */; };
+		98752134A6E46459899CF6A8 /* ProtectionTestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */; };
+		9BED8197EE2D582EBC0C04F2 /* DNSManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF974FAFB45624874DDEA55 /* DNSManaging.swift */; };
+		B7D612FAF3491A6AB09578C2 /* DNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1355624BC569071C3152B1AD /* DNSManager.swift */; };
+		B8BA175B4EF41BA42E83EFE5 /* ProtectionLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */; };
+		D1BAA4C2D22BDBA0EBA7919F /* MockContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */; };
+		DBD906D3F45D8A6A0A6BC4AB /* PrivacyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F984D930D720E8630A218D /* PrivacyViewModel.swift */; };
+		E8FBC88A6DF7912322E42357 /* ProtectionTester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E342AC9BE71C6BBF38DA30 /* ProtectionTester.swift */; };
+		F10CB3E395338C8D84BA0F49 /* ProtectionLevelViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */; };
+		F134251858DB4E0C5C386448 /* ContentBlockerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */; };
+		F33AC927A8FAC0E6FFBF2A32 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */; };
+		F363283A4B5C15EB1C368590 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10181AD56A52156D193EBD /* Theme.swift */; };
+		F73EDC33F6A69559E52E47B8 /* ContentBlockerRequestHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */; };
+		FCEB8641B46AFE84F8139210 /* MockDNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */; };
+		FF8C38025E3C8479D48D34FE /* ProtectionTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740608E262F0A78D376D88C2 /* ProtectionTesting.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69C1D5DBE984AF72A1C4BD84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED38CCD2694892F4F7B73715;
+			remoteInfo = BlindadoContentBlocker;
+		};
+		B1B54A2EC398083962D4D149 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED94E2ADA15186E053F6BFF5;
+			remoteInfo = Blindado;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		73994DBC9516DAD8F4DB1829 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				25A30D8C08F0F4459991141A /* BlindadoContentBlocker.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelView.swift; sourceTree = "<group>"; };
+		08D891384015728933DA46BD /* SafariViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewModel.swift; sourceTree = "<group>"; };
+		0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1355624BC569071C3152B1AD /* DNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManager.swift; sourceTree = "<group>"; };
+		1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionProfile.swift; sourceTree = "<group>"; };
+		1F71C14AB2C37951EF6D1687 /* Blindado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blindado.entitlements; sourceTree = "<group>"; };
+		22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerState.swift; sourceTree = "<group>"; };
+		2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContentBlockerManager.swift; sourceTree = "<group>"; };
+		2D2C43D568A1F789B98E1902 /* BlindadoContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlindadoContentBlocker.entitlements; sourceTree = "<group>"; };
+		3872981AFF1EE51126F742CF /* BlindadoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BlindadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		39895AD370E931DD49F390C0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestResult.swift; sourceTree = "<group>"; };
+		41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDNSManager.swift; sourceTree = "<group>"; };
+		44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestView.swift; sourceTree = "<group>"; };
+		49E342AC9BE71C6BBF38DA30 /* ProtectionTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTester.swift; sourceTree = "<group>"; };
+		51E04535583787DEC7C43C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestViewModel.swift; sourceTree = "<group>"; };
+		55F984D930D720E8630A218D /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
+		58494E5C00A9528859F8C502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		69EC86959C7D04DA8F29E08D /* DNSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSProvider.swift; sourceTree = "<group>"; };
+		6F95CB8F83E47E88F24C1960 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		740608E262F0A78D376D88C2 /* ProtectionTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTesting.swift; sourceTree = "<group>"; };
+		7AF974FAFB45624874DDEA55 /* DNSManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManaging.swift; sourceTree = "<group>"; };
+		7C10181AD56A52156D193EBD /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		82545098AAB3F521713117BD /* BlindadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlindadoApp.swift; sourceTree = "<group>"; };
+		87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestViewModelTests.swift; sourceTree = "<group>"; };
+		8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProtectionTester.swift; sourceTree = "<group>"; };
+		8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLinks.swift; sourceTree = "<group>"; };
+		9271BD57A71DC9584821450F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelViewModelTests.swift; sourceTree = "<group>"; };
+		A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A1C392E97325D0A0193BD0A5 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
+		ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelViewModel.swift; sourceTree = "<group>"; };
+		AEAEEA72A4F4A37279E1762F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
+		B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewModelTests.swift; sourceTree = "<group>"; };
+		B918AD01538D39CE277A913F /* ProtectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionState.swift; sourceTree = "<group>"; };
+		BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevel.swift; sourceTree = "<group>"; };
+		BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManaging.swift; sourceTree = "<group>"; };
+		CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModelTests.swift; sourceTree = "<group>"; };
+		CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = BlindadoContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManager.swift; sourceTree = "<group>"; };
+		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
+		F3713188F0EDB2AF5F181D00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		074483A5A34F05BBD733246F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				82545098AAB3F521713117BD /* BlindadoApp.swift */,
+				8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		214039729200DF4E7F79908D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3FCA56F355499375005E29C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */,
+				C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */,
+				1355624BC569071C3152B1AD /* DNSManager.swift */,
+				7AF974FAFB45624874DDEA55 /* DNSManaging.swift */,
+				2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */,
+				41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */,
+				8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */,
+				49E342AC9BE71C6BBF38DA30 /* ProtectionTester.swift */,
+				740608E262F0A78D376D88C2 /* ProtectionTesting.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		408E2B08C2B22959092AB22B = {
+			isa = PBXGroup;
+			children = (
+				63788F98B2ADB0D675D55910 /* Blindado */,
+				D479D55A355DD41C1408BEA1 /* BlindadoContentBlocker */,
+				4813946BA68FB9F84AC79285 /* BlindadoTests */,
+				F5A86BC53E1A500E7F567A5B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4813946BA68FB9F84AC79285 /* BlindadoTests */ = {
+			isa = PBXGroup;
+			children = (
+				22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */,
+				CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */,
+				99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */,
+				87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */,
+				B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */,
+			);
+			path = BlindadoTests;
+			sourceTree = "<group>";
+		};
+		60093C5B59E97B62969B7877 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				51E04535583787DEC7C43C12 /* Assets.xcassets */,
+				7C10181AD56A52156D193EBD /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		63788F98B2ADB0D675D55910 /* Blindado */ = {
+			isa = PBXGroup;
+			children = (
+				1F71C14AB2C37951EF6D1687 /* Blindado.entitlements */,
+				9271BD57A71DC9584821450F /* Info.plist */,
+				074483A5A34F05BBD733246F /* App */,
+				DB9F832B588A782BBF95AD6C /* Models */,
+				214039729200DF4E7F79908D /* Resources */,
+				3FCA56F355499375005E29C3 /* Services */,
+				60093C5B59E97B62969B7877 /* Theme */,
+				C7B84C150596758C3C93847F /* ViewModels */,
+				A17872C8261253C9B8D3A067 /* Views */,
+			);
+			path = Blindado;
+			sourceTree = "<group>";
+		};
+		A17872C8261253C9B8D3A067 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6F95CB8F83E47E88F24C1960 /* HomeView.swift */,
+				BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */,
+				057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */,
+				44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */,
+				A1C392E97325D0A0193BD0A5 /* RootTabView.swift */,
+				F3713188F0EDB2AF5F181D00 /* SafariView.swift */,
+				39895AD370E931DD49F390C0 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C7B84C150596758C3C93847F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */,
+				55F984D930D720E8630A218D /* PrivacyViewModel.swift */,
+				ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */,
+				54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */,
+				08D891384015728933DA46BD /* SafariViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D479D55A355DD41C1408BEA1 /* BlindadoContentBlocker */ = {
+			isa = PBXGroup;
+			children = (
+				2D2C43D568A1F789B98E1902 /* BlindadoContentBlocker.entitlements */,
+				AEAEEA72A4F4A37279E1762F /* blockerList.json */,
+				E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */,
+				58494E5C00A9528859F8C502 /* Info.plist */,
+			);
+			path = BlindadoContentBlocker;
+			sourceTree = "<group>";
+		};
+		DB9F832B588A782BBF95AD6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */,
+				69EC86959C7D04DA8F29E08D /* DNSProvider.swift */,
+				BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */,
+				1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */,
+				B918AD01538D39CE277A913F /* ProtectionState.swift */,
+				3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5A86BC53E1A500E7F567A5B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E26F50705B879FA85ED250F4 /* Blindado.app */,
+				CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */,
+				3872981AFF1EE51126F742CF /* BlindadoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F67A01E7409ABCEB9D439C1 /* BlindadoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90FB54C8CA895CD05EC6B04A /* Build configuration list for PBXNativeTarget "BlindadoTests" */;
+			buildPhases = (
+				6CF58EE0F54020D666E4A14E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				285071E6119BF943EE21DFC0 /* PBXTargetDependency */,
+			);
+			name = BlindadoTests;
+			packageProductDependencies = (
+			);
+			productName = BlindadoTests;
+			productReference = 3872981AFF1EE51126F742CF /* BlindadoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 962DE6E5EBD6F9752E0F2ED3 /* Build configuration list for PBXNativeTarget "BlindadoContentBlocker" */;
+			buildPhases = (
+				B6C3E75BB20371A07DBCF93D /* Sources */,
+				C28BF8CE7472DDFF0727F637 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlindadoContentBlocker;
+			packageProductDependencies = (
+			);
+			productName = BlindadoContentBlocker;
+			productReference = CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		ED94E2ADA15186E053F6BFF5 /* Blindado */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15981E1C2B1EB3EA6413D794 /* Build configuration list for PBXNativeTarget "Blindado" */;
+			buildPhases = (
+				6A4D3E3E2D15BA69F0F16AD1 /* Sources */,
+				641A81C2EAA7D954FD7B1FC6 /* Resources */,
+				73994DBC9516DAD8F4DB1829 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BEF79E1517B708D752AD9DC /* PBXTargetDependency */,
+			);
+			name = Blindado;
+			packageProductDependencies = (
+			);
+			productName = Blindado;
+			productReference = E26F50705B879FA85ED250F4 /* Blindado.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7BAF5E768E2E5D7BF7E020F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 6929F05EBA17E7176C75E0CC /* Build configuration list for PBXProject "Blindado" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"pt-BR",
+			);
+			mainGroup = 408E2B08C2B22959092AB22B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F5A86BC53E1A500E7F567A5B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ED94E2ADA15186E053F6BFF5 /* Blindado */,
+				ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */,
+				5F67A01E7409ABCEB9D439C1 /* BlindadoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		641A81C2EAA7D954FD7B1FC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				665CE0D9889A0079A15C82B4 /* Assets.xcassets in Resources */,
+				F33AC927A8FAC0E6FFBF2A32 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C28BF8CE7472DDFF0727F637 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				576A2F71719634F1E3350B56 /* blockerList.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6A4D3E3E2D15BA69F0F16AD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7877570DAC0FDF5ED713395A /* BlindadoApp.swift in Sources */,
+				852366EAD754F9364A76BF17 /* ContentBlockerManager.swift in Sources */,
+				2C4020DE0552A22E29CC4B84 /* ContentBlockerManaging.swift in Sources */,
+				F134251858DB4E0C5C386448 /* ContentBlockerState.swift in Sources */,
+				B7D612FAF3491A6AB09578C2 /* DNSManager.swift in Sources */,
+				9BED8197EE2D582EBC0C04F2 /* DNSManaging.swift in Sources */,
+				4CCB9BAA6A7B96DE2B9919A4 /* DNSProvider.swift in Sources */,
+				043E8EEC7AD54D7674276B8A /* HomeView.swift in Sources */,
+				0E6A9B73BDF43229A7275FA8 /* HomeViewModel.swift in Sources */,
+				D1BAA4C2D22BDBA0EBA7919F /* MockContentBlockerManager.swift in Sources */,
+				FCEB8641B46AFE84F8139210 /* MockDNSManager.swift in Sources */,
+				95B7D8F55E70977BD06B6A21 /* MockProtectionTester.swift in Sources */,
+				03A7EC73F165020DB72CE970 /* PrivacyView.swift in Sources */,
+				DBD906D3F45D8A6A0A6BC4AB /* PrivacyViewModel.swift in Sources */,
+				B8BA175B4EF41BA42E83EFE5 /* ProtectionLevel.swift in Sources */,
+				0783FC20B0C698714A5492EE /* ProtectionLevelView.swift in Sources */,
+				3F951294BDCA562A06CC6474 /* ProtectionLevelViewModel.swift in Sources */,
+				3002DAA69544EB29DE714C52 /* ProtectionProfile.swift in Sources */,
+				453D61C83EF0E8E067F143E5 /* ProtectionState.swift in Sources */,
+				98752134A6E46459899CF6A8 /* ProtectionTestResult.swift in Sources */,
+				6BB923AC4C337C00A4C5FCB4 /* ProtectionTestView.swift in Sources */,
+				4582CAF8B95BFA19EE2F5BCC /* ProtectionTestViewModel.swift in Sources */,
+				E8FBC88A6DF7912322E42357 /* ProtectionTester.swift in Sources */,
+				FF8C38025E3C8479D48D34FE /* ProtectionTesting.swift in Sources */,
+				886467D0FBCFAD58B33A2491 /* RootTabView.swift in Sources */,
+				756780BEC0167E9A2C3A2CFD /* SafariView.swift in Sources */,
+				8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */,
+				70C1B102D579C4A473837DD0 /* SettingsView.swift in Sources */,
+				093E4CBF417A40853D739533 /* SystemLinks.swift in Sources */,
+				F363283A4B5C15EB1C368590 /* Theme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CF58EE0F54020D666E4A14E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39C5962E396B55F41E3C645C /* HomeViewModelTests.swift in Sources */,
+				7C05E4B6CA067D76C9AE6053 /* PrivacyViewModelTests.swift in Sources */,
+				F10CB3E395338C8D84BA0F49 /* ProtectionLevelViewModelTests.swift in Sources */,
+				28C576137E113E0CB9EE0648 /* ProtectionTestViewModelTests.swift in Sources */,
+				31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6C3E75BB20371A07DBCF93D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F73EDC33F6A69559E52E47B8 /* ContentBlockerRequestHandling.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		285071E6119BF943EE21DFC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED94E2ADA15186E053F6BFF5 /* Blindado */;
+			targetProxy = B1B54A2EC398083962D4D149 /* PBXContainerItemProxy */;
+		};
+		3BEF79E1517B708D752AD9DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED38CCD2694892F4F7B73715 /* BlindadoContentBlocker */;
+			targetProxy = 69C1D5DBE984AF72A1C4BD84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5BD7417A896C618C78F5513E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Blindado/Blindado.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Blindado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_NAME = Blindado;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A82AB7C45E77CA8167ECA946 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlindadoContentBlocker/BlindadoContentBlocker.entitlements;
+				INFOPLIST_FILE = BlindadoContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_NAME = BlindadoContentBlocker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B42B06EE958B632D68A85A7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blindado.app/Blindado";
+			};
+			name = Debug;
+		};
+		C776C768A3C707AA1E7A68DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = BlindadoContentBlocker/BlindadoContentBlocker.entitlements;
+				INFOPLIST_FILE = BlindadoContentBlocker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.contentblocker;
+				PRODUCT_NAME = BlindadoContentBlocker;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE2482C6453262D9F6E82E82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Blindado.app/Blindado";
+			};
+			name = Release;
+		};
+		D518897F554560FC16F6F786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E15D750C08B8993B34AFA7CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Blindado/Blindado.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Blindado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.seudominio.blindado;
+				PRODUCT_NAME = Blindado;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2DEC456D4EFB9DC8F7D6AD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15981E1C2B1EB3EA6413D794 /* Build configuration list for PBXNativeTarget "Blindado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E15D750C08B8993B34AFA7CD /* Debug */,
+				5BD7417A896C618C78F5513E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6929F05EBA17E7176C75E0CC /* Build configuration list for PBXProject "Blindado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D518897F554560FC16F6F786 /* Debug */,
+				F2DEC456D4EFB9DC8F7D6AD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		90FB54C8CA895CD05EC6B04A /* Build configuration list for PBXNativeTarget "BlindadoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B42B06EE958B632D68A85A7F /* Debug */,
+				CE2482C6453262D9F6E82E82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		962DE6E5EBD6F9752E0F2ED3 /* Build configuration list for PBXNativeTarget "BlindadoContentBlocker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C776C768A3C707AA1E7A68DE /* Debug */,
+				A82AB7C45E77CA8167ECA946 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7BAF5E768E2E5D7BF7E020F7 /* Project object */;
+}

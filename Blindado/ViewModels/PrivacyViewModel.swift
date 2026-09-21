@@ -13,14 +13,14 @@ final class PrivacyViewModel {
     private(set) var currentProviderName: String?
 
     private let dnsManaging: DNSManaging
-    private let loadProfile: () -> ProtectionProfile
+    private let profileAccess: ProtectionProfileAccess
 
-    init(dnsManaging: DNSManaging, loadProfile: @escaping () -> ProtectionProfile = { ProtectionProfileStore.load() }) {
+    init(dnsManaging: DNSManaging, profileAccess: ProtectionProfileAccess = .live) {
         self.dnsManaging = dnsManaging
-        self.loadProfile = loadProfile
+        self.profileAccess = profileAccess
     }
 
     func refresh() async {
-        currentProviderName = loadProfile().resolvedProvider?.name
+        currentProviderName = profileAccess.load().resolvedProvider?.name
     }
 }

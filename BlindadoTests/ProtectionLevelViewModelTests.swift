@@ -6,7 +6,9 @@ import XCTest
 final class ProtectionLevelViewModelTests: XCTestCase {
     private func makeSUT() -> (ProtectionLevelViewModel, MockDNSManager) {
         let mock = MockDNSManager()
-        let sut = ProtectionLevelViewModel(dnsManaging: mock, profile: .default)
+        // Acesso em memória — nunca toca no UserDefaults real do App Group (research.md /
+        // data-model.md), então os testes não podem poluir o estado que o app veria em produção.
+        let sut = ProtectionLevelViewModel(dnsManaging: mock, profileAccess: .inMemory(), profile: .default)
         return (sut, mock)
     }
 
@@ -83,14 +85,14 @@ final class ProtectionLevelViewModelTests: XCTestCase {
 
     func testEscolhaPersisteEntreInstancias() async {
         let mock = MockDNSManager()
-        let defaults = UserDefaults(suiteName: #function)!
-        defaults.removePersistentDomain(forName: #function)
+        let access = ProtectionProfileAccess.inMemory()
 
-        let sut1 = ProtectionLevelViewModel(dnsManaging: mock, profile: .default)
+        let sut1 = ProtectionLevelViewModel(dnsManaging: mock, profileAccess: access, profile: .default)
         await sut1.selectLevel(.familia)
-        ProtectionProfileStore.save(sut1.profile, to: defaults)
 
-        let reloaded = ProtectionProfileStore.load(from: defaults)
-        XCTAssertEqual(reloaded.level, .familia)
+        // Uma segunda instância, criada depois (simulando reabrir o app), lê o que a
+        // primeira salvou através do mesmo `ProtectionProfileAccess`.
+        let sut2 = ProtectionLevelViewModel(dnsManaging: mock, profileAccess: access)
+        XCTAssertEqual(sut2.profile.level, .familia)
     }
 }

@@ -1,8 +1,5 @@
 import Foundation
 import Observation
-#if canImport(UIKit)
-import UIKit
-#endif
 
 /// ViewModel da US1 (Blindar o aparelho). Expõe o `ProtectionState` real e as ações de
 /// ativar/remover a proteção; nunca cacheia estado otimista (Constitution Princípio IV).
@@ -17,9 +14,11 @@ final class HomeViewModel {
     private(set) var isBusy = false
 
     private let dnsManaging: DNSManaging
+    private let profileAccess: ProtectionProfileAccess
 
-    init(dnsManaging: DNSManaging) {
+    init(dnsManaging: DNSManaging, profileAccess: ProtectionProfileAccess = .live) {
         self.dnsManaging = dnsManaging
+        self.profileAccess = profileAccess
     }
 
     /// Recalcula o estado a partir do sistema. Chamado na primeira aparição da tela e sempre
@@ -35,7 +34,7 @@ final class HomeViewModel {
         isBusy = true
         defer { isBusy = false }
 
-        let profile = ProtectionProfileStore.load()
+        let profile = profileAccess.load()
         guard let provider = profile.resolvedProvider else {
             return
         }
@@ -62,13 +61,5 @@ final class HomeViewModel {
 
     func dismissConflictWarning() {
         conflictWarning = nil
-    }
-
-    /// Abre a tela de Ajustes do sistema (FR-002).
-    func abrirAjustesDoSistema() {
-        #if canImport(UIKit)
-        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(url)
-        #endif
     }
 }

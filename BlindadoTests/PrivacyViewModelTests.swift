@@ -6,7 +6,7 @@ import XCTest
 final class PrivacyViewModelTests: XCTestCase {
     func testTextoRefleteOProvedorAtual() async {
         let mock = MockDNSManager()
-        let sut = PrivacyViewModel(dnsManaging: mock, loadProfile: { .default })
+        let sut = PrivacyViewModel(dnsManaging: mock, profileAccess: .inMemory(initial: .default))
 
         await sut.refresh()
 
@@ -17,7 +17,7 @@ final class PrivacyViewModelTests: XCTestCase {
         let mock = MockDNSManager()
         let customURL = URL(string: "https://dns.exemplo.com/dns-query")!
         let profile = ProtectionProfile(level: .personalizado, providerId: nil, customServerURL: customURL)
-        let sut = PrivacyViewModel(dnsManaging: mock, loadProfile: { profile })
+        let sut = PrivacyViewModel(dnsManaging: mock, profileAccess: .inMemory(initial: profile))
 
         await sut.refresh()
 

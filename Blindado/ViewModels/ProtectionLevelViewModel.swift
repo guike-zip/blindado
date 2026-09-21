@@ -13,10 +13,12 @@ final class ProtectionLevelViewModel {
     private(set) var isBusy = false
 
     private let dnsManaging: DNSManaging
+    private let profileAccess: ProtectionProfileAccess
 
-    init(dnsManaging: DNSManaging, profile: ProtectionProfile? = nil) {
+    init(dnsManaging: DNSManaging, profileAccess: ProtectionProfileAccess = .live, profile: ProtectionProfile? = nil) {
         self.dnsManaging = dnsManaging
-        self.profile = profile ?? ProtectionProfileStore.load()
+        self.profileAccess = profileAccess
+        self.profile = profile ?? profileAccess.load()
     }
 
     /// Provedores disponíveis para o nível atualmente selecionado (FR-019). Vazio para
@@ -90,7 +92,7 @@ final class ProtectionLevelViewModel {
         defer { isBusy = false }
         do {
             try await dnsManaging.install(level: profile.level, provider: provider)
-            ProtectionProfileStore.save(profile)
+            profileAccess.save(profile)
         } catch let error as DNSManagingError {
             validationError = error.errorDescription
         } catch {

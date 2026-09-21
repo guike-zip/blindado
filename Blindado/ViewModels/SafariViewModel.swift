@@ -1,8 +1,5 @@
 import Foundation
 import Observation
-#if canImport(UIKit)
-import UIKit
-#endif
 
 /// ViewModel da US4 (Safari mais limpo). Expõe o estado real do bloqueador de conteúdo e a
 /// ação de recarregar as regras (FR-011, FR-012, FR-013).
@@ -34,12 +31,5 @@ final class SafariViewModel {
             reloadError = error.localizedDescription
         }
         await refreshState()
-    }
-
-    func abrirAjustesDoSafari() {
-        #if canImport(UIKit)
-        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(url)
-        #endif
     }
 }

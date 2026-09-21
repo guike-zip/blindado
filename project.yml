@@ -1,0 +1,88 @@
+name: Blindado
+options:
+  bundleIdPrefix: com.seudominio
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    GENERATE_INFOPLIST_FILE: false
+
+targets:
+  Blindado:
+    type: application
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: Blindado
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado
+        PRODUCT_NAME: Blindado
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        # Sem AppIcon.appiconset ainda (nenhuma arte foi fornecida — ver Notas de submissão).
+        # Placeholder até a arte real existir; obrigatório antes de qualquer archive/TestFlight.
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
+    info:
+      path: Blindado/Info.plist
+      properties:
+        CFBundleDisplayName: Blindado
+        UILaunchScreen: {}
+        ITSAppUsesNonExemptEncryption: false
+    entitlements:
+      path: Blindado/Blindado.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.seudominio.blindado
+        com.apple.developer.networking.networkextension:
+          - dns-settings
+    dependencies:
+      - target: BlindadoContentBlocker
+        embed: true
+
+  BlindadoContentBlocker:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: BlindadoContentBlocker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.contentblocker
+        PRODUCT_NAME: BlindadoContentBlocker
+    info:
+      path: BlindadoContentBlocker/Info.plist
+      properties:
+        CFBundleDisplayName: BlindadoContentBlocker
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.content-blocker
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ContentBlockerRequestHandler
+    entitlements:
+      path: BlindadoContentBlocker/BlindadoContentBlocker.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.seudominio.blindado
+
+  BlindadoTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "26.0"
+    sources:
+      - path: BlindadoTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seudominio.blindado.tests
+    dependencies:
+      - target: Blindado
+
+schemes:
+  Blindado:
+    build:
+      targets:
+        Blindado: all
+        BlindadoTests: [test]
+    test:
+      targets:
+        - BlindadoTests

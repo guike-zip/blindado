@@ -12,13 +12,7 @@ final class ContentBlockerManager: ContentBlockerManaging {
     private var lastReloadDate: Date?
 
     func currentState() async -> ContentBlockerState {
-        let isEnabled: Bool
-        do {
-            let state = try await Self.getState(withIdentifier: Self.extensionIdentifier)
-            isEnabled = state?.isEnabled ?? false
-        } catch {
-            isEnabled = false
-        }
+        let isEnabled = (try? await Self.getIsEnabled(withIdentifier: Self.extensionIdentifier)) ?? false
         return ContentBlockerState(isEnabled: isEnabled, lastReloadDate: lastReloadDate)
     }
 
@@ -27,13 +21,15 @@ final class ContentBlockerManager: ContentBlockerManaging {
         lastReloadDate = Date()
     }
 
-    private static func getState(withIdentifier identifier: String) async throws -> SFContentBlockerState? {
+    /// Extrai só o `Bool` de `SFContentBlockerState` dentro do closure, antes de cruzar para
+    /// o `MainActor` — `SFContentBlockerState` não é `Sendable` (Swift 6 strict concurrency).
+    private static func getIsEnabled(withIdentifier identifier: String) async throws -> Bool {
         try await withCheckedThrowingContinuation { continuation in
             SFContentBlockerManager.getStateOfContentBlocker(withIdentifier: identifier) { state, error in
                 if let error {
                     continuation.resume(throwing: error)
                 } else {
-                    continuation.resume(returning: state)
+                    continuation.resume(returning: state?.isEnabled ?? false)
                 }
             }
         }

@@ -61,3 +61,36 @@ enum ProtectionProfileStore {
         defaults.set(profile.customServerURL?.absoluteString, forKey: Key.customServerURL)
     }
 }
+
+/// Ponto único de acesso a `ProtectionProfile` injetado nos ViewModels (`HomeViewModel`,
+/// `ProtectionLevelViewModel`, `PrivacyViewModel`), em vez de cada um chamar
+/// `ProtectionProfileStore` direto com os parâmetros-padrão.
+///
+/// Existe especificamente para isolar testes do `UserDefaults` real do App Group — sem isso,
+/// um teste que salva um perfil escreve no mesmo arquivo que o app usaria em produção (foi
+/// exatamente o que aconteceu ao rodar os testes antes de existir esta injeção: o Simulador
+/// mostrou "Personalizado" na primeira abertura porque um teste anterior tinha escrito ali).
+struct ProtectionProfileAccess {
+    var load: () -> ProtectionProfile
+    var save: (ProtectionProfile) -> Void
+
+    @MainActor
+    static let live = ProtectionProfileAccess(
+        load: { ProtectionProfileStore.load() },
+        save: { ProtectionProfileStore.save($0) }
+    )
+
+    /// Acesso em memória para Previews e testes — nunca toca em `UserDefaults`.
+    @MainActor
+    static func inMemory(initial: ProtectionProfile = .default) -> ProtectionProfileAccess {
+        final class Box {
+            var profile: ProtectionProfile
+            init(_ profile: ProtectionProfile) { self.profile = profile }
+        }
+        let box = Box(initial)
+        return ProtectionProfileAccess(
+            load: { box.profile },
+            save: { box.profile = $0 }
+        )
+    }
+}

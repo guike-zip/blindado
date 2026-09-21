@@ -4,6 +4,7 @@ import SwiftUI
 /// guiada passo a passo, remoção, e o aviso de conflito de DNS/VPN de terceiros (FR-017).
 struct HomeView: View {
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.openURL) private var openURL
 
     var viewModel: HomeViewModel
     var levelViewModel: ProtectionLevelViewModel
@@ -162,7 +163,7 @@ struct HomeView: View {
 
         case .instaladoDesativado:
             Button {
-                viewModel.abrirAjustesDoSistema()
+                openURL(SystemLinks.iOSSettings)
             } label: {
                 Label("Abrir os Ajustes", systemImage: "arrow.up.right")
                     .frame(maxWidth: .infinity)
@@ -227,11 +228,11 @@ struct HomeView: View {
 }
 
 #Preview("Não configurado") {
-    RootTabView(dnsManaging: MockDNSManager())
+    RootTabView(dnsManaging: MockDNSManager(), profileAccess: .inMemory())
 }
 
 #Preview("Blindado") {
     let mock = MockDNSManager()
     mock.state = .blindado
-    return RootTabView(dnsManaging: mock)
+    return RootTabView(dnsManaging: mock, profileAccess: .inMemory())
 }
