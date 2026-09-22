@@ -12,7 +12,7 @@ estar feito** — é o comportamento esperado, não um bug.
 
 App IDs `io.blindado.app` e `io.blindado.app.contentblocker` registrados no Developer Portal,
 com `App Groups` habilitada em ambos (associados a `group.io.blindado.app`) e `Network
-Extensions` habilitada em `io.blindado.app`. Team ID: `J55LDMR2HC`.
+Extensions` habilitada em `io.blindado.app`. Team ID: `SEU_TEAM_ID`.
 
 ## 2. App Store Connect API key — ✅ feito
 

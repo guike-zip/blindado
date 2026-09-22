@@ -51,7 +51,7 @@ self-service no portal atual, sem aviso de aprovação pendente.
 
 Falta só, no Xcode (target → Signing & Capabilities), depois de `xcodegen generate`:
 
-1. Selecionar o Team (`J55LDMR2HC`) em cada um dos 4 targets (`Blindado`, `BlindadoContentBlocker`,
+1. Selecionar o Team (`SEU_TEAM_ID`) em cada um dos 4 targets (`Blindado`, `BlindadoContentBlocker`,
    `BlindadoMac`, `BlindadoMacContentBlocker`) com "Automatically manage signing" ligado — o
    Xcode gera os provisioning profiles a partir das capabilities já configuradas no portal.
 2. Verificar que o provisioning profile de cada target inclui as capabilities acima antes de
