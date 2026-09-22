@@ -139,19 +139,32 @@ a captura atual usa um mock só de tela, não uma ativação real de DNS.
 
 ## Checklist pré-submissão
 
-- [ ] Nenhuma tela, screenshot ou texto de marketing menciona bloqueio de anúncios em apps de
-      terceiros (YouTube, Instagram, etc.) — Constitution Princípio III.
-- [ ] Descrição e screenshots incluem explicitamente o que o app NÃO faz (item 2 do roteiro de
-      screenshots), para reduzir reembolsos por expectativa equivocada.
+- [x] Nenhuma tela, screenshot ou texto de marketing menciona bloqueio de anúncios em apps de
+      terceiros (YouTube, Instagram, etc.) — Constitution Princípio III. Auditado em
+      2026-09-22: toda menção a bloqueio é sempre em nível de DNS/sistema, nunca "dentro" de um
+      app de terceiro específico.
+- [x] Descrição e screenshots incluem explicitamente o que o app NÃO faz (item 2 do roteiro de
+      screenshots), para reduzir reembolsos por expectativa equivocada. Presente na descrição
+      (linhas 45-51) e no screenshot `02-o-que-nao-faz.png`.
 - [ ] Preço configurado no App Store Connect: US$ 2,99 (tier base) com R$ 14,90 manual para o
-      território Brasil; nenhum produto de IAP criado (Constitution Princípio IX).
-- [ ] Deployment target iOS 26.0 configurado nos dois targets; ficha da loja confirma "Requer
-      iOS 26 ou posterior".
-- [ ] Formulário de privacidade da App Store preenchido como "Data Not Collected".
-- [ ] Notas de revisão explicam o uso de `NEDNSSettingsManager`, o fluxo manual de ativação, os
-      dois provedores de DNS suportados (AdGuard e Control D) e o modelo de download único.
+      território Brasil; nenhum produto de IAP criado (Constitution Princípio IX). **Depende de
+      o registro do app já existir no App Store Connect** — passo manual, precisa ser feito lá.
+- [x] Deployment target iOS 26.0 configurado nos dois targets (`project.yml`: `Blindado`,
+      `BlindadoTests`, `BlindadoMac`, `BlindadoMacTests` todos em `"26.0"`). A frase "Requer
+      iOS 26 ou posterior" já está redigida na seção Compatibilidade acima, pronta para colar
+      na ficha da loja.
+- [ ] Formulário de privacidade da App Store preenchido como "Data Not Collected". **Depende do
+      registro do app no App Store Connect** — passo manual.
+- [x] Notas de revisão explicam o uso de `NEDNSSettingsManager`, o fluxo manual de ativação, os
+      dois provedores de DNS suportados (AdGuard e Control D) e o modelo de download único —
+      texto já redigido na seção "Notas de revisão" acima, pronto para colar no envio.
 - [ ] Política de privacidade publicada e linkada na tela de Transparência (FR-014).
+      **Bloqueado**: `PrivacyViewModel.privacyPolicyURL` ainda aponta para um domínio
+      placeholder (`www.seudominio.com`) que não existe — precisa de um domínio/hospedagem
+      reais antes do envio.
 - [ ] Entitlement `com.apple.developer.networking.networkextension` aprovado para a conta de
-      desenvolvedor antes do envio.
-- [ ] Projeto Xcode auditado (T049) sem StoreKit, sem SDK de compra/assinatura e sem código
-      morto de versão "Pro".
+      desenvolvedor antes do envio. **Não verificado nesta sessão** — checar em
+      developer.apple.com → Identifiers → App ID do Blindado → Capabilities.
+- [x] Projeto Xcode auditado (T049) sem StoreKit, sem SDK de compra/assinatura e sem código
+      morto de versão "Pro". Varredura em 2026-09-22 em todo o código-fonte, entitlements,
+      Info.plist e project.pbxproj: nenhuma ocorrência.
