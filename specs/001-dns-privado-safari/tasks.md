@@ -451,12 +451,17 @@ manual):
       rodam os mesmos 25 testes com sucesso; `./bin/fastlane ios bump_build` incrementa a
       versão em `project.yml` e regenera o projeto corretamente
 
-**Pendente** (só o usuário pode fazer — ver `fastlane/README-SETUP.md`):
-- [ ] Conta Apple Developer Program configurada com App ID + capabilities (mesmo pendente do
-      T002)
-- [ ] App Store Connect API key (`fastlane/.env` + `.p8`, nenhum dos dois commitado)
-- [ ] Assinatura de código (Xcode automático ou `match`) — sem isso, `build_release`/`beta`/
-      `release` falham na etapa de build assinado, de propósito
+- [x] Conta Apple Developer Program configurada com App ID + capabilities — feito em
+      2026-09-22 (io.blindado.app + io.blindado.app.contentblocker, App Groups + Network
+      Extensions)
+- [x] App Store Connect API key (`fastlane/.env` + `.p8`, nenhum dos dois commitado) — feito
+- [x] Assinatura de código — feito em 2026-09-22 sem abrir o Xcode: `CODE_SIGN_STYLE:
+      Automatic` no `project.yml`, Team ID via `Local.xcconfig` (gitignorado, repo é público),
+      e o default problemático do xcodegen (`CODE_SIGN_IDENTITY` fixo, que forçava perfil de
+      Development mesmo em Release/archive) neutralizado por target. `./bin/fastlane ios
+      build_release` e `./bin/fastlane mac build_release` exportam `.ipa`/`.pkg` assinados de
+      verdade. Primeiro build (1.0.0/2) já subiu para o TestFlight e foi liberado para teste
+      interno.
 
 ---
 

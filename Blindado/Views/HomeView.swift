@@ -31,7 +31,7 @@ struct HomeView: View {
             .background(Theme.Colors.bgCanvas)
             .navigationTitle("Blindado")
             .alert(
-                String(localized: "home.alert.conflict.title", defaultValue: "Conflito de DNS/VPN"),
+                String(localized: "home.alert.error.title", defaultValue: "Não foi possível blindar o iPhone"),
                 isPresented: .init(
                     get: { viewModel.conflictWarning != nil },
                     set: { if !$0 { viewModel.dismissConflictWarning() } }

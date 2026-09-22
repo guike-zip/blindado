@@ -15,8 +15,10 @@ xcuserdata/
 *.moved-aside
 *.hmap
 *.ipa
+*.pkg
 *.dSYM.zip
 *.dSYM
+/BlindadoMac.app/
 
 # Swift Package Manager
 .build/

@@ -7,9 +7,11 @@ import Observation
 @Observable
 final class HomeViewModel {
     private(set) var state: ProtectionState = .naoConfigurado
-    /// Aviso de conflito exposto quando `DNSManaging.install()` falha porque outra
-    /// configuração de DNS/VPN de terceiros já está ativa (FR-017). `nil` quando não há
-    /// conflito pendente.
+    /// Mensagem exposta quando `DNSManaging.install()` falha — conflito de DNS/VPN (FR-017)
+    /// ou qualquer outro erro real do sistema. `nil` quando não há erro pendente. O nome
+    /// (`conflictWarning`) ficou de um tempo em que só o caso de conflito era mostrado; hoje
+    /// cobre qualquer falha, porque mostrar sempre "conflito" mesmo quando não era mascarava
+    /// o diagnóstico real (achado em teste de dispositivo físico).
     private(set) var conflictWarning: String?
     private(set) var isBusy = false
 
@@ -42,12 +44,9 @@ final class HomeViewModel {
         do {
             try await dnsManaging.install(level: profile.level, provider: provider)
         } catch let error as DNSManagingError {
-            if case .conflictingConfiguration = error {
-                conflictWarning = error.errorDescription
-            }
+            conflictWarning = error.errorDescription
         } catch {
-            // Erros não mapeados não têm um aviso específico de UI (fora do escopo de FR-017);
-            // o estado permanece o que já estava antes da tentativa.
+            conflictWarning = error.localizedDescription
         }
         await refreshState()
     }

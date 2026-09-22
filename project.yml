@@ -144,6 +144,13 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon # mesmo AppIcon.appiconset do alvo iOS (entradas idiom "mac")
         COMBINE_HIDPI_IMAGES: true
         ENABLE_HARDENED_RUNTIME: true
+      configs:
+        # Mesmo motivo dos targets iOS — limpar o default do xcodegen para deixar o Xcode
+        # escolher Development (build) vs Distribution (archive) sozinho.
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+        Release:
+          CODE_SIGN_IDENTITY: ""
     info:
       path: BlindadoMac/Info.plist
       properties:
@@ -176,6 +183,11 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
         ENABLE_HARDENED_RUNTIME: true
+      configs:
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+        Release:
+          CODE_SIGN_IDENTITY: ""
     info:
       path: BlindadoMac/ContentBlockerInfo.plist
       properties:

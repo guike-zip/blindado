@@ -209,10 +209,10 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Entendi" } }
       }
     },
-    "home.alert.conflict.title" : {
+    "home.alert.error.title" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "DNS/VPN Conflict" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Conflito de DNS/VPN" } }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't protect your iPhone" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Não foi possível blindar o iPhone" } }
       }
     },
     "home.body.not_configured" : {
