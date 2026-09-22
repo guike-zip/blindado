@@ -18,6 +18,20 @@ settings:
     # pt-BR é o idioma de origem do catálogo (Localizable.xcstrings); inglês é a segunda
     # localização suportada (pedido do usuário — i18n en/pt-BR).
     DEVELOPMENT_LANGUAGE: pt-BR
+    # Assinatura automática — evita precisar abrir o Xcode para selecionar o Team manualmente
+    # em cada target (research.md #13). O certificado de Distribuição para este Team ID já
+    # existe no keychain local (de outro projeto do mesmo desenvolvedor); provisioning
+    # profiles são gerados sob demanda pelo próprio xcodebuild/fastlane via
+    # -allowProvisioningUpdates, autenticado pela App Store Connect API key.
+    #
+    # DEVELOPMENT_TEAM não fica aqui de propósito — este arquivo é público (github.com/
+    # guike-zip/blindado). O Team ID real vem de Local.xcconfig (gitignored — cada
+    # desenvolvedor cria o seu, com uma linha `DEVELOPMENT_TEAM = <seu Team ID>`) via
+    # `configFiles` abaixo.
+    CODE_SIGN_STYLE: Automatic
+configFiles:
+  Debug: Local.xcconfig
+  Release: Local.xcconfig
 
 targets:
   Blindado:
@@ -35,6 +49,15 @@ targets:
         # AppIcon.appiconset — conceito 01 "Sólido" (design/blindado-app-icon.html), renderizado
         # em Blindado/Theme/Assets.xcassets/AppIcon.appiconset/ (research.md #12).
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      configs:
+        # xcodegen injeta CODE_SIGN_IDENTITY="iPhone Developer" por padrão em targets
+        # `application` no iOS, mesmo com CODE_SIGN_STYLE=Automatic — isso conflita com o
+        # Xcode escolhendo sozinho Development (build) vs Distribution (archive). Limpar o
+        # valor deixa a escolha automática funcionar de verdade.
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+        Release:
+          CODE_SIGN_IDENTITY: ""
     info:
       path: Blindado/Info.plist
       properties:
@@ -65,6 +88,12 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
+      configs:
+        # Mesmo motivo do target Blindado — limpar o default "iPhone Developer" do xcodegen.
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+        Release:
+          CODE_SIGN_IDENTITY: ""
     info:
       path: BlindadoContentBlocker/Info.plist
       properties:

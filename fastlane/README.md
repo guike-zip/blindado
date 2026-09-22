@@ -69,7 +69,7 @@ Sobe um novo build para o TestFlight — exige conta de desenvolvedor + API key 
 [bundle exec] fastlane ios release
 ```
 
-Sobe um build para o App Store Connect, SEM submeter para revisão automaticamente (Constitution Princípio III — revisão manual do texto/screenshots antes de qualquer submissão)
+Sobe um build para o App Store Connect, SEM submeter para revisão automaticamente (Constitution Princípio III — revisão manual do texto/screenshots antes de qualquer submissão). Depois de submeter (manualmente, pelo App Store Connect), a publicação é automática assim que a Apple aprovar — automatic_release: true.
 
 ----
 

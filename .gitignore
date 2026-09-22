@@ -44,3 +44,6 @@ fastlane/*.p12
 fastlane/*.mobileprovision
 fastlane/*.cer
 
+# Team ID da Apple (identificador real da conta) — repositório é público
+Local.xcconfig
+

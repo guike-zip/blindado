@@ -94,7 +94,14 @@ platform :ios do
     build_app(
       project: IOS_PROJECT,
       scheme: IOS_SCHEME,
-      export_method: "app-store"
+      export_method: "app-store",
+      # gym não repassa a app_store_connect_api_key para o xcodebuild sozinho — sem isso,
+      # "Automatic signing is disabled" mesmo com CODE_SIGN_STYLE=Automatic no project.yml.
+      xcargs: "-allowProvisioningUpdates",
+      # A etapa de export (depois do archive) precisa saber o Team explicitamente — não fica
+      # hardcoded aqui porque este arquivo é público; vem de fastlane/.env (gitignored).
+      export_team_id: ENV["FASTLANE_TEAM_ID"],
+      export_options: { signingStyle: "automatic" }
     )
   end
 
@@ -105,13 +112,13 @@ platform :ios do
     upload_to_testflight(skip_waiting_for_build_processing: true)
   end
 
-  desc "Sobe um build para o App Store Connect, SEM submeter para revisão automaticamente (Constitution Princípio III — revisão manual do texto/screenshots antes de qualquer submissão)"
+  desc "Sobe um build para o App Store Connect, SEM submeter para revisão automaticamente (Constitution Princípio III — revisão manual do texto/screenshots antes de qualquer submissão). Depois de submeter (manualmente, pelo App Store Connect), a publicação é automática assim que a Apple aprovar — automatic_release: true."
   lane :release do
     bump_build
     build_release
     upload_to_app_store(
       submit_for_review: false,
-      automatic_release: false,
+      automatic_release: true,
       force: true,
       skip_metadata: false,
       skip_screenshots: false # fastlane/screenshots/pt-BR — roteiro de app-store-submission.md
@@ -146,7 +153,10 @@ platform :mac do
     build_app(
       project: IOS_PROJECT,
       scheme: MAC_SCHEME,
-      export_method: "app-store"
+      export_method: "app-store",
+      xcargs: "-allowProvisioningUpdates",
+      export_team_id: ENV["FASTLANE_TEAM_ID"],
+      export_options: { signingStyle: "automatic" }
     )
   end
 

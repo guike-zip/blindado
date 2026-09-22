@@ -206,6 +206,7 @@
 		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
 		F3713188F0EDB2AF5F181D00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		"TEMP_CACCCC23-1747-49EF-B6F1-82D393C21053" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -355,6 +356,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		"TEMP_D29375EC-6C59-4812-9DB2-349597364E4B" /* blindado */ = {
+			isa = PBXGroup;
+			children = (
+				"TEMP_CACCCC23-1747-49EF-B6F1-82D393C21053" /* Local.xcconfig */,
+			);
+			path = blindado;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -479,6 +488,30 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					3599A594E8632C0DC9C47C81 = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
+					5F67A01E7409ABCEB9D439C1 = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
+					618B95F2073EE4C13118B350 = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
+					CC7E12E823C022C2AA00226F = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
+					ED38CCD2694892F4F7B73715 = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
+					ED94E2ADA15186E053F6BFF5 = {
+						DevelopmentTeam = J55LDMR2HC;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 6929F05EBA17E7176C75E0CC /* Build configuration list for PBXProject "Blindado" */;
@@ -757,7 +790,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Blindado/Blindado.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = Blindado/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -775,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BlindadoContentBlocker/BlindadoContentBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = BlindadoContentBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -863,6 +897,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BlindadoContentBlocker/BlindadoContentBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = BlindadoContentBlocker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -896,6 +931,7 @@
 		};
 		D518897F554560FC16F6F786 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_CACCCC23-1747-49EF-B6F1-82D393C21053" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -927,6 +963,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -967,7 +1004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Blindado/Blindado.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = Blindado/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -983,6 +1020,7 @@
 		};
 		F2DEC456D4EFB9DC8F7D6AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_CACCCC23-1747-49EF-B6F1-82D393C21053" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1014,6 +1052,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
