@@ -158,10 +158,13 @@ a captura atual usa um mock só de tela, não uma ativação real de DNS.
 - [x] Notas de revisão explicam o uso de `NEDNSSettingsManager`, o fluxo manual de ativação, os
       dois provedores de DNS suportados (AdGuard e Control D) e o modelo de download único —
       texto já redigido na seção "Notas de revisão" acima, pronto para colar no envio.
-- [ ] Política de privacidade publicada e linkada na tela de Transparência (FR-014).
-      **Bloqueado**: `PrivacyViewModel.privacyPolicyURL` ainda aponta para um domínio
-      placeholder (`www.seudominio.com`) que não existe — precisa de um domínio/hospedagem
-      reais antes do envio.
+- [ ] Política de privacidade publicada e linkada na tela de Transparência (FR-014). O
+      **texto já está pronto** em [`design/privacidade.html`](../../design/privacidade.html)
+      (mesmo visual do resto do design, reflete exatamente as promessas da tela Privacidade do
+      app). **Falta só publicar** em algum domínio/hospedagem — GitHub Pages funciona (é
+      grátis: `Settings → Pages` num repo público, ou um repo dedicado tipo
+      `usuario.github.io`) — e então trocar `PrivacyViewModel.privacyPolicyURL`
+      (hoje `https://www.seudominio.com/blindado/privacidade`, placeholder) para a URL real.
 - [ ] Entitlement `com.apple.developer.networking.networkextension` aprovado para a conta de
       desenvolvedor antes do envio. **Não verificado nesta sessão** — checar em
       developer.apple.com → Identifiers → App ID do Blindado → Capabilities.

@@ -24,6 +24,11 @@ Este arquivo é o índice. Os artefatos completos estão em [`/design`](design/)
 - [`design/blindado-app-icon.html`](design/blindado-app-icon.html) — 4 conceitos de ícone do
   app (camadas fundo/glifo separadas para o pipeline do Icon Composer do iOS 26, preview em
   grade de Tela de Início clara/escura e no Dock do macOS). Ver seção "Ícone do app" abaixo.
+- [`design/privacidade.html`](design/privacidade.html) — texto completo da política de
+  privacidade, pronto para publicar (nenhuma hospedagem definida ainda — ver
+  `app-store-submission.md`, item pendente do checklist). Reflete exatamente o que a tela
+  Privacidade do app promete: zero coleta, para onde vão as consultas DNS, o que o Blindado
+  NÃO faz.
 - [`design/blindado-app-store-screenshots.html`](design/blindado-app-store-screenshots.html) —
   template panorâmico dos 7 screenshots de loja (artboard real 1320×2868, iPhone 6,9"). Compõe
   cada captura bruta do app dentro de uma moldura de iPhone com título/subtítulo do roteiro em
