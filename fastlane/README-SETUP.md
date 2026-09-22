@@ -5,32 +5,22 @@ O Fastlane já está funcional para **build e teste local** (`./bin/fastlane ios
 essas lanes rodam sem nenhuma credencial Apple, do mesmo jeito que `xcodebuild ... 
 CODE_SIGNING_ALLOWED=NO` (quickstart.md seção 2).
 
-As lanes `beta` e `release` (TestFlight / App Store Connect) **vão falhar até você fazer os
-passos abaixo** — é o comportamento esperado, não um bug. Nenhum deles pode ser feito por mim
-(exigem sua conta/senha na Apple).
+As lanes `beta` e `release` (TestFlight / App Store Connect) **vão falhar até o passo 3 abaixo
+estar feito** — é o comportamento esperado, não um bug.
 
-## 1. Conta de desenvolvedor Apple
+## 1. Conta de desenvolvedor Apple — ✅ feito em 2026-09-22
 
-Conta paga (Apple Developer Program, US$ 99/ano) com um App ID registrado para
-`io.blindado.app` (troque pelo bundle ID real primeiro — ver `plan.md`), com as
-capabilities `Network Extension` (`dns-settings`) e `App Groups` habilitadas — o mesmo passo
-manual já descrito em `quickstart.md` seção 3.
+App IDs `io.blindado.app` e `io.blindado.app.contentblocker` registrados no Developer Portal,
+com `App Groups` habilitada em ambos (associados a `group.io.blindado.app`) e `Network
+Extensions` habilitada em `io.blindado.app`. Team ID: `J55LDMR2HC`.
 
-## 2. App Store Connect API key (recomendado)
+## 2. App Store Connect API key — ✅ feito
 
-Evita 2FA interativo em cada deploy. Em App Store Connect → **Users and Access → Integrations
-→ App Store Connect API**:
+`fastlane/.env` já está preenchido (reaproveitando uma chave existente da conta, papel
+Administrador) e `fastlane/AuthKey.p8` já está no lugar certo — ambos fora do git. Validado
+rodando `./bin/fastlane ios test`, que autentica sem erro.
 
-1. Crie uma chave com papel **App Manager** (ou "Admin" se for gerenciar metadados também).
-2. Baixe o arquivo `.p8` **uma vez só** — a Apple não deixa baixar de novo.
-3. Copie `fastlane/.env.default` para `fastlane/.env` (já está no `.gitignore`) e preencha:
-   - `APP_STORE_CONNECT_API_KEY_KEY_ID` (Key ID mostrado na tabela)
-   - `APP_STORE_CONNECT_API_KEY_ISSUER_ID` (Issuer ID, topo da página)
-   - `APP_STORE_CONNECT_API_KEY_FILEPATH` (caminho do `.p8` baixado — sugestão:
-     `fastlane/AuthKey.p8`, que também já está no `.gitignore`)
-4. Preencha `FASTLANE_TEAM_ID` também (Apple Developer Portal → Membership → Team ID).
-
-## 3. Assinatura de código (certificados + perfis de provisionamento)
+## 3. Assinatura de código (certificados + perfis de provisionamento) — pendente, só no Xcode
 
 Sem isso, `build_release`/`beta`/`release` falham na etapa de `build_app` (gym). Duas opções:
 
@@ -54,9 +44,8 @@ Só depois disso rodar `./bin/fastlane ios beta` (TestFlight) ou `./bin/fastlane
 propósito: revise o texto/screenshots contra `app-store-submission.md` e a Constitution
 Princípio III antes de qualquer submissão manual).
 
-## 5. Screenshots
+## 5. Screenshots — ✅ feito
 
-`release` está com `skip_screenshots: true` porque ainda não existem screenshots reais (só o
-roteiro em `app-store-submission.md`). Depois de gerá-los (`fastlane snapshot` ou capturas
-manuais em dispositivo/simulador), tire essa flag e aponte `fastlane/Snapfile`/
-`fastlane/metadata` para os arquivos.
+Os 7 screenshots reais (roteiro completo de `app-store-submission.md`) já estão em
+`fastlane/screenshots/pt-BR/` e `skip_screenshots` já está `false` na lane `release`. Nada a
+fazer aqui — só regenerar se a UI mudar (ver seção "Screenshots" de `app-store-submission.md`).

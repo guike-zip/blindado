@@ -323,12 +323,14 @@ comportamento real; abrir o link da política de privacidade (quickstart.md seç
 - [ ] T047 Rodar `quickstart.md` seção 5 (validação em dispositivo físico) para as 5 histórias
       de usuário antes de considerar a feature completa
 - [ ] T048 [P] Preencher e validar o checklist final de `app-store-submission.md` antes do
-      envio à App Store — 5/9 itens verificados e marcados em 2026-09-22 (sem menção a bloqueio
+      envio à App Store — 6/9 itens verificados e marcados em 2026-09-22 (sem menção a bloqueio
       de anúncios de terceiros, disclaimer presente, deployment target, notas de revisão
-      prontas, auditoria StoreKit). Os 4 restantes dependem de ações fora do código: preço e
-      formulário de privacidade no App Store Connect (precisam do registro do app existir lá),
-      política de privacidade real hospedada (hoje é um domínio placeholder), e confirmação do
-      entitlement de Network Extension aprovado para a conta de desenvolvedor.
+      prontas, auditoria StoreKit, entitlement de Network Extension confirmado habilitado e
+      self-service no App ID `io.blindado.app`). Os 3 restantes dependem de ações fora do
+      código: preço e formulário de privacidade no App Store Connect (precisam do registro do
+      app existir lá — nenhum app criado em App Store Connect ainda, só os identifiers no
+      Developer Portal), e publicar a política de privacidade (texto pronto em
+      `design/privacidade.html`, falta só escolher hospedagem).
 - [x] T049 [P] Auditar o projeto Xcode (targets, capabilities, dependências) para confirmar
       ausência de StoreKit, de qualquer framework de compra/assinatura, e de código morto de
       versão "Pro" (Constitution Princípio IX, FR-018)

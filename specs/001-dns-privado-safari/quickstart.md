@@ -43,16 +43,18 @@ configurada — build para dispositivo físico exige assinatura de verdade (seç
 
 ## 3. Capabilities e entitlements
 
-No portal da Apple (developer.apple.com → Certificates, Identifiers & Profiles) e no Xcode
-(target → Signing & Capabilities):
+Feito em 2026-09-22 no portal da Apple (developer.apple.com → Certificates, Identifiers &
+Profiles): App IDs `io.blindado.app` e `io.blindado.app.contentblocker` registrados, ambos com
+a capability **App Groups** habilitada e associados ao App Group `group.io.blindado.app`
+(criado nesta mesma sessão); `io.blindado.app` também com **Network Extensions** habilitada —
+self-service no portal atual, sem aviso de aprovação pendente.
 
-1. **App Group**: criar `group.io.blindado.app`; adicionar aos dois targets
-   (`Blindado` e `BlindadoContentBlocker`).
-2. **Network Extension**: adicionar ao target `Blindado`, com o entitlement
-   `com.apple.developer.networking.networkextension = ["dns-settings"]`. Esse entitlement
-   requer aprovação/associação da Apple ao App ID — solicitar com antecedência caso ainda não
-   esteja liberado para a conta de desenvolvedor.
-3. Verificar que o provisioning profile de cada target inclui as capabilities acima antes de
+Falta só, no Xcode (target → Signing & Capabilities), depois de `xcodegen generate`:
+
+1. Selecionar o Team (`J55LDMR2HC`) em cada um dos 4 targets (`Blindado`, `BlindadoContentBlocker`,
+   `BlindadoMac`, `BlindadoMacContentBlocker`) com "Automatically manage signing" ligado — o
+   Xcode gera os provisioning profiles a partir das capabilities já configuradas no portal.
+2. Verificar que o provisioning profile de cada target inclui as capabilities acima antes de
    rodar em dispositivo.
 
 ## 4. Estrutura de código

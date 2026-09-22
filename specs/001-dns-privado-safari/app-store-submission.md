@@ -165,9 +165,11 @@ a captura atual usa um mock só de tela, não uma ativação real de DNS.
       grátis: `Settings → Pages` num repo público, ou um repo dedicado tipo
       `usuario.github.io`) — e então trocar `PrivacyViewModel.privacyPolicyURL`
       (hoje `https://www.seudominio.com/blindado/privacidade`, placeholder) para a URL real.
-- [ ] Entitlement `com.apple.developer.networking.networkextension` aprovado para a conta de
-      desenvolvedor antes do envio. **Não verificado nesta sessão** — checar em
-      developer.apple.com → Identifiers → App ID do Blindado → Capabilities.
+- [x] Entitlement `com.apple.developer.networking.networkextension` aprovado para a conta de
+      desenvolvedor antes do envio. Verificado em 2026-09-22 em developer.apple.com →
+      Identifiers → App ID `io.blindado.app` → capability **Network Extensions**: habilitada,
+      sem nenhum aviso de aprovação pendente ou botão de solicitação — é self-service no portal
+      atual, diferente do processo antigo que exigia pedido manual à Apple.
 - [x] Projeto Xcode auditado (T049) sem StoreKit, sem SDK de compra/assinatura e sem código
       morto de versão "Pro". Varredura em 2026-09-22 em todo o código-fonte, entitlements,
       Info.plist e project.pbxproj: nenhuma ocorrência.
