@@ -50,15 +50,18 @@ struct PrivacyView: View {
                 Link(destination: PrivacyViewModel.privacyPolicyURL) {
                     HStack {
                         Image(systemName: "doc.text")
+                            .accessibilityHidden(true)
                         Text(String(localized: "privacy.read_policy", defaultValue: "Ler a política completa"))
                         Spacer()
                         Image(systemName: "arrow.up.right")
+                            .accessibilityHidden(true)
                     }
                     .font(Theme.Typography.body)
                     .foregroundStyle(Theme.Colors.textPrimary)
                     .padding(Theme.Spacing.cardPadding)
                     .background(Theme.Colors.bgSurface, in: RoundedRectangle(cornerRadius: Theme.Radius.md))
                 }
+                .accessibilityHint(String(localized: "privacy.read_policy.hint", defaultValue: "Abre uma página no navegador"))
             }
             .padding(Theme.Spacing.layoutGutter)
         }
@@ -75,6 +78,7 @@ struct PrivacyView: View {
             Image(systemName: icon)
                 .foregroundStyle(Theme.Colors.statusInfo)
                 .frame(width: 24)
+                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: Theme.Spacing.s1) {
                 Text(title)
                     .font(Theme.Typography.body)

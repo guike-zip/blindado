@@ -150,6 +150,7 @@ struct HomeView: View {
                 .foregroundStyle(Theme.Colors.textPrimary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityElement(children: .combine)
     }
 
     private var protectionLevelRow: some View {
@@ -165,10 +166,12 @@ struct HomeView: View {
             Spacer()
             Image(systemName: "chevron.right")
                 .foregroundStyle(Theme.Colors.textTertiary)
+                .accessibilityHidden(true)
         }
         .padding(Theme.Spacing.cardPadding)
         .frame(minHeight: Theme.Spacing.rowMinHeight)
         .background(Theme.Colors.bgSurface, in: RoundedRectangle(cornerRadius: Theme.Radius.md))
+        .accessibilityElement(children: .combine)
     }
 
     @ViewBuilder

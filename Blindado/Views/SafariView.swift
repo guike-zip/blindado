@@ -153,6 +153,7 @@ struct SafariView: View {
                 .font(Theme.Typography.subhead)
                 .foregroundStyle(Theme.Colors.textPrimary)
         }
+        .accessibilityElement(children: .combine)
     }
 
     private var lastReloadText: String {

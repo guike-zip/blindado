@@ -308,8 +308,15 @@ comportamento real; abrir o link da política de privacidade (quickstart.md seç
 
 ## Phase 8: Polish & Cross-Cutting Concerns
 
-- [ ] T045 [P] Adicionar rótulos de VoiceOver e validar Dynamic Type em todas as Views
-      (Constitution Princípio VI) — após T016–T044
+- [x] T045 [P] Adicionar rótulos de VoiceOver e validar Dynamic Type em todas as Views
+      (Constitution Princípio VI) — após T016–T044. Dynamic Type já vinha automático (Theme.Typography
+      usa text styles semânticos do sistema). Auditoria de VoiceOver corrigiu: ícones puramente
+      decorativos ocultados (`.accessibilityHidden(true)`), linhas com múltiplos Text agrupadas
+      (`.accessibilityElement(children: .combine)`), e um bug real em `ProtectionLevelView` onde
+      o `.combine` no card do nível engolia os botões de seleção de provedor DNS, tornando-os
+      inalcançáveis por VoiceOver — corrigido movendo o `.combine` só para o rótulo do botão do
+      nível, deixando os botões de provedor como elementos interativos separados. Confirmação
+      com VoiceOver ligado em dispositivo físico fica para o T047 (precisa de hardware).
 - [x] T046 [P] Revisar todos os textos de UI e o texto de `app-store-submission.md` contra a
       Constitution Princípio III (nenhuma menção a bloqueio de anúncios fora do Safari) e
       contra o Princípio IX/FR-018 (nenhuma menção a "versão Pro", compra ou assinatura)

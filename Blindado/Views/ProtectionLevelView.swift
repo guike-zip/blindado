@@ -43,6 +43,7 @@ struct ProtectionLevelView: View {
                 HStack(alignment: .top, spacing: Theme.Spacing.s3) {
                     Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                         .foregroundStyle(isSelected ? Theme.Colors.accent : Theme.Colors.borderStrong)
+                        .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: Theme.Spacing.s1) {
                         Text(level.displayName)
                             .font(Theme.Typography.headline)
@@ -53,6 +54,11 @@ struct ProtectionLevelView: View {
                     }
                     Spacer()
                 }
+                // Combinado aqui (só o botão de seleção do nível), não no VStack inteiro —
+                // combinar no VStack engoliria os botões de provedor abaixo, tornando-os
+                // inalcançáveis por VoiceOver (achado de auditoria de acessibilidade).
+                .accessibilityElement(children: .combine)
+                .accessibilityAddTraits(isSelected ? [.isSelected] : [])
             }
             .buttonStyle(.plain)
 
@@ -65,8 +71,6 @@ struct ProtectionLevelView: View {
             isSelected ? Theme.Colors.statusProtectedSoft : Theme.Colors.bgSurface,
             in: RoundedRectangle(cornerRadius: Theme.Radius.md)
         )
-        .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(isSelected ? [.isSelected] : [])
     }
 
     private func providerPicker(for level: ProtectionLevel) -> some View {
@@ -88,11 +92,13 @@ struct ProtectionLevelView: View {
                         if viewModel.selectedProvider?.id == provider.id {
                             Image(systemName: "checkmark")
                                 .foregroundStyle(Theme.Colors.accent)
+                                .accessibilityHidden(true)
                         }
                     }
                     .padding(.vertical, Theme.Spacing.s2)
                 }
                 .buttonStyle(.plain)
+                .accessibilityAddTraits(viewModel.selectedProvider?.id == provider.id ? [.isSelected] : [])
             }
         }
         .padding(.top, Theme.Spacing.s2)
@@ -105,6 +111,7 @@ struct ProtectionLevelView: View {
                 .foregroundStyle(Theme.Colors.textTertiary)
 
             TextField("https://dns.meuprovedor.com/dns-query", text: $customServerText)
+                .accessibilityLabel(String(localized: "level.custom.field_label", defaultValue: "Endereço DoH (DNS sobre HTTPS)"))
                 .font(Theme.Typography.mono)
                 .autocorrectionDisabled()
                 #if os(iOS)

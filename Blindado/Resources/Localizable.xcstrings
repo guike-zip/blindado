@@ -429,6 +429,12 @@
         "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ler a política completa" } }
       }
     },
+    "privacy.read_policy.hint" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Opens a page in the browser" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abre uma página no navegador" } }
+      }
+    },
     "privacy.section_label" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "WHERE YOUR QUERIES GO" } },
