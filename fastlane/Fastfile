@@ -114,6 +114,37 @@ platform :ios do
     )
   end
 
+  desc "Distribui a build mais recente já enviada para o grupo de testadores EXTERNOS do TestFlight (uso: bundle exec fastlane ios distribute_external, ou passe group:\"Outro Grupo\")"
+  lane :distribute_external do |options|
+    upload_to_testflight(
+      app_identifier: "io.blindado.app",
+      app_platform: "ios",
+      distribute_only: true,
+      distribute_external: true,
+      groups: [options[:group] || "Testadores externos"],
+      skip_waiting_for_build_processing: false,
+      changelog: options[:changelog] || "Primeira versão de teste para testadores externos.",
+      # beta_app_description/beta_app_feedback_email (top-level) silenciosamente não fazem nada
+      # na primeira vez — pilot só atualiza localizações de beta app JÁ existentes
+      # (build_manager.rb#update_localized_app_review só itera sobre `app.get_beta_app_localizations`,
+      # que começa vazio). localized_app_info com uma chave de locale real força a criação.
+      localized_app_info: {
+        "pt-BR": {
+          feedback_email: "guilherme.avieiras@gmail.com",
+          description: "Blindado protege sua navegação com DNS criptografado em todo o iPhone e um bloqueador de conteúdo para o Safari. Toque em \"Blindar meu iPhone\" e siga a instrução para ativar em Ajustes."
+        }
+      },
+      demo_account_required: false,
+      # FASTLANE_REVIEW_PHONE em fastlane/.env (gitignored) — ver fastlane/.env.default.
+      beta_app_review_info: {
+        contact_email: "guilherme.avieiras@gmail.com",
+        contact_first_name: "Guilherme",
+        contact_last_name: "Santos",
+        contact_phone: ENV["FASTLANE_REVIEW_PHONE"]
+      }
+    )
+  end
+
   desc "Sobe um novo build para o TestFlight — exige conta de desenvolvedor + API key (README-SETUP.md)"
   lane :beta do
     bump_build

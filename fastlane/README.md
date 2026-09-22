@@ -55,6 +55,14 @@ Define a versão (MARKETING_VERSION) em project.yml e regenera o projeto. Uso: b
 
 Build assinado para distribuição (App Store) — exige conta de desenvolvedor configurada
 
+### ios distribute_external
+
+```sh
+[bundle exec] fastlane ios distribute_external
+```
+
+Distribui a build mais recente já enviada para o grupo de testadores EXTERNOS do TestFlight (uso: bundle exec fastlane ios distribute_external, ou passe group:"Outro Grupo")
+
 ### ios beta
 
 ```sh
