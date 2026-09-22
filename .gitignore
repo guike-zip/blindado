@@ -53,3 +53,8 @@ fastlane/*.cer
 # Team ID da Apple (identificador real da conta) — repositório é público
 Local.xcconfig
 
+# Contato de revisão da App Store (telefone real, nome) — repositório é público. O resto de
+# fastlane/metadata/ (descrição, keywords, categoria...) é texto de marketing sem dado pessoal
+# sensível e fica versionado.
+fastlane/metadata/review_information/
+

@@ -1,0 +1,1 @@
+Primeira versão do Blindado: DNS privado e criptografado em todo o iPhone, com proteção Padrão, Família ou servidor personalizado, tela de Teste para ver o que está sendo bloqueado, e um bloqueador de conteúdo nativo para o Safari.

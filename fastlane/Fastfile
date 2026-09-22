@@ -130,7 +130,10 @@ platform :ios do
       automatic_release: true,
       force: true,
       skip_metadata: false,
-      skip_screenshots: false # fastlane/screenshots/pt-BR — roteiro de app-store-submission.md
+      skip_screenshots: false, # fastlane/screenshots/pt-BR — roteiro de app-store-submission.md
+      # precheck não consegue checar IAP com autenticação via App Store Connect API Key — o app
+      # não tem nenhum IAP (auditado, T049), então não há o que checar aqui.
+      precheck_include_in_app_purchases: false
     )
   end
 end

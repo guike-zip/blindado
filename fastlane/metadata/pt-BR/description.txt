@@ -1,0 +1,17 @@
+Blindado protege sua navegação com DNS criptografado em todo o iPhone — em Wi-Fi e também na rede celular — e com um bloqueador de conteúdo dedicado ao Safari.
+
+• Ative em poucos toques, sem cadastro e sem configuração técnica.
+• Escolha entre proteção Padrão, Família (também filtra conteúdo adulto) ou um servidor DNS seguro personalizado — com mais de um provedor de DNS reconhecido disponível em cada nível (AdGuard DNS e Control D), para você não depender de um único serviço.
+• Teste sua proteção a qualquer momento e veja exatamente o que está sendo bloqueado.
+• Bloqueador de conteúdo nativo para o Safari, fácil de habilitar e recarregar.
+• Zero coleta de dados. Zero servidor próprio. Suas consultas DNS vão diretamente para o provedor que você escolher.
+• Pagamento único. Sem assinatura, sem compras dentro do app: tudo que o Blindado faz já vem liberado no preço da compra.
+
+O QUE O BLINDADO NÃO FAZ
+(para você comprar sabendo exatamente o que está levando)
+
+• Não é uma VPN — não esconde seu IP nem troca sua localização.
+• Não bloqueia anúncios dentro de outros aplicativos, como YouTube, Instagram, TikTok ou jogos. Ele age no DNS do sistema (o que reduz alguns rastreadores mesmo fora do Safari) e, dentro do Safari, também remove elementos de página — mas não edita o conteúdo de outros apps.
+• Não guarda histórico nem estatísticas de navegação — nem para você, nem para nós.
+
+O foco do Blindado é DNS privado em todo o sistema e um Safari mais limpo — nada além disso.

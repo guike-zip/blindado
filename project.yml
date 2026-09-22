@@ -14,7 +14,7 @@ settings:
     # increment_build_number) edita estes dois valores aqui e roda `xcodegen generate` de
     # novo, em vez de mexer direto no .xcodeproj (que seria sobrescrito na próxima geração).
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "4"
+    CURRENT_PROJECT_VERSION: "5"
     # pt-BR é o idioma de origem do catálogo (Localizable.xcstrings); inglês é a segunda
     # localização suportada (pedido do usuário — i18n en/pt-BR).
     DEVELOPMENT_LANGUAGE: pt-BR
