@@ -14,21 +14,14 @@ settings:
     # increment_build_number) edita estes dois valores aqui e roda `xcodegen generate` de
     # novo, em vez de mexer direto no .xcodeproj (que seria sobrescrito na próxima geração).
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "3"
+    CURRENT_PROJECT_VERSION: "4"
     # pt-BR é o idioma de origem do catálogo (Localizable.xcstrings); inglês é a segunda
     # localização suportada (pedido do usuário — i18n en/pt-BR).
     DEVELOPMENT_LANGUAGE: pt-BR
-    # Assinatura automática — evita precisar abrir o Xcode para selecionar o Team manualmente
-    # em cada target (research.md #13). O certificado de Distribuição para este Team ID já
-    # existe no keychain local (de outro projeto do mesmo desenvolvedor); provisioning
-    # profiles são gerados sob demanda pelo próprio xcodebuild/fastlane via
-    # -allowProvisioningUpdates, autenticado pela App Store Connect API key.
-    #
-    # DEVELOPMENT_TEAM não fica aqui de propósito — este arquivo é público (github.com/
-    # guike-zip/blindado). O Team ID real vem de Local.xcconfig (gitignored — cada
-    # desenvolvedor cria o seu, com uma linha `DEVELOPMENT_TEAM = <seu Team ID>`) via
-    # `configFiles` abaixo.
-    CODE_SIGN_STYLE: Automatic
+    # DEVELOPMENT_TEAM fica só em Local.xcconfig (gitignorado — repo público) via `configFiles`
+    # abaixo, não aqui. CODE_SIGN_STYLE (Automatic) também vem de lá para os builds de Debug;
+    # os targets de app iOS/macOS sobrescrevem para Manual só na config Release — ver o
+    # comentário no target `Blindado` abaixo (research.md #13).
 configFiles:
   Debug: Local.xcconfig
   Release: Local.xcconfig
@@ -50,14 +43,16 @@ targets:
         # em Blindado/Theme/Assets.xcassets/AppIcon.appiconset/ (research.md #12).
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       configs:
-        # xcodegen injeta CODE_SIGN_IDENTITY="iPhone Developer" por padrão em targets
-        # `application` no iOS, mesmo com CODE_SIGN_STYLE=Automatic — isso conflita com o
-        # Xcode escolhendo sozinho Development (build) vs Distribution (archive). Limpar o
-        # valor deixa a escolha automática funcionar de verdade.
-        Debug:
-          CODE_SIGN_IDENTITY: ""
         Release:
-          CODE_SIGN_IDENTITY: ""
+          # Assinatura manual só no Release (App Store): Automatic força um perfil de
+          # Development no passo de archive (exige um device registrado, que não existe nesta
+          # conta) e, ao ser contornado limpando CODE_SIGN_IDENTITY, produz um .xcarchive sem
+          # assinatura real — o export subsequente regenera entitlements mínimos do zero,
+          # derrubando dns-settings/app-groups (achado em teste real de TestFlight, build 3:
+          # "permission denied"). Perfil gerado via `fastlane sigh` (README-SETUP.md).
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "Apple Distribution"
+          PROVISIONING_PROFILE_SPECIFIER: "io.blindado.app AppStore"
     info:
       path: Blindado/Info.plist
       properties:
@@ -89,11 +84,10 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
       configs:
-        # Mesmo motivo do target Blindado — limpar o default "iPhone Developer" do xcodegen.
-        Debug:
-          CODE_SIGN_IDENTITY: ""
         Release:
-          CODE_SIGN_IDENTITY: ""
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "Apple Distribution"
+          PROVISIONING_PROFILE_SPECIFIER: "io.blindado.app.contentblocker AppStore"
     info:
       path: BlindadoContentBlocker/Info.plist
       properties:
@@ -144,13 +138,6 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon # mesmo AppIcon.appiconset do alvo iOS (entradas idiom "mac")
         COMBINE_HIDPI_IMAGES: true
         ENABLE_HARDENED_RUNTIME: true
-      configs:
-        # Mesmo motivo dos targets iOS — limpar o default do xcodegen para deixar o Xcode
-        # escolher Development (build) vs Distribution (archive) sozinho.
-        Debug:
-          CODE_SIGN_IDENTITY: ""
-        Release:
-          CODE_SIGN_IDENTITY: ""
     info:
       path: BlindadoMac/Info.plist
       properties:
@@ -183,11 +170,6 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
         PRODUCT_NAME: BlindadoContentBlocker
         ENABLE_HARDENED_RUNTIME: true
-      configs:
-        Debug:
-          CODE_SIGN_IDENTITY: ""
-        Release:
-          CODE_SIGN_IDENTITY: ""
     info:
       path: BlindadoMac/ContentBlockerInfo.plist
       properties:

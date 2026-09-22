@@ -91,17 +91,26 @@ platform :ios do
 
   desc "Build assinado para distribuição (App Store) — exige conta de desenvolvedor configurada"
   lane :build_release do
+    # Assinatura Manual (CODE_SIGN_STYLE em project.yml, config Release) — Automatic exige um
+    # perfil de Development no passo de archive (exige device registrado, que não existe nesta
+    # conta) e, contornado limpando CODE_SIGN_IDENTITY, produz um .xcarchive sem assinatura
+    # real: o export subsequente regenera entitlements mínimos do zero, derrubando
+    # dns-settings/app-groups (achado em teste real de TestFlight, build 3: "permission
+    # denied"). Perfis gerados via `fastlane sigh` (README-SETUP.md) e referenciados por nome
+    # em PROVISIONING_PROFILE_SPECIFIER; aqui só repetimos o mapeamento para o export.
     build_app(
       project: IOS_PROJECT,
       scheme: IOS_SCHEME,
       export_method: "app-store",
-      # gym não repassa a app_store_connect_api_key para o xcodebuild sozinho — sem isso,
-      # "Automatic signing is disabled" mesmo com CODE_SIGN_STYLE=Automatic no project.yml.
       xcargs: "-allowProvisioningUpdates",
-      # A etapa de export (depois do archive) precisa saber o Team explicitamente — não fica
-      # hardcoded aqui porque este arquivo é público; vem de fastlane/.env (gitignored).
       export_team_id: ENV["FASTLANE_TEAM_ID"],
-      export_options: { signingStyle: "automatic" }
+      export_options: {
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "io.blindado.app" => "io.blindado.app AppStore",
+          "io.blindado.app.contentblocker" => "io.blindado.app.contentblocker AppStore"
+        }
+      }
     )
   end
 
