@@ -32,7 +32,17 @@ targets:
     platform: iOS
     deploymentTarget: "26.0"
     sources:
+      # Info.plist/.entitlements são consumidos via as propriedades `info:`/`entitlements:`
+      # abaixo (xcodegen os processa e resolve as variáveis $(...) separadamente) — sem excludes
+      # aqui, o arquivo bruto (com $(VARIABLE) não resolvido) também entra como resource comum
+      # em "Copy Bundle Resources", duplicado. Passou despercebido no target iOS (Apple não
+      # rejeitou), mas quebrou a validação do .pkg do macOS: "Bad CFBundleExecutable" na
+      # BlindadoContentBlocker.appex, porque o Info.plist duplicado (não resolvido) em
+      # Contents/Resources/ confundia o `altool`.
       - path: Blindado
+        excludes:
+          - Info.plist
+          - "*.entitlements"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app
@@ -79,6 +89,9 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: BlindadoContentBlocker
+        excludes:
+          - Info.plist
+          - "*.entitlements"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
@@ -124,6 +137,9 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: Blindado
+        excludes:
+          - Info.plist
+          - "*.entitlements"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app
@@ -153,6 +169,9 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         CFBundleLocalizations: [pt-BR, en]
         ITSAppUsesNonExemptEncryption: false
+        # Obrigatório para o Mac App Store (altool rejeita o .pkg sem isso) — mesma categoria
+        # "Utilities" já configurada no App Store Connect (fastlane/metadata/primary_category.txt).
+        LSApplicationCategoryType: public.app-category.utilities
     entitlements:
       path: BlindadoMac/BlindadoMac.entitlements
       properties:
@@ -172,6 +191,9 @@ targets:
     deploymentTarget: "26.0"
     sources:
       - path: BlindadoContentBlocker
+        excludes:
+          - Info.plist
+          - "*.entitlements"
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: io.blindado.app.contentblocker
@@ -188,6 +210,8 @@ targets:
         CFBundleDisplayName: BlindadoContentBlocker
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        # Obrigatório para extensões no macOS (altool rejeita sem isso) — não é exigido no iOS.
+        NSHumanReadableDescription: Bloqueia anúncios e rastreadores conhecidos dentro do Safari.
         NSExtension:
           NSExtensionPointIdentifier: com.apple.Safari.content-blocker
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).ContentBlockerRequestHandler

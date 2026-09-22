@@ -12,7 +12,6 @@
 		0783FC20B0C698714A5492EE /* ProtectionLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057A0D9AC3DC779F29B38A9A /* ProtectionLevelView.swift */; };
 		093E4CBF417A40853D739533 /* SystemLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */; };
 		0B59D381542FF3E3A207AFD8 /* ProtectionLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */; };
-		0E5DBB1AF6D28FFAF25A8964 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9271BD57A71DC9584821450F /* Info.plist */; };
 		0E6A9B73BDF43229A7275FA8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */; };
 		11C1BD9815562FCC2D41303F /* DNSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC86959C7D04DA8F29E08D /* DNSProvider.swift */; };
 		1B2FDC72635A9F5330966662 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */; };
@@ -28,7 +27,6 @@
 		31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */; };
 		35F6A5D0A790AA44410AE5E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51E04535583787DEC7C43C12 /* Assets.xcassets */; };
 		39C5962E396B55F41E3C645C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */; };
-		3AA3C2FFF1F454789D8F1F4C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58494E5C00A9528859F8C502 /* Info.plist */; };
 		3F951294BDCA562A06CC6474 /* ProtectionLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE7B7566FD2B1C712AB6082 /* ProtectionLevelViewModel.swift */; };
 		43EDBEB2EAEC654A1D3C1AF3 /* PrivacyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3A02190E7F4E8F7F7D5648 /* PrivacyViewModelTests.swift */; };
 		452A730AE210BD556C3FAEBE /* ProtectionTestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */; };
@@ -160,11 +158,9 @@
 		0DEB5F2CF009A0C5FC1118D8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		1355624BC569071C3152B1AD /* DNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManager.swift; sourceTree = "<group>"; };
 		1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionProfile.swift; sourceTree = "<group>"; };
-		1F71C14AB2C37951EF6D1687 /* Blindado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blindado.entitlements; sourceTree = "<group>"; };
 		22EDDB690DA2A1B982FFFFBA /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerState.swift; sourceTree = "<group>"; };
 		2934D95CC3517623C609CD72 /* MockContentBlockerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContentBlockerManager.swift; sourceTree = "<group>"; };
-		2D2C43D568A1F789B98E1902 /* BlindadoContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlindadoContentBlocker.entitlements; sourceTree = "<group>"; };
 		3872981AFF1EE51126F742CF /* BlindadoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BlindadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39895AD370E931DD49F390C0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3E2586BAB86AE71A52863274 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -175,7 +171,6 @@
 		51E04535583787DEC7C43C12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54F01C3B96A9782AADA27F95 /* ProtectionTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestViewModel.swift; sourceTree = "<group>"; };
 		55F984D930D720E8630A218D /* PrivacyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewModel.swift; sourceTree = "<group>"; };
-		58494E5C00A9528859F8C502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		69EC86959C7D04DA8F29E08D /* DNSProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSProvider.swift; sourceTree = "<group>"; };
 		6F95CB8F83E47E88F24C1960 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		740608E262F0A78D376D88C2 /* ProtectionTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTesting.swift; sourceTree = "<group>"; };
@@ -187,7 +182,6 @@
 		8AFF94087654C6D038465EB0 /* MockProtectionTester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProtectionTester.swift; sourceTree = "<group>"; };
 		8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemLinks.swift; sourceTree = "<group>"; };
 		9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BlindadoMacContentBlocker.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		9271BD57A71DC9584821450F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		99BAD0EE036383DBA2A084DB /* ProtectionLevelViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevelViewModelTests.swift; sourceTree = "<group>"; };
 		A12A3EF2683604ED328C24B5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A1C392E97325D0A0193BD0A5 /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
@@ -206,7 +200,7 @@
 		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
 		F3713188F0EDB2AF5F181D00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		"TEMP_D9C6F08A-E807-45C2-BF37-6CA814556511" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		"TEMP_43BFF371-3F76-41DB-B04E-19ECA4A89BC4" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -278,8 +272,6 @@
 		63788F98B2ADB0D675D55910 /* Blindado */ = {
 			isa = PBXGroup;
 			children = (
-				1F71C14AB2C37951EF6D1687 /* Blindado.entitlements */,
-				9271BD57A71DC9584821450F /* Info.plist */,
 				074483A5A34F05BBD733246F /* App */,
 				DB9F832B588A782BBF95AD6C /* Models */,
 				214039729200DF4E7F79908D /* Resources */,
@@ -321,10 +313,8 @@
 		D479D55A355DD41C1408BEA1 /* BlindadoContentBlocker */ = {
 			isa = PBXGroup;
 			children = (
-				2D2C43D568A1F789B98E1902 /* BlindadoContentBlocker.entitlements */,
 				AEAEEA72A4F4A37279E1762F /* blockerList.json */,
 				E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */,
-				58494E5C00A9528859F8C502 /* Info.plist */,
 			);
 			path = BlindadoContentBlocker;
 			sourceTree = "<group>";
@@ -356,10 +346,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		"TEMP_801CCBFB-3F8A-4B45-B723-6E66D24A8B42" /* blindado */ = {
+		"TEMP_118C2B03-C7C7-466F-B80E-B47FABB49F27" /* blindado */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_D9C6F08A-E807-45C2-BF37-6CA814556511" /* Local.xcconfig */,
+				"TEMP_43BFF371-3F76-41DB-B04E-19ECA4A89BC4" /* Local.xcconfig */,
 			);
 			path = blindado;
 			sourceTree = "<group>";
@@ -541,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				35F6A5D0A790AA44410AE5E7 /* Assets.xcassets in Resources */,
-				0E5DBB1AF6D28FFAF25A8964 /* Info.plist in Resources */,
 				82997315D30002826104EC91 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,7 +548,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AA3C2FFF1F454789D8F1F4C /* Info.plist in Resources */,
 				8C2A9ABBD8DE7A6B1EE931AD /* blockerList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -936,7 +924,7 @@
 		};
 		D518897F554560FC16F6F786 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_D9C6F08A-E807-45C2-BF37-6CA814556511" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_43BFF371-3F76-41DB-B04E-19ECA4A89BC4" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1024,7 +1012,7 @@
 		};
 		F2DEC456D4EFB9DC8F7D6AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_D9C6F08A-E807-45C2-BF37-6CA814556511" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_43BFF371-3F76-41DB-B04E-19ECA4A89BC4" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
