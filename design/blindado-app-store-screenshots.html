@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blindado — screenshots da App Store (7 painéis 1320×2868)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS — os mesmos de design-tokens.md, tema escuro
+   bg.canvas #0B0F14 · text.primary #F7F8FA · text.secondary #ACB1B9
+   status.protected (acento) #56DC85 · status.danger #F75D59
+   O acento aparece uma vez por painel, no brilho radial do fundo;
+   o vermelho fica ligado como token e vive dentro dos screenshots.
+   ============================================================ */
+:root{
+  --bg-canvas:#0B0F14;
+  --text-primary:#F7F8FA;
+  --text-secondary:#ACB1B9;
+  --accent:#56DC85;            /* status.protected */
+  --danger:#F75D59;            /* status.danger */
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  /* artboard oficial da App Store para iPhone 6,9" */
+  --panel-w:1320px; --panel-h:2868px;
+  --zoom:.3;
+}
+*{box-sizing:border-box}
+body{margin:0;background:oklch(0.115 0.008 258);
+  background-image:radial-gradient(circle at 14% -6%,rgba(86,220,133,.07),transparent 46%);
+  color:#EEF0F3;font-family:var(--font-ui);-webkit-font-smoothing:antialiased}
+
+/* ---------------- cromo do board (não sai na exportação) ------- */
+.board-head{padding:56px 48px 30px;border-bottom:1px solid rgba(120,132,148,.28)}
+.kicker{font:500 12px/1 var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+.board-title{font:700 clamp(34px,4vw,50px)/1.04 var(--font-display);letter-spacing:-.03em;margin:0;color:#fff}
+.board-title em{font-style:normal;color:var(--accent)}
+.board-lede{font:400 16px/25px var(--font-ui);color:#A7AEB8;max-width:70ch;margin:16px 0 0}
+.board-lede code{font:400 14px/1 var(--font-mono);color:#8FE3AE}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{font:400 12px/1 var(--font-mono);color:#C4CAD3;background:rgba(36,42,52,.9);
+  border:1px solid rgba(120,132,148,.4);border-radius:999px;padding:8px 13px}
+
+.strip{display:flex;gap:44px;padding:44px 48px 22px;overflow-x:auto;align-items:flex-start;
+  scroll-snap-type:x proximity}
+.strip::-webkit-scrollbar{height:12px}
+.strip::-webkit-scrollbar-thumb{background:rgba(120,132,148,.45);border-radius:999px}
+.slot{margin:0;scroll-snap-align:center;flex:none}
+.stage{width:calc(var(--panel-w) * var(--zoom));height:calc(var(--panel-h) * var(--zoom));
+  overflow:hidden;border-radius:14px;box-shadow:0 22px 60px rgba(0,0,0,.55)}
+.stage>.panel{transform:scale(var(--zoom));transform-origin:top left}
+.slot figcaption{margin-top:14px;max-width:calc(var(--panel-w) * var(--zoom))}
+.cap-n{font:500 11px/1 var(--font-mono);letter-spacing:.12em;color:var(--accent)}
+.cap-t{font:600 14px/1.4 var(--font-ui);color:#EDEFF2;margin:6px 0 4px}
+.cap-f{font:400 11.5px/1.5 var(--font-mono);color:#8B93A0;word-break:break-all}
+
+.notes{padding:20px 48px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;max-width:1500px}
+.note{background:rgba(24,29,37,.9);border:1px solid rgba(120,132,148,.3);border-radius:18px;padding:20px 22px}
+.note h3{font:600 13px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;color:#9AA3AF}
+.note p{font:400 14px/22px var(--font-ui);color:#C2C8D1;margin:0}
+.note p+p{margin-top:10px}
+.note b{color:#F2F4F7;font-weight:600}
+.note code{font:400 12.5px/1.5 var(--font-mono);color:#8FE3AE}
+
+/* ================= ARTBOARD 1320 × 2868 ======================= */
+.panel{position:relative;width:var(--panel-w);height:var(--panel-h);overflow:hidden;
+  background:var(--bg-canvas);font-family:var(--font-ui)}
+/* brilho do acento — bem sutil, quase preto */
+.panel::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1180px 920px at 50% 30%,rgba(86,220,133,.115),rgba(86,220,133,.03) 46%,transparent 72%)}
+.panel::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(11,15,20,0) 52%,rgba(11,15,20,.55) 100%)}
+.copy{position:absolute;top:190px;left:100px;right:100px;z-index:2}
+.p-title{font:700 72px/1.1 var(--font-display);letter-spacing:-.02em;color:var(--text-primary);
+  margin:0;text-wrap:balance}
+.p-sub{font:400 44px/1.34 var(--font-ui);color:var(--text-secondary);margin:26px 0 0;
+  max-width:1000px;text-wrap:balance}
+
+.device{position:absolute;top:700px;left:50%;transform:translateX(-50%);z-index:2;
+  width:932px;height:1987px;padding:16px;border-radius:128px;
+  background:linear-gradient(158deg,#6A7079 0%,#2B2F36 34%,#454A52 62%,#23272D 100%);
+  box-shadow:0 54px 110px rgba(0,0,0,.62),0 0 0 1px rgba(255,255,255,.08) inset}
+.screen{position:relative;width:900px;height:1955px;border-radius:112px;overflow:hidden;
+  background:var(--bg-canvas);box-shadow:0 0 0 2px rgba(0,0,0,.85)}
+/* o PNG tem exatamente 1320 × 2868 — mesma proporção da moldura, nada é cortado */
+.screen img{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:cover}
+.screen img.missing{display:none}
+.slot-note{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:22px;padding:80px;text-align:center;
+  background:repeating-linear-gradient(45deg,#11161D,#11161D 26px,#0E131A 26px,#0E131A 52px)}
+.slot-note b{font:500 30px/1.5 var(--font-mono);color:#7F8896;word-break:break-all}
+.slot-note span{font:500 26px/1 var(--font-mono);color:#5C6472;letter-spacing:.1em}
+.island{position:absolute;top:38px;left:50%;transform:translateX(-50%);z-index:3;
+  width:256px;height:76px;border-radius:999px;background:#000}
+</style>
+</head>
+<body>
+<header class="board-head" data-od-id="board-header">
+  <p class="kicker">Blindado · App Store · 7 painéis</p>
+  <h1 class="board-title">Sete telas para explicar<br>um app que <em>não coleta nada</em></h1>
+  <p class="board-lede">Template panorâmico no artboard oficial de 1320 × 2868 px (iPhone 6,9"). Cada painel é uma imagem independente — a App Store sobe uma a uma —, mas os títulos partem da mesma linha e os aparelhos ficam na mesma altura, então a fileira lê como um conjunto. Solte os PNGs em <code>screenshots/</code> com os nomes indicados e eles entram no lugar do marcador listrado, sem tocar no HTML.</p>
+  <div class="chips">
+    <span class="chip">1320 × 2868 px</span>
+    <span class="chip">Tema escuro</span>
+    <span class="chip">Título 72 px · subtítulo 44 px</span>
+    <span class="chip">Space Grotesk + SF Pro</span>
+    <span class="chip">Um acento por painel</span>
+    <span class="chip">Copy pt-BR</span>
+  </div>
+</header>
+
+<div class="strip" id="strip" data-od-id="painel-strip"></div>
+
+<div class="notes">
+  <div class="note" data-od-id="nota-imagens">
+    <h3>As imagens</h3>
+    <p>Cada slot espera um PNG de <b>1320 × 2868 px</b> — a mesma proporção da moldura, então nada é cortado. Enquanto o arquivo não existir, aparece o marcador listrado com o caminho esperado; ele some sozinho quando o arquivo entra na pasta.</p>
+    <p>Capture as telas no aparelho ou exporte do board <code>blindado-ios-prototype.html</code>. Use as telas do tema escuro, para casar com o fundo do painel.</p>
+  </div>
+  <div class="note" data-od-id="nota-edicao">
+    <h3>Editar os textos</h3>
+    <p>Título, subtítulo e caminho da imagem ficam no array <code>PAINEIS</code>, no topo do script — uma linha por painel. Nada de copy duplicada no HTML.</p>
+    <p>Títulos aguentam até três linhas de 72 px antes de encostar no aparelho; subtítulos, duas de 44 px. Acima disso, encurte a frase em vez de reduzir o corpo.</p>
+  </div>
+  <div class="note" data-od-id="nota-exportacao">
+    <h3>Exportar</h3>
+    <p>Os painéis estão desenhados no tamanho real e apenas reduzidos por <code>--zoom</code> para caber na tela. Para exportar em 1:1, mude <code>--zoom</code> para <code>1</code> no <code>:root</code> e capture cada <code>.panel</code>.</p>
+    <p>O cabeçalho, as legendas e estas notas são cromo do board: não fazem parte do artboard e não saem na imagem.</p>
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   Roteiro dos 7 painéis. Uma linha por painel: arquivo,
+   título e subtítulo. É aqui que se edita a campanha.
+   ========================================================= */
+var PAINEIS=[
+ {n:'01',img:'screenshots/01-inicio-protegido.png',
+  t:'Um toque, DNS criptografado', s:'no iPhone inteiro',
+  alt:'Tela Início do Blindado com o escudo verde e o estado protegido'},
+ {n:'02',img:'screenshots/02-o-que-nao-faz.png',
+  t:'Antes de comprar', s:'saiba o que o Blindado não faz',
+  alt:'Tela listando os limites do app, o que ele não faz'},
+ {n:'03',img:'screenshots/03-nivel-protecao.png',
+  t:'Padrão, Família ou seu próprio DNS', s:'sem depender de um único provedor',
+  alt:'Tela de nível de proteção com as três opções'},
+ {n:'04',img:'screenshots/04-testar.png',
+  t:'Veja com seus olhos', s:'o que está sendo bloqueado',
+  alt:'Tela de teste com a lista de domínios e os selos de bloqueado'},
+ {n:'05',img:'screenshots/05-safari.png',
+  t:'Bloqueador nativo do Safari', s:'direto nos Ajustes',
+  alt:'Tela do bloqueador de conteúdo do Safari ativo'},
+ {n:'06',img:'screenshots/06-privacidade.png',
+  t:'Zero coleta. Zero servidor nosso.', s:'Você decide para onde vão suas consultas DNS',
+  alt:'Tela de privacidade explicando que o app não coleta dados'},
+ {n:'07',img:'screenshots/07-preco.png',
+  t:'Pagamento único', s:'sem assinatura, sem compra dentro do app',
+  alt:'Tela de preço mostrando o pagamento único'}
+];
+
+var strip=document.getElementById('strip');
+PAINEIS.forEach(function(p){
+  var fig=document.createElement('figure');
+  fig.className='slot';
+  fig.innerHTML=
+    '<div class="stage">'+
+      '<section class="panel" data-od-id="panel-'+p.n+'">'+
+        '<div class="copy">'+
+          '<h2 class="p-title" data-od-id="titulo-'+p.n+'">'+p.t+'</h2>'+
+          '<p class="p-sub" data-od-id="subtitulo-'+p.n+'">'+p.s+'</p>'+
+        '</div>'+
+        '<div class="device" data-od-id="device-'+p.n+'">'+
+          '<div class="screen">'+
+            '<div class="slot-note"><b>'+p.img+'</b><span>1320 × 2868 px</span></div>'+
+            '<img src="'+p.img+'" alt="'+p.alt+'" width="1320" height="2868" '+
+              'onerror="this.classList.add(\'missing\')">'+
+          '</div>'+
+          '<div class="island"></div>'+
+        '</div>'+
+      '</section>'+
+    '</div>'+
+    '<figcaption><span class="cap-n">PAINEL '+p.n+'</span>'+
+      '<p class="cap-t">'+p.t+' — <span style="color:#A7AEB8;font-weight:400">'+p.s+'</span></p>'+
+      '<p class="cap-f">'+p.img+'</p></figcaption>';
+  strip.appendChild(fig);
+});
+
+/* guarda a posição da fileira entre visitas */
+var t=null;
+strip.addEventListener('scroll',function(){
+  if(t) return;
+  t=setTimeout(function(){ t=null;
+    try{ localStorage.setItem('blindado.appstore.scroll',String(strip.scrollLeft)); }catch(e){}
+  },140);
+},{passive:true});
+try{
+  var sv=parseFloat(localStorage.getItem('blindado.appstore.scroll'));
+  if(sv>0) strip.scrollLeft=sv;
+}catch(e){}
+</script>
+</body>
+</html>

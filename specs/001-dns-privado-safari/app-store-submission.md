@@ -115,20 +115,27 @@ cedo de propósito, antes do usuário já ter decidido comprar).
 ## Screenshots
 
 Os 7 itens do roteiro acima estão gerados em `fastlane/screenshots/pt-BR/` (6,9" — iPhone
-18 Pro Max, 1320×2868), prontos para `./bin/fastlane ios release`:
+18 Pro Max, 1320×2868), prontos para `./bin/fastlane ios release`. Cada arquivo é um painel
+com moldura de iPhone + título + subtítulo (estilo App Store), montado pelo template
+`design/blindado-app-store-screenshots.html` (gerado via Open Design, projeto `blindado-7a73`,
+usando só os tokens de `design-tokens.md` — sem paleta nova):
 
 1. `01-inicio-protegido.png` — captura real do app no Simulador, com um `MockDNSManager`
    temporário (nunca commitado) forçando o estado "Blindado" só para esta captura, já que
    `NEDNSSettingsManager` não ativa de verdade no Simulador (quickstart.md).
-2. `02-o-que-nao-faz.png` — arte de texto (não é screenshot de app), renderizada em HTML com
-   os tokens de `design-tokens.md` e capturada via Chromium headless.
+2. `02-o-que-nao-faz.png` — arte de texto (não é screenshot de app), com os 3 bullets do que
+   o app NÃO faz.
 3–6. `03-nivel-protecao.png`, `04-testar.png`, `05-safari.png`, `06-privacidade.png` — capturas
    reais do app no Simulador.
-7. `07-preco.png` — arte de texto, mesmo processo do item 2.
+7. `07-preco.png` — arte de texto, pagamento único.
+
+**Como regenerar**: as capturas "cruas" (sem moldura) ficam em `screenshots/*.png` dentro do
+projeto Open Design; o template as compõe automaticamente ao abrir
+`design/blindado-app-store-screenshots.html` num navegador (`--zoom:1` no `:root` para
+exportar em tamanho real, um `.panel` por vez — ver comentário no próprio arquivo).
 
 **Pendente**: revalidar o item 1 em dispositivo físico assim que possível (T045/T047/T048) —
-a captura atual usa um mock só de tela, não uma ativação real de DNS. O Open Design (app local)
-não conectou nesta sessão (timeout); os itens 2 e 7 foram feitos sem ele.
+a captura atual usa um mock só de tela, não uma ativação real de DNS.
 
 ## Checklist pré-submissão
 
