@@ -206,7 +206,7 @@
 		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
 		F3713188F0EDB2AF5F181D00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		"TEMP_47584C2B-DA11-48E1-BE3E-4FBE8C7EB9D5" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		"TEMP_CBC1A43F-B8EA-4D0B-B25F-0198EB06D610" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -356,10 +356,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		"TEMP_5221D76D-3096-488B-BAD7-2920528925EB" /* blindado */ = {
+		"TEMP_A690C524-D4EB-447E-8B5A-B70C95B90279" /* blindado */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_47584C2B-DA11-48E1-BE3E-4FBE8C7EB9D5" /* Local.xcconfig */,
+				"TEMP_CBC1A43F-B8EA-4D0B-B25F-0198EB06D610" /* Local.xcconfig */,
 			);
 			path = blindado;
 			sourceTree = "<group>";
@@ -498,11 +498,9 @@
 					};
 					618B95F2073EE4C13118B350 = {
 						DevelopmentTeam = J55LDMR2HC;
-						ProvisioningStyle = Automatic;
 					};
 					CC7E12E823C022C2AA00226F = {
 						DevelopmentTeam = J55LDMR2HC;
-						ProvisioningStyle = Automatic;
 					};
 					ED38CCD2694892F4F7B73715 = {
 						DevelopmentTeam = J55LDMR2HC;
@@ -729,6 +727,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMac.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = BlindadoMac/Info.plist;
@@ -739,6 +739,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app;
 				PRODUCT_MODULE_NAME = Blindado;
+				PROVISIONING_PROFILE_SPECIFIER = "io.blindado.app macOS AppStore";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -846,6 +847,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BlindadoMac/BlindadoMacContentBlocker.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = BlindadoMac/ContentBlockerInfo.plist;
@@ -857,6 +860,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.blindado.app.contentblocker;
 				PRODUCT_NAME = BlindadoContentBlocker;
+				PROVISIONING_PROFILE_SPECIFIER = "io.blindado.app.contentblocker macOS AppStore";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -932,7 +936,7 @@
 		};
 		D518897F554560FC16F6F786 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_47584C2B-DA11-48E1-BE3E-4FBE8C7EB9D5" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_CBC1A43F-B8EA-4D0B-B25F-0198EB06D610" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1020,7 +1024,7 @@
 		};
 		F2DEC456D4EFB9DC8F7D6AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_47584C2B-DA11-48E1-BE3E-4FBE8C7EB9D5" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_CBC1A43F-B8EA-4D0B-B25F-0198EB06D610" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

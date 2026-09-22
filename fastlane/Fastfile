@@ -165,7 +165,13 @@ platform :mac do
       export_method: "app-store",
       xcargs: "-allowProvisioningUpdates",
       export_team_id: ENV["FASTLANE_TEAM_ID"],
-      export_options: { signingStyle: "automatic" }
+      export_options: {
+        signingStyle: "manual",
+        provisioningProfiles: {
+          "io.blindado.app" => "io.blindado.app macOS AppStore",
+          "io.blindado.app.contentblocker" => "io.blindado.app.contentblocker macOS AppStore"
+        }
+      }
     )
   end
 
