@@ -114,7 +114,7 @@ platform :ios do
       automatic_release: false,
       force: true,
       skip_metadata: false,
-      skip_screenshots: true # screenshots reais ainda não existem — ver app-store-submission.md
+      skip_screenshots: false # fastlane/screenshots/pt-BR — roteiro de app-store-submission.md
     )
   end
 end
