@@ -322,14 +322,14 @@ comportamento real; abrir o link da política de privacidade (quickstart.md seç
       contra o Princípio IX/FR-018 (nenhuma menção a "versão Pro", compra ou assinatura)
 - [ ] T047 Rodar `quickstart.md` seção 5 (validação em dispositivo físico) para as 5 histórias
       de usuário antes de considerar a feature completa
-- [ ] T048 [P] Preencher e validar o checklist final de `app-store-submission.md` antes do
-      envio à App Store — 8/9 itens verificados e marcados em 2026-09-22. Nessa sessão também
-      foi criado o app "Blindado" (iOS + macOS, `io.blindado.app`) no App Store Connect, com
-      preço (US$ 2,99 base, R$ 14,90 fixo no Brasil), disponibilidade em 175 países/regiões, e
-      o formulário de privacidade publicado como "Data Not Collected". O único item restante é
-      publicar a política de privacidade (texto pronto em `design/privacidade.html`, falta só
-      escolher hospedagem e colar a URL em dois lugares: `PrivacyViewModel.privacyPolicyURL` no
-      código e o campo correspondente em App Store Connect).
+- [x] T048 [P] Preencher e validar o checklist final de `app-store-submission.md` antes do
+      envio à App Store — **9/9 itens verificados e marcados em 2026-09-22.** Nessa sessão
+      também foi criado o app "Blindado" (iOS + macOS, `io.blindado.app`) no App Store Connect,
+      com preço (US$ 2,99 base, R$ 14,90 fixo no Brasil), disponibilidade em 175 países/regiões,
+      formulário de privacidade publicado como "Data Not Collected", e a política de privacidade
+      publicada via GitHub Pages (repositório `guike-zip/blindado`, tornado público — auditado
+      antes do push, nenhum segredo commitado; Team ID da Apple redigido dos docs por
+      precaução). Único bloqueio restante para submissão real: assinatura de código no Xcode.
 - [x] T049 [P] Auditar o projeto Xcode (targets, capabilities, dependências) para confirmar
       ausência de StoreKit, de qualquer framework de compra/assinatura, e de código morto de
       versão "Pro" (Constitution Princípio IX, FR-018)

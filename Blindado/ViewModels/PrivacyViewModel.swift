@@ -8,7 +8,8 @@ import Observation
 @Observable
 final class PrivacyViewModel {
     /// Documento hospedado externamente (Assumptions da spec); conteúdo fora do escopo do app.
-    static let privacyPolicyURL = URL(string: "https://www.seudominio.com/blindado/privacidade")!
+    /// Fonte: design/privacidade.html, publicado via GitHub Pages do próprio repositório.
+    static let privacyPolicyURL = URL(string: "https://guike-zip.github.io/blindado/design/privacidade.html")!
 
     private(set) var currentProviderName: String?
 
