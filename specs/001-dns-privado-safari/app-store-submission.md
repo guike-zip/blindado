@@ -146,15 +146,19 @@ a captura atual usa um mock só de tela, não uma ativação real de DNS.
 - [x] Descrição e screenshots incluem explicitamente o que o app NÃO faz (item 2 do roteiro de
       screenshots), para reduzir reembolsos por expectativa equivocada. Presente na descrição
       (linhas 45-51) e no screenshot `02-o-que-nao-faz.png`.
-- [ ] Preço configurado no App Store Connect: US$ 2,99 (tier base) com R$ 14,90 manual para o
-      território Brasil; nenhum produto de IAP criado (Constitution Princípio IX). **Depende de
-      o registro do app já existir no App Store Connect** — passo manual, precisa ser feito lá.
+- [x] Preço configurado no App Store Connect: US$ 2,99 (tier base, Estados Unidos como país de
+      referência) com R$ 14,90 fixado manualmente para o território Brasil (os outros 174
+      países/regiões ajustam automaticamente a partir do tier base); nenhum produto de IAP
+      criado (Constitution Princípio IX). App disponível em todos os 175 países/regiões.
+      Configurado em 2026-09-22 no app "Blindado" (`io.blindado.app`) já criado no App Store
+      Connect.
 - [x] Deployment target iOS 26.0 configurado nos dois targets (`project.yml`: `Blindado`,
       `BlindadoTests`, `BlindadoMac`, `BlindadoMacTests` todos em `"26.0"`). A frase "Requer
       iOS 26 ou posterior" já está redigida na seção Compatibilidade acima, pronta para colar
       na ficha da loja.
-- [ ] Formulário de privacidade da App Store preenchido como "Data Not Collected". **Depende do
-      registro do app no App Store Connect** — passo manual.
+- [x] Formulário de privacidade da App Store preenchido como "Data Not Collected". Publicado em
+      2026-09-22 — App Store Connect → Privacidade do app → "Não, nós não coletamos dados deste
+      app" — refletindo exatamente o que já está documentado.
 - [x] Notas de revisão explicam o uso de `NEDNSSettingsManager`, o fluxo manual de ativação, os
       dois provedores de DNS suportados (AdGuard e Control D) e o modelo de download único —
       texto já redigido na seção "Notas de revisão" acima, pronto para colar no envio.
@@ -163,8 +167,10 @@ a captura atual usa um mock só de tela, não uma ativação real de DNS.
       (mesmo visual do resto do design, reflete exatamente as promessas da tela Privacidade do
       app). **Falta só publicar** em algum domínio/hospedagem — GitHub Pages funciona (é
       grátis: `Settings → Pages` num repo público, ou um repo dedicado tipo
-      `usuario.github.io`) — e então trocar `PrivacyViewModel.privacyPolicyURL`
-      (hoje `https://www.seudominio.com/blindado/privacidade`, placeholder) para a URL real.
+      `usuario.github.io`) — e então (a) trocar `PrivacyViewModel.privacyPolicyURL` (hoje
+      `https://www.seudominio.com/blindado/privacidade`, placeholder) para a URL real e (b)
+      preencher o campo "URL da Política de privacidade" em App Store Connect → Privacidade do
+      app (deixado em branco de propósito nesta sessão, por não existir URL real ainda).
 - [x] Entitlement `com.apple.developer.networking.networkextension` aprovado para a conta de
       desenvolvedor antes do envio. Verificado em 2026-09-22 em developer.apple.com →
       Identifiers → App ID `io.blindado.app` → capability **Network Extensions**: habilitada,
