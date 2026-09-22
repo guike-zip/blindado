@@ -16,7 +16,7 @@ struct ProtectionTestView: View {
                 .padding(Theme.Spacing.layoutGutter)
             }
             .background(Theme.Colors.bgCanvas)
-            .navigationTitle("Testar")
+            .navigationTitle(String(localized: "test.nav_title", defaultValue: "Testar"))
         }
         .task {
             if viewModel.items.isEmpty {
@@ -61,7 +61,11 @@ struct ProtectionTestView: View {
                 Text(item.domain)
                     .font(Theme.Typography.mono)
                     .foregroundStyle(Theme.Colors.textPrimary)
-                Text(item.categoria == .comum ? "Controle — precisa continuar acessível" : "Anúncios/rastreadores")
+                Text(
+                    item.categoria == .comum
+                        ? String(localized: "test.category.control", defaultValue: "Controle — precisa continuar acessível")
+                        : String(localized: "test.category.tracker", defaultValue: "Anúncios/rastreadores")
+                )
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.textTertiary)
             }
@@ -85,19 +89,23 @@ struct ProtectionTestView: View {
     private func badgeStyle(_ status: DomainCheckResult.Status, categoria: DomainCategory) -> (String, Color) {
         switch status {
         case .bloqueado:
-            ("Bloqueado", Theme.Colors.statusProtected)
+            (String(localized: "test.badge.blocked", defaultValue: "Bloqueado"), Theme.Colors.statusProtected)
         case .acessivel:
             (
-                "Acessível",
+                String(localized: "test.badge.accessible", defaultValue: "Acessível"),
                 categoria == .comum ? Theme.Colors.statusProtected : Theme.Colors.statusDanger
             )
         case .indeterminado:
-            ("Sem resposta", Theme.Colors.statusIdle)
+            (String(localized: "test.badge.no_response", defaultValue: "Sem resposta"), Theme.Colors.statusIdle)
         }
     }
 
+    private var testingLabel: String {
+        String(localized: "test.banner.title.testing", defaultValue: "Testando…")
+    }
+
     private var runButton: some View {
-        Button(viewModel.isRunning ? "Testando…" : "Testar de novo") {
+        Button(viewModel.isRunning ? testingLabel : String(localized: "test.button.run", defaultValue: "Testar de novo")) {
             viewModel.runTest()
         }
         .buttonStyle(.bordered)
@@ -108,26 +116,26 @@ struct ProtectionTestView: View {
 
     private func bannerTitle(_ status: OverallProtectionStatus?) -> String {
         switch status {
-        case .protegido: "Protegido"
-        case .parcial: "Parcialmente protegido"
-        case .desprotegido: "Desprotegido"
-        case .indeterminado: "Indeterminado"
-        case nil: viewModel.isRunning ? "Testando…" : "Toque em testar"
+        case .protegido: Strings.protectedStatusLabel
+        case .parcial: String(localized: "test.banner.title.parcial", defaultValue: "Parcialmente protegido")
+        case .desprotegido: String(localized: "test.banner.title.desprotegido", defaultValue: "Desprotegido")
+        case .indeterminado: String(localized: "test.banner.title.indeterminado", defaultValue: "Indeterminado")
+        case nil: viewModel.isRunning ? testingLabel : String(localized: "test.banner.title.idle", defaultValue: "Toque em testar")
         }
     }
 
     private func bannerBody(_ status: OverallProtectionStatus?) -> String {
         switch status {
         case .protegido:
-            "Nenhum domínio de rastreamento passou, e o domínio de controle continua acessível."
+            String(localized: "test.banner.body.protegido", defaultValue: "Nenhum domínio de rastreamento passou, e o domínio de controle continua acessível.")
         case .parcial:
-            "Alguns domínios continuaram acessíveis. Isso costuma acontecer quando outro app de VPN assume o DNS."
+            String(localized: "test.banner.body.parcial", defaultValue: "Alguns domínios continuaram acessíveis. Isso costuma acontecer quando outro app de VPN assume o DNS.")
         case .desprotegido:
-            "Todos os domínios de rastreamento responderam. O perfil do Blindado não está ativo neste iPhone."
+            String(localized: "test.banner.body.desprotegido", defaultValue: "Todos os domínios de rastreamento responderam. O perfil do Blindado não está ativo neste iPhone.")
         case .indeterminado:
-            "Seu iPhone está sem conexão, então não dá para afirmar nada sobre a proteção. Conecte-se e teste de novo."
+            String(localized: "test.banner.body.indeterminado", defaultValue: "Seu iPhone está sem conexão, então não dá para afirmar nada sobre a proteção. Conecte-se e teste de novo.")
         case nil:
-            "Vamos verificar, item a item, se a sua proteção está funcionando."
+            String(localized: "test.banner.body.idle", defaultValue: "Vamos verificar, item a item, se a sua proteção está funcionando.")
         }
     }
 

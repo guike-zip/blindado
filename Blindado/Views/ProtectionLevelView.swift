@@ -19,7 +19,7 @@ struct ProtectionLevelView: View {
                     customServerField
                 }
 
-                Text("Trocar o nível atualiza o perfil automaticamente. Seu iPhone continua protegido durante a troca.")
+                Text(String(localized: "level.footer", defaultValue: "Trocar o nível atualiza o perfil automaticamente. Seu iPhone continua protegido durante a troca."))
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.textTertiary)
                     .multilineTextAlignment(.center)
@@ -28,7 +28,7 @@ struct ProtectionLevelView: View {
             .padding(Theme.Spacing.layoutGutter)
         }
         .background(Theme.Colors.bgCanvas)
-        .navigationTitle("Nível de proteção")
+        .navigationTitle(Strings.protectionLevelLabel)
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
@@ -72,7 +72,7 @@ struct ProtectionLevelView: View {
     private func providerPicker(for level: ProtectionLevel) -> some View {
         let providers = DNSProvider.providers(for: level)
         return VStack(alignment: .leading, spacing: Theme.Spacing.s2) {
-            Text("Provedor de DNS")
+            Text(String(localized: "level.provider_label", defaultValue: "Provedor de DNS"))
                 .font(Theme.Typography.footnote)
                 .foregroundStyle(Theme.Colors.textTertiary)
 
@@ -100,7 +100,7 @@ struct ProtectionLevelView: View {
 
     private var customServerField: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s2) {
-            Text("Endereço DoH (DNS sobre HTTPS)")
+            Text(String(localized: "level.custom.field_label", defaultValue: "Endereço DoH (DNS sobre HTTPS)"))
                 .font(Theme.Typography.footnote)
                 .foregroundStyle(Theme.Colors.textTertiary)
 
@@ -126,12 +126,12 @@ struct ProtectionLevelView: View {
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.statusDanger)
             } else {
-                Text("O endereço costuma terminar em /dns-query e aparece na página de suporte do provedor.")
+                Text(String(localized: "level.custom.hint", defaultValue: "O endereço costuma terminar em /dns-query e aparece na página de suporte do provedor."))
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.textTertiary)
             }
 
-            Button("Testar e salvar") {
+            Button(String(localized: "level.custom.save_button", defaultValue: "Testar e salvar")) {
                 Task { await viewModel.saveCustomServer(customServerText) }
             }
             .buttonStyle(.borderedProminent)

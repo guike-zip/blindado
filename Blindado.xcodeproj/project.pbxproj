@@ -17,10 +17,13 @@
 		11C1BD9815562FCC2D41303F /* DNSProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69EC86959C7D04DA8F29E08D /* DNSProvider.swift */; };
 		1B2FDC72635A9F5330966662 /* ContentBlockerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CC15C7D1774FCC40B3616E /* ContentBlockerManager.swift */; };
 		1EF5E8DC235D56862DF3F45C /* RootSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB91A7DCC47F2876430EF7E /* RootSidebarView.swift */; };
+		25144BF56B7B919B91179D48 /* AppearanceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6781F7BA48EF4FAAD730BE /* AppearanceMode.swift */; };
 		255BAD8F370F7CDE3A897B12 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C10181AD56A52156D193EBD /* Theme.swift */; };
 		25A30D8C08F0F4459991141A /* BlindadoContentBlocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CD921DB9EEAC34A98328A745 /* BlindadoContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28C576137E113E0CB9EE0648 /* ProtectionTestViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B492925B08A1C294A1A8AD /* ProtectionTestViewModelTests.swift */; };
+		2BAABCED1ADB136E919F4B5D /* AppearanceMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6781F7BA48EF4FAAD730BE /* AppearanceMode.swift */; };
 		2C4020DE0552A22E29CC4B84 /* ContentBlockerManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */; };
+		2CF846352DB95722BCFBDCBF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2586BAB86AE71A52863274 /* Strings.swift */; };
 		3002DAA69544EB29DE714C52 /* ProtectionProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF4197C13BF95F14083A8CE /* ProtectionProfile.swift */; };
 		31F4DCEB4B2C0965341BF74D /* SafariViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */; };
 		35F6A5D0A790AA44410AE5E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51E04535583787DEC7C43C12 /* Assets.xcassets */; };
@@ -52,6 +55,7 @@
 		86695A0003EF977991D525D8 /* SafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D891384015728933DA46BD /* SafariViewModel.swift */; };
 		886467D0FBCFAD58B33A2491 /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C392E97325D0A0193BD0A5 /* RootTabView.swift */; };
 		8C2A9ABBD8DE7A6B1EE931AD /* blockerList.json in Resources */ = {isa = PBXBuildFile; fileRef = AEAEEA72A4F4A37279E1762F /* blockerList.json */; };
+		8C465DA7978DD4684866AADA /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2586BAB86AE71A52863274 /* Strings.swift */; };
 		8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D891384015728933DA46BD /* SafariViewModel.swift */; };
 		8F807835E8C82B6410C62371 /* BlindadoMacContentBlocker.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9167F3FE6B70D09A8D1F9652 /* BlindadoMacContentBlocker.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8FA9F25180CA57D8F6CAAF49 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39895AD370E931DD49F390C0 /* SettingsView.swift */; };
@@ -163,6 +167,7 @@
 		2D2C43D568A1F789B98E1902 /* BlindadoContentBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BlindadoContentBlocker.entitlements; sourceTree = "<group>"; };
 		3872981AFF1EE51126F742CF /* BlindadoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = BlindadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39895AD370E931DD49F390C0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3E2586BAB86AE71A52863274 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		3FC0AB0FBC12F93F4BFD0088 /* ProtectionTestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestResult.swift; sourceTree = "<group>"; };
 		41E6C6C65487BED2AE3C7C1C /* MockDNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDNSManager.swift; sourceTree = "<group>"; };
 		44FACB165A23B89A0240ED5E /* ProtectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionTestView.swift; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 		AEAEEA72A4F4A37279E1762F /* blockerList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = blockerList.json; sourceTree = "<group>"; };
 		B7E275921F0EEB71D1BBBCC2 /* SafariViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewModelTests.swift; sourceTree = "<group>"; };
 		B918AD01538D39CE277A913F /* ProtectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionState.swift; sourceTree = "<group>"; };
+		BB6781F7BA48EF4FAAD730BE /* AppearanceMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceMode.swift; sourceTree = "<group>"; };
 		BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionLevel.swift; sourceTree = "<group>"; };
 		BE1A059E2FCE6A1280F01027 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		C59A03BBEC4A06B696C8D990 /* ContentBlockerManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerManaging.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				82545098AAB3F521713117BD /* BlindadoApp.swift */,
+				3E2586BAB86AE71A52863274 /* Strings.swift */,
 				8B01B6692E5EFBF80CC72AD2 /* SystemLinks.swift */,
 			);
 			path = App;
@@ -324,6 +331,7 @@
 		DB9F832B588A782BBF95AD6C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BB6781F7BA48EF4FAAD730BE /* AppearanceMode.swift */,
 				23560E5F942E5C58ECA6ED10 /* ContentBlockerState.swift */,
 				69EC86959C7D04DA8F29E08D /* DNSProvider.swift */,
 				BDC32B5CBD44EF7DED3FE662 /* ProtectionLevel.swift */,
@@ -474,7 +482,7 @@
 				};
 			};
 			buildConfigurationList = 6929F05EBA17E7176C75E0CC /* Build configuration list for PBXProject "Blindado" */;
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
@@ -554,6 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAABCED1ADB136E919F4B5D /* AppearanceMode.swift in Sources */,
 				7877570DAC0FDF5ED713395A /* BlindadoApp.swift in Sources */,
 				852366EAD754F9364A76BF17 /* ContentBlockerManager.swift in Sources */,
 				2C4020DE0552A22E29CC4B84 /* ContentBlockerManaging.swift in Sources */,
@@ -583,6 +592,7 @@
 				756780BEC0167E9A2C3A2CFD /* SafariView.swift in Sources */,
 				8F2BB34D762F0FCF43B7DADE /* SafariViewModel.swift in Sources */,
 				70C1B102D579C4A473837DD0 /* SettingsView.swift in Sources */,
+				8C465DA7978DD4684866AADA /* Strings.swift in Sources */,
 				093E4CBF417A40853D739533 /* SystemLinks.swift in Sources */,
 				F363283A4B5C15EB1C368590 /* Theme.swift in Sources */,
 			);
@@ -604,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25144BF56B7B919B91179D48 /* AppearanceMode.swift in Sources */,
 				D319B7060E0ABF00C3D0583B /* BlindadoApp.swift in Sources */,
 				1B2FDC72635A9F5330966662 /* ContentBlockerManager.swift in Sources */,
 				FB02085B3A49F733E021332F /* ContentBlockerManaging.swift in Sources */,
@@ -633,6 +644,7 @@
 				FDF3B90E55A1636412B4F1C7 /* SafariView.swift in Sources */,
 				86695A0003EF977991D525D8 /* SafariViewModel.swift in Sources */,
 				8FA9F25180CA57D8F6CAAF49 /* SettingsView.swift in Sources */,
+				2CF846352DB95722BCFBDCBF /* Strings.swift in Sources */,
 				C4E43AB1B9CFB1E9756ABC11 /* SystemLinks.swift in Sources */,
 				255BAD8F370F7CDE3A897B12 /* Theme.swift in Sources */,
 			);
@@ -918,6 +930,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_LANGUAGE = "pt-BR";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1004,6 +1017,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_LANGUAGE = "pt-BR";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

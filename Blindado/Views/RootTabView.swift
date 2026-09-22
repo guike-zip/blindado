@@ -31,16 +31,16 @@ struct RootTabView: View {
 
     var body: some View {
         TabView {
-            Tab("Início", systemImage: "checkmark.shield.fill") {
+            Tab(String(localized: "tab.inicio", defaultValue: "Início"), systemImage: "checkmark.shield.fill") {
                 HomeView(viewModel: homeViewModel, levelViewModel: protectionLevelViewModel)
             }
-            Tab("Safari", systemImage: "safari") {
+            Tab(String(localized: "safari.nav_title", defaultValue: "Safari"), systemImage: "safari") {
                 SafariView(viewModel: safariViewModel)
             }
-            Tab("Testar", systemImage: "checkmark.circle") {
+            Tab(String(localized: "test.nav_title", defaultValue: "Testar"), systemImage: "checkmark.circle") {
                 ProtectionTestView(viewModel: testViewModel)
             }
-            Tab("Ajustes", systemImage: "gearshape") {
+            Tab(String(localized: "settings.nav_title", defaultValue: "Ajustes"), systemImage: "gearshape") {
                 SettingsView(levelViewModel: protectionLevelViewModel, privacyViewModel: privacyViewModel)
             }
         }

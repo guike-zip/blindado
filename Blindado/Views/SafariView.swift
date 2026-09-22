@@ -20,7 +20,7 @@ struct SafariView: View {
                 .padding(Theme.Spacing.layoutGutter)
             }
             .background(Theme.Colors.bgCanvas)
-            .navigationTitle("Safari")
+            .navigationTitle(String(localized: "safari.nav_title", defaultValue: "Safari"))
         }
         .task { await viewModel.refreshState() }
     }
@@ -28,33 +28,33 @@ struct SafariView: View {
     private var enableStepTexts: [String] {
         #if os(macOS)
         [
-            "Abra o Safari e vá em Safari › Ajustes.",
-            "Clique na aba Extensões.",
-            "Ligue a chave do Blindado.",
+            String(localized: "safari.enable_steps.mac.1", defaultValue: "Abra o Safari e vá em Safari › Ajustes."),
+            String(localized: "safari.enable_steps.mac.2", defaultValue: "Clique na aba Extensões."),
+            String(localized: "safari.enable_steps.mac.3", defaultValue: "Ligue a chave do Blindado."),
         ]
         #else
         [
-            "Abra Ajustes e role até Safari.",
-            "Toque em Extensões.",
-            "Ligue a chave do Blindado.",
+            String(localized: "safari.enable_steps.ios.1", defaultValue: "Abra Ajustes e role até Safari."),
+            String(localized: "safari.enable_steps.ios.2", defaultValue: "Toque em Extensões."),
+            String(localized: "safari.enable_steps.ios.3", defaultValue: "Ligue a chave do Blindado."),
         ]
         #endif
     }
 
     private var enablePathText: String {
         #if os(macOS)
-        "Safari › Ajustes › Extensões › Blindado"
+        String(localized: "safari.enable_path.mac", defaultValue: "Safari › Ajustes › Extensões › Blindado")
         #else
-        "Ajustes › Safari › Extensões › Blindado"
+        String(localized: "safari.enable_path.ios", defaultValue: "Ajustes › Safari › Extensões › Blindado")
         #endif
     }
 
     private var disabledCard: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s4) {
-            Text("Bloqueador desativado")
+            Text(String(localized: "safari.disabled.title", defaultValue: "Bloqueador desativado"))
                 .font(Theme.Typography.title3)
                 .foregroundStyle(Theme.Colors.textPrimary)
-            Text("O Safari só aceita bloqueadores que você ligar na mão. Leva poucos toques e vale para todas as abas.")
+            Text(String(localized: "safari.disabled.body", defaultValue: "O Safari só aceita bloqueadores que você ligar na mão. Leva poucos toques e vale para todas as abas."))
                 .font(Theme.Typography.subhead)
                 .foregroundStyle(Theme.Colors.textSecondary)
 
@@ -79,7 +79,7 @@ struct SafariView: View {
             Button {
                 openURL(SystemLinks.systemSettings)
             } label: {
-                Text("Abrir os Ajustes")
+                Text(Strings.openSettingsLabel)
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
@@ -92,7 +92,7 @@ struct SafariView: View {
             // direto de outro app, então mostramos só a instrução acima.
             #endif
 
-            Text("O DNS criptografado continua funcionando mesmo com isso desligado.")
+            Text(String(localized: "safari.disabled.footer", defaultValue: "O DNS criptografado continua funcionando mesmo com isso desligado."))
                 .font(Theme.Typography.footnote)
                 .foregroundStyle(Theme.Colors.textTertiary)
         }
@@ -102,22 +102,25 @@ struct SafariView: View {
 
     private var enabledCard: some View {
         VStack(alignment: .leading, spacing: Theme.Spacing.s4) {
-            Text("Bloqueador ativo")
+            Text(String(localized: "safari.enabled.title", defaultValue: "Bloqueador ativo"))
                 .font(Theme.Typography.title3)
                 .foregroundStyle(Theme.Colors.textPrimary)
-            Text("O Safari está usando as regras do Blindado em todas as abas deste iPhone.")
+            Text(String(localized: "safari.enabled.body", defaultValue: "O Safari está usando as regras do Blindado em todas as abas deste iPhone."))
                 .font(Theme.Typography.subhead)
                 .foregroundStyle(Theme.Colors.textSecondary)
 
             VStack(alignment: .leading, spacing: Theme.Spacing.s2) {
-                labeledRow("Lista aplicada", "Padrão")
-                labeledRow("Última atualização", lastReloadText)
+                labeledRow(
+                    String(localized: "safari.enabled.list_label", defaultValue: "Lista aplicada"),
+                    String(localized: "protection_level.padrao.name", defaultValue: "Padrão")
+                )
+                labeledRow(String(localized: "safari.enabled.last_update_label", defaultValue: "Última atualização"), lastReloadText)
             }
 
             Button {
                 Task { await viewModel.recarregarRegras() }
             } label: {
-                Text("Recarregar regras")
+                Text(String(localized: "safari.enabled.reload_button", defaultValue: "Recarregar regras"))
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
@@ -131,7 +134,7 @@ struct SafariView: View {
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.statusDanger)
             } else if viewModel.state.lastReloadDate != nil {
-                Text("Regras recarregadas no Safari")
+                Text(String(localized: "safari.enabled.reload_success", defaultValue: "Regras recarregadas no Safari"))
                     .font(Theme.Typography.footnote)
                     .foregroundStyle(Theme.Colors.statusProtected)
             }

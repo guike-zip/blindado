@@ -1,8 +1,50 @@
 {
   "sourceLanguage" : "pt-BR",
   "strings" : {
+    "appearance.dark" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Escuro" } }
+      }
+    },
+    "appearance.light" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Claro" } }
+      }
+    },
+    "appearance.system" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "System" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sistema" } }
+      }
+    },
+    "common.open_settings" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open Settings" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abrir os Ajustes" } }
+      }
+    },
+    "common.protection_level_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Protection level" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Nível de proteção" } }
+      }
+    },
+    "common.status_protected" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Protected" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Protegido" } }
+      }
+    },
     "dns_error.conflict" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Another DNS or VPN configuration is already active on this iPhone. Resolve the conflict in Settings before protecting the device."
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,16 +55,18 @@
     },
     "dns_error.invalid_url" : {
       "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O endereço precisa começar com https://."
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The address needs to start with https://." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O endereço precisa começar com https://." } }
       }
     },
     "dns_error.unreachable" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn't reach that server. Check the address and try again."
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -31,38 +75,393 @@
         }
       }
     },
-    "protection_level.familia.name" : {
+    "home.action.blindar" : {
       "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Protect my iPhone" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Blindar meu iPhone" } }
+      }
+    },
+    "home.action.blindar.caption" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Installs a DNS profile on your iPhone. You can remove it anytime."
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Família"
+            "value" : "Instala um perfil de DNS no iPhone. Você pode remover quando quiser."
           }
         }
       }
     },
-    "protection_level.familia.summary" : {
+    "home.action.recheck" : {
       "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "I already activated it — check again" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Já ativei — verificar de novo" } }
+      }
+    },
+    "home.action.remove" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove protection" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Remover proteção" } }
+      }
+    },
+    "home.action.test" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Test protection" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Testar a proteção" } }
+      }
+    },
+    "home.activation_path.ios" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings › General › VPN & Device Management › DNS › Blindado"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tudo do Padrão e mais o bloqueio de conteúdo adulto."
+            "value" : "Ajustes › Geral › Gestão de VPN e Dispositivo › DNS › Blindado"
           }
+        }
+      }
+    },
+    "home.activation_path.mac" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "System Settings › Network › Blindado › ••• › Make Service Active"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajustes do Sistema › Rede › Blindado › ••• › Tornar Serviço Ativo"
+          }
+        }
+      }
+    },
+    "home.activation_steps.ios.1" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open the Settings app and tap General." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abra o app Ajustes e toque em Geral." } }
+      }
+    },
+    "home.activation_steps.ios.2" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Go to VPN & Device Management." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Entre em Gestão de VPN e Dispositivo." } }
+      }
+    },
+    "home.activation_steps.ios.3" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap DNS and choose Blindado." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Toque em DNS e escolha Blindado." } }
+      }
+    },
+    "home.activation_steps.mac.1" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open System Settings and click Network." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abra Ajustes do Sistema e clique em Rede." } }
+      }
+    },
+    "home.activation_steps.mac.2" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A new \"Blindado\" service appears in the list on the left."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um novo serviço \"Blindado\" aparece na lista à esquerda."
+          }
+        }
+      }
+    },
+    "home.activation_steps.mac.3" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click it, then the “•••” button, and choose Make Service Active."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clique nele, depois no botão “•••” e escolha Tornar Serviço Ativo."
+          }
+        }
+      }
+    },
+    "home.alert.conflict.confirm" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Got it" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Entendi" } }
+      }
+    },
+    "home.alert.conflict.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "DNS/VPN Conflict" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Conflito de DNS/VPN" } }
+      }
+    },
+    "home.body.not_configured" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blindado turns on encrypted DNS for the whole system — apps, games, and Safari. Takes less than a minute."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Blindado liga um DNS criptografado para o sistema inteiro — apps, jogos e Safari. Leva menos de um minuto."
+          }
+        }
+      }
+    },
+    "home.body.pending" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The profile is already on your iPhone. For security, iOS asks you to confirm activation in Settings."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O perfil já está no seu iPhone. Por segurança, o iOS pede que você confirme a ativação nos Ajustes."
+          }
+        }
+      }
+    },
+    "home.body.protected" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DNS queries leave encrypted. Known ads and trackers are blocked before they load."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As consultas DNS saem criptografadas. Anúncios e rastreadores conhecidos são bloqueados antes de carregar."
+          }
+        }
+      }
+    },
+    "home.shield.status.not_configured" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Not configured" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Não configurado" } }
+      }
+    },
+    "home.shield.status.pending" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Awaiting activation" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Aguardando ativação" } }
+      }
+    },
+    "home.title.not_configured" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your iPhone isn't protected yet" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Seu iPhone ainda não está protegido" } }
+      }
+    },
+    "home.title.pending" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "One step left" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Falta um passo" } }
+      }
+    },
+    "home.title.protected" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your iPhone is protected" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Seu iPhone está blindado" } }
+      }
+    },
+    "level.custom.field_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "DoH address (DNS over HTTPS)" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Endereço DoH (DNS sobre HTTPS)" } }
+      }
+    },
+    "level.custom.hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The address usually ends in /dns-query and appears on the provider's support page."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O endereço costuma terminar em /dns-query e aparece na página de suporte do provedor."
+          }
+        }
+      }
+    },
+    "level.custom.save_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Test and save" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Testar e salvar" } }
+      }
+    },
+    "level.footer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Switching levels updates the profile automatically. Your iPhone stays protected during the switch."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trocar o nível atualiza o perfil automaticamente. Seu iPhone continua protegido durante a troca."
+          }
+        }
+      }
+    },
+    "level.provider_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "DNS provider" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Provedor de DNS" } }
+      }
+    },
+    "privacy.explanation" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "To find a website, your iPhone asks a question called a DNS query. Blindado sends that question out encrypted, straight to the provider you chose."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para achar um site, seu iPhone faz uma pergunta chamada consulta DNS. O Blindado faz essa pergunta sair criptografada, direto para o provedor que você escolheu."
+          }
+        }
+      }
+    },
+    "privacy.fact.no_account.body" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No email, phone number, or sign-up." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sem e-mail, telefone ou cadastro." } }
+      }
+    },
+    "privacy.fact.no_account.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No account" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sem conta" } }
+      }
+    },
+    "privacy.fact.no_server.body" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "The app doesn't send anything to us." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O app não manda nada para nós." } }
+      }
+    },
+    "privacy.fact.no_server.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No server of ours" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sem servidor nosso" } }
+      }
+    },
+    "privacy.fact.no_trackers.body" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No analytics or ad SDK." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Nenhum SDK de análise ou anúncio." } }
+      }
+    },
+    "privacy.fact.no_trackers.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No trackers" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sem rastreadores" } }
+      }
+    },
+    "privacy.headline" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Blindado doesn't collect anything about you." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "O Blindado não coleta nada sobre você." } }
+      }
+    },
+    "privacy.nav_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Privacidade" } }
+      }
+    },
+    "privacy.provider_explanation_format" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The provider that answers is %@, and its policy is what applies. You can change this under Protection level."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quem responde é esse provedor (%@), e é a política dele que vale. Você pode trocar em Nível de proteção."
+          }
+        }
+      }
+    },
+    "privacy.read_policy" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Read the full policy" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ler a política completa" } }
+      }
+    },
+    "privacy.section_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "WHERE YOUR QUERIES GO" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "PARA ONDE VÃO SUAS CONSULTAS" } }
+      }
+    },
+    "protection_level.familia.name" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Family" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Família" } }
+      }
+    },
+    "protection_level.familia.summary" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Everything in Standard, plus adult content blocking." }
+        },
+        "pt-BR" : {
+          "stringUnit" : { "state" : "translated", "value" : "Tudo do Padrão e mais o bloqueio de conteúdo adulto." }
         }
       }
     },
     "protection_level.padrao.name" : {
       "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Padrão"
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Standard" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Padrão" } }
       }
     },
     "protection_level.padrao.summary" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Blocks known ads, trackers, and malware sites." }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -73,22 +472,341 @@
     },
     "protection_level.personalizado.name" : {
       "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalizado"
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Personalizado" } }
       }
     },
     "protection_level.personalizado.summary" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use the address of a secure DNS server you already trust."
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Use o endereço de um servidor DNS seguro em que você já confia."
           }
         }
+      }
+    },
+    "safari.disabled.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari only accepts content blockers you turn on yourself. It takes a few taps and applies to every tab."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Safari só aceita bloqueadores que você ligar na mão. Leva poucos toques e vale para todas as abas."
+          }
+        }
+      }
+    },
+    "safari.disabled.footer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Encrypted DNS keeps working even with this turned off." }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O DNS criptografado continua funcionando mesmo com isso desligado."
+          }
+        }
+      }
+    },
+    "safari.disabled.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Blocker disabled" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Bloqueador desativado" } }
+      }
+    },
+    "safari.enable_path.ios" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings › Safari › Extensions › Blindado" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes › Safari › Extensões › Blindado" } }
+      }
+    },
+    "safari.enable_path.mac" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Safari › Settings › Extensions › Blindado" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Safari › Ajustes › Extensões › Blindado" } }
+      }
+    },
+    "safari.enable_steps.ios.1" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open Settings and scroll to Safari." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abra Ajustes e role até Safari." } }
+      }
+    },
+    "safari.enable_steps.ios.2" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap Extensions." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Toque em Extensões." } }
+      }
+    },
+    "safari.enable_steps.ios.3" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Turn on the Blindado toggle." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ligue a chave do Blindado." } }
+      }
+    },
+    "safari.enable_steps.mac.1" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open Safari and go to Safari › Settings." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Abra o Safari e vá em Safari › Ajustes." } }
+      }
+    },
+    "safari.enable_steps.mac.2" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Click the Extensions tab." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Clique na aba Extensões." } }
+      }
+    },
+    "safari.enable_steps.mac.3" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Turn on the Blindado toggle." } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ligue a chave do Blindado." } }
+      }
+    },
+    "safari.enabled.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Safari is using Blindado's rules on every tab on this iPhone."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Safari está usando as regras do Blindado em todas as abas deste iPhone."
+          }
+        }
+      }
+    },
+    "safari.enabled.last_update_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Last updated" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Última atualização" } }
+      }
+    },
+    "safari.enabled.list_label" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Applied list" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Lista aplicada" } }
+      }
+    },
+    "safari.enabled.reload_button" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reload rules" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Recarregar regras" } }
+      }
+    },
+    "safari.enabled.reload_success" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rules reloaded in Safari" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Regras recarregadas no Safari" } }
+      }
+    },
+    "safari.enabled.title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Blocker active" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Bloqueador ativo" } }
+      }
+    },
+    "safari.nav_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Safari" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Safari" } }
+      }
+    },
+    "settings.nav_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Ajustes" } }
+      }
+    },
+    "settings.section.app" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "App" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "App" } }
+      }
+    },
+    "settings.section.appearance" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Aparência" } }
+      }
+    },
+    "settings.section.protection" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Protection" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Proteção" } }
+      }
+    },
+    "tab.inicio" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Home" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Início" } }
+      }
+    },
+    "test.badge.accessible" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reachable" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Acessível" } }
+      }
+    },
+    "test.badge.blocked" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Blocked" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Bloqueado" } }
+      }
+    },
+    "test.badge.no_response" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No response" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Sem resposta" } }
+      }
+    },
+    "test.banner.body.desprotegido" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Every tracking domain responded. Blindado's profile isn't active on this iPhone."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os domínios de rastreamento responderam. O perfil do Blindado não está ativo neste iPhone."
+          }
+        }
+      }
+    },
+    "test.banner.body.idle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We'll check, one item at a time, whether your protection is working."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vamos verificar, item a item, se a sua proteção está funcionando."
+          }
+        }
+      }
+    },
+    "test.banner.body.indeterminado" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your iPhone has no connection, so nothing can be said about protection. Connect and test again."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seu iPhone está sem conexão, então não dá para afirmar nada sobre a proteção. Conecte-se e teste de novo."
+          }
+        }
+      }
+    },
+    "test.banner.body.parcial" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Some domains stayed reachable. This usually happens when another VPN app takes over DNS."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alguns domínios continuaram acessíveis. Isso costuma acontecer quando outro app de VPN assume o DNS."
+          }
+        }
+      }
+    },
+    "test.banner.body.protegido" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No tracking domain got through, and the control domain is still reachable."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nenhum domínio de rastreamento passou, e o domínio de controle continua acessível."
+          }
+        }
+      }
+    },
+    "test.banner.title.desprotegido" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unprotected" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Desprotegido" } }
+      }
+    },
+    "test.banner.title.idle" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to test" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Toque em testar" } }
+      }
+    },
+    "test.banner.title.indeterminado" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Inconclusive" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Indeterminado" } }
+      }
+    },
+    "test.banner.title.parcial" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Partially protected" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Parcialmente protegido" } }
+      }
+    },
+    "test.banner.title.testing" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Testing…" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Testando…" } }
+      }
+    },
+    "test.button.run" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Test again" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Testar de novo" } }
+      }
+    },
+    "test.category.control" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Control — must stay reachable" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Controle — precisa continuar acessível" } }
+      }
+    },
+    "test.category.tracker" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ads/trackers" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Anúncios/rastreadores" } }
+      }
+    },
+    "test.nav_title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Test" } },
+        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Testar" } }
       }
     }
   },

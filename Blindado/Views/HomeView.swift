@@ -31,13 +31,15 @@ struct HomeView: View {
             .background(Theme.Colors.bgCanvas)
             .navigationTitle("Blindado")
             .alert(
-                "Conflito de DNS/VPN",
+                String(localized: "home.alert.conflict.title", defaultValue: "Conflito de DNS/VPN"),
                 isPresented: .init(
                     get: { viewModel.conflictWarning != nil },
                     set: { if !$0 { viewModel.dismissConflictWarning() } }
                 )
             ) {
-                Button("Entendi", role: .cancel) { viewModel.dismissConflictWarning() }
+                Button(String(localized: "home.alert.conflict.confirm", defaultValue: "Entendi"), role: .cancel) {
+                    viewModel.dismissConflictWarning()
+                }
             } message: {
                 Text(viewModel.conflictWarning ?? "")
             }
@@ -115,24 +117,24 @@ struct HomeView: View {
     private var activationStepTexts: [String] {
         #if os(macOS)
         [
-            "Abra Ajustes do Sistema e clique em Rede.",
-            "Um novo serviço \"Blindado\" aparece na lista à esquerda.",
-            "Clique nele, depois no botão “•••” e escolha Tornar Serviço Ativo.",
+            String(localized: "home.activation_steps.mac.1", defaultValue: "Abra Ajustes do Sistema e clique em Rede."),
+            String(localized: "home.activation_steps.mac.2", defaultValue: "Um novo serviço \"Blindado\" aparece na lista à esquerda."),
+            String(localized: "home.activation_steps.mac.3", defaultValue: "Clique nele, depois no botão “•••” e escolha Tornar Serviço Ativo."),
         ]
         #else
         [
-            "Abra o app Ajustes e toque em Geral.",
-            "Entre em Gestão de VPN e Dispositivo.",
-            "Toque em DNS e escolha Blindado.",
+            String(localized: "home.activation_steps.ios.1", defaultValue: "Abra o app Ajustes e toque em Geral."),
+            String(localized: "home.activation_steps.ios.2", defaultValue: "Entre em Gestão de VPN e Dispositivo."),
+            String(localized: "home.activation_steps.ios.3", defaultValue: "Toque em DNS e escolha Blindado."),
         ]
         #endif
     }
 
     private var activationPathText: String {
         #if os(macOS)
-        "Ajustes do Sistema › Rede › Blindado › ••• › Tornar Serviço Ativo"
+        String(localized: "home.activation_path.mac", defaultValue: "Ajustes do Sistema › Rede › Blindado › ••• › Tornar Serviço Ativo")
         #else
-        "Ajustes › Geral › Gestão de VPN e Dispositivo › DNS › Blindado"
+        String(localized: "home.activation_path.ios", defaultValue: "Ajustes › Geral › Gestão de VPN e Dispositivo › DNS › Blindado")
         #endif
     }
 
@@ -153,7 +155,7 @@ struct HomeView: View {
     private var protectionLevelRow: some View {
         HStack {
             VStack(alignment: .leading, spacing: Theme.Spacing.s1) {
-                Text("Nível de proteção")
+                Text(Strings.protectionLevelLabel)
                     .font(Theme.Typography.body)
                     .foregroundStyle(Theme.Colors.textPrimary)
                 Text(levelViewModel.profile.level.displayName)
@@ -176,7 +178,7 @@ struct HomeView: View {
             Button {
                 Task { await viewModel.blindar() }
             } label: {
-                Text("Blindar meu iPhone")
+                Text(String(localized: "home.action.blindar", defaultValue: "Blindar meu iPhone"))
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
@@ -185,7 +187,7 @@ struct HomeView: View {
             .controlSize(.large)
             .disabled(viewModel.isBusy)
 
-            Text("Instala um perfil de DNS no iPhone. Você pode remover quando quiser.")
+            Text(String(localized: "home.action.blindar.caption", defaultValue: "Instala um perfil de DNS no iPhone. Você pode remover quando quiser."))
                 .font(Theme.Typography.footnote)
                 .foregroundStyle(Theme.Colors.textTertiary)
                 .multilineTextAlignment(.center)
@@ -194,7 +196,7 @@ struct HomeView: View {
             Button {
                 openURL(SystemLinks.systemSettings)
             } label: {
-                Label("Abrir os Ajustes", systemImage: "arrow.up.right")
+                Label(Strings.openSettingsLabel, systemImage: "arrow.up.right")
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
@@ -202,7 +204,7 @@ struct HomeView: View {
             .foregroundStyle(Theme.Colors.textOnAccent)
             .controlSize(.large)
 
-            Button("Já ativei — verificar de novo") {
+            Button(String(localized: "home.action.recheck", defaultValue: "Já ativei — verificar de novo")) {
                 Task { await viewModel.refreshState() }
             }
             .buttonStyle(.bordered)
@@ -214,13 +216,13 @@ struct HomeView: View {
                 // Navegação para a aba Testar fica a cargo do usuário via tab bar; aqui só
                 // indicamos a ação disponível.
             } label: {
-                Text("Testar a proteção")
+                Text(String(localized: "home.action.test", defaultValue: "Testar a proteção"))
                     .frame(maxWidth: .infinity)
             }
             .buttonStyle(.bordered)
             .controlSize(.large)
 
-            Button("Remover proteção", role: .destructive) {
+            Button(String(localized: "home.action.remove", defaultValue: "Remover proteção"), role: .destructive) {
                 Task { await viewModel.remover() }
             }
             .font(Theme.Typography.callout)
@@ -230,28 +232,28 @@ struct HomeView: View {
 
     private var statePillText: String {
         switch viewModel.state {
-        case .naoConfigurado: "Não configurado"
-        case .instaladoDesativado: "Aguardando ativação"
-        case .blindado: "Protegido"
+        case .naoConfigurado: String(localized: "home.shield.status.not_configured", defaultValue: "Não configurado")
+        case .instaladoDesativado: String(localized: "home.shield.status.pending", defaultValue: "Aguardando ativação")
+        case .blindado: Strings.protectedStatusLabel
         }
     }
 
     private var stateTitle: String {
         switch viewModel.state {
-        case .naoConfigurado: "Seu iPhone ainda não está protegido"
-        case .instaladoDesativado: "Falta um passo"
-        case .blindado: "Seu iPhone está blindado"
+        case .naoConfigurado: String(localized: "home.title.not_configured", defaultValue: "Seu iPhone ainda não está protegido")
+        case .instaladoDesativado: String(localized: "home.title.pending", defaultValue: "Falta um passo")
+        case .blindado: String(localized: "home.title.protected", defaultValue: "Seu iPhone está blindado")
         }
     }
 
     private var stateBody: String {
         switch viewModel.state {
         case .naoConfigurado:
-            "O Blindado liga um DNS criptografado para o sistema inteiro — apps, jogos e Safari. Leva menos de um minuto."
+            String(localized: "home.body.not_configured", defaultValue: "O Blindado liga um DNS criptografado para o sistema inteiro — apps, jogos e Safari. Leva menos de um minuto.")
         case .instaladoDesativado:
-            "O perfil já está no seu iPhone. Por segurança, o iOS pede que você confirme a ativação nos Ajustes."
+            String(localized: "home.body.pending", defaultValue: "O perfil já está no seu iPhone. Por segurança, o iOS pede que você confirme a ativação nos Ajustes.")
         case .blindado:
-            "As consultas DNS saem criptografadas. Anúncios e rastreadores conhecidos são bloqueados antes de carregar."
+            String(localized: "home.body.protected", defaultValue: "As consultas DNS saem criptografadas. Anúncios e rastreadores conhecidos são bloqueados antes de carregar.")
         }
     }
 }

@@ -21,6 +21,15 @@ struct RootSidebarView: View {
             case .ajustes: "gearshape"
             }
         }
+
+        var displayName: String {
+            switch self {
+            case .inicio: String(localized: "tab.inicio", defaultValue: "Início")
+            case .safari: String(localized: "safari.nav_title", defaultValue: "Safari")
+            case .testar: String(localized: "test.nav_title", defaultValue: "Testar")
+            case .ajustes: String(localized: "settings.nav_title", defaultValue: "Ajustes")
+            }
+        }
     }
 
     @State private var selection: Section? = .inicio
@@ -49,7 +58,7 @@ struct RootSidebarView: View {
     var body: some View {
         NavigationSplitView {
             List(Section.allCases, selection: $selection) { section in
-                Label(section.rawValue, systemImage: section.systemImage)
+                Label(section.displayName, systemImage: section.systemImage)
                     .tag(section)
             }
             .navigationTitle("Blindado")

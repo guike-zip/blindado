@@ -6,22 +6,41 @@ struct SettingsView: View {
     var levelViewModel: ProtectionLevelViewModel
     var privacyViewModel: PrivacyViewModel
 
+    @AppStorage(AppearanceMode.storageKey) private var appearanceModeRaw = AppearanceMode.sistema.rawValue
+
+    private var appearanceMode: Binding<AppearanceMode> {
+        Binding(
+            get: { AppearanceMode(rawValue: appearanceModeRaw) ?? .sistema },
+            set: { appearanceModeRaw = $0.rawValue }
+        )
+    }
+
     var body: some View {
         NavigationStack {
             List {
-                Section("Proteção") {
+                Section(String(localized: "settings.section.protection", defaultValue: "Proteção")) {
                     NavigationLink {
                         ProtectionLevelView(viewModel: levelViewModel)
                     } label: {
-                        LabeledContent("Nível de proteção", value: levelViewModel.profile.level.displayName)
+                        LabeledContent(Strings.protectionLevelLabel, value: levelViewModel.profile.level.displayName)
                     }
                 }
 
-                Section("App") {
+                Section(Strings.appearanceLabel) {
+                    Picker(Strings.appearanceLabel, selection: appearanceMode) {
+                        ForEach(AppearanceMode.allCases) { mode in
+                            Text(mode.displayName).tag(mode)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                }
+
+                Section(String(localized: "settings.section.app", defaultValue: "App")) {
                     NavigationLink {
                         PrivacyView(viewModel: privacyViewModel)
                     } label: {
-                        Label("Privacidade", systemImage: "hand.raised")
+                        Label(Strings.privacyLabel, systemImage: "hand.raised")
                     }
                 }
 
@@ -36,7 +55,7 @@ struct SettingsView: View {
                     .listRowBackground(Color.clear)
                 }
             }
-            .navigationTitle("Ajustes")
+            .navigationTitle(String(localized: "settings.nav_title", defaultValue: "Ajustes"))
         }
     }
 
