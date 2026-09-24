@@ -132,6 +132,14 @@ Sobe um novo build para o TestFlight de macOS — exige conta de desenvolvedor +
 
 Envia a ficha da App Store para macOS (fastlane/metadata_mac), reaproveitando um build já processado no TestFlight — sem submeter para revisão (Constitution Princípio III).
 
+### mac submit
+
+```sh
+[bundle exec] fastlane mac submit
+```
+
+Submete a versão 1.0 do macOS (já enviada via `release`) para revisão da Apple.
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
