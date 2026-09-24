@@ -172,6 +172,7 @@ platform :ios do
   lane :submit do
     upload_to_app_store(
       submit_for_review: true,
+      reject_if_possible: true, # cancela uma review submission travada (ex.: UNRESOLVED_ISSUES) antes de criar uma nova
       automatic_release: true,
       force: true,
       skip_metadata: false,
@@ -263,6 +264,7 @@ platform :mac do
       metadata_path: "./fastlane/metadata_mac",
       screenshots_path: "./fastlane/screenshots_mac",
       submit_for_review: true,
+      reject_if_possible: true, # cancela uma review submission travada (ex.: UNRESOLVED_ISSUES) antes de criar uma nova
       automatic_release: true,
       force: true,
       skip_metadata: false,
