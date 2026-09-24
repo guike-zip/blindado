@@ -200,7 +200,7 @@
 		E26F50705B879FA85ED250F4 /* Blindado.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Blindado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DECB080CB2C3460F0CF73A /* ContentBlockerRequestHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentBlockerRequestHandling.swift; sourceTree = "<group>"; };
 		F3713188F0EDB2AF5F181D00 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
-		"TEMP_42B28160-5BB3-455A-9682-663BEEF6519E" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
+		"TEMP_38232E0A-E157-4532-B7CB-A7199EA534AE" /* Local.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -346,10 +346,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		"TEMP_567D32AE-84E8-4EF5-8FDC-47B578F90C4A" /* blindado */ = {
+		"TEMP_CFFF613D-5F29-4951-AB29-2E3AD99ED94E" /* blindado */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_42B28160-5BB3-455A-9682-663BEEF6519E" /* Local.xcconfig */,
+				"TEMP_38232E0A-E157-4532-B7CB-A7199EA534AE" /* Local.xcconfig */,
 			);
 			path = blindado;
 			sourceTree = "<group>";
@@ -924,7 +924,7 @@
 		};
 		D518897F554560FC16F6F786 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_42B28160-5BB3-455A-9682-663BEEF6519E" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_38232E0A-E157-4532-B7CB-A7199EA534AE" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -957,7 +957,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_LANGUAGE = "pt-BR";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1012,7 +1012,7 @@
 		};
 		F2DEC456D4EFB9DC8F7D6AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_42B28160-5BB3-455A-9682-663BEEF6519E" /* Local.xcconfig */;
+			baseConfigurationReference = "TEMP_38232E0A-E157-4532-B7CB-A7199EA534AE" /* Local.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1045,7 +1045,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_LANGUAGE = "pt-BR";
 				ENABLE_NS_ASSERTIONS = NO;
