@@ -167,6 +167,26 @@ platform :ios do
       precheck_include_in_app_purchases: false
     )
   end
+
+  desc "Submete a versão 1.0.0 (já enviada via `release`) para revisão da Apple — usar só depois de validação manual em dispositivo físico (T047)."
+  lane :submit do
+    upload_to_app_store(
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: false,
+      skip_binary_upload: true, # build já processado no TestFlight
+      precheck_include_in_app_purchases: false,
+      # Blindado é um utilitário sem nenhum conteúdo sensível — todas as categorias de
+      # classificação indicativa em NONE/false (fastlane/metadata/age_rating_config.json).
+      app_rating_config_path: "./fastlane/metadata/age_rating_config.json",
+      submission_information: {
+        # O app não usa nenhum conteúdo de terceiros (imagens, texto, etc.) — só código próprio.
+        content_rights_contains_third_party_content: false
+      }
+    )
+  end
 end
 
 platform :mac do
