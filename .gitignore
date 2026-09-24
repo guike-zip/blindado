@@ -54,7 +54,8 @@ fastlane/*.cer
 Local.xcconfig
 
 # Contato de revisão da App Store (telefone real, nome) — repositório é público. O resto de
-# fastlane/metadata/ (descrição, keywords, categoria...) é texto de marketing sem dado pessoal
-# sensível e fica versionado.
-fastlane/metadata/review_information/
+# fastlane/metadata*/ (descrição, keywords, categoria...) é texto de marketing sem dado pessoal
+# sensível e fica versionado. Cobre tanto fastlane/metadata/ (iOS) quanto fastlane/metadata_mac/
+# (macOS).
+fastlane/metadata*/review_information/
 

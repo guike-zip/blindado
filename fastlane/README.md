@@ -116,6 +116,14 @@ Build assinado para distribuição (Mac App Store) — exige conta de desenvolve
 
 Sobe um novo build para o TestFlight de macOS — exige conta de desenvolvedor + API key
 
+### mac release
+
+```sh
+[bundle exec] fastlane mac release
+```
+
+Envia a ficha da App Store para macOS (fastlane/metadata_mac), reaproveitando um build já processado no TestFlight — sem submeter para revisão (Constitution Princípio III).
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

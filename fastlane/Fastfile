@@ -214,4 +214,19 @@ platform :mac do
     build_release
     upload_to_testflight(skip_waiting_for_build_processing: true)
   end
+
+  desc "Envia a ficha da App Store para macOS (fastlane/metadata_mac), reaproveitando um build já processado no TestFlight — sem submeter para revisão (Constitution Princípio III)."
+  lane :release do
+    upload_to_app_store(
+      platform: "osx",
+      metadata_path: "./fastlane/metadata_mac",
+      submit_for_review: false,
+      automatic_release: true,
+      force: true,
+      skip_metadata: false,
+      skip_screenshots: true, # ainda não há screenshots para macOS
+      skip_binary_upload: true, # reaproveita o build mais recente já processado no TestFlight
+      precheck_include_in_app_purchases: false
+    )
+  end
 end
