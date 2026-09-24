@@ -37,6 +37,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/screenshots/**/*.html
+fastlane/screenshots_mac/**/*.png
 fastlane/test_output/
 fastlane/.env
 fastlane/.env.*
