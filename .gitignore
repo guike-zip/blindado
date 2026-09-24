@@ -60,3 +60,5 @@ Local.xcconfig
 # (macOS).
 fastlane/metadata*/review_information/
 
+# Cache local da tarefa agendada que monitora o status de revisão da App Store
+.review_status_cache.json
