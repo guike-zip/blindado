@@ -77,8 +77,14 @@
     },
     "home.action.blindar" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Protect my iPhone" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Blindar meu iPhone" } }
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Protect my iPhone" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Protect my Mac" } } } }
+        },
+        "pt-BR" : {
+          "stringUnit" : { "state" : "translated", "value" : "Blindar meu iPhone" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Blindar meu Mac" } } } }
+        }
       }
     },
     "home.action.blindar.caption" : {
@@ -87,13 +93,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Installs a DNS profile on your iPhone. You can remove it anytime."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Turns on a DNS service on your Mac. You can remove it anytime." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Instala um perfil de DNS no iPhone. Você pode remover quando quiser."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Ativa um serviço de DNS no Mac. Você pode remover quando quiser." } } } }
         }
       }
     },
@@ -211,8 +219,14 @@
     },
     "home.alert.error.title" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't protect your iPhone" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Não foi possível blindar o iPhone" } }
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Couldn't protect your iPhone" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Couldn't protect your Mac" } } } }
+        },
+        "pt-BR" : {
+          "stringUnit" : { "state" : "translated", "value" : "Não foi possível blindar o iPhone" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Não foi possível blindar o Mac" } } } }
+        }
       }
     },
     "home.body.not_configured" : {
@@ -237,13 +251,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The profile is already on your iPhone. For security, iOS asks you to confirm activation in Settings."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "The service is already on your Mac. For security, macOS asks you to confirm activation in System Settings." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "O perfil já está no seu iPhone. Por segurança, o iOS pede que você confirme a ativação nos Ajustes."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "O serviço já está no seu Mac. Por segurança, o macOS pede que você confirme a ativação em Ajustes do Sistema." } } } }
         }
       }
     },
@@ -277,8 +293,14 @@
     },
     "home.title.not_configured" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your iPhone isn't protected yet" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Seu iPhone ainda não está protegido" } }
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Your iPhone isn't protected yet" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Your Mac isn't protected yet" } } } }
+        },
+        "pt-BR" : {
+          "stringUnit" : { "state" : "translated", "value" : "Seu iPhone ainda não está protegido" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Seu Mac ainda não está protegido" } } } }
+        }
       }
     },
     "home.title.pending" : {
@@ -289,8 +311,14 @@
     },
     "home.title.protected" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your iPhone is protected" } },
-        "pt-BR" : { "stringUnit" : { "state" : "translated", "value" : "Seu iPhone está blindado" } }
+        "en" : {
+          "stringUnit" : { "state" : "translated", "value" : "Your iPhone is protected" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Your Mac is protected" } } } }
+        },
+        "pt-BR" : {
+          "stringUnit" : { "state" : "translated", "value" : "Seu iPhone está blindado" },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Seu Mac está blindado" } } } }
+        }
       }
     },
     "level.custom.field_label" : {
@@ -327,13 +355,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Switching levels updates the profile automatically. Your iPhone stays protected during the switch."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Switching levels updates the profile automatically. Your Mac stays protected during the switch." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Trocar o nível atualiza o perfil automaticamente. Seu iPhone continua protegido durante a troca."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Trocar o nível atualiza o perfil automaticamente. Seu Mac continua protegido durante a troca." } } } }
         }
       }
     },
@@ -349,13 +379,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "To find a website, your iPhone asks a question called a DNS query. Blindado sends that question out encrypted, straight to the provider you chose."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "To find a website, your Mac asks a question called a DNS query. Blindado sends that question out encrypted, straight to the provider you chose." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Para achar um site, seu iPhone faz uma pergunta chamada consulta DNS. O Blindado faz essa pergunta sair criptografada, direto para o provedor que você escolheu."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Para achar um site, seu Mac faz uma pergunta chamada consulta DNS. O Blindado faz essa pergunta sair criptografada, direto para o provedor que você escolheu." } } } }
         }
       }
     },
@@ -587,13 +619,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Safari is using Blindado's rules on every tab on this iPhone."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Safari is using Blindado's rules on every tab on this Mac." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "O Safari está usando as regras do Blindado em todas as abas deste iPhone."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "O Safari está usando as regras do Blindado em todas as abas deste Mac." } } } }
         }
       }
     },
@@ -687,13 +721,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Every tracking domain responded. Blindado's profile isn't active on this iPhone."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Every tracking domain responded. Blindado's profile isn't active on this Mac." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Todos os domínios de rastreamento responderam. O perfil do Blindado não está ativo neste iPhone."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Todos os domínios de rastreamento responderam. O perfil do Blindado não está ativo neste Mac." } } } }
         }
       }
     },
@@ -719,13 +755,15 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your iPhone has no connection, so nothing can be said about protection. Connect and test again."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Your Mac has no connection, so nothing can be said about protection. Connect and test again." } } } }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Seu iPhone está sem conexão, então não dá para afirmar nada sobre a proteção. Conecte-se e teste de novo."
-          }
+          },
+          "variations" : { "device" : { "mac" : { "stringUnit" : { "state" : "translated", "value" : "Seu Mac está sem conexão, então não dá para afirmar nada sobre a proteção. Conecte-se e teste de novo." } } } }
         }
       }
     },
