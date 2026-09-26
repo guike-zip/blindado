@@ -1,1 +1,15 @@
 [2026-09-26 08:30:08] ERRO: credenciais nao encontradas no .env
+[2026-09-26 08:54:18] cano OK (TLS + token)
+[2026-09-26 08:54:18] 2026-09-28_1200_acesso-antecipado: publicacao manual — slide1.png, slide2.png, slide3.png, slide4.png, slide5.png, slide6.png, slide7.png
+[2026-09-26 08:54:23] cano OK (TLS + token)
+[2026-09-26 08:54:23] 2026-09-28_1200_acesso-antecipado: publicacao manual — slide1.png, slide2.png, slide3.png, slide4.png, slide5.png, slide6.png, slide7.png
+[2026-09-26 08:54:23] Publicando 2026-09-28_1200_acesso-antecipado...
+[2026-09-26 08:54:23]   Carrossel de 7 slides
+[2026-09-26 08:54:25]   Hospedado: https://files.catbox.moe/2cjjzs.png
+[2026-09-26 08:54:31]   Hospedado: https://files.catbox.moe/g5xdeq.png
+[2026-09-26 08:54:37]   Hospedado: https://files.catbox.moe/8d9c7y.png
+[2026-09-26 08:54:43]   Hospedado: https://files.catbox.moe/y4p0q9.png
+[2026-09-26 08:54:49]   Hospedado: https://files.catbox.moe/90u434.png
+[2026-09-26 08:54:56]   Hospedado: https://files.catbox.moe/unyvox.png
+[2026-09-26 08:55:02]   Hospedado: https://files.catbox.moe/7hnsua.png
+[2026-09-26 08:55:15] OK! Post ID 18135665407640790 — movido para publicados/2026-09-26_0855_acesso-antecipado
