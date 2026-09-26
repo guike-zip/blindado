@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Blindado — Beta para iPhone e Android</title>
-<meta name="description" content="Blindado: DNS privado e bloqueio de rastreadores. Beta aberto e grátis para iPhone e Android.">
-<meta property="og:title" content="Blindado — Beta aberto para iPhone e Android">
+<title>Blindado — Beta para iPhone, Android e Mac</title>
+<meta name="description" content="Blindado: DNS privado e bloqueio de rastreadores. Beta aberto e grátis para iPhone, Android e Mac.">
+<meta property="og:title" content="Blindado — Beta aberto para iPhone, Android e Mac">
 <meta property="og:description" content="DNS privado e bloqueio de rastreadores. Entre no beta grátis.">
 <link rel="icon" href="marketing/perfil/foto-perfil.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,18 +46,23 @@ h1{font:700 clamp(32px,6.4vw,54px)/1.08 var(--display);letter-spacing:-.025em;ma
 h1 em{font-style:normal;color:var(--green)}
 .lede{color:var(--muted);font-size:18px;max-width:52ch;margin:0 auto}
 
-.choose{margin:30px auto 0;display:inline-grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface);
+.choose{margin:30px auto 0;display:inline-grid;grid-template-columns:1fr 1fr 1fr;gap:6px;background:var(--surface);
   padding:6px;border-radius:16px;border:1px solid var(--line)}
-.choose button{font:600 16px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:11px;padding:14px 26px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;gap:10px;min-width:150px}
+.choose button{font:600 16px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:11px;padding:14px 22px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;min-width:130px}
 .choose button svg{width:18px;height:18px;fill:currentColor}
 .choose button[aria-selected="true"]{background:var(--green);color:var(--on-green)}
 .choose button:not([aria-selected="true"]):hover{background:var(--raised);color:var(--fg)}
 .detect{margin:12px 0 0;font:500 13px/1.4 var(--mono);color:var(--tert)}
 
-.panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-block:28px 64px}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;
-  grid-template-columns:132px 1fr;gap:24px;align-items:start}
+.panels{display:grid;gap:20px;padding-block:28px 64px;max-width:780px;margin-inline:auto}
+.panel:not([data-sel="true"]){display:none}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;
+  grid-template-columns:170px 1fr;gap:28px;align-items:start}
+.panel.wide{grid-template-columns:1fr}
+.panel.wide .shot{border-radius:12px;border-width:4px;max-width:400px}
+.status{display:inline-block;margin:8px 0 0 6px;font:500 12px/1.3 var(--mono);color:var(--muted);background:var(--raised);padding:5px 9px;border-radius:8px}
+.note{font-size:13.5px;color:var(--tert);margin:10px 0 0}
 .panel[data-sel="true"]{border-color:rgba(86,220,133,.55);box-shadow:0 0 0 1px rgba(86,220,133,.25),0 18px 50px rgba(0,0,0,.35)}
 .shot{height:auto;border-radius:20px;border:5px solid #2A2F36;background:#000;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .panel h2{font:700 26px/1.15 var(--display);margin:0;letter-spacing:-.01em}
@@ -84,9 +89,6 @@ form.lead .btn{margin-top:0}
 .msg{font-size:14px;margin:8px 0 0;min-height:1.2em}
 .msg.ok{color:var(--green)} .msg.err{color:var(--red)}
 
-.mac{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;
-  border:1px dashed var(--line);border-radius:16px;padding:16px 20px;color:var(--muted);font-size:15px}
-.mac form.lead{margin:0;flex:1 1 320px;max-width:460px}
 
 section.more{border-top:1px solid var(--line);padding-block:56px}
 .more h3{font:700 24px/1.2 var(--display);margin:0 0 20px}
@@ -100,15 +102,14 @@ footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--tert
 footer a{color:var(--muted)}
 
 @media (max-width:860px){
-  .panels{grid-template-columns:1fr}
-  .panel:not([data-sel="true"]){display:none}
   .cols{grid-template-columns:1fr}
 }
 @media (max-width:480px){
   .panel{grid-template-columns:1fr;padding:20px}
   .shot{display:none}
   .choose{display:grid;width:100%}
-  .choose button{min-width:0;padding:14px 10px}
+  .choose button{min-width:0;padding:14px 6px;gap:6px;font-size:15px}
+  .panel.wide .shot{display:block}
 }
 @media (prefers-reduced-motion:no-preference){.panel{transition:border-color .2s,box-shadow .2s}}
 </style>
@@ -123,7 +124,7 @@ footer a{color:var(--muted)}
   <main>
     <div class="hero">
       <span class="badge">Beta aberto · grátis</span>
-      <h1>DNS privado e bloqueio de rastreadores <em>no seu celular.</em></h1>
+      <h1>DNS privado e bloqueio de rastreadores <em>no iPhone, Android e Mac.</em></h1>
       <p class="lede">Escolha o seu aparelho e siga os passos. Sem cadastro no app, sem coleta de dados.</p>
       <div class="choose" role="tablist" aria-label="Escolha seu aparelho">
         <button role="tab" id="tab-iphone" aria-controls="p-iphone" aria-selected="true" data-p="iphone">
@@ -133,6 +134,10 @@ footer a{color:var(--muted)}
         <button role="tab" id="tab-android" aria-controls="p-android" aria-selected="false" data-p="android">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3.1A10.7 10.7 0 0 0 12 8.3c-1.7 0-3.3.3-4.8 1L5.4 6.1a.4.4 0 1 0-.7.4l1.7 3C3.6 11 1.8 13.8 1.5 17h21c-.3-3.2-2.1-6-4.9-7.5zM7 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
           Android
+        </button>
+        <button role="tab" id="tab-mac" aria-controls="p-mac" aria-selected="false" data-p="mac">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4h13A1.5 1.5 0 0 1 20 5.5V16H4V5.5zm2 .5v8h12V6H6zM1.5 17.5h21c0 1.1-.9 2-2 2h-17c-1.1 0-2-.9-2-2z"/></svg>
+          Mac
         </button>
       </div>
       <p class="detect" id="detect" aria-live="polite"></p>
@@ -172,21 +177,33 @@ footer a{color:var(--muted)}
         </div>
       </section>
 
-      <div class="mac">
-        <span><b style="color:var(--fg)">Usa Mac?</b> O beta para Mac ainda não abriu. Deixe o e-mail para ser avisado.</span>
-        <form class="lead" data-plataforma="macOS" novalidate>
-          <input id="email-mac" aria-label="Seu e-mail" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com" required>
-          <button class="btn btn-ghost" type="submit">Avisar</button>
-        </form>
-        <p class="msg" role="status" style="flex-basis:100%;margin:0"></p>
-      </div>
+      <section class="panel wide" id="p-mac" role="tabpanel" aria-labelledby="tab-mac" data-sel="false">
+        <img class="shot" src="site/mac-inicio.jpg" width="900" height="562" alt="Tela inicial do Blindado no Mac: Seu Mac está blindado">
+        <div>
+          <h2>Beta no Mac</h2>
+          <span class="req">Requer macOS 26 ou mais recente</span><span class="status">Versão Mac em liberação pela Apple</span>
+          <ol class="steps">
+            <li><div><b>Instale o TestFlight no Mac</b><span>O mesmo app de testes da Apple, grátis na Mac App Store.</span>
+              <a class="btn btn-ghost" href="https://apps.apple.com/br/app/testflight/id899247664">Baixar o TestFlight</a></div></li>
+            <li><div><b>Abra o convite no Mac</b><span>É o mesmo convite do iPhone: abra no Mac e clique em “Aceitar” no TestFlight.</span>
+              <a class="btn btn-primary" href="https://testflight.apple.com/join/Evt1DGrb">Entrar no beta do Mac</a>
+              <p class="note">Se o TestFlight disser que a versão para Mac ainda não está disponível, é porque a Apple está terminando de liberar. Deixe seu e-mail que avisamos:</p>
+              <form class="lead" data-plataforma="macOS" novalidate>
+                <input id="email-mac" aria-label="Seu e-mail" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com" required>
+                <button class="btn btn-ghost" type="submit">Avisar quando liberar</button>
+              </form>
+              <p class="msg" role="status"></p></div></li>
+            <li><div><b>Blinde o Mac</b><span>Abra o Blindado, clique em “Blindar meu Mac” e siga a instrução em Ajustes do Sistema.</span></div></li>
+          </ol>
+        </div>
+      </section>
     </div>
   </main>
 
   <section class="more" id="o-que-faz">
     <h3>O que o Blindado faz</h3>
     <div class="cols">
-      <div class="col"><h4>No iPhone</h4><ul>
+      <div class="col"><h4>No iPhone e no Mac</h4><ul>
         <li>DNS criptografado no sistema todo, em Wi-Fi e na rede celular.</li>
         <li>Bloqueador de conteúdo dedicado ao Safari.</li>
         <li>Níveis Padrão, Família ou servidor personalizado.</li></ul></div>
@@ -226,6 +243,7 @@ footer a{color:var(--muted)}
   var iPadOS = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
   if (/Android/i.test(ua)) { select("android"); detect.textContent = "Detectamos um Android."; }
   else if (/iPhone|iPod|iPad/.test(ua) || iPadOS) { select("iphone"); detect.textContent = "Detectamos um iPhone."; }
+  else if (/Macintosh/.test(ua)) { select("mac"); detect.textContent = "Detectamos um Mac."; }
 
   document.querySelectorAll("form.lead").forEach(function (form) {
     var msg = form.parentElement.querySelector(".msg") || form.nextElementSibling;
@@ -245,7 +263,7 @@ footer a{color:var(--muted)}
           msg.className = "msg ok";
           msg.textContent = form.dataset.plataforma === "Android"
             ? "Pronto! Vamos adicionar " + email + " ao teste e mandar o link do Google Play por e-mail."
-            : "Pronto! Avisamos " + email + " quando o beta para Mac abrir.";
+            : "Pronto! Avisamos " + email + " assim que a Apple liberar a versão para Mac.";
         })
         .catch(function () {
           btn.disabled = false;

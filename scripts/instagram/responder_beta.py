@@ -44,9 +44,10 @@ DM_COM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
                "📱 iPhone: instala o TestFlight (app de testes da Apple) e abre este convite:\n{link}\n\n"
                "🤖 Android: o teste do Google Play é por e-mail. Deixa o e-mail da sua conta Google "
                "aqui que a gente te adiciona e manda o link:\n" + SITE_BETA + "\n\n"
+               "💻 Mac: é o mesmo convite do iPhone, aberto no Mac (macOS 26+).\n\n"
                "Qualquer dúvida é só responder aqui.")
 DM_SEM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
-               "Deixa seu e-mail e a plataforma (iPhone ou Android) aqui que a gente te manda o convite:\n"
+               "Deixa seu e-mail e a plataforma (iPhone, Android ou Mac) aqui que a gente te manda o convite:\n"
                + SITE_BETA)
 PUBLICA_DM_OK = "Te chamei no direct, @{user}! 💚"
 PUBLICA_DM_FALHOU = "Oba, @{user}! Chama a gente no direct que te mandamos o convite 💚"
