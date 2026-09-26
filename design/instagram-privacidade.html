@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blindado — Privacidade da integração com o Instagram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-canvas:#0B0F14;
+  --bg-surface:#181C22;
+  --text-primary:#F7F8FA;
+  --text-secondary:#ACB1B9;
+  --text-tertiary:#8E939A;
+  --accent:#56DC85;
+  --font-display:"Space Grotesk",system-ui,sans-serif;
+  --font-ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg-canvas);color:var(--text-primary);
+  font-family:var(--font-ui);-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:720px;margin:0 auto;padding:72px 24px 96px}
+h1{font:700 40px/1.15 var(--font-display);letter-spacing:-.02em;margin:0 0 8px}
+.updated{font:400 13px/1 var(--font-mono);color:var(--text-tertiary);margin:0 0 48px}
+h2{font:600 22px/1.3 var(--font-display);margin:48px 0 16px;color:var(--text-primary)}
+p{font:400 16px/1.7 var(--font-ui);color:var(--text-secondary);margin:0 0 16px}
+ul{margin:0 0 16px;padding-left:22px}
+li{font:400 16px/1.7 var(--font-ui);color:var(--text-secondary);margin-bottom:8px}
+strong{color:var(--text-primary);font-weight:600}
+.card{background:var(--bg-surface);border-radius:16px;padding:24px 28px;margin:24px 0}
+.accent{color:var(--accent)}
+a{color:var(--accent)}
+.back{display:inline-block;margin-top:56px;font:400 14px/1 var(--font-ui);color:var(--text-tertiary);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Privacidade da integração com o <span class="accent">Instagram</span></h1>
+  <p class="updated">Última atualização: 26 de setembro de 2026</p>
+
+  <div class="card">
+    <p style="margin:0"><strong>Resumo:</strong> o app da Meta <strong>guikeZip Publisher</strong> é uma
+    ferramenta interna usada só pelo dono das contas <strong>@blindado.app</strong> e
+    <strong>@guike.zip</strong> para publicar posts e responder quem pede o convite do beta do
+    Blindado. Não vendemos, não compartilhamos e não usamos dados para anúncios.</p>
+  </div>
+
+  <h2>Quem somos</h2>
+  <p>Blindado é um app para iPhone e Mac de DNS privado e bloqueio de conteúdo no Safari,
+  desenvolvido por Guilherme Santos. Esta página cobre apenas a integração com a API do
+  Instagram. A política do app Blindado está em
+  <a href="privacidade.html">privacidade.html</a>.</p>
+
+  <h2>O que a integração faz</h2>
+  <ul>
+    <li><strong>Publica</strong> fotos e carrosséis nas nossas próprias contas do Instagram.</li>
+    <li><strong>Lê os comentários</strong> dos nossos próprios posts para encontrar quem escreveu a
+    palavra-chave <strong>BETA</strong>.</li>
+    <li><strong>Responde</strong> esses comentários publicamente e envia <strong>uma única mensagem
+    privada</strong> com o link do convite do TestFlight (o programa de testes da Apple).</li>
+  </ul>
+
+  <h2>Dados que tratamos</h2>
+  <p>Quando você comenta BETA em um post nosso, usamos: o identificador do comentário, o seu
+  nome de usuário público, o texto do comentário e o link do post. Nada além disso. Não lemos
+  mensagens que você não enviou para nós, não acessamos seu perfil privado e não coletamos
+  e-mail, telefone ou localização.</p>
+
+  <h2>Onde ficam e por quanto tempo</h2>
+  <p>Esses dados ficam em um arquivo no computador do desenvolvedor, usado apenas para não
+  responder a mesma pessoa duas vezes. Não existe servidor, banco de dados ou serviço de
+  terceiros guardando essas informações. O arquivo é apagado quando o beta termina ou antes,
+  se você pedir.</p>
+
+  <h2>Compartilhamento</h2>
+  <p><strong>Nenhum.</strong> Não vendemos, alugamos ou repassamos dados a ninguém e não os
+  usamos para publicidade ou perfilamento.</p>
+
+  <h2>Seus direitos (LGPD)</h2>
+  <p>Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento. Veja como
+  em <a href="instagram-exclusao-dados.html">Exclusão de dados</a>.</p>
+
+  <h2>Contato</h2>
+  <p>E-mail: <strong>guilherme.avieiras@gmail.com</strong> · Instagram: <strong>@blindado.app</strong></p>
+</div>
+</body>
+</html>
