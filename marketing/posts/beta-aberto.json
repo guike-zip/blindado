@@ -1,0 +1,106 @@
+{
+  "legenda": "O beta do Blindado está aberto — no iPhone e no Android. De graça. 🛡️\n\n📱 iPhone: DNS criptografado no sistema inteiro (Wi-Fi e 4G/5G) + bloqueador de conteúdo no Safari.\n🤖 Android: DNS criptografado + bloqueio de anúncios e rastreadores em qualquer app.\n\nSem cadastro, sem coleta de dados, sem servidor nosso no meio.\n\nQuem entrar no beta agora vai ganhar uma surpresa no lançamento oficial. 🎁\n\n👉 Comenta BETA que a gente te manda o convite no direct — ou usa o link da bio.\n\n#privacidade #iphone #android #dnsprivado #segurancadigital #appbrasileiro #beta",
+  "slides": [
+    {
+      "tipo": "capa",
+      "titulo": "Beta aberto:<br><em>iPhone e Android.</em>",
+      "sub": "Teste o Blindado de graça, antes do lançamento."
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "o problema",
+      "titulo": "Seu celular avisa rastreadores <em>o tempo todo.</em>",
+      "corpo": "Cada site e app que você abre consulta dezenas de endereços. Muitos existem só para medir o que você faz — e essas consultas saem sem criptografia."
+    },
+    {
+      "tipo": "dominios",
+      "rotulo": "o que o blindado faz",
+      "titulo": "Corta a conversa <em>na origem.</em>",
+      "dominios": [
+        "doubleclick.net",
+        "google-analytics.com",
+        "connect.facebook.net",
+        "scorecardresearch.com"
+      ],
+      "nota": "Exemplos de domínios de rastreamento barrados pelo DNS protegido."
+    },
+    {
+      "tipo": "lista",
+      "rotulo": "no iphone",
+      "titulo": "iPhone <em>blindado.</em>",
+      "itens": [
+        {
+          "ok": true,
+          "texto": "DNS criptografado no sistema todo",
+          "detalhe": "Em Wi-Fi e na rede celular."
+        },
+        {
+          "ok": true,
+          "texto": "Bloqueador de conteúdo no Safari",
+          "detalhe": "Páginas mais limpas e leves."
+        },
+        {
+          "ok": true,
+          "texto": "Modo Família",
+          "detalhe": "Também filtra conteúdo adulto."
+        }
+      ]
+    },
+    {
+      "tipo": "lista",
+      "rotulo": "no android",
+      "titulo": "Android <em>blindado.</em>",
+      "itens": [
+        {
+          "ok": true,
+          "texto": "Bloqueio em qualquer app",
+          "detalhe": "Anúncios e rastreadores barrados no sistema todo."
+        },
+        {
+          "ok": true,
+          "texto": "DNS criptografado",
+          "detalhe": "Em Wi-Fi e nos dados móveis."
+        },
+        {
+          "ok": true,
+          "texto": "Modo Família",
+          "detalhe": "Também filtra conteúdo adulto."
+        }
+      ]
+    },
+    {
+      "tipo": "lista",
+      "rotulo": "sem letra miúda",
+      "titulo": "Zero coleta. <em>De verdade.</em>",
+      "itens": [
+        {
+          "ok": true,
+          "texto": "Sem cadastro e sem conta",
+          "detalhe": "Abriu, ativou, pronto."
+        },
+        {
+          "ok": true,
+          "texto": "Nenhum servidor nosso no meio",
+          "detalhe": "As consultas vão direto ao provedor que você escolher."
+        },
+        {
+          "ok": false,
+          "texto": "Não é VPN de anonimização",
+          "detalhe": "Não troca seu IP nem sua localização."
+        }
+      ]
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "acesso antecipado",
+      "titulo": "Entre no beta. <em>É grátis.</em>",
+      "corpo": "No iPhone, pelo TestFlight, o app de testes da Apple. No Android, pelo programa de testes do Google Play.<br><br>E quem entrar agora ganha <em>uma surpresa</em> no lançamento oficial."
+    },
+    {
+      "tipo": "cta",
+      "titulo": "Quer entrar?",
+      "palavra": "BETA",
+      "sub": "Ou use o link da bio — iPhone e Android."
+    }
+  ]
+}

@@ -39,12 +39,15 @@ ESTADO = REPO / "marketing" / "leads-respondidos.json"
 # Grupo externo "Beta público" (App Store Connect), build 1.0.0 (5), limite 10.000 testadores.
 TESTFLIGHT = "https://testflight.apple.com/join/Evt1DGrb"
 
+SITE_BETA = "https://guike-zip.github.io/blindado-android/#acesso-antecipado"
 DM_COM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
-               "Aqui está o convite do beta (TestFlight, o app de testes da Apple):\n{link}\n\n"
-               "Instala o TestFlight, abre o link e pronto. Qualquer dúvida é só responder aqui.")
+               "📱 iPhone: instala o TestFlight (app de testes da Apple) e abre este convite:\n{link}\n\n"
+               "🤖 Android: o teste do Google Play é por e-mail. Deixa o e-mail da sua conta Google "
+               "aqui que a gente te adiciona e manda o link:\n" + SITE_BETA + "\n\n"
+               "Qualquer dúvida é só responder aqui.")
 DM_SEM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
-               "Seu nome está na lista do beta. Assim que o convite do TestFlight abrir, "
-               "a gente te manda por aqui.")
+               "Deixa seu e-mail e a plataforma (iPhone ou Android) aqui que a gente te manda o convite:\n"
+               + SITE_BETA)
 PUBLICA_DM_OK = "Te chamei no direct, @{user}! 💚"
 PUBLICA_DM_FALHOU = "Oba, @{user}! Chama a gente no direct que te mandamos o convite 💚"
 

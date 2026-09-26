@@ -1,14 +1,51 @@
 {
-  "legenda": "Você já ouviu falar em DNS, mas sabe o que ele entrega sobre você? 🤔\n\nToda vez que você abre um site ou app, o iPhone pergunta \"qual o endereço disso?\". Essa pergunta é o DNS — e, por padrão, ela viaja sem criptografia, visível para a rede em que você está.\n\nO Blindado liga DNS criptografado no iPhone inteiro, com provedores reconhecidos (AdGuard DNS e Control D), e bloqueia domínios de rastreamento antes mesmo da conexão acontecer.\n\nEstamos no acesso antecipado, gratuito. 👉 Comenta BETA e a gente te manda o convite.\n\n#dns #privacidade #iphone #segurancadigital #safari #beta",
+  "legenda": "Você já ouviu falar em DNS, mas sabe o que ele entrega sobre você? 🤔\n\nToda vez que você abre um site ou app, o celular pergunta \"qual o endereço disso?\". Essa pergunta é o DNS — e, por padrão, ela viaja sem criptografia, visível para a rede em que você está.\n\nO Blindado liga DNS criptografado no celular inteiro — iPhone e Android —, com provedores reconhecidos (AdGuard DNS e Control D), e bloqueia domínios de rastreamento antes mesmo da conexão acontecer.\n\nO beta está aberto e é gratuito. 👉 Comenta BETA e a gente te manda o convite.\n\n#dns #privacidade #iphone #android #segurancadigital #safari #beta",
   "slides": [
-    {"tipo": "capa", "titulo": "O que o seu DNS<br><em>conta sobre você.</em>", "sub": "Em 4 slides, sem jargão.", "escudo": "pending"},
-    {"tipo": "texto", "rotulo": "o que é dns", "titulo": "A lista telefônica <em>da internet.</em>", "corpo": "Antes de abrir qualquer site ou app, o iPhone pergunta: “qual é o endereço de instagram.com?”. Essa pergunta é o DNS."},
-    {"tipo": "texto", "rotulo": "o problema", "titulo": "Por padrão, ela vai <em>sem criptografia.</em>", "corpo": "Quem controla a rede — o Wi-Fi do café, do hotel, do trabalho — consegue ver a lista de sites que você visita. E nada impede os rastreadores de responderem."},
-    {"tipo": "lista", "rotulo": "a solução", "titulo": "DNS privado <em>resolve.</em>", "itens": [
-      {"ok": true, "texto": "Consultas criptografadas", "detalhe": "A rede não lê para onde você vai."},
-      {"ok": true, "texto": "Rastreadores barrados", "detalhe": "O domínio nem chega a responder."},
-      {"ok": true, "texto": "Provedores reconhecidos", "detalhe": "AdGuard DNS ou Control D, você escolhe."}
-    ]},
-    {"tipo": "cta", "titulo": "Blindado liga isso<br>em poucos toques.", "palavra": "BETA", "sub": "Acesso antecipado gratuito. A gente te chama no direct."}
+    {
+      "tipo": "capa",
+      "titulo": "O que o seu DNS<br><em>conta sobre você.</em>",
+      "sub": "Em 4 slides, sem jargão.",
+      "escudo": "pending"
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "o que é dns",
+      "titulo": "A lista telefônica <em>da internet.</em>",
+      "corpo": "Antes de abrir qualquer site ou app, o celular pergunta: “qual é o endereço de instagram.com?”. Essa pergunta é o DNS."
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "o problema",
+      "titulo": "Por padrão, ela vai <em>sem criptografia.</em>",
+      "corpo": "Quem controla a rede — o Wi-Fi do café, do hotel, do trabalho — consegue ver a lista de sites que você visita. E nada impede os rastreadores de responderem."
+    },
+    {
+      "tipo": "lista",
+      "rotulo": "a solução",
+      "titulo": "DNS privado <em>resolve.</em>",
+      "itens": [
+        {
+          "ok": true,
+          "texto": "Consultas criptografadas",
+          "detalhe": "A rede não lê para onde você vai."
+        },
+        {
+          "ok": true,
+          "texto": "Rastreadores barrados",
+          "detalhe": "O domínio nem chega a responder."
+        },
+        {
+          "ok": true,
+          "texto": "Provedores reconhecidos",
+          "detalhe": "AdGuard DNS ou Control D, você escolhe."
+        }
+      ]
+    },
+    {
+      "tipo": "cta",
+      "titulo": "Blindado liga isso<br>em poucos toques.",
+      "palavra": "BETA",
+      "sub": "Beta aberto e grátis — iPhone e Android."
+    }
   ]
 }

@@ -1,10 +1,34 @@
 {
-  "legenda": "3 motivos para entrar agora no beta do Blindado 👇\n\n1️⃣ É grátis.\n2️⃣ Você protege o iPhone antes do lançamento oficial.\n3️⃣ Tem uma surpresa guardada para quem entrar no beta. 🎁 (não vamos contar ainda 🤐)\n\nBlindado = DNS criptografado no iPhone inteiro + bloqueador de conteúdo no Safari. Sem cadastro, sem coleta de dados.\n\n👉 Comenta BETA que a gente te manda o convite no direct.\n\n#privacidade #iphone #dnsprivado #safari #beta #appbrasileiro",
+  "legenda": "3 motivos para entrar agora no beta do Blindado 👇\n\n1️⃣ É grátis.\n2️⃣ Você protege o celular antes do lançamento oficial — iPhone ou Android.\n3️⃣ Tem uma surpresa guardada para quem entrar no beta. 🎁 (não vamos contar ainda 🤐)\n\nBlindado = DNS criptografado + bloqueio de rastreadores. Sem cadastro, sem coleta de dados.\n\n👉 Comenta BETA que a gente te manda o convite no direct.\n\n#privacidade #iphone #android #dnsprivado #segurancadigital #appbrasileiro #beta",
   "slides": [
-    {"tipo": "capa", "titulo": "3 motivos para entrar<br><em>no beta agora.</em>", "sub": "Blindado · acesso antecipado para iPhone."},
-    {"tipo": "texto", "rotulo": "motivo 1", "titulo": "É <em>grátis.</em>", "corpo": "O acesso antecipado não custa nada. Você instala pelo TestFlight, o app de testes da própria Apple, e começa a usar na hora."},
-    {"tipo": "texto", "rotulo": "motivo 2", "titulo": "Você se protege <em>antes.</em>", "corpo": "DNS criptografado no iPhone inteiro — Wi-Fi e rede celular — e um Safari mais limpo, semanas antes do lançamento oficial."},
-    {"tipo": "texto", "rotulo": "motivo 3", "titulo": "Tem uma <em>surpresa</em> guardada.", "corpo": "Quem entrar no beta vai receber um presente no lançamento oficial. Ainda não podemos contar qual. 🤐"},
-    {"tipo": "cta", "titulo": "Bora?", "palavra": "BETA", "sub": "A gente te chama no direct com o convite."}
+    {
+      "tipo": "capa",
+      "titulo": "3 motivos para entrar<br><em>no beta agora.</em>",
+      "sub": "Blindado · beta aberto para iPhone e Android."
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "motivo 1",
+      "titulo": "É <em>grátis.</em>",
+      "corpo": "O beta não custa nada. No iPhone você instala pelo TestFlight, da Apple; no Android, pelo teste do Google Play."
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "motivo 2",
+      "titulo": "Você se protege <em>antes.</em>",
+      "corpo": "DNS criptografado no celular inteiro — Wi-Fi e rede celular —, rastreadores barrados, semanas antes do lançamento oficial."
+    },
+    {
+      "tipo": "texto",
+      "rotulo": "motivo 3",
+      "titulo": "Tem uma <em>surpresa</em> guardada.",
+      "corpo": "Quem entrar no beta vai receber um presente no lançamento oficial. Ainda não podemos contar qual. 🤐"
+    },
+    {
+      "tipo": "cta",
+      "titulo": "Bora?",
+      "palavra": "BETA",
+      "sub": "A gente te chama no direct com o convite."
+    }
   ]
 }

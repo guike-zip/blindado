@@ -137,7 +137,7 @@ def moldura(conteudo: str, i: int, n: int, classe: str = "") -> str:
     marca = f'<div class="marca">{svg_escudo("#56DC85", check=False, classe="")}blindado</div>'
     return (f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head><body>'
             f'<div class="slide {classe}"><div class="topo">{marca}<span>@blindado.app</span></div>'
-            f'{conteudo}<div class="rodape"><span>DNS privado · Safari</span>'
+            f'{conteudo}<div class="rodape"><span>DNS privado · iPhone e Android</span>'
             f'<span>{i}/{n}</span></div></div></body></html>')
 
 
