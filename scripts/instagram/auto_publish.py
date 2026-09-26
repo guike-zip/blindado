@@ -20,9 +20,7 @@ Uso manual:
   python3 auto_publish.py --folder marketing/fila/2026-08-05_1200_carrossel-ciencia
                                      # publica ESSA pasta agora, fora do horário
 
-Agendamento: launchd roda este script às 7h, 12h e 18h (ver README-automacao.md).
-Se o Mac estiver dormindo no horário, o launchd roda ao acordar e o script
-publica o que ficou pendente (nunca perde um post, só atrasa).
+Sem agendamento: rode com --folder quando quiser publicar (ver README.md).
 """
 from __future__ import annotations
 
