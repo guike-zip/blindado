@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Blindado — Beta para iPhone e Android</title>
+<meta name="description" content="Blindado: DNS privado e bloqueio de rastreadores. Beta aberto e grátis para iPhone e Android.">
+<meta property="og:title" content="Blindado — Beta aberto para iPhone e Android">
+<meta property="og:description" content="DNS privado e bloqueio de rastreadores. Entre no beta grátis.">
+<link rel="icon" href="marketing/perfil/foto-perfil.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0B0F14; --surface:#181C22; --raised:#23282F; --line:#2D3239;
+  --fg:#F7F8FA; --muted:#ACB1B9; --tert:#8E939A;
+  --green:#56DC85; --green-soft:rgba(86,220,133,.14); --on-green:#021909;
+  --amber:#F9B73F; --amber-soft:rgba(249,183,63,.14); --red:#F75D59;
+  --display:"Space Grotesk",system-ui,sans-serif;
+  --body:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased;
+  padding-inline:max(20px,env(safe-area-inset-left));padding-block:0 env(safe-area-inset-bottom)}
+a{color:var(--green)}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin-inline:auto}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:8px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding-block:22px}
+.brand{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--display);letter-spacing:-.01em;color:var(--fg);text-decoration:none}
+.brand svg{width:24px;height:24px}
+.top nav{display:flex;gap:18px;font-size:14px}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--fg)}
+
+.hero{padding-block:36px 28px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  color:var(--green);background:var(--green-soft);padding:8px 12px;border-radius:999px}
+.badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+h1{font:700 clamp(32px,6.4vw,54px)/1.08 var(--display);letter-spacing:-.025em;margin:18px auto 14px;max-width:18ch;text-wrap:balance}
+h1 em{font-style:normal;color:var(--green)}
+.lede{color:var(--muted);font-size:18px;max-width:52ch;margin:0 auto}
+
+.choose{margin:30px auto 0;display:inline-grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--surface);
+  padding:6px;border-radius:16px;border:1px solid var(--line)}
+.choose button{font:600 16px/1 var(--body);color:var(--muted);background:none;border:0;border-radius:11px;padding:14px 26px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:10px;min-width:150px}
+.choose button svg{width:18px;height:18px;fill:currentColor}
+.choose button[aria-selected="true"]{background:var(--green);color:var(--on-green)}
+.choose button:not([aria-selected="true"]):hover{background:var(--raised);color:var(--fg)}
+.detect{margin:12px 0 0;font:500 13px/1.4 var(--mono);color:var(--tert)}
+
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-block:28px 64px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;
+  grid-template-columns:132px 1fr;gap:24px;align-items:start}
+.panel[data-sel="true"]{border-color:rgba(86,220,133,.55);box-shadow:0 0 0 1px rgba(86,220,133,.25),0 18px 50px rgba(0,0,0,.35)}
+.shot{height:auto;border-radius:20px;border:5px solid #2A2F36;background:#000;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.panel h2{font:700 26px/1.15 var(--display);margin:0;letter-spacing:-.01em}
+.req{display:inline-block;margin-top:8px;font:500 12px/1.3 var(--mono);color:var(--amber);background:var(--amber-soft);
+  padding:5px 9px;border-radius:8px}
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:18px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:30px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  background:var(--raised);color:var(--fg);font:600 14px/1 var(--mono)}
+.steps b{display:block;font-weight:650;font-size:16px}
+.steps span{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font:650 15px/1 var(--body);
+  padding:13px 18px;border-radius:12px;text-decoration:none;border:0;cursor:pointer;min-height:44px}
+.btn-primary{background:var(--green);color:var(--on-green);box-shadow:0 6px 20px rgba(86,220,133,.22)}
+.btn-primary:hover{filter:brightness(1.06)}
+.btn-ghost{background:var(--raised);color:var(--fg)}
+.btn-ghost:hover{background:#2D3239}
+
+form.lead{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+form.lead input{flex:1 1 200px;min-width:0;font:16px/1 var(--body);color:var(--fg);background:var(--bg);border:1px solid #535860;
+  border-radius:12px;padding:12px 14px;min-height:44px}
+form.lead input::placeholder{color:var(--tert)}
+form.lead .btn{margin-top:0}
+.msg{font-size:14px;margin:8px 0 0;min-height:1.2em}
+.msg.ok{color:var(--green)} .msg.err{color:var(--red)}
+
+.mac{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;
+  border:1px dashed var(--line);border-radius:16px;padding:16px 20px;color:var(--muted);font-size:15px}
+.mac form.lead{margin:0;flex:1 1 320px;max-width:460px}
+
+section.more{border-top:1px solid var(--line);padding-block:56px}
+.more h3{font:700 24px/1.2 var(--display);margin:0 0 20px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.col{background:var(--surface);border-radius:16px;padding:20px}
+.col h4{margin:0 0 10px;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.col.not h4{color:var(--red)}
+.col ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px;display:grid;gap:8px}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--tert);font-size:14px;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--muted)}
+
+@media (max-width:860px){
+  .panels{grid-template-columns:1fr}
+  .panel:not([data-sel="true"]){display:none}
+  .cols{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .panel{grid-template-columns:1fr;padding:20px}
+  .shot{display:none}
+  .choose{display:grid;width:100%}
+  .choose button{min-width:0;padding:14px 10px}
+}
+@media (prefers-reduced-motion:no-preference){.panel{transition:border-color .2s,box-shadow .2s}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><svg viewBox="150 150 724 724" aria-hidden="true"><path d="M512 190L262 290V492c0 153 103 284 250 338c147-54 250-185 250-338V290L512 190Z" fill="#56DC85"/></svg>Blindado</a>
+    <nav aria-label="Links"><a href="#o-que-faz">O que faz</a><a href="https://www.instagram.com/blindado.app/">Instagram</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <span class="badge">Beta aberto · grátis</span>
+      <h1>DNS privado e bloqueio de rastreadores <em>no seu celular.</em></h1>
+      <p class="lede">Escolha o seu aparelho e siga os passos. Sem cadastro no app, sem coleta de dados.</p>
+      <div class="choose" role="tablist" aria-label="Escolha seu aparelho">
+        <button role="tab" id="tab-iphone" aria-controls="p-iphone" aria-selected="true" data-p="iphone">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8C7 7.4 5.6 8.3 4.8 9.7c-1.6 2.8-.4 6.9 1.2 9.2.8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.3c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.4-3.7zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z"/></svg>
+          iPhone
+        </button>
+        <button role="tab" id="tab-android" aria-controls="p-android" aria-selected="false" data-p="android">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3.1A10.7 10.7 0 0 0 12 8.3c-1.7 0-3.3.3-4.8 1L5.4 6.1a.4.4 0 1 0-.7.4l1.7 3C3.6 11 1.8 13.8 1.5 17h21c-.3-3.2-2.1-6-4.9-7.5zM7 14.3a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+          Android
+        </button>
+      </div>
+      <p class="detect" id="detect" aria-live="polite"></p>
+    </div>
+
+    <div class="panels">
+      <section class="panel" id="p-iphone" role="tabpanel" aria-labelledby="tab-iphone" data-sel="true">
+        <img class="shot" src="site/iphone-inicio.jpg" width="340" height="756" alt="Tela inicial do Blindado no iPhone: Seu iPhone está blindado">
+        <div>
+          <h2>Beta no iPhone</h2>
+          <span class="req">Requer iOS 26 ou mais recente</span>
+          <ol class="steps">
+            <li><div><b>Instale o TestFlight</b><span>O app oficial de testes da Apple, grátis na App Store.</span>
+              <a class="btn btn-ghost" href="https://apps.apple.com/br/app/testflight/id899247664">Baixar o TestFlight</a></div></li>
+            <li><div><b>Abra o convite do Blindado</b><span>Toque no botão no próprio iPhone e depois em “Aceitar” no TestFlight.</span>
+              <a class="btn btn-primary" href="https://testflight.apple.com/join/Evt1DGrb">Entrar no beta do iPhone</a></div></li>
+            <li><div><b>Blinde o iPhone</b><span>Abra o Blindado, toque em “Blindar meu iPhone” e siga a instrução em Ajustes.</span></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="panel" id="p-android" role="tabpanel" aria-labelledby="tab-android" data-sel="false">
+        <img class="shot" src="site/android-inicio.jpg" width="520" height="1130" alt="Tela inicial do Blindado no Android: Seu Android está blindado">
+        <div>
+          <h2>Beta no Android</h2>
+          <span class="req">Requer Android 8 ou mais recente</span>
+          <ol class="steps">
+            <li><div><b>Deixe o e-mail da sua conta Google</b><span>O teste do Google Play só libera quem está na lista — use o mesmo e-mail da Play Store.</span>
+              <form class="lead" data-plataforma="Android" novalidate>
+                <input id="email-android" aria-label="E-mail da sua conta Google" type="email" inputmode="email" autocomplete="email" placeholder="seuemail@gmail.com" required>
+                <button class="btn btn-primary" type="submit">Quero testar</button>
+              </form>
+              <p class="msg" role="status"></p></div></li>
+            <li><div><b>Receba o convite por e-mail</b><span>Adicionamos você ao teste e mandamos o link do Google Play.</span></div></li>
+            <li><div><b>Instale e blinde</b><span>No link, toque em “Tornar-se testador”, instale pela Play Store e ative a proteção no app.</span></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="mac">
+        <span><b style="color:var(--fg)">Usa Mac?</b> O beta para Mac ainda não abriu. Deixe o e-mail para ser avisado.</span>
+        <form class="lead" data-plataforma="macOS" novalidate>
+          <input id="email-mac" aria-label="Seu e-mail" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com" required>
+          <button class="btn btn-ghost" type="submit">Avisar</button>
+        </form>
+        <p class="msg" role="status" style="flex-basis:100%;margin:0"></p>
+      </div>
+    </div>
+  </main>
+
+  <section class="more" id="o-que-faz">
+    <h3>O que o Blindado faz</h3>
+    <div class="cols">
+      <div class="col"><h4>No iPhone</h4><ul>
+        <li>DNS criptografado no sistema todo, em Wi-Fi e na rede celular.</li>
+        <li>Bloqueador de conteúdo dedicado ao Safari.</li>
+        <li>Níveis Padrão, Família ou servidor personalizado.</li></ul></div>
+      <div class="col"><h4>No Android</h4><ul>
+        <li>Bloqueio de anúncios e rastreadores em qualquer app.</li>
+        <li>DNS criptografado em Wi-Fi e nos dados móveis.</li>
+        <li>Níveis Padrão, Família ou servidor personalizado.</li></ul></div>
+      <div class="col not"><h4>O que não faz</h4><ul>
+        <li>Não é VPN de anonimização: não troca seu IP nem sua localização.</li>
+        <li>Não guarda histórico nem estatísticas de navegação.</li>
+        <li>Não tem servidor próprio: o DNS vai direto ao provedor que você escolher (AdGuard DNS ou Control D).</li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Blindado · feito no Brasil</span>
+    <span><a href="design/privacidade.html">Privacidade (iPhone)</a> · <a href="https://guike-zip.github.io/blindado-android/design/privacidade.html">Privacidade (Android)</a> · <a href="mailto:guilherme.avieiras@gmail.com">guilherme.avieiras@gmail.com</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  // Formulário "Blindado — Acesso antecipado" (Google Forms). As respostas caem na planilha
+  // "Formulário sem título (respostas)" no Drive do dono. emailAddress = coleta nativa de e-mail;
+  // entry.155324259 = "Qual plataforma você usa?" (Android | iOS (iPhone) | macOS).
+  var FORM = "https://docs.google.com/forms/d/e/1FAIpQLSd7qlWbgGboHHJbhIgHH770x9WccINdztR_8EwuMDdm49x9QA/formResponse";
+
+  var tabs = document.querySelectorAll(".choose button");
+  var detect = document.getElementById("detect");
+  function select(p) {
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.p === p)); });
+    document.querySelectorAll(".panel").forEach(function (el) { el.dataset.sel = String(el.id === "p-" + p); });
+  }
+  tabs.forEach(function (t) { t.addEventListener("click", function () { select(t.dataset.p); detect.textContent = ""; }); });
+
+  var ua = navigator.userAgent || "";
+  var iPadOS = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;
+  if (/Android/i.test(ua)) { select("android"); detect.textContent = "Detectamos um Android."; }
+  else if (/iPhone|iPod|iPad/.test(ua) || iPadOS) { select("iphone"); detect.textContent = "Detectamos um iPhone."; }
+
+  document.querySelectorAll("form.lead").forEach(function (form) {
+    var msg = form.parentElement.querySelector(".msg") || form.nextElementSibling;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = form.querySelector("input");
+      var email = input.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.className = "msg err"; msg.textContent = "Confira o e-mail: ele precisa ter o formato nome@dominio.com.";
+        input.focus(); return;
+      }
+      var btn = form.querySelector("button"); btn.disabled = true;
+      var body = new URLSearchParams({ emailAddress: email, "entry.155324259": form.dataset.plataforma });
+      fetch(FORM, { method: "POST", mode: "no-cors", body: body })
+        .then(function () {
+          form.hidden = true;
+          msg.className = "msg ok";
+          msg.textContent = form.dataset.plataforma === "Android"
+            ? "Pronto! Vamos adicionar " + email + " ao teste e mandar o link do Google Play por e-mail."
+            : "Pronto! Avisamos " + email + " quando o beta para Mac abrir.";
+        })
+        .catch(function () {
+          btn.disabled = false;
+          msg.className = "msg err";
+          msg.textContent = "Não conseguimos enviar agora. Verifique sua conexão e tente de novo.";
+        });
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -39,7 +39,7 @@ ESTADO = REPO / "marketing" / "leads-respondidos.json"
 # Grupo externo "Beta público" (App Store Connect), build 1.0.0 (5), limite 10.000 testadores.
 TESTFLIGHT = "https://testflight.apple.com/join/Evt1DGrb"
 
-SITE_BETA = "https://guike-zip.github.io/blindado-android/#acesso-antecipado"
+SITE_BETA = "https://guike-zip.github.io/blindado/"
 DM_COM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
                "📱 iPhone: instala o TestFlight (app de testes da Apple) e abre este convite:\n{link}\n\n"
                "🤖 Android: o teste do Google Play é por e-mail. Deixa o e-mail da sua conta Google "
