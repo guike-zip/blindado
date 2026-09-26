@@ -62,3 +62,8 @@ fastlane/metadata*/review_information/
 
 # Cache local da tarefa agendada que monitora o status de revisão da App Store
 .review_status_cache.json
+
+# Instagram (@blindado.app) — token da Meta. Repositório é público: NUNCA versionar.
+scripts/instagram/.env
+scripts/instagram/__pycache__/
+marketing/**/.DS_Store

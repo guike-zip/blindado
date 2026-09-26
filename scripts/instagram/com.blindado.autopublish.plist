@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.blindado.autopublish</string>
+    <key>ProgramArguments</key>
+    <array>
+        <!-- NAO usar /usr/bin/python3: ele resolve para o python do Xcode, que
+             nao tem permissao do macOS (TCC) para ler ~/Documents quando roda
+             pelo launchd — falha com "Operation not permitted" antes de comecar.
+             O python do Homebrew (/opt/homebrew) tem o acesso. -->
+        <string>/opt/homebrew/bin/python3</string>
+        <string>/Users/guike/Documents/GitHub/blindado/scripts/instagram/auto_publish.py</string>
+    </array>
+    <!-- CA do macOS: o python do Homebrew pode vir sem CAs e todo upload
+         morreria em CERTIFICATE_VERIFY_FAILED (licao aprendida no movase).
+         O ca_tls.py ja resolve no codigo; isto e' a segunda camada. -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>SSL_CERT_FILE</key>
+        <string>/etc/ssl/cert.pem</string>
+    </dict>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>12</integer><key>Minute</key><integer>0</integer></dict>
+        <dict><key>Hour</key><integer>18</integer><key>Minute</key><integer>0</integer></dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/tmp/blindado_autopublish.out</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/blindado_autopublish.err</string>
+</dict>
+</plist>
