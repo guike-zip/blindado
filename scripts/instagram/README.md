@@ -74,7 +74,7 @@ oficial. Os posts só dizem "uma surpresa".
 
 ```bash
 /opt/homebrew/bin/python3 scripts/instagram/responder_beta.py --dry-run
-/opt/homebrew/bin/python3 scripts/instagram/responder_beta.py --link https://testflight.apple.com/join/XXXX
+/opt/homebrew/bin/python3 scripts/instagram/responder_beta.py   # DM leva https://testflight.apple.com/join/Evt1DGrb
 ```
 
 Para cada comentário novo com BETA: tenta DM privada (resposta privada ao comentário) com o

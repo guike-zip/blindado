@@ -19,7 +19,7 @@ ids de comentário já tratados, então rodar de novo nunca responde duas vezes.
 Uso:
   python3 responder_beta.py --dry-run          # mostra quem seria respondido
   python3 responder_beta.py                    # responde de verdade
-  python3 responder_beta.py --link https://testflight.apple.com/join/XXXX
+  python3 responder_beta.py --link <outro link>   # padrão: TESTFLIGHT abaixo
 """
 from __future__ import annotations
 
@@ -36,6 +36,8 @@ import publish_instagram as ig   # reaproveita .env, token, host e o contexto TL
 
 REPO = Path(__file__).resolve().parents[2]
 ESTADO = REPO / "marketing" / "leads-respondidos.json"
+# Grupo externo "Beta público" (App Store Connect), build 1.0.0 (5), limite 10.000 testadores.
+TESTFLIGHT = "https://testflight.apple.com/join/Evt1DGrb"
 
 DM_COM_LINK = ("Oi! Que bom que você quer testar o Blindado 🛡️\n\n"
                "Aqui está o convite do beta (TestFlight, o app de testes da Apple):\n{link}\n\n"
@@ -67,7 +69,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--palavra", default="BETA")
     ap.add_argument("--posts", type=int, default=10, help="quantos posts recentes varrer")
-    ap.add_argument("--link", default="", help="link público do TestFlight (vai na DM)")
+    ap.add_argument("--link", default=TESTFLIGHT, help="link público do TestFlight (vai na DM)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
