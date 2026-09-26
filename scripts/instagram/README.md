@@ -69,3 +69,16 @@ público e ali tem @ de pessoas reais.
 
 **Não conte o presente nos posts:** quem entrar no beta ganha o app de graça no lançamento
 oficial. Os posts só dizem "uma surpresa".
+
+## Responder quem comentou BETA
+
+```bash
+/opt/homebrew/bin/python3 scripts/instagram/responder_beta.py --dry-run
+/opt/homebrew/bin/python3 scripts/instagram/responder_beta.py --link https://testflight.apple.com/join/XXXX
+```
+
+Para cada comentário novo com BETA: tenta DM privada (resposta privada ao comentário) com o
+convite e responde publicamente no post. Com o app Meta em modo desenvolvimento a DM
+automática para desconhecidos costuma ser bloqueada (precisa de Advanced Access pela Análise
+do App); nesse caso a resposta pública pede para a pessoa chamar no direct e o script lista
+quem ficou sem DM. Estado em `marketing/leads-respondidos.json` (gitignored).

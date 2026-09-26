@@ -20,6 +20,7 @@ Formato do post.json:
       {"tipo": "texto",    "rotulo": "o problema", "titulo": "...", "corpo": "..."},
       {"tipo": "dominios", "titulo": "...", "dominios": ["doubleclick.net", ...], "nota": "..."},
       {"tipo": "lista",    "titulo": "...", "itens": [{"ok": true, "texto": "...", "detalhe": "..."}]},
+      {"tipo": "passos",   "titulo": "...", "passos": [{"texto": "...", "detalhe": "..."}]},
       {"tipo": "cta",      "titulo": "...", "palavra": "BETA", "sub": "..."}
     ]
   }
@@ -97,6 +98,12 @@ p.corpo{margin-top:40px;font-size:38px;line-height:1.38;color:var(--muted);max-w
 .ico svg{width:30px;height:30px}
 .item b{display:block;font-weight:650;font-size:38px;line-height:1.2;letter-spacing:-.4px}
 .item span{display:block;margin-top:8px;font-size:30px;line-height:1.3;color:var(--muted)}
+.num{flex:0 0 64px;height:64px;border-radius:999px;display:grid;place-items:center;background:var(--green);
+  color:var(--onaccent);font:750 32px/1 var(--mono)}
+.passo{display:flex;gap:30px;align-items:center;padding:34px 36px;border-bottom:1px solid var(--sep)}
+.passo:last-child{border-bottom:0}
+.passo b{display:block;font-weight:650;font-size:40px;line-height:1.2;letter-spacing:-.4px}
+.passo span{display:block;margin-top:8px;font-size:30px;line-height:1.3;color:var(--muted)}
 .nota{margin-top:32px;font-size:30px;line-height:1.35;color:var(--tertiary)}
 .cta{text-align:center;align-items:center}
 .cta h2{font-size:80px}
@@ -167,6 +174,14 @@ def render_slide(s: dict, i: int, n: int) -> str:
         for it in s["itens"]:
             det = f'<span>{it["detalhe"]}</span>' if it.get("detalhe") else ""
             html += f'<div class="item">{icone(it.get("ok", True))}<div><b>{it["texto"]}</b>{det}</div></div>'
+        html += "</div>"
+        return moldura(html, i, n)
+    if t == "passos":
+        html = f'<div class="rotulo">{s["rotulo"]}</div>' if s.get("rotulo") else ""
+        html += f'<h2>{s["titulo"]}</h2><div class="cartao">'
+        for n_, it in enumerate(s["passos"], 1):
+            det = f'<span>{it["detalhe"]}</span>' if it.get("detalhe") else ""
+            html += f'<div class="passo"><div class="num">{n_}</div><div><b>{it["texto"]}</b>{det}</div></div>'
         html += "</div>"
         return moldura(html, i, n)
     if t == "cta":

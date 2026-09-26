@@ -68,3 +68,4 @@ scripts/instagram/.env
 scripts/instagram/__pycache__/
 marketing/**/.DS_Store
 marketing/leads*.csv
+marketing/leads-respondidos.json
