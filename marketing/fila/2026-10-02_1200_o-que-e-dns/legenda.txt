@@ -1,0 +1,9 @@
+Você já ouviu falar em DNS, mas sabe o que ele entrega sobre você? 🤔
+
+Toda vez que você abre um site ou app, o iPhone pergunta "qual o endereço disso?". Essa pergunta é o DNS — e, por padrão, ela viaja sem criptografia, visível para a rede em que você está.
+
+O Blindado liga DNS criptografado no iPhone inteiro, com provedores reconhecidos (AdGuard DNS e Control D), e bloqueia domínios de rastreamento antes mesmo da conexão acontecer.
+
+Estamos no acesso antecipado, gratuito. 👉 Comenta BETA e a gente te manda o convite.
+
+#dns #privacidade #iphone #segurancadigital #safari #beta

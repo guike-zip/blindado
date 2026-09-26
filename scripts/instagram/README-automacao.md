@@ -63,3 +63,27 @@ Para **adicionar** um post: crie uma pasta nova no mesmo formato.
 ```bash
 launchctl unload ~/Library/LaunchAgents/com.blindado.autopublish.plist
 ```
+
+## Criar um post novo (slides com a marca do Blindado)
+
+O texto de cada post fica em `marketing/posts/<nome>.json` (fonte). O gerador desenha os
+slides 1080x1350 com os tokens de `design/design-tokens.md` e já grava a `legenda.txt`:
+
+```bash
+python3 scripts/instagram/gerar_slides.py marketing/posts/acesso-antecipado.json marketing/fila/2026-09-28_1200_acesso-antecipado
+```
+
+Tipos de slide: `capa`, `texto`, `dominios`, `lista`, `cta` (ver o docstring do script).
+
+## Leads do beta (quem comentou BETA)
+
+```bash
+python3 scripts/instagram/listar_interessados.py --palavra BETA --posts 5 --csv marketing/leads.csv
+```
+
+Lista quem comentou a palavra-chave. O DM com o convite do TestFlight é manual (DM
+automático exige App Review da Meta). O `marketing/leads*.csv` é gitignored — o repo é
+público e ali tem @ de pessoas reais.
+
+**Não conte o presente nos posts:** quem entrar no beta ganha o app de graça no lançamento
+oficial. Os posts só dizem "uma surpresa".

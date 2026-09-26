@@ -1,0 +1,21 @@
+{
+  "legenda": "O Blindado está quase pronto — e você pode usar antes de todo mundo, de graça. 🛡️\n\nÉ um app para iPhone que liga DNS criptografado no sistema inteiro (Wi-Fi e 4G/5G) e ainda traz um bloqueador de conteúdo feito para o Safari. Sem cadastro, sem coleta de dados, sem servidor nosso no meio.\n\nEstamos abrindo o acesso antecipado (beta pelo TestFlight da Apple) para quem quiser testar e ajudar a deixar o app redondo antes do lançamento oficial.\n\nE quem entrar agora vai ganhar uma surpresa no lançamento. 🎁\n\n👉 Comenta BETA aqui embaixo que a gente te chama no direct com o convite.\n\n#privacidade #iphone #ios #dnsprivado #safari #segurancadigital #appbrasileiro #beta #testflight",
+  "slides": [
+    {"tipo": "capa", "titulo": "Use o Blindado<br><em>antes de todo mundo.</em>", "sub": "Acesso antecipado gratuito para iPhone."},
+    {"tipo": "texto", "rotulo": "o problema", "titulo": "Seu iPhone avisa rastreadores <em>o tempo todo.</em>", "corpo": "Cada site e app que você abre consulta dezenas de endereços. Muitos existem só para medir o que você faz — e essas consultas saem sem criptografia."},
+    {"tipo": "dominios", "rotulo": "o que o blindado faz", "titulo": "Corta a conversa <em>na origem.</em>", "dominios": ["doubleclick.net", "google-analytics.com", "connect.facebook.net", "scorecardresearch.com"], "nota": "Exemplos de domínios de rastreamento barrados pelo DNS protegido."},
+    {"tipo": "lista", "rotulo": "em poucos toques", "titulo": "O iPhone inteiro <em>blindado.</em>", "itens": [
+      {"ok": true, "texto": "DNS criptografado no sistema todo", "detalhe": "Em Wi-Fi e na rede celular."},
+      {"ok": true, "texto": "Bloqueador de conteúdo no Safari", "detalhe": "Páginas mais limpas e leves."},
+      {"ok": true, "texto": "Modo Família", "detalhe": "Também filtra conteúdo adulto."},
+      {"ok": true, "texto": "Tela de teste", "detalhe": "Você vê o que está sendo bloqueado."}
+    ]},
+    {"tipo": "lista", "rotulo": "sem letra miúda", "titulo": "Zero coleta. <em>De verdade.</em>", "itens": [
+      {"ok": true, "texto": "Sem cadastro e sem conta", "detalhe": "Abriu, ativou, pronto."},
+      {"ok": true, "texto": "Nenhum servidor nosso no meio", "detalhe": "As consultas vão direto ao provedor que você escolher."},
+      {"ok": false, "texto": "Não é VPN", "detalhe": "Não troca seu IP nem sua localização."}
+    ]},
+    {"tipo": "texto", "rotulo": "acesso antecipado", "titulo": "Entre no beta. <em>É grátis.</em>", "corpo": "Você instala pelo TestFlight, o app oficial de testes da Apple, usa antes do lançamento e ajuda a deixar o Blindado redondo.<br><br>E quem entrar agora ganha <em>uma surpresa</em> no lançamento oficial."},
+    {"tipo": "cta", "titulo": "Quer entrar?", "palavra": "BETA", "sub": "A gente te chama no direct com o convite."}
+  ]
+}

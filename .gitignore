@@ -67,3 +67,4 @@ fastlane/metadata*/review_information/
 scripts/instagram/.env
 scripts/instagram/__pycache__/
 marketing/**/.DS_Store
+marketing/leads*.csv
