@@ -13,3 +13,17 @@
 [2026-09-26 08:54:56]   Hospedado: https://files.catbox.moe/unyvox.png
 [2026-09-26 08:55:02]   Hospedado: https://files.catbox.moe/7hnsua.png
 [2026-09-26 08:55:15] OK! Post ID 18135665407640790 — movido para publicados/2026-09-26_0855_acesso-antecipado
+[2026-09-26 09:13:42] cano OK (TLS + token)
+[2026-09-26 09:13:42] 2026-09-26_1800_beta-aberto: publicacao manual — slide1.png, slide2.png, slide3.png, slide4.png, slide5.png, slide6.png, slide7.png, slide8.png
+[2026-09-26 09:13:42] Publicando 2026-09-26_1800_beta-aberto...
+[2026-09-26 09:13:42]   Carrossel de 8 slides
+[2026-09-26 09:13:44]   Hospedado: https://files.catbox.moe/dclkru.png
+[2026-09-26 09:13:50]   Hospedado: https://files.catbox.moe/jh3il7.png
+[2026-09-26 09:13:57]   Hospedado: https://files.catbox.moe/6s3mlp.png
+[2026-09-26 09:14:03]   Hospedado: https://files.catbox.moe/b5hgd9.png
+[2026-09-26 09:14:09]   Hospedado: https://files.catbox.moe/atrpn3.png
+[2026-09-26 09:14:15]   Hospedado: https://files.catbox.moe/z6fvvz.png
+[2026-09-26 09:14:22]   Hospedado: https://files.catbox.moe/xs75kw.png
+[2026-09-26 09:14:28]   Hospedado: https://files.catbox.moe/1ac79c.png
+[2026-09-26 09:14:37]   Processando... 0s
+[2026-09-26 09:14:57] OK! Post ID 18123947512684799 — movido para publicados/2026-09-26_0914_beta-aberto
